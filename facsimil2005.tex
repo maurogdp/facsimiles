@@ -1,0 +1,214 @@
+% ============================================================
+%  ACADEMIA ZENIT — GUÍA CLASE 1: ENSAYO PSU 2005
+%  Matemática · 3° Medio
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+% -- Paquetes de Compatibilidad y Corrección --
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+
+% -- Colores Institucionales Academia Zenit --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+
+% -- Estilos de tcolorbox --
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  instrbox/.style={
+    enhanced,
+    colback=white,
+    colframe=zenitgold,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    arc=2pt,
+    leftrule=4pt,
+  }
+}
+
+% -- Encabezado de bloque --
+\newcommand{\bloqueheader}[3]{%
+  \vspace{10pt}
+  \noindent
+  \begin{tikzpicture}[baseline]
+    \fill[#2] (0,0) rectangle (2.5cm, 0.7cm);
+    \node[white, font=\bfseries] at (1.25cm, 0.35cm) {Bloque #1};
+  \end{tikzpicture}%
+  \begin{tikzpicture}[baseline]
+    \fill[#2!10!white] (0,0) rectangle (\linewidth - 2.6cm, 0.7cm);
+    \node[color=#2, font=\bfseries\large, anchor=west] at (0.2cm, 0.35cm) {#3};
+  \end{tikzpicture}%
+  \vspace{4pt}
+}
+
+% -- Configuración de Encabezado --
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \textbf{Academia Zenit} $\cdot$ Ensayo PSU 2005}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small Prohibida su reproducción total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\begin{center}
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[4pt]
+  {\LARGE\bfseries\color{zenitblue} ENSAYO MATEMÁTICA — FACSÍMIL 2005}\\[8pt]
+  \rule{\linewidth}{1pt}
+\end{center}
+
+\begin{tcolorbox}[instrbox]
+  \textbf{Instrucciones:} Esta prueba consta de 70 preguntas. Las figuras no están necesariamente dibujadas a escala. Dispones de 2 horas y 15 minutos para responder.
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% ============================================================
+% --- BLOQUE A: NÚMEROS Y PROPORCIONALIDAD ---
+% ============================================================
+\bloqueheader{A}{blocka}{Números y Proporcionalidad}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=10pt]
+
+% ----------------------------------------------------------------
+\item
+\begin{minipage}[t]{\linewidth}
+Determine el resultado de la siguiente operación:
+\[
+  \dfrac{9}{8} - \dfrac{3}{5} =
+\]
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+
+% --- Primer nodo: alternativas ---
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $0{,}15$
+  \item $0{,}5$
+  \item $0{,}52$
+  \item $0{,}525$
+  \item $2$
+\end{enumerate}
+\end{minipage}
+};
+
+% --- Segundo nodo: figura ---
+\node (figura) at (7,0) {
+};
+
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+% ----------------------------------------------------------------
+\setcounter{enumi}{3}
+\item
+\begin{minipage}[t]{\linewidth}
+Calcule el valor de la expresión:
+\[
+  \dfrac{3^{-1} + 4^{-1}}{5^{-1}}
+\]
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+
+% --- Primer nodo: alternativas ---
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{12}{35}$
+  \item $\dfrac{35}{12}$
+  \item $7$
+  \item $5$
+  \item $\dfrac{5}{7}$
+\end{enumerate}
+\end{minipage}
+};
+
+% --- Segundo nodo: figura ---
+\node (figura) at (7,0) {
+};
+
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\end{enumerate}
+
+% ============================================================
+% --- BLOQUE B: ÁLGEBRA Y FUNCIONES ---
+% ============================================================
+\bloqueheader{B}{blockb}{Álgebra y Funciones}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=10pt, start=26]
+
+% ----------------------------------------------------------------
+\item
+\begin{minipage}[t]{\linewidth}
+En la figura, las rectas $L_1$ y $L_2$ son perpendiculares. ¿Cuál de las siguientes opciones representa la ecuación de la recta $L_1$?
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+
+% --- Primer nodo: alternativas ---
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $y = \dfrac{5}{4}x - 2$
+  \item $y = \dfrac{5}{4}(x - 2)$
+  \item $y = \dfrac{4}{5}(x - 2)$
+  \item $y = \dfrac{4}{5}x - 2$
+  \item $y = -\dfrac{5}{4}(x - 2)$
+\end{enumerate}
+\end{minipage}
+};
+
+% --- Segundo nodo: figura ---
+\node (figura) at (7,0) {
+\begin{tikzpicture}[scale=0.7]
+  \draw[-latex, thick] (-1,0) -- (6,0) node[right] {$x$};
+  \draw[-latex, thick] (0,-1) -- (0,5) node[above] {$y$};
+  \draw[thick, zenitnavy] (-0.5,4) -- (5.5,-0.8) node[above right] {$L_2$};
+  \draw[thick, zenitblue] (1,-1) -- (5,4) node[right] {$L_1$};
+  \node[left] at (0,4) {$4$};
+  \node[below] at (5,0) {$5$};
+  \node[below left] at (2,0) {$2$};
+  \draw (2.4,0.5) -- (2.7,0.5) -- (2.7,0.15);
+\end{tikzpicture}
+};
+
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\end{enumerate}
+
+\end{document}
