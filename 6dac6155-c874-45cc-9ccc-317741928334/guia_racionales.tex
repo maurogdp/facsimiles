@@ -25,6 +25,7 @@
 \usepackage{lastpage}
 \usepackage{multicol}
 \usepackage{cancel}
+\usepackage{calc}
 
 % -- Colores Institucionales Academia Zenit --
 \definecolor{zenitnavy}{HTML}{1A3A5C}
@@ -36,67 +37,131 @@
 \definecolor{blocka}{HTML}{1A3A5C}
 \definecolor{blockb}{HTML}{1A6B3C}
 \definecolor{blockc}{HTML}{7B2D8B}
-\definecolor{teorema}{HTML}{E8F4FD}
-\definecolor{ejemplo}{HTML}{FFF8E7}
-\definecolor{ejercicio}{HTML}{F0FFF0}
-\definecolor{alerta}{HTML}{FFF0F0}
 
 % -- Estilos de tcolorbox --
 \tcbuselibrary{skins, breakable}
 
 \tcbset{
-  instrbox/.style={
-    enhanced, colback=white, colframe=zenitgold,
-    left=8pt, right=8pt, top=6pt, bottom=6pt,
-    arc=2pt, leftrule=4pt,
+  importantbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitblue,
+    colbacktitle=zenitblue,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitblue,
+      colback=zenitblue,
+      arc=2pt
+    }
   },
-  teoremabox/.style={
-    enhanced, colback=teorema, colframe=zenitblue,
-    left=8pt, right=8pt, top=6pt, bottom=6pt,
-    arc=4pt, leftrule=5pt,
-    fonttitle=\bfseries\color{zenitblue},
+  examplebox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitgold,
+    colbacktitle=zenitgold,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitgold,
+      colback=zenitgold,
+      arc=2pt
+    }
   },
-  ejemplobox/.style={
-    enhanced, colback=ejemplo, colframe=zenitgold,
-    left=8pt, right=8pt, top=6pt, bottom=6pt,
-    arc=4pt, leftrule=5pt,
-    fonttitle=\bfseries\color{zenitgold},
+  warningbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitred,
+    colbacktitle=zenitred,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitred,
+      colback=zenitred,
+      arc=2pt
+    }
   },
-  ejerciciobox/.style={
-    enhanced, colback=ejercicio, colframe=zenitgreen,
-    left=8pt, right=8pt, top=6pt, bottom=6pt,
-    arc=4pt, leftrule=5pt,
-    fonttitle=\bfseries\color{zenitgreen},
-  },
-  alertabox/.style={
-    enhanced, colback=alerta, colframe=zenitred,
-    left=8pt, right=8pt, top=6pt, bottom=6pt,
-    arc=4pt, leftrule=5pt,
-    fonttitle=\bfseries\color{zenitred},
-  },
+  answerbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitnavy,
+    colbacktitle=zenitnavy,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitnavy,
+      colback=zenitnavy,
+      arc=2pt
+    }
+  }
 }
 
-% -- Encabezado de bloque --
-\newcommand{\bloqueheader}[3]{%
-  \vspace{10pt}
+% -- Encabezados de sección --
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.2em}
   \noindent
-  \begin{tikzpicture}[baseline]
-    \fill[#2] (0,0) rectangle (2.5cm, 0.7cm);
-    \node[white, font=\bfseries] at (1.25cm, 0.35cm) {Bloque #1};
-  \end{tikzpicture}%
-  \begin{tikzpicture}[baseline]
-    \fill[#2!10!white] (0,0) rectangle (\linewidth - 2.6cm, 0.7cm);
-    \node[color=#2, font=\bfseries\large, anchor=west] at (0.2cm, 0.35cm) {#3};
-  \end{tikzpicture}%
-  \vspace{4pt}
+  {\Large\bfseries\color{#1} #2}\par
+  \vspace{0.3em}
+  {\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{0.8em}
 }
 
 \newcommand{\subbloque}[1]{%
   \vspace{8pt}
-  \noindent\textbf{\color{zenitnavy}\large #1}
+  \noindent{\large\bfseries\color{zenitnavy} #1}\par
   \vspace{3pt}
   \hrule height 1pt
-  \vspace{5pt}
+  \vspace{6pt}
+}
+
+% -- Espacios de desarrollo --
+\newcommand{\espaciobasico}{\vspace{1.5cm}}
+\newcommand{\espaciointermedio}{\vspace{2.2cm}}
+\newcommand{\espacioavanzado}{\vspace{3.2cm}}
+
+% -- Formato para preguntas con alternativas --
+\newcommand{\alternativasformato}[3]{%
+\item
+\begin{minipage}[t]{\linewidth}
+#1
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {
+    \begin{minipage}{0.58\linewidth}
+    \begin{enumerate}[label=\Alph*), leftmargin=14pt]
+      #2
+    \end{enumerate}
+    \end{minipage}
+  };
+  \node (figura) at (10.4,0) {
+    #3
+  };
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
 }
 
 % -- Configuración de Encabezado --
@@ -111,32 +176,55 @@
 \begin{document}
 % ============================================================
 
+\thispagestyle{empty}
+
+\vspace*{1.2cm}
+
 \begin{center}
-  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[4pt]
-  {\LARGE\bfseries\color{zenitblue} GUÍA COMPLETA: NÚMEROS ENTEROS Y RACIONALES}\\[4pt]
-  {\large\color{zenitgold} Matemática · 1° Medio}\\[6pt]
-  \rule{\linewidth}{2pt}
+    \includegraphics[width=0.28\linewidth]{logosin fondo.png}\\[1.2cm]
+
+    {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.35cm]
+
+    {\LARGE\bfseries\color{zenitblue} GUÍA COMPLETA}\\[0.2cm]
+    {\LARGE\bfseries\color{zenitblue} NÚMEROS ENTEROS Y RACIONALES}\\[0.8cm]
+
+    {\Large\color{zenitgold}\bfseries Matemática · 1\textdegree\ Medio}\\[0.6cm]
+
+    \rule{0.72\linewidth}{1.2pt}\\[0.8cm]
+
+    {\large\itshape\color{zenitnavy} Material de apoyo y ejercitación}\\[2cm]
 \end{center}
 
-\begin{tcolorbox}[instrbox]
-  \textbf{¿Cómo usar esta guía?} Encontrarás primero la materia con ejemplos resueltos paso a paso. Luego, ejercicios para practicar. Al final, una mezcla de todos los temas. Resuelve cada ejercicio antes de ver la respuesta. ¡El secreto está en la práctica!
+\begin{center}
+\begin{minipage}{0.82\linewidth}
+\begin{tcolorbox}[importantbox, title={Propósito de la guía}]
+En esta guía encontrarás explicaciones breves, ejemplos resueltos y ejercicios propuestos con espacio para desarrollar. El objetivo es reforzar el trabajo con números enteros y racionales, avanzando desde lo fundamental hasta ejercicios de mayor complejidad.
 \end{tcolorbox}
+\end{minipage}
+\end{center}
 
-\vspace{6pt}
+\vfill
+
+\begin{center}
+{\large\bfseries\color{zenitnavy} Academia Zenit}\\[2pt]
+{\color{zenitgold} 1\textdegree\ Medio}
+\end{center}
 
 % ============================================================
-% --- BLOQUE A: NÚMEROS ENTEROS — FUNDAMENTOS ---
+% NÚMEROS ENTEROS
 % ============================================================
-\bloqueheader{A}{blocka}{Números Enteros: Fundamentos y Operaciones Básicas}
+\clearpage
+\seccionheader{blocka}{Números enteros: fundamentos y operaciones básicas}
 
 \subbloque{1. ¿Qué son los números enteros?}
 
-\begin{tcolorbox}[teoremabox, title={Definición}]
-El conjunto de los \textbf{números enteros} es $\mathbb{Z} = \{\ldots, -3,\,-2,\,-1,\,0,\,1,\,2,\,3,\ldots\}$.
-Incluye los números \textbf{positivos}, el \textbf{cero} y los números \textbf{negativos}.
-\end{tcolorbox}
+El conjunto de los \textbf{números enteros} se denota por
+\[
+\mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
+\]
+Incluye los números positivos, el cero y los números negativos.
 
-En la recta numérica, los números enteros se ubican simétricamente respecto al cero:
+En la recta numérica, los enteros se ubican simétricamente respecto del cero:
 
 \begin{center}
 \begin{tikzpicture}
@@ -151,55 +239,91 @@ En la recta numérica, los números enteros se ubican simétricamente respecto a
 \end{tikzpicture}
 \end{center}
 
-\subbloque{2. Suma y Resta de Enteros}
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+Los números ubicados a la derecha del cero son mayores que él, y los que están a la izquierda son menores que él.
+\end{tcolorbox}
 
-\begin{tcolorbox}[teoremabox, title={Reglas fundamentales}]
-\begin{enumerate}[leftmargin=*, itemsep=3pt]
+\subbloque{2. Suma y resta de enteros}
+
+Para sumar y restar números enteros conviene fijarse en el signo y en el valor absoluto.
+
+\begin{tcolorbox}[importantbox, title={Reglas fundamentales}]
+\begin{enumerate}[leftmargin=*, itemsep=4pt]
   \item \textbf{Mismos signos:} se suman los valores absolutos y se conserva el signo.
-  \item \textbf{Signos distintos:} se restan los valores absolutos y se toma el signo del mayor.
-  \item \textbf{Restar un número} equivale a \textbf{sumar su opuesto}: $\;a - (-b) = a + b$
+  \item \textbf{Signos distintos:} se restan los valores absolutos y se conserva el signo del número con mayor valor absoluto.
+  \item \textbf{Restar un número} equivale a \textbf{sumar su opuesto}:
+  \[
+  a-(-b)=a+b.
+  \]
 \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[alertabox, title={¡Ojo con los signos!}]
-$-(-3) = +3$ \quad y \quad $-(+3) = -3$ \quad. Cuando hay dos signos juntos: \textbf{iguales} $\to$ positivo; \textbf{distintos} $\to$ negativo.
+\begin{tcolorbox}[warningbox, title={Cuidado con los signos}]
+\[
+-(-3)=+3
+\qquad\text{y}\qquad
+-(+3)=-3.
+\]
+Cuando aparecen dos signos seguidos:
+\[
+(+)(+)=+,\qquad (-)(-) = +,\qquad (+)(-)=-,\qquad (-)(+)=-.
+\]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} $(-8) + (-5) = -(8+5) = -13$ \hfill {\small (mismos signos, ambos negativos)}\\[4pt]
-\textbf{b)} $(-7) + (+4) = -(7-4) = -3$ \hfill {\small (distintos signos, mayor valor absoluto es 7)}\\[4pt]
-\textbf{c)} $(-3) - (+6) = -3 + (-6) = -9$ \hfill {\small (restar positivo = sumar negativo)}\\[4pt]
-\textbf{d)} $(-3) - (-6) = -3 + 6 = +3$ \hfill {\small (restar negativo = sumar positivo)}\\[4pt]
-\textbf{e)} $5 - 9 + 3 - (-2) = 5 - 9 + 3 + 2 = 1$ \hfill {\small (varias operaciones)}
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \; $(-8)+(-5)=-(8+5)=-13$\\[4pt]
+\textbf{b)} \; $(-7)+(+4)=-(7-4)=-3$\\[4pt]
+\textbf{c)} \; $(-3)-(+6)=-3+(-6)=-9$\\[4pt]
+\textbf{d)} \; $(-3)-(-6)=-3+6=+3$\\[4pt]
+\textbf{e)} \; $5-9+3-(-2)=5-9+3+2=1$
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Nivel Básico (Suma y Resta)}]
-Calcula el resultado de cada operación:
-\begin{multicols}{2}
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=6pt]
-  \item $(-4) + (-9) = $
-  \item $(-12) + 5 = $
-  \item $8 + (-15) = $
-  \item $(-6) - (-6) = $
-  \item $(-3) - (+7) = $
-  \item $0 - (-11) = $
-  \item $14 + (-14) = $
-  \item $(-20) - (-8) = $
-  \item $(-5) + 3 + (-7) = $
-  \item $12 - 7 + (-4) + 3 = $
+\clearpage
+\subbloque{Ejercicios propuestos: suma y resta de enteros}
+
+Calcula el resultado de cada operación y desarrolla el procedimiento.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $(-4)+(-9)=$
+  \espaciobasico
+
+  \item $(-12)+5=$
+  \espaciobasico
+
+  \item $8+(-15)=$
+  \espaciobasico
+
+  \item $(-6)-(-6)=$
+  \espaciobasico
+
+  \item $(-3)-(+7)=$
+  \espaciobasico
+
+  \item $0-(-11)=$
+  \espaciobasico
+
+  \item $14+(-14)=$
+  \espaciobasico
+
+  \item $(-20)-(-8)=$
+  \espaciobasico
+
+  \item $(-5)+3+(-7)=$
+  \espaciobasico
+
+  \item $12-7+(-4)+3=$
+  \espaciobasico
 \end{enumerate}
-\end{multicols}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $-13$ \; 2) $-7$ \; 3) $-7$ \; 4) $0$ \; 5) $-10$ \; 6) $11$ \; 7) $0$ \; 8) $-12$ \; 9) $-9$ \; 10) $4$}
-\end{tcolorbox}
 
-\subbloque{3. Multiplicación y División de Enteros}
+\subbloque{3. Multiplicación y división de enteros}
 
-\begin{tcolorbox}[teoremabox, title={Ley de los signos}]
+En multiplicaciones y divisiones con enteros, el signo del resultado depende de la combinación de signos.
+
+\begin{tcolorbox}[importantbox, title={Ley de los signos}]
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{c|c|c}
-\textbf{Factor 1} & \textbf{Factor 2} & \textbf{Resultado} \\
+\textbf{Primer número} & \textbf{Segundo número} & \textbf{Resultado} \\
 \hline
 $(+)$ & $(+)$ & $(+)$ \\
 $(+)$ & $(-)$ & $(-)$ \\
@@ -207,499 +331,981 @@ $(-)$ & $(+)$ & $(-)$ \\
 $(-)$ & $(-)$ & $(+)$ \\
 \end{tabular}
 \end{center}
-\textbf{Regla práctica:} cantidad \textbf{par} de signos negativos $\to$ resultado positivo; cantidad \textbf{impar} $\to$ resultado negativo.
+
+\medskip
+\noindent
+Regla práctica: una cantidad \textbf{par} de signos negativos produce resultado positivo; una cantidad \textbf{impar} produce resultado negativo.
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} $(-4) \cdot (-3) = +12$ \hfill {\small (dos negativos $\to$ positivo)}\\[4pt]
-\textbf{b)} $(-5) \cdot (+7) = -35$ \hfill {\small (un negativo $\to$ negativo)}\\[4pt]
-\textbf{c)} $(-2) \cdot (-3) \cdot (-4) = +6 \cdot (-4) = -24$ \hfill {\small (tres negativos $\to$ negativo)}\\[4pt]
-\textbf{d)} $\dfrac{-36}{-9} = +4$ \hfill {\small (mismos signos $\to$ positivo)}\\[6pt]
-\textbf{e)} $\dfrac{-48}{+6} = -8$ \hfill {\small (signos distintos $\to$ negativo)}
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \; $(-4)\cdot(-3)=+12$\\[4pt]
+\textbf{b)} \; $(-5)\cdot(+7)=-35$\\[4pt]
+\textbf{c)} \; $(-2)\cdot(-3)\cdot(-4)=+6\cdot(-4)=-24$\\[4pt]
+\textbf{d)} \; $\dfrac{-36}{-9}=+4$\\[4pt]
+\textbf{e)} \; $\dfrac{-48}{+6}=-8$
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Nivel Básico (Multiplicación y División)}]
-\begin{multicols}{2}
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=6pt]
-  \item $(-6) \cdot (-7) = $
-  \item $(-8) \cdot (+5) = $
-  \item $(+9) \cdot (-4) = $
-  \item $(-3) \cdot (-3) \cdot (-3) = $
-  \item $\dfrac{-56}{+8} = $
-  \item $\dfrac{-72}{-9} = $
-  \item $\dfrac{+45}{-5} = $
-  \item $(-2) \cdot (-5) \cdot (+4) = $
-  \item $(-1) \cdot (-1) \cdot (-1) \cdot (-1) = $
-  \item $\dfrac{(-3) \cdot (-8)}{-6} = $
+\subbloque{Ejercicios propuestos: multiplicación y división de enteros}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $(-6)\cdot(-7)=$
+  \espaciobasico
+
+  \item $(-8)\cdot(+5)=$
+  \espaciobasico
+
+  \item $(+9)\cdot(-4)=$
+  \espaciobasico
+
+  \item $(-3)\cdot(-3)\cdot(-3)=$
+  \espaciobasico
+
+  \item $\dfrac{-56}{+8}=$
+  \espaciobasico
+
+  \item $\dfrac{-72}{-9}=$
+  \espaciobasico
+
+  \item $\dfrac{+45}{-5}=$
+  \espaciobasico
+
+  \item $(-2)\cdot(-5)\cdot(+4)=$
+  \espaciobasico
+
+  \item $(-1)\cdot(-1)\cdot(-1)\cdot(-1)=$
+  \espaciobasico
+
+  \item $\dfrac{(-3)\cdot(-8)}{-6}=$
+  \espaciobasico
 \end{enumerate}
-\end{multicols}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $42$ \; 2) $-40$ \; 3) $-36$ \; 4) $-27$ \; 5) $-7$ \; 6) $8$ \; 7) $-9$ \; 8) $40$ \; 9) $1$ \; 10) $-4$}
-\end{tcolorbox}
 
 % ============================================================
-% --- BLOQUE A (CONT): POTENCIAS CON ENTEROS ---
+% POTENCIAS CON ENTEROS
 % ============================================================
-\bloqueheader{A}{blocka}{Potencias con Números Enteros}
+\clearpage
+\seccionheader{blocka}{Potencias con números enteros}
 
 \subbloque{4. Potencias de base entera}
 
-\begin{tcolorbox}[teoremabox, title={Propiedad clave}]
+Cuando la base es negativa, el signo del resultado depende de la paridad del exponente.
+
+\begin{tcolorbox}[importantbox, title={Propiedad clave}]
 \[
-  (-a)^n = \begin{cases} +a^n & \text{si } n \text{ es par} \\ -a^n & \text{si } n \text{ es impar} \end{cases}
+(-a)^n=
+\begin{cases}
++a^n & \text{si } n \text{ es par},\\[4pt]
+-a^n & \text{si } n \text{ es impar}.
+\end{cases}
 \]
-\textbf{Atención:} $-a^n \neq (-a)^n$. El signo afuera no eleva; el signo adentro del paréntesis sí.
 \end{tcolorbox}
 
-\begin{tcolorbox}[alertabox, title={Diferencia crucial}]
-$\mathbf{-3^2 = -(3^2) = -9}$ \hspace{1cm} pero \hspace{1cm} $\mathbf{(-3)^2 = (-3)\cdot(-3) = +9}$
+\begin{tcolorbox}[warningbox, title={Diferencia importante}]
+\[
+-3^2=-(3^2)=-9
+\qquad\text{pero}\qquad
+(-3)^2=(-3)\cdot(-3)=+9.
+\]
+Si el signo menos está fuera del paréntesis, no forma parte de la base.
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} $(-2)^4 = (-2)\cdot(-2)\cdot(-2)\cdot(-2) = 4 \cdot 4 = +16$\\[4pt]
-\textbf{b)} $(-2)^5 = (-2)^4 \cdot (-2) = 16 \cdot (-2) = -32$\\[4pt]
-\textbf{c)} $-5^2 = -(5 \cdot 5) = -25$\\[4pt]
-\textbf{d)} $(-5)^2 = +25$\\[4pt]
-\textbf{e)} $(-1)^{100} = +1$ \hfill {\small (exponente par)}\\[4pt]
-\textbf{f)} $(-1)^{101} = -1$ \hfill {\small (exponente impar)}
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \; $(-2)^4=16$\\[4pt]
+\textbf{b)} \; $(-2)^5=-32$\\[4pt]
+\textbf{c)} \; $-5^2=-(5\cdot5)=-25$\\[4pt]
+\textbf{d)} \; $(-5)^2=25$\\[4pt]
+\textbf{e)} \; $(-1)^{100}=1$\\[4pt]
+\textbf{f)} \; $(-1)^{101}=-1$
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Potencias}]
-\begin{multicols}{2}
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=6pt]
-  \item $(-3)^3 = $
-  \item $(-4)^2 = $
-  \item $-4^2 = $
-  \item $(-2)^6 = $
-  \item $(-1)^{55} = $
-  \item $(-10)^3 = $
-  \item $(-5)^4 = $
-  \item $-2^4 = $
-  \item $(-3)^2 - (-2)^3 = $
-  \item $(-1)^{100} + (-1)^{101} = $
+\subbloque{Ejercicios propuestos: potencias con enteros}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $(-3)^3=$
+  \espaciobasico
+
+  \item $(-4)^2=$
+  \espaciobasico
+
+  \item $-4^2=$
+  \espaciobasico
+
+  \item $(-2)^6=$
+  \espaciobasico
+
+  \item $(-1)^{55}=$
+  \espaciobasico
+
+  \item $(-10)^3=$
+  \espaciobasico
+
+  \item $(-5)^4=$
+  \espaciobasico
+
+  \item $-2^4=$
+  \espaciobasico
+
+  \item $(-3)^2-(-2)^3=$
+  \espaciobasico
+
+  \item $(-1)^{100}+(-1)^{101}=$
+  \espaciobasico
 \end{enumerate}
-\end{multicols}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $-27$ \; 2) $16$ \; 3) $-16$ \; 4) $64$ \; 5) $-1$ \; 6) $-1000$ \; 7) $625$ \; 8) $-16$ \; 9) $17$ \; 10) $0$}
-\end{tcolorbox}
 
 % ============================================================
-% --- BLOQUE A: JERARQUÍA DE OPERACIONES ---
+% JERARQUÍA DE OPERACIONES
 % ============================================================
-\bloqueheader{A}{blocka}{Jerarquía de Operaciones y Símbolos de Agrupación}
+\clearpage
+\seccionheader{blocka}{Jerarquía de operaciones y símbolos de agrupación}
 
 \subbloque{5. Orden correcto para operar}
 
-\begin{tcolorbox}[teoremabox, title={Jerarquía de operaciones (de mayor a menor prioridad)}]
+En una expresión con varias operaciones, no se resuelve de izquierda a derecha sin criterio. Debe respetarse la jerarquía.
+
+\begin{tcolorbox}[importantbox, title={Jerarquía de operaciones}]
 \begin{enumerate}[leftmargin=*, itemsep=4pt]
-  \item \textbf{Símbolos de agrupación:} primero el más interno $( ) \to [ ] \to \{ \}$
-  \item \textbf{Potencias y raíces}
-  \item \textbf{Multiplicaciones y divisiones} (de izquierda a derecha)
-  \item \textbf{Sumas y restas} (de izquierda a derecha)
+  \item \textbf{Símbolos de agrupación:} primero el más interno
+  \[
+  ( ) \;\to\; [ ] \;\to\; \{ \}.
+  \]
+  \item \textbf{Potencias y raíces.}
+  \item \textbf{Multiplicaciones y divisiones} de izquierda a derecha.
+  \item \textbf{Sumas y restas} de izquierda a derecha.
 \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos — un símbolo de agrupación}]
-\textbf{a)} $3 + 2 \cdot (-4) = 3 + (-8) = -5$ \hfill {\small (primero la multiplicación)}\\[4pt]
-\textbf{b)} $(3 + 2) \cdot (-4) = 5 \cdot (-4) = -20$ \hfill {\small (primero el paréntesis)}\\[4pt]
-\textbf{c)} $(-3)^2 - 2 \cdot 5 = 9 - 10 = -1$ \hfill {\small (potencia y multiplicación antes de resta)}\\[4pt]
-\textbf{d)} $\dfrac{(-4)^2 + 2}{3 - 5} = \dfrac{16 + 2}{-2} = \dfrac{18}{-2} = -9$
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \; $3+2\cdot(-4)=3+(-8)=-5$\\[6pt]
+\textbf{b)} \; $(3+2)\cdot(-4)=5\cdot(-4)=-20$\\[6pt]
+\textbf{c)} \; $(-3)^2-2\cdot5=9-10=-1$\\[6pt]
+\textbf{d)} \;
+\[
+\dfrac{(-4)^2+2}{3-5}
+=
+\dfrac{16+2}{-2}
+=
+\dfrac{18}{-2}
+=
+-9
+\]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos — varios símbolos de agrupación}]
-Resolver: $\{3 - [2 \cdot (-1 + 4)]^2 + 5\} \cdot (-2)$
+\begin{tcolorbox}[examplebox, title={Ejemplo con varios símbolos de agrupación}]
+Resolver:
+\[
+\{3-[2\cdot(-1+4)]^2+5\}\cdot(-2)
+\]
 
-\medskip
-\textbf{Paso 1:} El paréntesis más interno: $(-1 + 4) = 3$
+\textbf{Paso 1:} \; $(-1+4)=3$
 
-\textbf{Paso 2:} El corchete con la potencia: $[2 \cdot 3]^2 = [6]^2 = 36$
+\textbf{Paso 2:} \; $[2\cdot3]^2=[6]^2=36$
 
-\textbf{Paso 3:} La llave: $\{3 - 36 + 5\} = \{-28\}$
+\textbf{Paso 3:} \; $\{3-36+5\}=\{-28\}$
 
-\textbf{Paso 4:} Multiplicar: $(-28) \cdot (-2) = \mathbf{56}$
+\textbf{Paso 4:} \; $(-28)\cdot(-2)=56$
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Nivel Intermedio (Jerarquía)}]
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt]
-  \item $5 - 3 \cdot (-2) + 4 =$
-  \item $(-2)^3 + 4 \cdot (-1) - 5 =$
-  \item $(8 - 11) \cdot (-3) - 2^2 =$
-  \item $\dfrac{-12 + 6 \cdot (-1)}{(-3)^2 - 9 + 3} =$
-  \item $[(-4) + 7]^2 - 5 \cdot (-2) + 3 =$
-  \item $-3 \cdot [(5 - 8)^2 - 1] + 6 =$
-  \item $\{[(-2)^3 + 4] \cdot (-3)\} - (-1)^5 =$
-  \item $2 \cdot \{-[3 - (4 - 7)] + 2^3\} - 5 =$
+\clearpage
+\subbloque{Ejercicios propuestos: jerarquía de operaciones}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $5-3\cdot(-2)+4=$
+  \espaciointermedio
+
+  \item $(-2)^3+4\cdot(-1)-5=$
+  \espaciointermedio
+
+  \item $(8-11)\cdot(-3)-2^2=$
+  \espaciointermedio
+
+  \item $\dfrac{-12+6\cdot(-1)}{(-3)^2-9+3}=$
+  \espaciointermedio
+
+  \item $[(-4)+7]^2-5\cdot(-2)+3=$
+  \espaciointermedio
+
+  \item $-3\cdot[(5-8)^2-1]+6=$
+  \espaciointermedio
+
+  \item $\{[(-2)^3+4]\cdot(-3)\}-(-1)^5=$
+  \espaciointermedio
+
+  \item $2\cdot\{-[3-(4-7)]+2^3\}-5=$
+  \espaciointermedio
 \end{enumerate}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $15$ \; 2) $-17$ \; 3) $5$ \; 4) $-6$ \; 5) $22$ \; 6) $-18$ \; 7) $13$ \; 8) $19$}
-\end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Nivel Avanzado (Múltiples Agrupaciones con Enteros)}]
-Resuelve completamente, mostrando cada paso:
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=10pt]
-  \item $\{(-3)^3 - [(-2)^4 - 5 \cdot (-1+3)^2] + 8\} \div (-5) =$
-  \item $-\{2 \cdot [(-1)^5 + 3 \cdot (-2 + 5)]^2 - 4^2\} + (-3)^2 =$
-  \item $\dfrac{\{3 - [(-2)^3 + 5] \cdot (-1)\}^2}{(-7 + 3)^2 - 4^2 + 8 \cdot (-2)} =$
-  \item $\big\{[(-4)^2 - 3 \cdot (-1-2)^2] \cdot (-2)\big\} - \{(-2)^5 + [3 - (-1)^3]^2\} =$
-  \item $\dfrac{(-3)^4 - [(- 2)^3 \cdot(-1)^7 + 5]^2}{(-1 + 2 \cdot 3)^2 - 4 \cdot 5} =$
-  \item $-2 \cdot \left\{-3 + \left[(-2)^2 - \dfrac{(-4)^2 - 8}{(-1)^5 + 3}\right]^3 \right\} + (-5)^2 =$
+\clearpage
+\subbloque{Ejercicios propuestos: nivel avanzado con enteros}
+
+Resuelve completamente, mostrando cada paso.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $\{(-3)^3-[(-2)^4-5\cdot(-1+3)^2]+8\}\div(-5)=$
+  \espacioavanzado
+
+  \item $-\{2\cdot[(-1)^5+3\cdot(-2+5)]^2-4^2\}+(-3)^2=$
+  \espacioavanzado
+
+  \item $\dfrac{\{3-[(-2)^3+5]\cdot(-1)\}^2}{(-7+3)^2-4^2+8\cdot(-2)}=$
+  \espacioavanzado
+
+  \item $\big\{[(-4)^2-3\cdot(-1-2)^2]\cdot(-2)\big\}-\{(-2)^5+[3-(-1)^3]^2\}=$
+  \espacioavanzado
+
+  \item $\dfrac{(-3)^4-[(-2)^3\cdot(-1)^7+5]^2}{(-1+2\cdot3)^2-4\cdot5}=$
+  \espacioavanzado
+
+  \item $-2\cdot\left\{-3+\left[(-2)^2-\dfrac{(-4)^2-8}{(-1)^5+3}\right]^3\right\}+(-5)^2=$
+  \espacioavanzado
 \end{enumerate}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $7$ \; 2) $-$ {\normalsize calculalo!} (ver abajo)} \\[4pt]
-\begin{tcolorbox}[colback=white, colframe=zenitnavy, arc=2pt, left=4pt, right=4pt, top=3pt, bottom=3pt]
-\textbf{Solución detallada del \#1:}
+
+\begin{tcolorbox}[answerbox, title={Solución modelo}]
+\textbf{Ejercicio 1}
 \begin{align*}
-&\{(-3)^3 - [(-2)^4 - 5 \cdot (-1+3)^2] + 8\} \div (-5) \\
-&= \{-27 - [16 - 5 \cdot (2)^2] + 8\} \div (-5) \\
-&= \{-27 - [16 - 5 \cdot 4] + 8\} \div (-5) \\
-&= \{-27 - [16 - 20] + 8\} \div (-5) \\
-&= \{-27 - (-4) + 8\} \div (-5) \\
-&= \{-27 + 4 + 8\} \div (-5) \\
-&= (-15) \div (-5) = \mathbf{3}
+&\{(-3)^3-[(-2)^4-5\cdot(-1+3)^2]+8\}\div(-5)\\
+&=\{-27-[16-5\cdot(2)^2]+8\}\div(-5)\\
+&=\{-27-[16-20]+8\}\div(-5)\\
+&=\{-27-(-4)+8\}\div(-5)\\
+&=\{-27+4+8\}\div(-5)\\
+&=(-15)\div(-5)=3
 \end{align*}
 \end{tcolorbox}
-\end{tcolorbox}
-
-\newpage
 
 % ============================================================
-% --- BLOQUE B: NÚMEROS RACIONALES ---
+% NÚMEROS RACIONALES
 % ============================================================
-\bloqueheader{B}{blockb}{Números Racionales: Fundamentos}
+\clearpage
+\seccionheader{blockb}{Números racionales: fundamentos}
 
 \subbloque{6. ¿Qué son los números racionales?}
 
-\begin{tcolorbox}[teoremabox, title={Definición}]
-Un \textbf{número racional} es todo número que puede escribirse como $\dfrac{p}{q}$ con $p, q \in \mathbb{Z}$ y $q \neq 0$.
-El conjunto se denota $\mathbb{Q}$. Incluye fracciones, números enteros, decimales finitos y periódicos.
-\end{tcolorbox}
+Un número racional es todo número que puede escribirse como una fracción de enteros:
+\[
+\dfrac{p}{q},
+\qquad p,q\in\mathbb{Z},\quad q\neq0.
+\]
+El conjunto se denota por $\mathbb{Q}$.
 
-\begin{tcolorbox}[alertabox, title={¡No dividir por cero!}]
-$\dfrac{5}{0}$ \textbf{no existe}. La división por cero no está definida en ningún contexto.
+Los racionales incluyen:
+\begin{itemize}[leftmargin=*]
+  \item fracciones,
+  \item números enteros,
+  \item decimales finitos,
+  \item decimales periódicos.
+\end{itemize}
+
+\begin{tcolorbox}[warningbox, title={Restricción importante}]
+\[
+\dfrac{5}{0}
+\]
+no existe. La división por cero no está definida.
 \end{tcolorbox}
 
 \subbloque{7. Fracciones equivalentes y simplificación}
 
-\begin{tcolorbox}[teoremabox, title={Fracción equivalente}]
-$\dfrac{a}{b} = \dfrac{a \cdot k}{b \cdot k}$ para cualquier $k \neq 0$. \quad
-Una fracción está en su \textbf{mínima expresión} cuando $\text{mcd}(|p|, |q|) = 1$.
+Dos fracciones son equivalentes si representan el mismo valor, aunque estén escritas de manera distinta.
+
+\begin{tcolorbox}[importantbox, title={Fracciones equivalentes}]
+\[
+\dfrac{a}{b}=\dfrac{a\cdot k}{b\cdot k},
+\qquad k\neq0.
+\]
+Una fracción está en su \textbf{mínima expresión} cuando el numerador y el denominador no tienen divisores comunes distintos de 1.
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} Simplificar $\dfrac{24}{36}$: \quad $\text{mcd}(24,36)=12$ \quad $\Rightarrow$ \quad $\dfrac{24\div12}{36\div12}=\dfrac{2}{3}$\\[8pt]
-\textbf{b)} Simplificar $\dfrac{-45}{30}$: \quad $\text{mcd}(45,30)=15$ \quad $\Rightarrow$ \quad $\dfrac{-45\div15}{30\div15}=\dfrac{-3}{2}$\\[8pt]
-\textbf{c)} ¿Son equivalentes $\dfrac{3}{4}$ y $\dfrac{15}{20}$? \quad $\dfrac{15\div5}{20\div5}=\dfrac{3}{4}$ \quad \checkmark \quad Sí.
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \; Simplificar $\dfrac{24}{36}$:
+\[
+\text{mcd}(24,36)=12
+\qquad\Rightarrow\qquad
+\dfrac{24\div12}{36\div12}=\dfrac{2}{3}
+\]
+
+\textbf{b)} \; Simplificar $\dfrac{-45}{30}$:
+\[
+\text{mcd}(45,30)=15
+\qquad\Rightarrow\qquad
+\dfrac{-45\div15}{30\div15}=\dfrac{-3}{2}
+\]
+
+\textbf{c)} \; Verificar si $\dfrac{3}{4}$ y $\dfrac{15}{20}$ son equivalentes:
+\[
+\dfrac{15\div5}{20\div5}=\dfrac{3}{4}.
+\]
+Sí, son equivalentes.
 \end{tcolorbox}
 
-\subbloque{8. Suma y Resta de Fracciones}
+\subbloque{8. Suma y resta de fracciones}
 
-\begin{tcolorbox}[teoremabox, title={Procedimiento}]
-\begin{enumerate}[leftmargin=*, itemsep=3pt]
-  \item Si tienen el \textbf{mismo denominador}: $\dfrac{a}{c} \pm \dfrac{b}{c} = \dfrac{a \pm b}{c}$
-  \item Si tienen \textbf{distinto denominador}: calcular el \textbf{m.c.m.} y llevar a común denominador.
-  \item Simplificar el resultado.
+\begin{tcolorbox}[importantbox, title={Procedimiento}]
+\begin{enumerate}[leftmargin=*, itemsep=4pt]
+  \item Si las fracciones tienen el mismo denominador:
+  \[
+  \dfrac{a}{c}\pm\dfrac{b}{c}=\dfrac{a\pm b}{c}.
+  \]
+  \item Si tienen distinto denominador, se busca un denominador común, idealmente el mínimo común múltiplo.
+  \item Al final, se simplifica si es posible.
 \end{enumerate}
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} $\dfrac{3}{7} + \dfrac{2}{7} = \dfrac{5}{7}$ \hfill {\small (mismo denominador)}\\[8pt]
-\textbf{b)} $\dfrac{1}{4} + \dfrac{2}{3}$: \quad $\text{m.c.m.}(4,3) = 12$
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \;
 \[
-  \dfrac{1 \cdot 3}{12} + \dfrac{2 \cdot 4}{12} = \dfrac{3}{12} + \dfrac{8}{12} = \dfrac{11}{12}
+\dfrac{3}{7}+\dfrac{2}{7}=\dfrac{5}{7}
 \]
-\textbf{c)} $\dfrac{5}{6} - \dfrac{3}{8}$: \quad $\text{m.c.m.}(6,8) = 24$
+
+\textbf{b)} \;
 \[
-  \dfrac{5 \cdot 4}{24} - \dfrac{3 \cdot 3}{24} = \dfrac{20}{24} - \dfrac{9}{24} = \dfrac{11}{24}
+\dfrac{1}{4}+\dfrac{2}{3}
+=
+\dfrac{3}{12}+\dfrac{8}{12}
+=
+\dfrac{11}{12}
 \]
-\textbf{d)} $\dfrac{-2}{5} + \dfrac{3}{-4} = \dfrac{-2}{5} - \dfrac{3}{4}$: \quad $\text{m.c.m.}(5,4)=20$
+
+\textbf{c)} \;
 \[
-  \dfrac{-8}{20} - \dfrac{15}{20} = \dfrac{-23}{20}
+\dfrac{5}{6}-\dfrac{3}{8}
+=
+\dfrac{20}{24}-\dfrac{9}{24}
+=
+\dfrac{11}{24}
+\]
+
+\textbf{d)} \;
+\[
+\dfrac{-2}{5}+\dfrac{3}{-4}
+=
+\dfrac{-2}{5}-\dfrac{3}{4}
+=
+\dfrac{-8}{20}-\dfrac{15}{20}
+=
+\dfrac{-23}{20}
 \]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Suma y Resta de Fracciones}]
-\begin{multicols}{2}
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt]
-  \item $\dfrac{5}{9} + \dfrac{1}{9} =$
-  \item $\dfrac{3}{4} - \dfrac{1}{4} =$
-  \item $\dfrac{1}{3} + \dfrac{1}{4} =$
-  \item $\dfrac{5}{6} - \dfrac{1}{4} =$
-  \item $\dfrac{-3}{5} + \dfrac{1}{2} =$
-  \item $\dfrac{7}{8} - \dfrac{2}{3} =$
-  \item $1 - \dfrac{3}{7} =$
-  \item $\dfrac{-2}{3} - \dfrac{1}{6} =$
-  \item $\dfrac{3}{4} + \dfrac{-5}{8} =$
-  \item $\dfrac{5}{12} - \dfrac{3}{8} + \dfrac{1}{6} =$
+\clearpage
+\subbloque{Ejercicios propuestos: suma y resta de fracciones}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $\dfrac{5}{9}+\dfrac{1}{9}=$
+  \espaciobasico
+
+  \item $\dfrac{3}{4}-\dfrac{1}{4}=$
+  \espaciobasico
+
+  \item $\dfrac{1}{3}+\dfrac{1}{4}=$
+  \espaciobasico
+
+  \item $\dfrac{5}{6}-\dfrac{1}{4}=$
+  \espaciobasico
+
+  \item $\dfrac{-3}{5}+\dfrac{1}{2}=$
+  \espaciobasico
+
+  \item $\dfrac{7}{8}-\dfrac{2}{3}=$
+  \espaciobasico
+
+  \item $1-\dfrac{3}{7}=$
+  \espaciobasico
+
+  \item $\dfrac{-2}{3}-\dfrac{1}{6}=$
+  \espaciobasico
+
+  \item $\dfrac{3}{4}+\dfrac{-5}{8}=$
+  \espaciobasico
+
+  \item $\dfrac{5}{12}-\dfrac{3}{8}+\dfrac{1}{6}=$
+  \espaciobasico
 \end{enumerate}
-\end{multicols}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $\tfrac{2}{3}$ \; 2) $\tfrac{1}{2}$ \; 3) $\tfrac{7}{12}$ \; 4) $\tfrac{7}{12}$ \; 5) $\tfrac{-1}{10}$ \; 6) $\tfrac{5}{24}$ \; 7) $\tfrac{4}{7}$ \; 8) $\tfrac{-5}{6}$ \; 9) $\tfrac{1}{8}$ \; 10) $\tfrac{1}{8}$}
-\end{tcolorbox}
 
-\subbloque{9. Multiplicación y División de Fracciones}
+\subbloque{9. Multiplicación y división de fracciones}
 
-\begin{tcolorbox}[teoremabox, title={Reglas}]
+\begin{tcolorbox}[importantbox, title={Reglas de multiplicación y división}]
 \[
-  \dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{a \cdot c}{b \cdot d} \qquad\qquad
-  \dfrac{a}{b} \div \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{d}{c} = \dfrac{a \cdot d}{b \cdot c}
+\dfrac{a}{b}\cdot\dfrac{c}{d}=\dfrac{a\cdot c}{b\cdot d}
 \]
-\textbf{Dividir} por una fracción es \textbf{multiplicar} por su \textbf{recíproca} (fracción invertida).
+y
+\[
+\dfrac{a}{b}\div\dfrac{c}{d}
+=
+\dfrac{a}{b}\cdot\dfrac{d}{c}
+=
+\dfrac{a\cdot d}{b\cdot c}.
+\]
+Dividir por una fracción equivale a multiplicar por su recíproca.
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} $\dfrac{3}{4} \cdot \dfrac{8}{9} = \dfrac{3 \cdot 8}{4 \cdot 9} = \dfrac{24}{36} = \dfrac{2}{3}$\\[8pt]
-\textbf{b)} $\dfrac{-5}{6} \cdot \dfrac{3}{10} = \dfrac{-15}{60} = \dfrac{-1}{4}$\\[8pt]
-\textbf{c)} $\dfrac{2}{3} \div \dfrac{4}{9} = \dfrac{2}{3} \cdot \dfrac{9}{4} = \dfrac{18}{12} = \dfrac{3}{2}$\\[8pt]
-\textbf{d)} $\dfrac{-7}{8} \div \dfrac{-21}{4} = \dfrac{-7}{8} \cdot \dfrac{4}{-21} = \dfrac{28}{168} = \dfrac{1}{6}$
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \;
+\[
+\dfrac{3}{4}\cdot\dfrac{8}{9}
+=
+\dfrac{24}{36}
+=
+\dfrac{2}{3}
+\]
+
+\textbf{b)} \;
+\[
+\dfrac{-5}{6}\cdot\dfrac{3}{10}
+=
+\dfrac{-15}{60}
+=
+\dfrac{-1}{4}
+\]
+
+\textbf{c)} \;
+\[
+\dfrac{2}{3}\div\dfrac{4}{9}
+=
+\dfrac{2}{3}\cdot\dfrac{9}{4}
+=
+\dfrac{18}{12}
+=
+\dfrac{3}{2}
+\]
+
+\textbf{d)} \;
+\[
+\dfrac{-7}{8}\div\dfrac{-21}{4}
+=
+\dfrac{-7}{8}\cdot\dfrac{4}{-21}
+=
+\dfrac{28}{168}
+=
+\dfrac{1}{6}
+\]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Multiplicación y División de Fracciones}]
-\begin{multicols}{2}
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt]
-  \item $\dfrac{2}{3} \cdot \dfrac{9}{4} =$
-  \item $\dfrac{-5}{7} \cdot \dfrac{14}{15} =$
-  \item $\dfrac{3}{8} \cdot \dfrac{-4}{9} =$
-  \item $\dfrac{6}{5} \div \dfrac{3}{10} =$
-  \item $\dfrac{-4}{7} \div \dfrac{8}{21} =$
-  \item $\dfrac{-3}{4} \div \left(-\dfrac{9}{8}\right) =$
-  \item $\dfrac{5}{6} \cdot \dfrac{3}{5} \cdot \dfrac{2}{9} =$
-  \item $\left(\dfrac{-2}{3}\right)^2 =$
-  \item $\dfrac{4}{3} \cdot \left(\dfrac{-3}{8}\right) \div \dfrac{1}{2} =$
-  \item $\dfrac{-5}{4} \div \dfrac{15}{-8} =$
+\subbloque{Ejercicios propuestos: multiplicación y división de fracciones}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $\dfrac{2}{3}\cdot\dfrac{9}{4}=$
+  \espaciobasico
+
+  \item $\dfrac{-5}{7}\cdot\dfrac{14}{15}=$
+  \espaciobasico
+
+  \item $\dfrac{3}{8}\cdot\dfrac{-4}{9}=$
+  \espaciobasico
+
+  \item $\dfrac{6}{5}\div\dfrac{3}{10}=$
+  \espaciobasico
+
+  \item $\dfrac{-4}{7}\div\dfrac{8}{21}=$
+  \espaciobasico
+
+  \item $\dfrac{-3}{4}\div\left(-\dfrac{9}{8}\right)=$
+  \espaciobasico
+
+  \item $\dfrac{5}{6}\cdot\dfrac{3}{5}\cdot\dfrac{2}{9}=$
+  \espaciobasico
+
+  \item $\left(\dfrac{-2}{3}\right)^2=$
+  \espaciobasico
+
+  \item $\dfrac{4}{3}\cdot\left(\dfrac{-3}{8}\right)\div\dfrac{1}{2}=$
+  \espaciobasico
+
+  \item $\dfrac{-5}{4}\div\dfrac{15}{-8}=$
+  \espaciobasico
 \end{enumerate}
-\end{multicols}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $\tfrac{3}{2}$ \; 2) $\tfrac{-2}{3}$ \; 3) $\tfrac{-1}{6}$ \; 4) $4$ \; 5) $\tfrac{-3}{2}$ \; 6) $\tfrac{2}{3}$ \; 7) $\tfrac{1}{9}$ \; 8) $\tfrac{4}{9}$ \; 9) $\tfrac{-1}{1}=-1$ \; 10) $\tfrac{2}{3}$}
-\end{tcolorbox}
 
 % ============================================================
-% --- BLOQUE B (CONT): POTENCIAS CON RACIONALES ---
+% POTENCIAS Y EXPRESIONES CON RACIONALES
 % ============================================================
-\bloqueheader{B}{blockb}{Potencias y Expresiones con Racionales}
+\clearpage
+\seccionheader{blockb}{Potencias y expresiones con racionales}
 
 \subbloque{10. Potencias de base racional y exponente negativo}
 
-\begin{tcolorbox}[teoremabox, title={Exponente negativo}]
+\begin{tcolorbox}[importantbox, title={Exponente negativo}]
 \[
-  \left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^{n} \qquad (a, b \neq 0)
+\left(\dfrac{a}{b}\right)^{-n}
+=
+\left(\dfrac{b}{a}\right)^n,
+\qquad a\neq0,\; b\neq0.
 \]
-Un exponente negativo \textbf{invierte} la base y cambia el exponente a positivo.
+Un exponente negativo invierte la base y convierte el exponente en positivo.
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplos resueltos}]
-\textbf{a)} $\left(\dfrac{2}{3}\right)^{-2} = \left(\dfrac{3}{2}\right)^{2} = \dfrac{9}{4}$\\[8pt]
-\textbf{b)} $\left(\dfrac{-1}{4}\right)^{-3} = \left(\dfrac{4}{-1}\right)^{3} = (-4)^3 = -64$\\[8pt]
-\textbf{c)} $3^{-2} = \dfrac{1}{3^2} = \dfrac{1}{9}$\\[8pt]
-\textbf{d)} $\dfrac{3^{-1} + 4^{-1}}{5^{-1}} = \dfrac{\tfrac{1}{3} + \tfrac{1}{4}}{\tfrac{1}{5}} = \left(\dfrac{4+3}{12}\right) \cdot 5 = \dfrac{7}{12} \cdot 5 = \dfrac{35}{12}$
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\textbf{a)} \;
+\[
+\left(\dfrac{2}{3}\right)^{-2}
+=
+\left(\dfrac{3}{2}\right)^2
+=
+\dfrac{9}{4}
+\]
+
+\textbf{b)} \;
+\[
+\left(\dfrac{-1}{4}\right)^{-3}
+=
+\left(\dfrac{4}{-1}\right)^3
+=
+(-4)^3
+=
+-64
+\]
+
+\textbf{c)} \;
+\[
+3^{-2}
+=
+\dfrac{1}{3^2}
+=
+\dfrac{1}{9}
+\]
+
+\textbf{d)} \;
+\[
+\dfrac{3^{-1}+4^{-1}}{5^{-1}}
+=
+\dfrac{\dfrac{1}{3}+\dfrac{1}{4}}{\dfrac{1}{5}}
+=
+\dfrac{\dfrac{7}{12}}{\dfrac{1}{5}}
+=
+\dfrac{7}{12}\cdot5
+=
+\dfrac{35}{12}
+\]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Potencias y Exponente Negativo}]
-\begin{multicols}{2}
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt]
-  \item $\left(\dfrac{1}{2}\right)^3 =$
-  \item $\left(\dfrac{-2}{3}\right)^2 =$
-  \item $\left(\dfrac{3}{4}\right)^{-2} =$
-  \item $5^{-3} =$
-  \item $\left(\dfrac{-1}{2}\right)^{-4} =$
-  \item $\left(\dfrac{2}{5}\right)^{-1} =$
-  \item $\dfrac{2^{-1} + 3^{-1}}{6^{-1}} =$
-  \item $\left(\dfrac{4}{3}\right)^{-2} \cdot \left(\dfrac{3}{2}\right)^2 =$
+\subbloque{Ejercicios propuestos: potencias y exponente negativo}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $\left(\dfrac{1}{2}\right)^3=$
+  \espaciobasico
+
+  \item $\left(\dfrac{-2}{3}\right)^2=$
+  \espaciobasico
+
+  \item $\left(\dfrac{3}{4}\right)^{-2}=$
+  \espaciobasico
+
+  \item $5^{-3}=$
+  \espaciobasico
+
+  \item $\left(\dfrac{-1}{2}\right)^{-4}=$
+  \espaciobasico
+
+  \item $\left(\dfrac{2}{5}\right)^{-1}=$
+  \espaciobasico
+
+  \item $\dfrac{2^{-1}+3^{-1}}{6^{-1}}=$
+  \espaciobasico
+
+  \item $\left(\dfrac{4}{3}\right)^{-2}\cdot\left(\dfrac{3}{2}\right)^2=$
+  \espaciobasico
 \end{enumerate}
-\end{multicols}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $\tfrac{1}{8}$ \; 2) $\tfrac{4}{9}$ \; 3) $\tfrac{16}{9}$ \; 4) $\tfrac{1}{125}$ \; 5) $16$ \; 6) $\tfrac{5}{2}$ \; 7) $5$ \; 8) $\tfrac{9}{16} \cdot \tfrac{9}{4}=\tfrac{81}{64}$}
-\end{tcolorbox}
 
 \subbloque{11. Operaciones combinadas con racionales}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplo resuelto — nivel intermedio}]
-Calcular: $\dfrac{3}{4} - \dfrac{2}{3} \cdot \dfrac{9}{8} + \dfrac{1}{2}$
+\begin{tcolorbox}[examplebox, title={Ejemplo}]
+Calcular:
+\[
+\dfrac{3}{4}-\dfrac{2}{3}\cdot\dfrac{9}{8}+\dfrac{1}{2}
+\]
 
-\medskip
-\textbf{Paso 1:} La multiplicación primero: $\dfrac{2}{3} \cdot \dfrac{9}{8} = \dfrac{18}{24} = \dfrac{3}{4}$
+\textbf{Paso 1:} \;
+\[
+\dfrac{2}{3}\cdot\dfrac{9}{8}
+=
+\dfrac{18}{24}
+=
+\dfrac{3}{4}
+\]
 
-\textbf{Paso 2:} Luego la suma y resta: $\dfrac{3}{4} - \dfrac{3}{4} + \dfrac{1}{2} = 0 + \dfrac{1}{2} = \dfrac{1}{2}$
+\textbf{Paso 2:} \;
+\[
+\dfrac{3}{4}-\dfrac{3}{4}+\dfrac{1}{2}
+=
+\dfrac{1}{2}
+\]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplo resuelto — con agrupaciones}]
-Calcular: $\left(\dfrac{1}{2} - \dfrac{1}{3}\right) \div \left(\dfrac{1}{4} + \dfrac{1}{12}\right)$
+\begin{tcolorbox}[examplebox, title={Ejemplo con agrupaciones}]
+Calcular:
+\[
+\left(\dfrac{1}{2}-\dfrac{1}{3}\right)\div\left(\dfrac{1}{4}+\dfrac{1}{12}\right)
+\]
 
-\medskip
-\textbf{Paso 1:} Paréntesis izquierdo: $\dfrac{1}{2} - \dfrac{1}{3} = \dfrac{3-2}{6} = \dfrac{1}{6}$
+\textbf{Paso 1:}
+\[
+\dfrac{1}{2}-\dfrac{1}{3}
+=
+\dfrac{3-2}{6}
+=
+\dfrac{1}{6}
+\]
 
-\textbf{Paso 2:} Paréntesis derecho: $\dfrac{1}{4} + \dfrac{1}{12} = \dfrac{3+1}{12} = \dfrac{4}{12} = \dfrac{1}{3}$
+\textbf{Paso 2:}
+\[
+\dfrac{1}{4}+\dfrac{1}{12}
+=
+\dfrac{3+1}{12}
+=
+\dfrac{4}{12}
+=
+\dfrac{1}{3}
+\]
 
-\textbf{Paso 3:} División: $\dfrac{1}{6} \div \dfrac{1}{3} = \dfrac{1}{6} \cdot \dfrac{3}{1} = \dfrac{3}{6} = \dfrac{1}{2}$
+\textbf{Paso 3:}
+\[
+\dfrac{1}{6}\div\dfrac{1}{3}
+=
+\dfrac{1}{6}\cdot\dfrac{3}{1}
+=
+\dfrac{3}{6}
+=
+\dfrac{1}{2}
+\]
 \end{tcolorbox}
 
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Nivel Intermedio (Operaciones Combinadas con Racionales)}]
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt]
-  \item $\dfrac{1}{2} + \dfrac{3}{4} \cdot \dfrac{2}{9} - \dfrac{1}{6} =$
-  \item $\left(\dfrac{3}{5} - \dfrac{1}{10}\right) \cdot \dfrac{5}{4} + \dfrac{1}{8} =$
-  \item $\dfrac{2}{3} \div \left(\dfrac{1}{2} + \dfrac{1}{6}\right) - \dfrac{1}{4} =$
-  \item $\left(\dfrac{-2}{3}\right)^2 \cdot \dfrac{3}{2} - \dfrac{1}{3} =$
-  \item $\dfrac{\tfrac{3}{4} - \tfrac{1}{2}}{\tfrac{1}{3} + \tfrac{1}{6}} =$
-  \item $\dfrac{1}{2} \cdot \left[\dfrac{4}{3} - \left(\dfrac{1}{2}\right)^2\right] + \dfrac{5}{12} =$
+\clearpage
+\subbloque{Ejercicios propuestos: operaciones combinadas con racionales}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $\dfrac{1}{2}+\dfrac{3}{4}\cdot\dfrac{2}{9}-\dfrac{1}{6}=$
+  \espaciointermedio
+
+  \item $\left(\dfrac{3}{5}-\dfrac{1}{10}\right)\cdot\dfrac{5}{4}+\dfrac{1}{8}=$
+  \espaciointermedio
+
+  \item $\dfrac{2}{3}\div\left(\dfrac{1}{2}+\dfrac{1}{6}\right)-\dfrac{1}{4}=$
+  \espaciointermedio
+
+  \item $\left(\dfrac{-2}{3}\right)^2\cdot\dfrac{3}{2}-\dfrac{1}{3}=$
+  \espaciointermedio
+
+  \item $\dfrac{\dfrac{3}{4}-\dfrac{1}{2}}{\dfrac{1}{3}+\dfrac{1}{6}}=$
+  \espaciointermedio
+
+  \item $\dfrac{1}{2}\cdot\left[\dfrac{4}{3}-\left(\dfrac{1}{2}\right)^2\right]+\dfrac{5}{12}=$
+  \espaciointermedio
 \end{enumerate}
-\vspace{2pt}
-%\small\textit{respuestas: 1) $\tfrac{7}{12}$ \; 2) $\tfrac{3}{4}$ \; 3) $\tfrac{3}{4}$ \; 4) $\tfrac{1}{3}$ \; 5) $\tfrac{1}{2}$ \; 6) $1$}
-\end{tcolorbox}
 
 % ============================================================
-% --- BLOQUE C: NIVEL AVANZADO RACIONALES ---
+% OPERACIONES CON RACIONALES: NIVEL AVANZADO
 % ============================================================
-\bloqueheader{C}{blockc}{Operaciones con Racionales — Nivel Avanzado}
+\clearpage
+\seccionheader{blockc}{Operaciones con racionales: nivel avanzado}
 
 \subbloque{12. Expresiones complejas con múltiples operaciones}
 
-\begin{tcolorbox}[ejemplobox, title={Ejemplo resuelto — nivel avanzado}]
-Calcular: $\left\{\dfrac{3}{4} - \left[\dfrac{1}{2} - \left(\dfrac{2}{3}\right)^2\right] \cdot 3\right\} \div \dfrac{-5}{8}$
-
-\medskip
-\textbf{Paso 1:} Paréntesis interno: $\left(\dfrac{2}{3}\right)^2 = \dfrac{4}{9}$
-
-\textbf{Paso 2:} Corchete: $\dfrac{1}{2} - \dfrac{4}{9} = \dfrac{9-8}{18} = \dfrac{1}{18}$
-
-\textbf{Paso 3:} Multiplicar por 3: $\dfrac{1}{18} \cdot 3 = \dfrac{3}{18} = \dfrac{1}{6}$
-
-\textbf{Paso 4:} Llave: $\dfrac{3}{4} - \dfrac{1}{6} = \dfrac{9-2}{12} = \dfrac{7}{12}$
-
-\textbf{Paso 5:} División: $\dfrac{7}{12} \div \dfrac{-5}{8} = \dfrac{7}{12} \cdot \dfrac{8}{-5} = \dfrac{56}{-60} = \dfrac{-14}{15}$
-\end{tcolorbox}
-
-\begin{tcolorbox}[ejerciciobox, title={Ejercicios — Nivel Avanzado (Racionales con Múltiples Agrupaciones)}]
-Resuelve completamente, mostrando cada paso:
-\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=12pt]
-  \item $\left\{\dfrac{5}{6} - \left[\dfrac{2}{3} - \left(\dfrac{1}{4} + \dfrac{1}{3}\right)\right]\right\} \cdot \left(-\dfrac{6}{5}\right) =$
-
-  \item $\dfrac{\left(\dfrac{3}{4}\right)^{-1} - \left(\dfrac{2}{3}\right)^{-1}}{\dfrac{1}{2} - \dfrac{1}{3}} =$
-
-  \item $\left(\dfrac{-1}{2}\right)^3 + \left[\dfrac{3}{4} - \dfrac{1}{2} \cdot \left(\dfrac{2}{3} - 1\right)\right] - \dfrac{5}{12} =$
-
-  \item $\left\{\left[\dfrac{-2}{3} + \dfrac{5}{6}\right]^2 - \dfrac{1}{4}\right\} \div \left[\dfrac{3}{8} - \left(\dfrac{-1}{4}\right)\right] =$
-
-  \item $\dfrac{3}{4} \cdot \left\{\dfrac{-8}{3} + \left[\dfrac{1}{2} - \dfrac{1}{6}\right]^{-2} - 2\right\} =$
-
-  \item $\dfrac{\left(\dfrac{5}{3} - \dfrac{3}{2}\right)^2}{\left(\dfrac{1}{6}\right)^{-1} - 5} + \dfrac{2}{3} \cdot \dfrac{-9}{4} =$
-\end{enumerate}
-\vspace{4pt}
-\begin{tcolorbox}[colback=white, colframe=zenitnavy, arc=2pt, left=4pt, right=4pt, top=3pt, bottom=3pt]
-\textbf{Solución detallada del \#2:}
+\begin{tcolorbox}[examplebox, title={Ejemplo}]
+Calcular:
 \[
-\dfrac{\left(\dfrac{3}{4}\right)^{-1} - \left(\dfrac{2}{3}\right)^{-1}}{\dfrac{1}{2} - \dfrac{1}{3}}
-= \dfrac{\dfrac{4}{3} - \dfrac{3}{2}}{\dfrac{1}{6}}
-= \dfrac{\dfrac{8-9}{6}}{\dfrac{1}{6}}
-= \dfrac{\dfrac{-1}{6}}{\dfrac{1}{6}}
-= \dfrac{-1}{6} \cdot \dfrac{6}{1}
-= \mathbf{-1}
+\left\{\dfrac{3}{4}-\left[\dfrac{1}{2}-\left(\dfrac{2}{3}\right)^2\right]\cdot3\right\}\div\dfrac{-5}{8}
+\]
+
+\textbf{Paso 1:}
+\[
+\left(\dfrac{2}{3}\right)^2=\dfrac{4}{9}
+\]
+
+\textbf{Paso 2:}
+\[
+\dfrac{1}{2}-\dfrac{4}{9}
+=
+\dfrac{9-8}{18}
+=
+\dfrac{1}{18}
+\]
+
+\textbf{Paso 3:}
+\[
+\dfrac{1}{18}\cdot3=\dfrac{1}{6}
+\]
+
+\textbf{Paso 4:}
+\[
+\dfrac{3}{4}-\dfrac{1}{6}
+=
+\dfrac{9-2}{12}
+=
+\dfrac{7}{12}
+\]
+
+\textbf{Paso 5:}
+\[
+\dfrac{7}{12}\div\dfrac{-5}{8}
+=
+\dfrac{7}{12}\cdot\dfrac{8}{-5}
+=
+\dfrac{56}{-60}
+=
+\dfrac{-14}{15}
 \]
 \end{tcolorbox}
-\end{tcolorbox}
 
-\newpage
+\clearpage
+\subbloque{Ejercicios propuestos: racionales con múltiples agrupaciones}
+
+Resuelve completamente, mostrando cada paso.
+
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=8pt, leftmargin=*]
+  \item $\left\{\dfrac{5}{6}-\left[\dfrac{2}{3}-\left(\dfrac{1}{4}+\dfrac{1}{3}\right)\right]\right\}\cdot\left(-\dfrac{6}{5}\right)=$
+  \espacioavanzado
+
+  \item $\dfrac{\left(\dfrac{3}{4}\right)^{-1}-\left(\dfrac{2}{3}\right)^{-1}}{\dfrac{1}{2}-\dfrac{1}{3}}=$
+  \espacioavanzado
+
+  \item $\left(\dfrac{-1}{2}\right)^3+\left[\dfrac{3}{4}-\dfrac{1}{2}\cdot\left(\dfrac{2}{3}-1\right)\right]-\dfrac{5}{12}=$
+  \espacioavanzado
+
+  \item $\left\{\left[\dfrac{-2}{3}+\dfrac{5}{6}\right]^2-\dfrac{1}{4}\right\}\div\left[\dfrac{3}{8}-\left(\dfrac{-1}{4}\right)\right]=$
+  \espacioavanzado
+
+  \item $\dfrac{3}{4}\cdot\left\{\dfrac{-8}{3}+\left[\dfrac{1}{2}-\dfrac{1}{6}\right]^{-2}-2\right\}=$
+  \espacioavanzado
+
+  \item $\dfrac{\left(\dfrac{5}{3}-\dfrac{3}{2}\right)^2}{\left(\dfrac{1}{6}\right)^{-1}-5}+\dfrac{2}{3}\cdot\dfrac{-9}{4}=$
+  \espacioavanzado
+\end{enumerate}
+
+\begin{tcolorbox}[answerbox, title={Solución modelo}]
+\textbf{Ejercicio 2}
+\[
+\dfrac{\left(\dfrac{3}{4}\right)^{-1}-\left(\dfrac{2}{3}\right)^{-1}}{\dfrac{1}{2}-\dfrac{1}{3}}
+=
+\dfrac{\dfrac{4}{3}-\dfrac{3}{2}}{\dfrac{1}{6}}
+=
+\dfrac{\dfrac{8-9}{6}}{\dfrac{1}{6}}
+=
+\dfrac{\dfrac{-1}{6}}{\dfrac{1}{6}}
+=
+\dfrac{-1}{6}\cdot\dfrac{6}{1}
+=
+-1
+\]
+\end{tcolorbox}
 
 % ============================================================
-% --- EJERCICIOS FINALES: MEZCLA DE TODOS LOS TEMAS ---
+% EJERCICIOS FINALES
 % ============================================================
-\bloqueheader{D}{blockc}{Ejercicios Finales — Mezcla de Todos los Temas}
+\clearpage
+\seccionheader{blockc}{Ejercicios finales: mezcla de todos los temas}
 
-\begin{tcolorbox}[instrbox]
-Los siguientes ejercicios mezclan \textbf{todos los contenidos}: enteros, fracciones, potencias, jerarquía y agrupaciones. Se incluyen ejercicios tipo PSU/SIMCE para máxima preparación.
+\begin{tcolorbox}[importantbox, title={Indicaciones}]
+En esta sección se combinan números enteros, fracciones, potencias, jerarquía de operaciones y expresiones con agrupaciones. Desarrolla cada ejercicio de manera ordenada.
 \end{tcolorbox}
 
-\vspace{6pt}
+\subbloque{Ejercicios con alternativas}
 
-\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=14pt]
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
 
-\item Calcula:
+\alternativasformato
+{Calcula:
 \[
-  (-3)^2 + 2 \cdot (-4) - \dfrac{(-12)}{3} =
-\]
-\begin{enumerate}[label=\Alph*)]
-  \item $-7$ \quad B) $1$ \quad C) $5$ \quad D) $13$ \quad E) $17$
-\end{enumerate}
+(-3)^2+2\cdot(-4)-\dfrac{(-12)}{3}=
+\]}
+{
+\item $-7$
+\item $1$
+\item $5$
+\item $13$
+\item $17$
+}
+{}
 
-\item ¿Cuánto vale la siguiente expresión?
+\alternativasformato
+{¿Cuánto vale la siguiente expresión?
 \[
-  \dfrac{2^{-1} + \left(\dfrac{1}{3}\right)^{-1}}{(-2)^3 + 10}
-\]
-\begin{enumerate}[label=\Alph*)]
-  \item $\dfrac{1}{7}$ \quad B) $\dfrac{7}{2}$ \quad C) $\dfrac{7}{4}$ \quad D) $\dfrac{7}{6}$ \quad E) $3$
-\end{enumerate}
+\dfrac{2^{-1}+\left(\dfrac{1}{3}\right)^{-1}}{(-2)^3+10}
+\]}
+{
+\item $\dfrac{1}{7}$
+\item $\dfrac{7}{2}$
+\item $\dfrac{7}{4}$
+\item $\dfrac{7}{6}$
+\item $3$
+}
+{}
 
-\item Simplifica y calcula:
-\[
-  \dfrac{3}{8} \div \dfrac{9}{4} + \left(\dfrac{-1}{2}\right)^3 \cdot \dfrac{4}{3} =
-\]
-
-\item ¿Cuál es el resultado de?
-\[
-  \left\{(-2)^4 - [3 \cdot (-1 + 5)^2 - 20]\right\} \cdot \dfrac{-3}{4}
-\]
-
-\item Calcula el valor de la expresión, sabiendo que es un número entero:
-\[
-  \left\{\left[\dfrac{5}{4} - \left(\dfrac{-3}{2}\right)^2\right] \cdot (-8) + \dfrac{1}{3}\right\} \cdot 6 =
-\]
-
-\item Determina cuál de las siguientes expresiones tiene el mayor valor:
-\begin{enumerate}[label=\Alph*)]
-  \item $(-2)^6 \div (-4)$
-  \item $\dfrac{(-3)^3 + 5}{(-2)^2 - 6}$
-  \item $\left(\dfrac{-3}{4}\right)^{-2}$
-  \item $3^{-1} - (-3)^{-1}$
-  \item $\dfrac{(-1)^{100} + (-1)^{101}}{(-1)^{99}}$
-\end{enumerate}
-
-\item Calcula:
-\[
-  \dfrac{-5}{6} - \dfrac{3}{4} \cdot \left(\dfrac{-2}{3}\right)^2 + \dfrac{1}{3} \div \dfrac{-4}{9}
-\]
-
-\item Resuelve la siguiente expresión mostrando todos los pasos:
-\[
-  \left\{(-3)^2 \cdot \left[\dfrac{-2}{3} + \dfrac{5}{6}\right] - \left(\dfrac{1}{2}\right)^{-2}\right\} \div \left(-\dfrac{5}{4}\right)
-\]
-
-\item Si $a = -\dfrac{2}{3}$ y $b = \dfrac{3}{4}$, calcula $a^2 - 2ab + b^2$.
-
-\item Indica si la siguiente igualdad es verdadera o falsa y justifica:
-\[
-  \dfrac{(-2)^3 + (-3)^2}{(-1)^5 \cdot 2^2} = \dfrac{1}{4}
-\]
-
-\item Calcula:
-\[
-  \dfrac{\left(\dfrac{3}{2}\right)^{-2} - \left(\dfrac{2}{3}\right)^{2}}{\left(\dfrac{3}{2}\right)^{2} + \left(\dfrac{2}{3}\right)^{-2}}
-\]
-
-\item \textbf{(Desafío)} Calcula:
-\[
-  \left\{-\left[(-2)^3 - \dfrac{3}{4} \cdot \left(\dfrac{-4}{3}\right)^2 + \left(\dfrac{1}{2}\right)^{-3}\right]^2 + 5 \cdot (-1)^{101}\right\} \div \dfrac{-3}{2}
-\]
+\item
+\begin{minipage}[t]{\linewidth}
+Determina cuál de las siguientes expresiones tiene el mayor valor:
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {
+    \begin{minipage}{0.85\linewidth}
+    \begin{enumerate}[label=\Alph*), leftmargin=14pt]
+      \item $(-2)^6\div(-4)$
+      \item $\dfrac{(-3)^3+5}{(-2)^2-6}$
+      \item $\left(\dfrac{-3}{4}\right)^{-2}$
+      \item $3^{-1}-(-3)^{-1}$
+      \item $\dfrac{(-1)^{100}+(-1)^{101}}{(-1)^{99}}$
+    \end{enumerate}
+    \end{minipage}
+  };
+  \node (figura) at (12,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
 
 \end{enumerate}
 
-\vspace{10pt}
+\clearpage
+\subbloque{Ejercicios de desarrollo}
 
-\begin{tcolorbox}[instrbox]
-\textbf{Respuestas Ejercicios Finales:}
-\begin{enumerate}[leftmargin=*, itemsep=3pt]
-  \item[\textbf{1.}] $9 + (-8) - (-4) = 9 - 8 + 4 = 5$ \quad $\Rightarrow$ \textbf{C)}
-  \item[\textbf{2.}] $\dfrac{\tfrac{1}{2}+3}{-8+10} = \dfrac{\tfrac{7}{2}}{2} = \dfrac{7}{4}$ \quad $\Rightarrow$ \textbf{C)}
-  \item[\textbf{3.}] $\dfrac{3}{8} \cdot \dfrac{4}{9} + \dfrac{-1}{8} \cdot \dfrac{4}{3} = \dfrac{12}{72} - \dfrac{4}{24} = \dfrac{1}{6} - \dfrac{1}{6} = \mathbf{0}$
-  \item[\textbf{4.}] $\{16 - [3 \cdot 16 - 20]\} \cdot \dfrac{-3}{4} = \{16 - 28\} \cdot \dfrac{-3}{4} = (-12)\cdot\dfrac{-3}{4} = \mathbf{9}$
-  \item[\textbf{5.}] $\left\{\left[\dfrac{5}{4} - \dfrac{9}{4}\right] \cdot (-8) + \dfrac{1}{3}\right\} \cdot 6 = \{(-1) \cdot (-8) + \tfrac{1}{3}\} \cdot 6 = \{8 + \tfrac{1}{3}\} \cdot 6 = \tfrac{25}{3} \cdot 6 = \mathbf{50}$
-  \item[\textbf{7.}] $\dfrac{-5}{6} - \dfrac{3}{4} \cdot \dfrac{4}{9} + \dfrac{1}{3} \cdot \dfrac{-9}{4} = \dfrac{-5}{6} - \dfrac{1}{3} - \dfrac{3}{4} = \dfrac{-10-4-9}{12} = \dfrac{-23}{12}$
-  \item[\textbf{9.}] $a^2 - 2ab + b^2 = (a-b)^2 = \left(-\dfrac{2}{3} - \dfrac{3}{4}\right)^2 = \left(\dfrac{-8-9}{12}\right)^2 = \left(\dfrac{-17}{12}\right)^2 = \dfrac{289}{144}$
-  \item[\textbf{10.}] V.F.: $\dfrac{-8+9}{(-1)\cdot 4} = \dfrac{1}{-4} = -\dfrac{1}{4} \neq \dfrac{1}{4}$ \quad $\Rightarrow$ \textbf{FALSA}
+\begin{enumerate}[label=\textbf{\arabic*.}, start=4, itemsep=8pt, leftmargin=*]
+  \item Simplifica y calcula:
+  \[
+  \dfrac{3}{8}\div\dfrac{9}{4}+\left(\dfrac{-1}{2}\right)^3\cdot\dfrac{4}{3}=
+  \]
+  \espaciointermedio
+
+  \item ¿Cuál es el resultado de?
+  \[
+  \left\{(-2)^4-[3\cdot(-1+5)^2-20]\right\}\cdot\dfrac{-3}{4}
+  \]
+  \espaciointermedio
+
+  \item Calcula el valor de la expresión, sabiendo que es un número entero:
+  \[
+  \left\{\left[\dfrac{5}{4}-\left(\dfrac{-3}{2}\right)^2\right]\cdot(-8)+\dfrac{1}{3}\right\}\cdot6=
+  \]
+  \espaciointermedio
+
+  \item Calcula:
+  \[
+  \dfrac{-5}{6}-\dfrac{3}{4}\cdot\left(\dfrac{-2}{3}\right)^2+\dfrac{1}{3}\div\dfrac{-4}{9}
+  \]
+  \espaciointermedio
+
+  \item Resuelve la siguiente expresión mostrando todos los pasos:
+  \[
+  \left\{(-3)^2\cdot\left[\dfrac{-2}{3}+\dfrac{5}{6}\right]-\left(\dfrac{1}{2}\right)^{-2}\right\}\div\left(-\dfrac{5}{4}\right)
+  \]
+  \espacioavanzado
+
+  \item Si $a=-\dfrac{2}{3}$ y $b=\dfrac{3}{4}$, calcula
+  \[
+  a^2-2ab+b^2.
+  \]
+  \espaciointermedio
+
+  \item Indica si la siguiente igualdad es verdadera o falsa y justifica:
+  \[
+  \dfrac{(-2)^3+(-3)^2}{(-1)^5\cdot2^2}=\dfrac{1}{4}
+  \]
+  \espaciointermedio
+
+  \item Calcula:
+  \[
+  \dfrac{\left(\dfrac{3}{2}\right)^{-2}-\left(\dfrac{2}{3}\right)^2}{\left(\dfrac{3}{2}\right)^2+\left(\dfrac{2}{3}\right)^{-2}}
+  \]
+  \espaciointermedio
+
+  \item \textbf{Desafío.} Calcula:
+  \[
+  \left\{-\left[(-2)^3-\dfrac{3}{4}\cdot\left(\dfrac{-4}{3}\right)^2+\left(\dfrac{1}{2}\right)^{-3}\right]^2+5\cdot(-1)^{101}\right\}\div\dfrac{-3}{2}
+  \]
+  \espacioavanzado
+\end{enumerate}
+
+\begin{tcolorbox}[answerbox, title={Respuestas de algunos ejercicios finales}]
+\begin{enumerate}[leftmargin=*, itemsep=5pt]
+  \item[\textbf{1.}]
+  \[
+  9+(-8)-(-4)=9-8+4=5
+  \]
+  Respuesta correcta: \textbf{C)}
+
+  \item[\textbf{2.}]
+  \[
+  \dfrac{\dfrac{1}{2}+3}{-8+10}
+  =
+  \dfrac{\dfrac{7}{2}}{2}
+  =
+  \dfrac{7}{4}
+  \]
+  Respuesta correcta: \textbf{C)}
+
+  \item[\textbf{4.}]
+  \[
+  \dfrac{3}{8}\cdot\dfrac{4}{9}+\dfrac{-1}{8}\cdot\dfrac{4}{3}
+  =
+  \dfrac{12}{72}-\dfrac{4}{24}
+  =
+  \dfrac{1}{6}-\dfrac{1}{6}
+  =
+  0
+  \]
+
+  \item[\textbf{5.}]
+  \[
+  \{16-[3\cdot16-20]\}\cdot\dfrac{-3}{4}
+  =
+  \{16-28\}\cdot\dfrac{-3}{4}
+  =
+  (-12)\cdot\dfrac{-3}{4}
+  =
+  9
+  \]
+
+  \item[\textbf{6.}]
+  \[
+  \left\{\left[\dfrac{5}{4}-\dfrac{9}{4}\right]\cdot(-8)+\dfrac{1}{3}\right\}\cdot6
+  =
+  \left\{(-1)\cdot(-8)+\dfrac{1}{3}\right\}\cdot6
+  =
+  \left(8+\dfrac{1}{3}\right)\cdot6
+  =
+  \dfrac{25}{3}\cdot6
+  =
+  50
+  \]
+
+  \item[\textbf{7.}]
+  \[
+  \dfrac{-5}{6}-\dfrac{3}{4}\cdot\dfrac{4}{9}+\dfrac{1}{3}\cdot\dfrac{-9}{4}
+  =
+  \dfrac{-5}{6}-\dfrac{1}{3}-\dfrac{3}{4}
+  =
+  \dfrac{-10-4-9}{12}
+  =
+  \dfrac{-23}{12}
+  \]
+
+  \item[\textbf{9.}]
+  \[
+  a^2-2ab+b^2=(a-b)^2
+  \]
+  \[
+  \left(-\dfrac{2}{3}-\dfrac{3}{4}\right)^2
+  =
+  \left(\dfrac{-8-9}{12}\right)^2
+  =
+  \left(\dfrac{-17}{12}\right)^2
+  =
+  \dfrac{289}{144}
+  \]
+
+  \item[\textbf{10.}]
+  \[
+  \dfrac{-8+9}{(-1)\cdot4}
+  =
+  \dfrac{1}{-4}
+  =
+  -\dfrac{1}{4}
+  \neq
+  \dfrac{1}{4}
+  \]
+  Por lo tanto, la igualdad es \textbf{falsa}.
 \end{enumerate}
 \end{tcolorbox}
 
 \vspace{8pt}
 \begin{center}
   \rule{\linewidth}{1.5pt}\\[4pt]
-  {\large\bfseries\color{zenitnavy} ¡Bien hecho! La constancia y la práctica son la clave del éxito.}\\[2pt]
+  {\large\bfseries\color{zenitnavy} La constancia y la práctica son la clave del aprendizaje.}\\[2pt]
   {\color{zenitgold}\small Academia Zenit · Matemática 1° Medio}
   \rule{\linewidth}{1.5pt}
 \end{center}
