@@ -1,0 +1,900 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================================
+%  ACADEMIA ZENIT — CAPÍTULO 1: NÚMEROS ENTEROS
+%  Adaptado al formato institucional de facsimil2005.tex
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{array,booktabs,tabularx,multicol,longtable}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{lastpage}
+\usepackage{caption}
+\usepackage{csquotes}
+\pgfplotsset{compat=1.18}
+
+% -- Colores institucionales --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{8A5A00}
+\definecolor{blockd}{HTML}{6B2D5C}
+
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  instrbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitgold,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    arc=2pt,
+    leftrule=4pt,
+  },
+  theorybox/.style={
+    enhanced,
+    breakable,
+    colback=zenitlightgray,
+    colframe=zenitnavy,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    arc=2pt,
+    boxrule=0.6pt,
+  },
+  tipbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitblue,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    arc=2pt,
+    leftrule=4pt,
+  }
+}
+
+\newcommand{\bloqueheader}[3]{%
+  \vspace{10pt}
+  \noindent
+  \begin{tikzpicture}[baseline]
+    \fill[#2] (0,0) rectangle (2.5cm, 0.7cm);
+    \node[white, font=\bfseries] at (1.25cm, 0.35cm) {Bloque #1};
+  \end{tikzpicture}%
+  \begin{tikzpicture}[baseline]
+    \fill[#2!10!white] (0,0) rectangle (\linewidth - 2.6cm, 0.7cm);
+    \node[color=#2, font=\bfseries\large, anchor=west] at (0.2cm, 0.35cm) {#3};
+  \end{tikzpicture}%
+  \vspace{4pt}
+}
+
+\newcommand{\subtitulo}[1]{\vspace{4pt}\noindent{\large\bfseries\color{zenitnavy} #1}\par\vspace{3pt}}
+
+\newcommand{\figureplaceholder}[2][4.2cm]{%
+\begin{center}
+\fbox{%
+\begin{minipage}[c][#1][c]{0.88\linewidth}
+\centering \textbf{Espacio reservado para figura}\\[3pt]
+#2
+\end{minipage}}
+\end{center}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \textbf{Academia Zenit} $\cdot$ Capítulo 1: Números enteros}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small Material de uso interno.}
+
+\setlist[enumerate]{itemsep=4pt, topsep=4pt}
+\setlist[itemize]{itemsep=3pt, topsep=3pt}
+
+\begin{document}
+\captionsetup{singlelinecheck=false}
+
+\begin{center}
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[4pt]
+  {\LARGE\bfseries\color{zenitblue} CAPÍTULO 1 — NÚMEROS ENTEROS}\\[6pt]
+  {\large\bfseries\color{zenitnavy} Preuniversitario Zenit}\\[8pt]
+  \rule{\linewidth}{1pt}
+\end{center}
+
+\begin{tcolorbox}[instrbox]
+\textbf{Instrucciones.} Este capítulo ha sido adaptado al formato institucional de Academia Zenit. La teoría se presenta intercalada con una sección de \textbf{Ejemplos} (primeros 20 ejercicios), seguida por los bloques \textbf{M1} (65 ejercicios) y \textbf{M2} (20 ejercicios). Las figuras del material original se han reemplazado por espacios reservados para su inserción posterior.
+\end{tcolorbox}
+
+\begin{center}
+\textit{``Vive como si fueses a morir mañana. Aprende como si fueses a vivir siempre.''}\\
+\textbf{Mahatma Gandhi} --- abogado, pensador y político.
+\end{center}
+
+\begin{tcolorbox}[theorybox]
+\textbf{Contenidos del capítulo}
+\begin{enumerate}
+  \item Conjuntos numéricos
+  \begin{enumerate}[label=\alph*.]
+    \item Números enteros
+    \item Valor absoluto
+  \end{enumerate}
+  \item Orden en el conjunto de los números enteros
+  \item Las cuatro operaciones básicas en los enteros
+  \begin{enumerate}[label=\alph*.]
+    \item Adición y sustracción
+    \item Multiplicación y división
+  \end{enumerate}
+  \item Múltiplos y divisores
+  \begin{enumerate}[label=\alph*.]
+    \item Múltiplos
+    \item Divisores
+  \end{enumerate}
+  \item Paridad e imparidad
+  \item Propiedades de las operaciones en los números enteros
+  \begin{enumerate}[label=\alph*.]
+    \item Propiedad conmutativa
+    \item Propiedad asociativa
+    \item Propiedad distributiva
+    \item Neutro aditivo y neutro multiplicativo
+    \item Inverso aditivo
+    \item Elemento absorbente
+    \item Prioridad de las operaciones
+  \end{enumerate}
+  \item Criterios de divisibilidad
+  \item Números primos, compuestos y teorema fundamental de la aritmética
+  \item Mínimo común múltiplo y máximo común divisor
+  \begin{enumerate}[label=\alph*.]
+    \item Mínimo común múltiplo
+    \item Máximo común divisor
+    \item Problemas de aplicación
+  \end{enumerate}
+  \item Evaluar expresiones
+  \item Enunciados frecuentes
+\end{enumerate}
+\end{tcolorbox}
+
+% ============================================================
+\bloqueheader{A}{blocka}{Teoría y ejemplos guiados}
+
+\subtitulo{1. Conjuntos numéricos}
+Los conjuntos numéricos que estudiaremos son:
+\[
+\mathbb{N}=\{1,2,3,4,5,\ldots\},\qquad
+\mathbb{N}_0=\{0,1,2,3,4,5,\ldots\},
+\]
+\[
+\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\},
+\qquad
+\mathbb{Q},\quad \mathbb{Q}^{\ast},\quad \mathbb{R},\quad \mathbb{C}.
+\]
+
+Ejemplos de racionales:
+\[
+\left\{1,0,2,-\frac{4}{3},2,\overline{31},\ldots\right\}
+\]
+Ejemplos de irracionales:
+\[
+\left\{\sqrt{2},\pi,\sqrt[5]{3},\ldots\right\}
+\]
+Ejemplos de reales:
+\[
+\left\{\sqrt{7},3\pi,\sqrt[4]{8},\log 3,\ldots\right\}
+\]
+Ejemplos de imaginarios puros:
+\[
+\left\{i,2i,\sqrt{3}i,\frac{2}{3}i,\ldots\right\}
+\]
+
+\figureplaceholder{Diagrama de inclusión de conjuntos numéricos del material original.}
+
+Los números complejos se expresan como:
+\[
+\mathbb{C}=\{1,-i,3+2i,1-i,\ldots\}
+\]
+
+\subtitulo{a. Números enteros}
+Los números enteros, denotados por $\mathbb{Z}$, incluyen a los números naturales, a sus opuestos y al cero. En la recta numérica horizontal, los positivos se ubican a la derecha del cero y los negativos a la izquierda.
+
+\figureplaceholder{Recta numérica de números enteros del material original.}
+
+El conjunto de los números enteros es ordenable; por ello, podemos comparar sus elementos y decidir si dos enteros son iguales o distintos, y en este último caso, cuál es mayor o menor.
+
+\subtitulo{b. Valor absoluto}
+El valor absoluto de un número $x$ se escribe $|x|$ y corresponde a la distancia entre el número $x$ y el $0$ en la recta numérica. Por ello, siempre se cumple que:
+\[
+|x|\ge 0.
+\]
+
+\figureplaceholder{Figura del valor absoluto con los ejemplos $|-3|=3$ y $|3|=3$.}
+
+\begin{tcolorbox}[tipbox]
+\textbf{Tip.} Para cualquier par de valores $a$ y $b$, siempre se cumple que:
+\[
+|a-b|=|b-a|.
+\]
+Ejemplo: $|7-3|=|4|=4$ y $|3-7|=|-4|=4$.
+\end{tcolorbox}
+
+\subtitulo{i. Propiedades del valor absoluto}
+Para cualquier par de valores $a$ y $b$:
+\begin{align*}
+|a|\cdot |b| &= |ab|,\\
+\frac{|a|}{|b|} &= \left|\frac{a}{b}\right|, \qquad b\neq 0,\\
+|a^n| &= |a|^n, \qquad n\in \mathbb{Z}.
+\end{align*}
+Ejemplos:
+\begin{align*}
+|5|\cdot |-3| &= |5\cdot(-3)| = 15,\\
+\frac{|6|}{|-2|} &= \left|\frac{6}{-2}\right| = 3,\\
+|(-3)^2| &= |-3|^2 = 9.
+\end{align*}
+
+\subtitulo{2. Orden en el conjunto de los números enteros}
+En los enteros existe una relación de orden. Dados dos números $x$ e $y$, siempre ocurre exactamente una de estas posibilidades:
+\begin{itemize}
+  \item $x<y$,
+  \item $x=y$,
+  \item $x>y$.
+\end{itemize}
+Esta idea corresponde a la \textbf{ley de tricotomía}.
+
+La forma más simple de comparar dos enteros distintos es observar su ubicación en la recta numérica: será menor el que esté más a la izquierda. También podemos decidir el orden usando signo y valor absoluto:
+\begin{itemize}
+  \item Si $a$ y $b$ son positivos y distintos, entonces $a<b$ cuando $|a|<|b|$.
+  \item Si $a$ y $b$ son negativos y distintos, entonces $a<b$ cuando $|a|>|b|$.
+  \item Si $a<0$ y $b>0$, entonces siempre $a<b$.
+\end{itemize}
+Ejemplos: $8<10$, $25>9$, $-3>-7$, $-10<-9$, $-8<10$, $1>-190$.
+
+\subtitulo{3. Las cuatro operaciones básicas en los enteros}
+\subtitulo{a. Adición y sustracción}
+\textbf{Números de igual signo.} Para adicionar números de igual signo, se suman sus valores absolutos y se conserva el signo común.
+
+\textbf{Números de distinto signo.} Para adicionar números de distinto signo, se restan los valores absolutos y se conserva el signo del número con mayor valor absoluto.
+
+Ejemplos:
+\[
+5+7=12, \qquad -5-7=-12,
+\]
+\[
+5-7=-2, \qquad -5+7=2.
+\]
+Restar un valor equivale a sumar su opuesto. Por ejemplo:
+\[
+8-5=8+(-5)=3.
+\]
+
+\begin{tcolorbox}[tipbox]
+\textbf{Tips para sustracción.}
+\begin{itemize}
+  \item Si a un número mayor le restamos uno menor, el resultado es positivo.
+  \item Si a un número menor le restamos uno mayor, el resultado es negativo.
+\end{itemize}
+Ejemplos: $7-5=2$, $2-(-6)=8$, $-1-(-8)=7$, $3-6=-3$, $-1-4=-5$, $-5-(-2)=-3$.
+\end{tcolorbox}
+
+\subtitulo{b. Multiplicación y división}
+\textbf{Números de igual signo.} Al multiplicar o dividir dos números de igual signo, el resultado es positivo.
+
+Ejemplos:
+\begin{itemize}
+  \item $5\cdot 7=35$
+  \item $(-5)\cdot(-7)=35$
+  \item $10:2=5$
+  \item $(-10):(-2)=5$
+\end{itemize}
+
+\textbf{Números de distinto signo.} Al multiplicar o dividir dos números de distinto signo, el resultado es negativo.
+
+Ejemplos:
+\[
+5\cdot(-7)=-35,\qquad (-5)\cdot 7=-35,\qquad 10:(-2)=-5,\qquad (-10):2=-5.
+\]
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$+\cdot +=+$ & $+\cdot -=-$ \\
+\hline
+$-\cdot -=+$ & $-\cdot +=-$ \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{|c|c|}
+\hline
+$+:+ = +$ & $+:- = -$ \\
+\hline
+$-:- = +$ & $-:+ = -$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subtitulo{4. Múltiplos y divisores}
+\subtitulo{a. Múltiplos}
+Un número natural $a$ es múltiplo de un número natural $b$ si existe un $k\in\mathbb{N}$ tal que:
+\[
+a=k\cdot b.
+\]
+Ejemplos:
+\begin{itemize}
+  \item $12$ es múltiplo de $3$, porque $12=4\cdot 3$.
+  \item $28$ es múltiplo de $4$, porque $28=7\cdot 4$.
+  \item $35$ no es múltiplo de $4$.
+\end{itemize}
+Los múltiplos de un número natural son infinitos. Por ejemplo:
+\[
+\text{Múltiplos de }3=\{3,6,9,12,15,18,\ldots\}
+\]
+En los enteros, también consideramos múltiplos negativos y al cero:
+\[
+\text{Múltiplos de }3=\{\ldots,-18,-15,-12,-9,-6,-3,0,3,6,9,12,15,18,\ldots\}
+\]
+
+\subtitulo{b. Divisores}
+Un número natural $b$ es divisor de un número natural $a$ si al dividir $a$ entre $b$ se obtiene un cociente natural y resto cero.
+
+Ejemplos:
+\begin{itemize}
+  \item $4$ es divisor de $20$, porque $20:4=5$ y el resto es $0$.
+  \item $7$ es divisor de $14$, porque $14:7=2$ y el resto es $0$.
+  \item $8$ no es divisor de $15$, porque $15:8=1$ y el resto es $7$.
+\end{itemize}
+
+Ejemplos de conjuntos de divisores:
+\begin{itemize}
+  \item Divisores de $10$: $\{1,2,5,10\}$.
+  \item Divisores de $24$: $\{1,2,3,4,6,8,12,24\}$.
+  \item Divisores de $5$: $\{1,5\}$.
+\end{itemize}
+Todo número natural mayor que $1$ tiene al menos dos divisores: el $1$ y él mismo.
+
+En los enteros también consideramos divisores negativos. Por ejemplo:
+\[
+\text{Divisores negativos de }8=\{-8,-4,-2,-1\}
+\]
+Además, $0$ tiene infinitos divisores, pero $0$ no es divisor de ningún número.
+
+\subtitulo{5. Paridad e imparidad}
+Un número entero es \textbf{par} si es múltiplo de $2$; en caso contrario, es \textbf{impar}.
+
+Ejemplos:
+\begin{itemize}
+  \item Son pares: $28,-4,16,-400$.
+  \item Son impares: $17,-9,113,501$.
+\end{itemize}
+
+\begin{tcolorbox}[tipbox]
+\textbf{Tip.} Aunque el $0$ no es positivo ni negativo, sí es un número par.
+\end{tcolorbox}
+
+Al operar números pares e impares se obtiene:
+\begin{itemize}
+  \item par $\pm$ par = par,
+  \item impar $\pm$ impar = par,
+  \item par $\pm$ impar = impar,
+  \item par $\cdot$ par = par,
+  \item par $\cdot$ impar = par,
+  \item impar $\cdot$ impar = impar.
+\end{itemize}
+
+\subtitulo{6. Propiedades de las operaciones en los números enteros}
+\subtitulo{a. Propiedad conmutativa}
+La adición y la multiplicación cumplen la propiedad conmutativa:
+\[
+a+b=b+a, \qquad a\cdot b=b\cdot a.
+\]
+Ejemplos: $5+6=6+5$ y $6\cdot 7=7\cdot 6$.
+
+\subtitulo{b. Propiedad asociativa}
+\[
+a+(b+c)=(a+b)+c, \qquad a\cdot(b\cdot c)=(a\cdot b)\cdot c.
+\]
+Ejemplo:
+\[
+(2+1)+6=2+(1+6)=9.
+\]
+
+\subtitulo{c. Propiedad distributiva}
+\[
+a\cdot (b+c)=a\cdot b+a\cdot c, \qquad a\cdot(b-c)=a\cdot b-a\cdot c.
+\]
+Ejemplos:
+\[
+3\cdot(5+7)=3\cdot 5+3\cdot 7=36,
+\]
+\[
+3\cdot(2-7)=3\cdot 2-3\cdot 7=-15.
+\]
+
+\subtitulo{d. Neutro aditivo y neutro multiplicativo}
+\[
+a+0=a,\qquad a\cdot 1=a.
+\]
+Por ello, $0$ es el neutro aditivo y $1$ es el neutro multiplicativo.
+
+\subtitulo{e. Inverso aditivo}
+El inverso aditivo de $a$ es el número $-a$, pues:
+\[
+a+(-a)=0.
+\]
+Ejemplos: el inverso aditivo de $5$ es $-5$; el de $-8$ es $8$.
+
+\subtitulo{f. Elemento absorbente}
+\[
+a\cdot 0=0,\qquad 0\cdot a=0.
+\]
+Por ello, $0$ es absorbente en la multiplicación.
+
+\subtitulo{g. Prioridad de las operaciones}
+Cuando en una expresión aparecen varias operaciones, se sigue el orden:
+\begin{enumerate}
+  \item paréntesis (de adentro hacia afuera),
+  \item potencias y raíces,
+  \item multiplicación y división,
+  \item adición y sustracción.
+\end{enumerate}
+Ejemplo:
+\[
+8\cdot(7-4):12-1+6:3\cdot 9=19.
+\]
+
+\begin{tcolorbox}[tipbox]
+\textbf{Nota.} Esta regla también se conoce como \textbf{PAPOMUDAS}: paréntesis, potencias y raíces, multiplicación y división, adición y sustracción.
+\end{tcolorbox}
+
+\subtitulo{7. Criterios de divisibilidad}
+Un número es divisible por:
+\begin{itemize}
+  \item $2$ si su último dígito es par.
+  \item $3$ si la suma de sus dígitos es múltiplo de $3$.
+  \item $4$ si sus dos últimos dígitos forman un múltiplo de $4$ o son ceros.
+  \item $5$ si termina en $0$ o en $5$.
+  \item $6$ si es divisible por $2$ y por $3$ a la vez.
+  \item $7$ si al multiplicar el dígito de las unidades por $2$ y restarlo del número formado por los otros dígitos, el resultado es múltiplo de $7$ o $0$.
+  \item $8$ si sus tres últimos dígitos forman un múltiplo de $8$ o son ceros.
+  \item $9$ si la suma de sus dígitos es múltiplo de $9$.
+  \item $10$ si su último dígito es $0$.
+\end{itemize}
+Ejemplos: $234$ es divisible por $3$; $1300$ es divisible por $4$; $385$ es divisible por $5$; $1350$ es divisible por $6$; $5643$ es divisible por $9$; $23140$ es divisible por $10$.
+
+% ============================================================
+\bloqueheader{B}{blockb}{Ejemplos — primeros 20 ejercicios}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=8pt]
+\item ¿Cuál es el valor de $1-(-3)(-2-6)$?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2026)\\
+A) $-32$ \quad B) $-23$ \quad C) $-16$ \quad D) $-4$
+
+\item La temperatura en una cámara frigorífica es de $12^\circ\mathrm{C}$. Se necesita variar esta temperatura hasta alcanzar los $-36^\circ\mathrm{C}$. Si la temperatura desciende $3^\circ\mathrm{C}$ cada cinco minutos, ¿cuánto tiempo se tardará en alcanzar dicha temperatura?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) 85 minutos \quad B) 80 minutos \quad C) 60 minutos \quad D) 48 minutos
+
+\item Si la suma de 3 números enteros consecutivos es igual a $p$, ¿cuál de las siguientes afirmaciones es siempre verdadera respecto del valor de $p$?\\
+\textbf{Habilidad:} Argumentar. (DEMRE 2024)\\
+A) Es un número impar. \quad B) Es múltiplo de 3. \quad C) Es positivo. \quad D) Es distinto de cero.
+
+\item Considera la siguiente recta numérica.\\
+\figureplaceholder[3.6cm]{Recta numérica correspondiente al ejercicio 4 de ejemplos.}
+¿Cuál de los siguientes procedimientos representa la operación $-5+(-8)$ usando la recta numérica?\\
+\textbf{Habilidad:} Representar. (DEMRE 2025)\\
+A) Ubicarse en el $-5$ y desplazarse 8 unidades a la izquierda.\\
+B) Ubicarse en el $-5$ y desplazarse 8 unidades a la derecha.\\
+C) Ubicarse en el $-8$ y desplazarse 5 unidades a la derecha.\\
+D) Ubicarse en el $-8$ y desplazarse 3 unidades a la derecha.
+
+\item ¿Cuántos números enteros positivos son mayores o iguales que $-4$ y menores que $3$?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2025)\\
+A) 2 \quad B) 3 \quad C) 4 \quad D) 6
+\end{enumerate}
+
+\subtitulo{8. Números primos, compuestos y teorema fundamental de la aritmética}
+Los números primos son enteros positivos mayores que uno que tienen exactamente dos divisores positivos distintos: $1$ y ellos mismos. Los primeros son:
+\[
+2,3,5,7,11,13,17,19,23,29,31,37,\ldots
+\]
+Los números compuestos son los enteros positivos mayores que uno que no son primos.
+
+El \textbf{teorema fundamental de la aritmética} establece que todo número natural mayor que uno puede escribirse de manera única como producto de potencias de números primos.
+
+\begin{displayquote}
+Nota: la cantidad total de divisores positivos de un número se obtiene multiplicando los sucesores de los exponentes de su descomposición prima.
+\end{displayquote}
+
+\subtitulo{i. Tabla de descomposición}
+Consiste en dividir el número compuesto por números primos sucesivos hasta llegar a la unidad.
+
+\subtitulo{ii. Diagrama de árbol}
+Es un método más visual: se expresa el número como producto de dos factores y se siguen descomponiendo hasta obtener únicamente factores primos.
+
+\figureplaceholder{Tabla de descomposición prima de 90 del material original.}
+\figureplaceholder{Diagrama de árbol para la descomposición prima de 90 del material original.}
+
+Ejemplo:
+\[
+90=2\cdot 3^2\cdot 5.
+\]
+Entonces, la cantidad de divisores positivos de $90$ es:
+\[
+(1+1)(2+1)(1+1)=12.
+\]
+Por tanto, sus divisores positivos son:
+\[
+\{1,2,3,5,6,9,10,15,18,30,45,90\}.
+\]
+
+\begin{tcolorbox}[tipbox]
+\textbf{Tips.}
+\begin{itemize}
+  \item El menor número primo es $2$, y es el único primo par.
+  \item El $1$ no es primo ni compuesto.
+\end{itemize}
+\end{tcolorbox}
+
+\subtitulo{9. Mínimo común múltiplo (m.c.m.) y máximo común divisor (M.C.D.)}
+\subtitulo{a. Mínimo común múltiplo}
+El mínimo común múltiplo de dos o más números es el menor entero positivo que es múltiplo común de todos ellos.
+
+Métodos:
+\begin{enumerate}[label=\roman*.]
+  \item tabla de descomposición,
+  \item descomposición prima.
+\end{enumerate}
+
+Ejemplo, con $A=90$ y $B=24$:
+\[
+A=2\cdot 3^2\cdot 5, \qquad B=2^3\cdot 3.
+\]
+Luego,
+\[
+\mathrm{m.c.m.}(90,24)=2^3\cdot 3^2\cdot 5.
+\]
+
+\figureplaceholder{Tabla de descomposición para calcular el m.c.m. entre 90 y 24.}
+
+\subtitulo{b. Máximo común divisor}
+El máximo común divisor de dos o más números es el mayor entero positivo que divide a todos ellos.
+
+Con los mismos valores:
+\[
+A=2\cdot 3^2\cdot 5, \qquad B=2^3\cdot 3.
+\]
+Entonces,
+\[
+\mathrm{M.C.D.}(90,24)=2\cdot 3.
+\]
+
+\figureplaceholder{Tabla de descomposición para calcular el M.C.D. entre 90 y 24.}
+
+\begin{tcolorbox}[tipbox]
+\textbf{Nota.} Si dos números no tienen factores primos comunes, se llaman \textbf{primos relativos}. En ese caso, su M.C.D. es $1$ y su m.c.m. es el producto de ambos.
+\end{tcolorbox}
+
+\subtitulo{c. Problemas de aplicación}
+Las aplicaciones más frecuentes del m.c.m. y del M.C.D. aparecen cuando debemos sincronizar repeticiones o dividir cantidades en partes iguales lo más grandes posible.
+
+\textbf{Ejemplo 1.} Tres llaves gotean cada 3, 5 y 8 segundos. Si coinciden ahora, volverán a coincidir en:
+\[
+\mathrm{m.c.m.}(3,5,8)=120 \text{ segundos.}
+\]
+
+\textbf{Ejemplo 2.} Dos terrenos de $21\,600\,\mathrm{m}^2$ y $32\,000\,\mathrm{m}^2$ se desean subdividir en parcelas de igual área y lo más grandes posible. El área máxima es:
+\[
+\mathrm{M.C.D.}(21600,32000)=800\,\mathrm{m}^2.
+\]
+
+\subtitulo{10. Evaluar expresiones}
+Evaluar o valorizar una expresión algebraica consiste en sustituir las letras por valores numéricos y luego efectuar las operaciones indicadas.
+
+Ejemplo: si $m=-4$ y $n=-1$,
+\[
+mn-m^2=(-4)(-1)-(-4)^2=4-16=-12.
+\]
+
+\begin{tcolorbox}[tipbox]
+\textbf{Tip.} Al sustituir valores, conviene usar paréntesis para evitar errores de signo.
+\end{tcolorbox}
+
+\subtitulo{11. Enunciados frecuentes}
+Sean $x$ e $y$ números enteros. Algunas traducciones habituales son:
+\begin{itemize}
+  \item El doble de $x$: $2x$.
+  \item El triple de $x$: $3x$.
+  \item La semisuma de $x$ e $y$: $\dfrac{x+y}{2}$.
+  \item El exceso de $x$ sobre $y$: $x-y$.
+  \item La mitad de $x$: $\dfrac{x}{2}$.
+  \item El sucesor de $x$: $x+1$.
+  \item El antecesor de $x$: $x-1$.
+  \item Un número par: $2x$.
+  \item Un número impar: $2x-1$ o $2x+1$.
+  \item Dos pares consecutivos: $2x$ y $2x+2$.
+  \item Dos impares consecutivos: $2x+1$ y $2x+3$.
+  \item El cuadrado de $x$: $x^2$.
+\end{itemize}
+
+Ejemplos breves:
+\begin{itemize}
+  \item El doble de 3 es 6.
+  \item El triple de $-8$ es $-24$.
+  \item La semisuma de 4 y 12 es 8.
+  \item El exceso de 8 sobre 3 es 5.
+  \item El sucesor de $-12$ es $-11$.
+  \item El antecesor de $-4$ es $-5$.
+  \item 14 es par y 19 es impar.
+\end{itemize}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=8pt, start=6]
+\item En la siguiente infografía se presenta el pronóstico del tiempo para cierto día, con la temperatura en grados Celsius.\\
+\figureplaceholder[4.5cm]{Infografía del pronóstico del tiempo correspondiente al ejercicio 6 de ejemplos.}
+¿Cuál será la variación de temperatura entre las 17:00 y las 21:00 horas?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2025)\\
+A) $-6^\circ\mathrm{C}$ \quad B) $-5^\circ\mathrm{C}$ \quad C) $4^\circ\mathrm{C}$ \quad D) $6^\circ\mathrm{C}$
+
+\item Si al quíntuplo de $-10$ se le resta el triple de $-12$, ¿qué número se obtiene?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) $-86$ \quad B) $-14$ \quad C) $2$ \quad D) $34$
+
+\item Una persona selecciona un número de dos dígitos, luego resta este número a $200$ y, finalmente, duplica el resultado. ¿Cuál es el mayor número que puede obtener mediante esta serie de operaciones?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) 220 \quad B) 301 \quad C) 380 \quad D) 398
+
+\item La automotora \textit{Mi auto} tiene cinco marcas de automóviles; cada marca tiene tres modelos y cada modelo está en tres colores distintos. La automotora \textit{Viaje feliz} tiene cuatro marcas, cada marca tiene tres modelos y cada modelo está en cuatro colores distintos.\\
+Si las marcas de ambas automotoras son distintas entre sí, ¿cuál afirmación es verdadera?\\
+\textbf{Habilidad:} Argumentar. (DEMRE 2023)\\
+A) \textit{Viaje feliz} ofrece tres posibilidades más.\\
+B) Ambas ofrecen la misma cantidad de posibilidades.\\
+C) \textit{Mi auto} ofrece más posibilidades.\\
+D) El total se determina por la suma de marcas, modelos y colores.
+
+\item Un diario tiene una colilla recortable para un concurso, la que se presenta a continuación.\\
+\figureplaceholder[4.2cm]{Cuadro mágico y recuadro de operación del ejercicio 10 de ejemplos.}
+¿Cuál es el resultado que permite entrar al concurso?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) 6 \quad B) 7 \quad C) 8 \quad D) 9
+
+\item Una empresa registra mensualmente la variación de la masa total de los metales almacenados en su bodega. El primer mes aumentó en 2 toneladas, el segundo disminuyó en 4 toneladas, el tercero aumentó en 3 toneladas y el cuarto aumentó en 1 tonelada. Al finalizar el cuarto mes, la masa total es de 70 toneladas. ¿Cuántas toneladas había inicialmente?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) 66 \quad B) 68 \quad C) 70 \quad D) 74
+
+\item En la figura se presenta un cartel con los precios de las impresiones en blanco y negro de un centro de impresión.\\
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Cantidad de hojas & Precio por hoja \\
+\midrule
+De 1 a 99 hojas & \$30 \\
+De 100 a 149 hojas & \$25 \\
+150 o más & \$20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Un libro tiene tres capítulos de 150, 130 y 85 hojas. Una persona imprimió primero solo el primer capítulo, luego el segundo y por último el tercero. ¿Cuánto dinero gastó?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) \$7.300 \quad B) \$8.150 \quad C) \$8.800 \quad D) \$9.450
+
+\item Consuelo y dos amigas comieron en un restaurante. A continuación se presenta la boleta de todo lo consumido.\\
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+Jugo & \$1.600 \\
+3 sándwiches & \$18.000 \\
+Promoción 2 sopaipillas + bebidas & \$4.800 + \$2.600 \\
+\hline
+Total & \$27.000 \\
+\hline
+\end{tabular}
+\end{center}
+Acordaron que cada una pagará lo que consumió y que la promoción de sopaipillas se dividirá en tres partes iguales. Si Consuelo consumió un sándwich y una bebida, ¿cuánto debe pagar?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2026)\\
+A) \$8.900 \quad B) \$9.000 \quad C) \$12.000 \quad D) \$22.200
+
+\item Una persona viaja al exterior con un saldo inicial de \$300.000 en su tarjeta. Realiza un pago de \$15.000 y otro de \$35.000. Por cada pago, el banco cobra una comisión de \$2.000. ¿Cuál es su saldo final?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2024)\\
+A) \$254.000 \quad B) \$244.000 \quad C) \$248.000 \quad D) \$246.000
+
+\item Dos personas realizan rutinas de ejercicio. La primera repite 8 veces una serie de 2 minutos de ejercicio y 30 segundos de descanso. La segunda repite 12 veces una serie de 1 minuto y 30 segundos de ejercicio y 15 segundos de descanso. ¿Qué argumento garantiza que una termina antes que la otra?\\
+\textbf{Habilidad:} Argumentar. (DEMRE 2025)\\
+A) Que la cantidad de repeticiones es distinta.\\
+B) Que los tiempos de descanso son distintos.\\
+C) Que la suma entre tiempo de ejercicio, descanso y repeticiones es distinta.\\
+D) Que la suma entre ejercicio y descanso, multiplicada por la cantidad de repeticiones, es distinta.
+
+\item Considera la siguiente secuencia de figuras.\\
+\figureplaceholder[4cm]{Secuencia de círculos correspondiente al ejercicio 16 de ejemplos.}
+Si el patrón se mantiene, ¿cuántos círculos forman la Figura 7?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2025)\\
+A) 18 \quad B) 21 \quad C) 28 \quad D) 36
+
+\item Considera la siguiente secuencia de figuras, formadas por cuadrados y triángulos con palitos de fósforo.\\
+\figureplaceholder[5.2cm]{Figuras 1, 2 y 3 con palitos de fósforo del ejercicio 17 de ejemplos.}
+¿Cuál es la cantidad de palitos que se utilizan en la figura 25?\\
+\textbf{Habilidad:} Representar. (DEMRE 2025)\\
+A) $7\cdot 25$ \quad B) $5\cdot 25+2$ \quad C) $3\cdot 25+4$ \quad D) $2\cdot 25$
+
+\item Un juego consiste en lanzar cinco bolitas hacia los agujeros de una caja, con distintos puntajes según el agujero por donde entra cada bolita.\\
+\figureplaceholder[4cm]{Caja con agujeros y puntajes del ejercicio 18 de ejemplos.}
+Se sabe que las bolitas ingresaron por los tres agujeros. ¿Cuál es el máximo puntaje posible?\\
+\textbf{Habilidad:} Resolver problemas. (DEMRE 2025)\\
+A) 5 \quad B) 11 \quad C) 19 \quad D) 25
+
+\item En el gráfico adjunto se representa la percepción ciudadana respecto de los atributos de un candidato.\\
+\figureplaceholder[4cm]{Gráfico de variación agosto-noviembre del ejercicio 19 de ejemplos.}
+¿Cuál atributo presentó la mayor variación entre agosto y noviembre?\\
+\textbf{Habilidad:} Representar. (DEMRE 2026)\\
+A) Liderazgo \quad B) Cercanía \quad C) Honestidad \quad D) Capacidad de diálogo
+
+\item La masa molar del ácido sulfúrico se calcula sumando las masas molares de todos los átomos que lo conforman.\\
+\figureplaceholder[3.5cm]{Esquema de $\mathrm{H_2SO_4}$ y masas molares del ejercicio 20 de ejemplos.}
+¿Cuál expresión representa la masa molar del ácido sulfúrico?\\
+\textbf{Habilidad:} Representar. (DEMRE 2026)\\
+A) $(1+32+16)\,\frac{\mathrm{g}}{\mathrm{mol}}$\\
+B) $(2+4)\cdot(32+16)\,\frac{\mathrm{g}}{\mathrm{mol}}$\\
+C) $(2\cdot 1+1\cdot 32+4\cdot 16)\,\frac{\mathrm{g}}{\mathrm{mol}}$\\
+D) $(1+2+4)\cdot(1+32+16)\,\frac{\mathrm{g}}{\mathrm{mol}}$
+\end{enumerate}
+
+% ============================================================
+\bloqueheader{C}{blockc}{Ejercicios M1 — 65 ejercicios}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=7pt]
+\item $6-3\cdot 8-32:4=$\\ A) $-26$ \quad B) $-14$ \quad C) $0$ \quad D) $3$
+\item $[-5+(-3)\cdot 7]:(-2)=$\\ A) $24$ \quad B) $13$ \quad C) $-24$ \quad D) $-13$
+\item $-3\cdot|6-8|-|-2|=$\\ A) $-8$ \quad B) $-4$ \quad C) $0$ \quad D) $4$
+\item $(1+5)-3^{2}+8:2\cdot 2=$\\ A) $-1$ \quad B) $1$ \quad C) $5$ \quad D) $15$
+\item $76.606-29.878=$\\ A) $45.728$ \quad B) $46.728$ \quad C) $45.738$ \quad D) $46.736$
+\item Si al entero $-1$ le restamos el entero $-4$, resulta: \\ A) $0$ \quad B) $-3$ \quad C) $2$ \quad D) $3$
+\item $-(4-2\cdot(2-4))=$\\ A) $-15$ \quad B) $-10$ \quad C) $-8$ \quad D) $8$
+\item Si $M=-2$, entonces $-M\cdot M-M=$\\ A) $-12$ \quad B) $-4$ \quad C) $-2$ \quad D) $2$
+\item La expresión $(9\cdot 4)$ es divisor de: \\ A) $4$ \quad B) $9$ \quad C) $18$ \quad D) $36$
+\item Si $P+3$ es el sucesor del número $10$, entonces el sucesor de $P$ es: \\ A) $7$ \quad B) $8$ \quad C) $9$ \quad D) $11$
+\item Si al número $-8$ se le resta el doble de $-6$ y al resultado se le agrega el cubo de $-3$, resulta: \\ A) $7$ \quad B) $-7$ \quad C) $-23$ \quad D) $-31$
+\item Si $|P|$ representa el valor absoluto de $P$, ¿cuál de las siguientes alternativas es verdadera?\\ A) $|-7|>|-8|$ \quad B) $-21>8$ \quad C) $|-10|<|10|$ \quad D) $-5<3$
+\item Si $m=-1$ y $n=2$, ¿cuál es el valor de $m\cdot(n-m)\cdot(m-n)$?\\ A) $9$ \quad B) $3$ \quad C) $0$ \quad D) $-3$
+\item ¿Cuál de las siguientes afirmaciones es verdadera?\\ A) El número 2 es compuesto.\\ B) El número 1 es primo.\\ C) El m.c.m. entre 2, 3 y 11 es la suma entre 2, 3 y 11.\\ D) El M.C.D. entre 2, 11 y 19 es 1.
+\item La temperatura mínima de un día fue de $-1^\circ\mathrm{C}$ y la máxima de $9^\circ\mathrm{C}$. ¿Cuál fue la variación de temperatura del día?\\ A) $-10^\circ\mathrm{C}$ \quad B) $6^\circ\mathrm{C}$ \quad C) $10^\circ\mathrm{C}$ \quad D) $11^\circ\mathrm{C}$
+\item Si un fontanero cobra \$500 por reparar cada fuga de agua en una tubería, ¿cuánto cobraría por reparar tres fugas en tuberías separadas?\\ A) \$1.000 \quad B) \$1.500 \quad C) \$2.000 \quad D) \$2.500
+\item ¿Cuál es el valor de $|-3|-|-3|^2-|-3|^3$?\\ A) $-39$ \quad B) $-33$ \quad C) $-21$ \quad D) $33$
+\item ¿Qué resultado se obtiene si se disminuye en 2 unidades la suma entre el triple de 2 y el doble de 3?\\ A) $15$ \quad B) $12$ \quad C) $10$ \quad D) $8$
+\item Si $N$ es divisor de 8 y $N$ no es divisor de 4, entonces $N$ es: \\ A) $1$ \quad B) $2$ \quad C) $4$ \quad D) $8$
+\item $-3-3\cdot 9:9+3=$\\ A) $-6$ \quad B) $-3$ \quad C) $0$ \quad D) $2$
+\item ¿Cuál de las siguientes afirmaciones es verdadera?\\ A) La suma de números naturales siempre es natural.\\ B) La sustracción es conmutativa en los naturales.\\ C) En los naturales, el inverso aditivo de 2 es $-2$.\\ D) En los enteros, el inverso multiplicativo de 1 es $-1$.
+\item $-2\cdot[3-\{5-2\cdot(8-16)\}]=$\\ A) $-34$ \quad B) $-20$ \quad C) $36$ \quad D) $54$
+\item Si $x$ es un número primo, entonces $x^2$ es siempre: \\ A) Par. \quad B) Primo. \quad C) Compuesto. \quad D) Par y compuesto.
+\item El valor de la expresión $18-(-30):(-2)+(-2)\cdot(-1)$ es: \\ A) $9$ \quad B) $-5$ \quad C) $-9$ \quad D) $5$
+\item El doble de $(2\cdot(4+3)-2\cdot(1-2))=$\\ A) $8$ \quad B) $16$ \quad C) $32$ \quad D) $48$
+\item Si $n$ es un número natural par, entonces el sucesor par del sucesor de $n+1$ está representado por: \\ A) $n+4$ \quad B) $n+2$ \quad C) $2n+2$ \quad D) $2n+4$
+\item $(-2)\cdot 2\cdot(-2)\cdot(-2)\cdot 2=$\\ A) $16$ \quad B) $-8$ \quad C) $-16$ \quad D) $-32$
+\item Si $a=3$ y $b=-1$, entonces $-\{a-(-b-a)\}=$\\ A) $-5$ \quad B) $-1$ \quad C) $0$ \quad D) $1$
+\item Si $p=-6$ y $q=-2$, entonces $-\{p+q-(q-p)\}$ es: \\ A) $-4$ \quad B) $0$ \quad C) $4$ \quad D) $12$
+\item El valor de $24:8\cdot 6:3-45:9\cdot 3-4:(-2)$ es: \\ A) $-11$ \quad B) $-7$ \quad C) $7$ \quad D) $11$
+\item Si el sucesor de un número es $a+4$, entonces el doble del número es: \\ A) $a+3$ \quad B) $2a+2$ \quad C) $2a+3$ \quad D) $2a+6$
+\item La suma de tres números pares consecutivos es siempre divisible por: \\ A) 4 \quad B) 6 \quad C) 9 \quad D) 12
+\item La edad de Lucas equivale al doble de la quinta parte de la semisuma entre 4 y 6. ¿Qué edad tiene Lucas?\\ A) 1 \quad B) 2 \quad C) 3 \quad D) 5
+\item Javiera guarda monedas de \$100 en una alcancía. Si le faltan 3 monedas para tener \$5.000, ¿a cuántas monedas de \$50 equivale el dinero que tiene Javiera?\\ A) 47 \quad B) 94 \quad C) 100 \quad D) 160
+\item ¿Cuál de los siguientes números es primo?\\ A) 19 \quad B) 51 \quad C) 91 \quad D) 141
+\item Con 5 vasos de 250 ml cada uno se llena un jarro. ¿Cuántos vasos de 125 ml se necesitan para llenar dos jarros iguales?\\ A) 10 \quad B) 15 \quad C) 20 \quad D) 25
+\item ¿Cuál de los siguientes pares de dígitos podrían ponerse en los espacios vacíos para que el número $4\square.\square 12$ sea divisible por 6?\\ A) 0 y 1 \quad B) 1 y 1 \quad C) 1 y 2 \quad D) 2 y 2
+\item $M=12C4$ representa a un número de 4 cifras divisible por 6. ¿Qué valores puede tener el dígito $C$?\\ A) $\{4,6,9\}$ \quad B) $\{3,6,9\}$ \quad C) $\{2,5,8\}$ \quad D) $\{5,6,7\}$
+\item Si $a+b+c=2d$, donde $a=5$, $b=4$ y $c=-3$, entonces el valor de $d\cdot d\cdot(d-a)\cdot(d-b)\cdot(d-c)$ es: \\ A) 24 \quad B) 84 \quad C) 96 \quad D) 108
+\item La suma de tres impares consecutivos es siempre divisible por: \\ A) 15 \quad B) 9 \quad C) 6 \quad D) 3
+\item Tenemos cuatro sitios de 70, 56, 42 y 84 hectáreas. Si queremos subdividirlos en parcelas de igual superficie, la superficie máxima posible de cada parcela es: \\ A) 2 ha \quad B) 7 ha \quad C) 14 ha \quad D) 28 ha
+\item ¿Cuál de las siguientes afirmaciones es verdadera?\\ A) En los enteros, la sustracción es conmutativa.\\ B) En los enteros, el inverso multiplicativo de 10 es 0,1.\\ C) En los enteros, el neutro aditivo es el cero.\\ D) En los enteros, la división es conmutativa.
+\item Si el antecesor de un número es $c-5$, entonces el cuádruple del número es: \\ A) $c-4$ \quad B) $4c-4$ \quad C) $4c-16$ \quad D) $4c-20$
+\item Si al cuadrado de $-3$ se le resta el doble de $-4$ y al resultado se le agrega el triple de 3, se obtiene: \\ A) 26 \quad B) 20 \quad C) 11 \quad D) 10
+\item Si 14 veces 2 es igual a $M$ y 15 veces 3 es igual a $N$, entonces $M+N$ resulta: \\ A) 15 \quad B) 28 \quad C) 45 \quad D) 73
+\item Si $a$ y $b$ son números primos distintos, ¿cuál de las siguientes opciones podría ser el producto de $a$ y $b$?\\ A) 4 \quad B) 9 \quad C) 10 \quad D) 16
+\item Si $a$ y $b$ son enteros, el antecesor de $a$ es $b$ y el sucesor de $a$ es $-9$, entonces $a+b=$\\ A) $-21$ \quad B) $-20$ \quad C) $-19$ \quad D) $-17$
+\item El producto entre los divisores positivos de 12 es: \\ A) 12 \quad B) 144 \quad C) 1.728 \quad D) 20.736
+\item Se sabe que $n$ es múltiplo de 2. ¿Cuál de las siguientes afirmaciones es verdadera?\\ A) El sucesor de $n$ es múltiplo de 3.\\ B) $n^3$ es múltiplo de 3.\\ C) $12n$ es múltiplo de 2.\\ D) $n+5$ es múltiplo de 2.
+\item Si la suma entre el menor y el mayor de cinco números impares consecutivos es 1.854, ¿cuál es su diferencia positiva?\\ A) 4 \quad B) 6 \quad C) 8 \quad D) 182
+\item Si la suma de tres números enteros consecutivos es 453, ¿cuál es el producto entre los dos mayores?\\ A) 21.952 \quad B) 22.650 \quad C) 22.952 \quad D) 22.986
+\item En un cumpleaños se deben armar cajitas sorpresa con chocolates, Guagüitas y Sunys. Se compra un paquete de cada uno con 100, 75 y 50 unidades, respectivamente. ¿Cuántas cajitas se pueden armar como máximo, todas con la misma cantidad de cada producto?\\ A) 75 \quad B) 25 \quad C) 20 \quad D) 15
+\item En un circuito de carreras de juguetes, tres autos parten al mismo tiempo desde la meta. El auto rojo tarda 120 s, el azul 140 s y el verde 180 s en dar una vuelta completa. ¿En cuántos segundos volverán a pasar juntos por la línea de partida?\\ A) 2.520 \quad B) 1.260 \quad C) 630 \quad D) 330
+\item Todo el líquido de una jarra se reparte en 14 vasos iguales llenos hasta su capacidad máxima. Se quiere verter la misma cantidad de líquido de otra jarra idéntica en vasos iguales, pero solo hasta la mitad de su capacidad. ¿Cuántos vasos más se necesitarán?\\ A) 7 \quad B) 14 \quad C) 21 \quad D) 28
+\item El reloj despertador de Antonio suena cada 30 minutos y su aplicación de noticias envía notificaciones cada 10 minutos. Si a las 8:00 AM ambos coinciden por primera vez en el día, ¿a qué hora coincidirán por quinta vez?\\ A) 8:50 AM \quad B) 9:30 AM \quad C) 10:00 AM \quad D) 10:30 AM
+\item Mila necesita vender 294 cajas de chocolates en 1 año. Si cada mes venderá 3 cajas más que el mes anterior, ¿cuántas cajas venderá el último mes?\\ A) 23 \quad B) 40 \quad C) 41 \quad D) 44
+\item Una aplicación informa la temperatura cada 40 minutos y el tiempo de llegada de un transporte público cada 12 minutos. Si a las 7:00 AM ambas informaciones coinciden por primera vez, ¿a qué hora coinciden por tercera vez?\\ A) 8 AM \quad B) 9 AM \quad C) 11 AM \quad D) 12 PM
+\item En un juego de cartas un jugador obtiene 27 puntos a favor y 4 en contra. Su puntaje final se obtiene restando a los puntos a favor el doble de los puntos en contra. ¿Cuál es su puntaje final?\\ A) 19 \quad B) 23 \quad C) 25 \quad D) 29
+\item ¿Cuál es la cifra de la unidad de $4^{55}$?\\ A) 2 \quad B) 3 \quad C) 4 \quad D) 5
+\item La suma de cuatro números enteros consecutivos es siempre: \\ A) divisible por 2 \quad B) divisible por 3 \quad C) divisible por 4 \quad D) divisible por 6
+\item Se necesita comprar un balde para vaciar tres estanques cuyas capacidades aparecen en la figura. Se desea hacer el menor número de extracciones y que el balde se llene al máximo cada vez. ¿Qué capacidad debe tener el balde?\\
+\figureplaceholder[3.6cm]{Tres recipientes del ejercicio 61 de M1.}
+A) 2 litros \quad B) 3 litros \quad C) 6 litros \quad D) 12 litros
+\item Si $a$ es par y $b$ es impar, ¿cuál de las siguientes expresiones representa un número par?\\ A) $a+b$ \quad B) $2a-b$ \quad C) $3a+3b$ \quad D) $5a+4b$
+\item Dos luces intermitentes se encienden con intervalos de 42 y 54 segundos. Si a las 10:15 ambas están encendidas, ¿a qué hora estarán nuevamente encendidas simultáneamente?\\ A) 10 h 21 min 18 s \quad B) 10 h 21 min 36 s \quad C) 10 h 21 min 42 s \quad D) 10 h 15 min 54 s
+\item Una habitación se encuentra a $7^\circ\mathrm{C}$. Si una estufa aumenta la temperatura en $2^\circ\mathrm{C}$ cada 10 minutos, ¿en cuánto tiempo llegará a $21^\circ\mathrm{C}$?\\ A) 14 minutos \quad B) 35 minutos \quad C) 1 h 10 min \quad D) 2 h 20 min
+\item Victoria tiene \$38.000 en efectivo, gasta \$4.500 en una entrada al cine, retira \$20.000 de su cuenta y compra un regalo de \$12.000. ¿Qué expresión permite calcular el dinero en efectivo que le queda?\\ A) $38.000-4.500+20.000$ \quad B) $38.000-4.500-20.000-12.000$ \quad C) $38.000-4.500+20.000+12.000$ \quad D) $38.000-4.500+20.000-12.000$
+\end{enumerate}
+
+% ============================================================
+\bloqueheader{D}{blockd}{Ejercicios M2 — 20 ejercicios}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=7pt]
+\item Sean $a>b$ y $b>c$, siendo $a$, $b$ y $c$ números enteros. Si $b=0$, ¿cuál de las siguientes relaciones es verdadera?\\ A) $a\cdot c>0$ \quad B) $a\cdot b>b$ \quad C) $c^2<0$ \quad D) $a-c>0$
+\item Se puede determinar que el número entero $p$ es par si: \\ (1) El doble de $p$ es par. \\ (2) El quíntuple de $p$ es par.\\ A) (1) por sí sola.\\ B) (2) por sí sola.\\ C) Ambas juntas, (1) y (2).\\ D) Cada una por sí sola, (1) o (2).\\ E) Se requiere información adicional.
+\item Si $A$, $B$, $C$ y $D$ son enteros tales que $A>B$, $C>D$, $B<D$ y $C<A$, el orden decreciente es: \\ A) $BDCA$ \quad B) $ACDB$ \quad C) $ACBD$ \quad D) $BDAC$
+\item En una competencia de ciclismo, un corredor gana $A$ carreras y pierde $B$ carreras. Su puntaje final se obtiene restando a las carreras ganadas el triple de las perdidas. ¿Cuál es su puntaje final?\\ A) $3A-3B$ \quad B) $3A-B$ \quad C) $A-3B$ \quad D) $A-\frac13 B$
+\item Si $A^{*}=A^2+1$, entonces $\left(3^{*}+1\right)^{*}=$\\ A) 49 \quad B) 50 \quad C) 100 \quad D) 121 \quad E) 122
+\item Si $a$ y $b$ son enteros y la suma de $a\cdot b$ y $b$ es impar, ¿qué aseveración es verdadera?\\ A) $a$ y $b$ son pares.\\ B) $a$ y $b$ son impares.\\ C) $a$ es par y $b$ es impar.\\ D) $a$ es impar y $b$ es par.
+\item Sea $n$ un número entero. La expresión $3\cdot(3+n)$ representa un múltiplo de 6 si: \\ (1) $n$ es impar. \\ (2) $n+1$ es par.\\ A) (1) por sí sola.\\ B) (2) por sí sola.\\ C) Ambas juntas.\\ D) Cada una por sí sola.\\ E) Se requiere información adicional.
+\item ¿Qué valor toma la expresión $-b^2\cdot a^{-3}$ cuando $a=-3$ y $b=-2$?\\ A) $\frac98$ \quad B) $-\frac79$ \quad C) $\frac{4}{27}$ \quad D) $-\frac{4}{27}$ \quad E) Ninguna de las anteriores.
+\item ¿Cuál de las siguientes afirmaciones es verdadera?\\ A) El 1 es un número compuesto.\\ B) Todo número entero elevado a cero es 1.\\ C) El 1 es múltiplo de todos los enteros.\\ D) El 1 es divisor de todos los naturales.\\ E) El 1 es el neutro aditivo en los enteros.
+\item Sean los enteros $a$, $b$ y $c$. Se puede determinar cuál de ellos es el menor si: \\ (1) $a-b<0$. \\ (2) $a-c>0$.\\ A) (1) por sí sola.\\ B) (2) por sí sola.\\ C) Ambas juntas.\\ D) Cada una por sí sola.\\ E) Se requiere información adicional.
+\item Si el sucesor de un número es $m+3$, entonces el doble del antecesor del número es: \\ A) $m+1$ \quad B) $m+2$ \quad C) $2m+1$ \quad D) $2m+2$
+\item Si $m$ y $n$ son dos enteros consecutivos tales que $m<n$, entonces $n-m$ es: \\ A) 0 \quad B) 1 \quad C) $m^2+m$ \quad D) $2m+1$
+\item ¿Cuál es la cifra de la unidad de la operatoria $2^{42}+3^{901}$?\\ A) 2 \quad B) 5 \quad C) 7 \quad D) 9
+\item Si $N$ es un número entero, ¿cuál de las siguientes afirmaciones es verdadera?\\ A) $(N^2-1)$ es el entero antecesor del cuadrado de $N$.\\ B) $-(N-1)$ es el antecesor de $N$.\\ C) $(N+1)^2$ es el sucesor del cuadrado de $N$.\\ D) $2N-2$ es el antecesor del doble de $N$.
+\item Se puede asegurar que $P$ es divisible por 8 si: \\ (1) Sus últimas cuatro cifras son ceros. \\ (2) Su última cifra es par.\\ A) (1) por sí sola.\\ B) (2) por sí sola.\\ C) Ambas juntas.\\ D) Cada una por sí sola.\\ E) Se requiere información adicional.
+\item Sean $a$, $b$, $c$ y $d$ cuatro números primos distintos. El recíproco del cociente entre el máximo común divisor y el mínimo común múltiplo entre ellos es: \\ A) $abcd$ \quad B) $\frac{1}{abcd}$ \quad C) $\frac{abcd}{4}$ \quad D) $4abcd$
+\item Una persona debe reunir $A$ pesos. Primero reúne $B$ pesos y luego gasta $C$ pesos. ¿Cuánto le falta para completar el monto que necesita, si $A>B>C$?\\ A) $A+B-C$ \quad B) $C+A-B$ \quad C) $-A-(C-B)$ \quad D) $A-(B-C)$
+\item Benjamín tiene ahorradas 12 monedas de \$50, 25 monedas de \$100 y el resto en monedas de \$500, de manera que en total tiene \$7.100. Si cambia todas las monedas de \$500 por monedas de \$50, ¿cuántas monedas tendrá en total?\\ A) 8 \quad B) 80 \quad C) 105 \quad D) 117
+\item Los números siguientes ordenados de manera creciente son: 
+\[
+A=20^{10},\quad B=3^{40},\quad C=12^{20},\quad D=2^{50}
+\]
+A) $A,D,B,C$ \quad B) $A,B,D,C$ \quad C) $D,B,C,A$ \quad D) $D,B,A,C$ \quad E) $C,B,D,A$
+\item Ana tiene $X$ cantidad de dinero en efectivo, gasta $A$ en un almuerzo, luego retira de su cuenta bancaria $B$ y compra un libro por $C$. ¿Qué expresión calcula el dinero en efectivo que le queda?\\ A) $X-A+B-C$ \quad B) $X-A-B-C$ \quad C) $X+A-B+C$ \quad D) $X+A+B+C$
+\end{enumerate}
+
+% ============================================================
+\bloqueheader{E}{zenitnavy}{Respuestas}
+
+\begin{tcolorbox}[theorybox]
+\textbf{Observación.} Se mantiene la tabla de respuestas del material entregado. La primera columna corresponde a \textbf{Ejemplos}, la segunda y tercera a \textbf{M1}, y la última a \textbf{M2}.
+\end{tcolorbox}
+
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+1. B &  & 1. & A & 21. & A & 41. & C & 61. & C & 1. & D \\
+\hline
+2.  & B & 2. & B & 22. & C & 42. & C & 62. & D & 2. & B \\
+\hline
+3.  & B & 3. & A & 23. & C & 43. & C & 63. & A & 3. & B \\
+\hline
+4.  & A & 4. & C & 24. & D & 44. & A & 64. & C & 4. & C \\
+\hline
+5.  & A & 5. & B & 25. & C & 45. & D & 65. & D & 5. & E \\
+\hline
+6.  & B & 6. & D & 26. & A & 46. & C &  &  & 6. & C \\
+\hline
+7.  & B & 7. & C & 27. & D & 47. & A &  &  & 7. & D \\
+\hline
+8.  & C & 8. & C & 28. & A & 48. & C &  &  & 8. & C \\
+\hline
+9.  & A & 9. & D & 29. & D & 49. & C &  &  & 9. & D \\
+\hline
+10. & C & 10. & C & 30. & B & 50. & C &  &  & 10. & C \\
+\hline
+11. & B & 11. & C & 31. & D & 51. & C &  &  & 11. & D \\
+\hline
+12. & C & 12. & D & 32. & B & 52. & B &  &  & 12. & B \\
+\hline
+13. & A & 13. & A & 33. & B & 53. & A &  &  & 13. & C \\
+\hline
+14. & D & 14. & D & 34. & B & 54. & B &  &  & 14. & A \\
+\hline
+15. & D & 15. & C & 35. & A & 55. & C &  &  & 15. & A \\
+\hline
+16. & C & 16. & B & 36. & C & 56. & C &  &  & 16. & A \\
+\hline
+17. & B & 17. & B & 37. & B & 57. & C &  &  & 17. & B \\
+\hline
+18. & C & 18. & C & 38. & C & 58. & A &  &  & 18. & D \\
+\hline
+19. & B & 19. & D & 39. & D & 59. & C &  &  & 19. & A \\
+\hline
+20. & C & 20. & B & 40. & D & 60. & A &  &  & 20. & A \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
