@@ -1,0 +1,1711 @@
+% ============================================================
+% PLANTILLA MAESTRA DE GUÍAS — ACADEMIA ZENIT
+% Guía de Raíces — Progresión 7° Básico a 4° Medio
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+% -- Paquetes de Compatibilidad y Corrección --
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+
+% -- Colores Institucionales Academia Zenit --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+% -- Estilos de tcolorbox --
+\tcbuselibrary{skins, breakable}
+
+\tcbset{
+  importantbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitblue,
+    colbacktitle=zenitblue,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitblue,
+      colback=zenitblue,
+      arc=2pt
+    }
+  },
+  examplebox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitgold,
+    colbacktitle=zenitgold,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitgold,
+      colback=zenitgold,
+      arc=2pt
+    }
+  },
+  warningbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitred,
+    colbacktitle=zenitred,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitred,
+      colback=zenitred,
+      arc=2pt
+    }
+  },
+  answerbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitnavy,
+    colbacktitle=zenitnavy,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitnavy,
+      colback=zenitnavy,
+      arc=2pt
+    }
+  }
+}
+
+% -- Encabezados de sección --
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.2em}
+  \noindent
+  {\Large\bfseries\color{#1} #2}\par
+  \vspace{0.3em}
+  {\noindent\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{0.8em}
+}
+
+\newcommand{\subbloque}[1]{%
+  \vspace{8pt}
+  \noindent{\large\bfseries\color{zenitnavy} #1}\par
+  \vspace{3pt}
+  \hrule height 1pt
+  \vspace{6pt}
+}
+
+% -- Espacios de desarrollo --
+\newcommand{\espaciobasico}{\vspace{1.5cm}}
+\newcommand{\espaciointermedio}{\vspace{2.2cm}}
+\newcommand{\espacioavanzado}{\vspace{3.2cm}}
+
+% -- Formato para preguntas con alternativas --
+\newcommand{\alternativasformato}[3]{%
+\item
+\begin{minipage}[t]{\linewidth}
+#1
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {
+    \begin{minipage}{0.58\linewidth}
+    \begin{enumerate}[label=\Alph*), leftmargin=14pt]
+      #2
+    \end{enumerate}
+    \end{minipage}
+  };
+  \node (figura) at (10.4,0) {
+    #3
+  };
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+}
+
+% -- Configuración dinámica básica --
+\newcommand{\TipoGuia}{Guía de Estudio Progresiva}
+\newcommand{\TituloGuia}{Raíces: de la intuición a la operatoria completa}
+\newcommand{\TemaEncabezado}{Raíces — Progresión 7° Básico a 4° Medio}
+\newcommand{\NivelGuia}{7° Básico a 4° Medio}
+
+% -- Configuración de Encabezado --
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \textbf{Academia Zenit} $\cdot$ \TemaEncabezado}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small \textit{\NivelGuia\ · Matemática}}
+\fancyfoot[R]{\small Prohibida su reproducción total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\thispagestyle{empty}
+
+\vspace*{1.2cm}
+
+\begin{center}
+    \includegraphics[width=0.28\linewidth]{logosin fondo.png}\\[1.2cm]
+
+    {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.35cm]
+
+    {\LARGE\bfseries\color{zenitblue} Guía de Estudio Progresiva}\\[0.2cm]
+    {\LARGE\bfseries\color{zenitblue} Raíces: de la intuición a la operatoria completa}\\[0.8cm]
+
+    {\Large\color{zenitgold}\bfseries 7° Básico a 4° Medio · Matemática}\\[0.6cm]
+
+    \rule{0.72\linewidth}{1.2pt}\\[0.8cm]
+
+    {\large\itshape\color{zenitnavy} Material de apoyo y ejercitación}\\[2cm]
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.82\linewidth}
+\begin{tcolorbox}[importantbox, title={Propósito de la guía}]
+Esta guía cubre de forma progresiva y escalonada todo el contenido de \textbf{raíces} del currículum chileno, desde la intuición concreta de 7° básico hasta la operatoria completa en los números reales de 4° medio. Cada bloque construye sobre el anterior, de modo que el estudiante desarrolle una comprensión sólida, conectada y duradera. La guía incluye definiciones formales, ejemplos resueltos paso a paso, propiedades, errores frecuentes, aplicaciones contextualizadas y ejercicios graduados por nivel de dificultad (\bigstar\ básico, \bigstar\bigstar\ intermedio, \bigstar\bigstar\bigstar\ avanzado).
+\end{tcolorbox}
+\end{minipage}
+\end{center}
+
+\vfill
+
+\begin{center}
+{\large\bfseries\color{zenitnavy} Academia Zenit}\\[2pt]
+{\color{zenitgold} 7° Básico a 4° Medio}
+\end{center}
+
+% ============================================================
+% SECCIÓN 1 — 7° BÁSICO
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Bloque 1 · 7° Básico — Intuición y estimación de raíces cuadradas}
+
+\subbloque{1.1 Activación: el lado de un cuadrado}
+
+Imagina que tienes una baldosa cuadrada cuya \textbf{área es 25 cm$^2$}. La pregunta natural es: ¿cuánto mide el lado? Como el lado multiplicado por sí mismo da el área, necesitamos el número que al cuadrado da 25. Ese número es \textbf{5}, porque $5 \times 5 = 25$. Esta idea es exactamente lo que llamamos \emph{raíz cuadrada}.
+
+\medskip
+Observa los siguientes cuadrados en una cuadrícula (cada celda representa 1 cm$^2$):
+
+\medskip
+\begin{center}
+\begin{tikzpicture}[scale=0.45]
+  % cuadrado 1x1
+  \draw[fill=zenitlightgray, draw=zenitnavy] (0,0) rectangle (1,1);
+  \node at (0.5,-0.5) {\small $A=1$};
+  \node at (0.5,-1.0) {\small lado$=1$};
+  % cuadrado 2x2
+  \draw[fill=zenitlightgray, draw=zenitnavy] (3,0) rectangle (5,2);
+  \node at (4,-0.5) {\small $A=4$};
+  \node at (4,-1.0) {\small lado$=2$};
+  % cuadrado 3x3
+  \draw[fill=zenitlightgray, draw=zenitnavy] (7,0) rectangle (10,3);
+  \node at (8.5,-0.5) {\small $A=9$};
+  \node at (8.5,-1.0) {\small lado$=3$};
+  % cuadrado 4x4
+  \draw[fill=zenitlightgray, draw=zenitnavy] (12,0) rectangle (16,4);
+  \node at (14,-0.5) {\small $A=16$};
+  \node at (14,-1.0) {\small lado$=4$};
+  % cuadrado 5x5
+  \draw[fill=zenitlightgray, draw=zenitnavy] (18,0) rectangle (23,5);
+  \node at (20.5,-0.5) {\small $A=25$};
+  \node at (20.5,-1.0) {\small lado$=5$};
+\end{tikzpicture}
+\end{center}
+
+\medskip
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+\textbf{Definición intuitiva de raíz cuadrada:} La raíz cuadrada de un número $n$ es el lado del cuadrado cuya área es $n$. Si conocemos el área, la raíz cuadrada nos da el lado.
+
+\medskip
+\textbf{Cuadrados perfectos más importantes:}
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|cccccccccccccccc}
+\toprule
+$n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15\\
+\midrule
+$n^2$ & 1 & 4 & 9 & 16 & 25 & 36 & 49 & 64 & 81 & 100 & 121 & 144 & 169 & 196 & 225\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Memorizarla es fundamental.} Permite calcular raíces de forma inmediata.
+\end{tcolorbox}
+
+\subbloque{1.2 Definición formal y notación}
+
+\begin{tcolorbox}[importantbox, title={Definición formal}]
+La \textbf{raíz cuadrada} de un número $n \geq 0$, escrita como $\sqrt{n}$, es el número \emph{no negativo} $x$ tal que $x^2 = n$.
+
+$$\sqrt{n} = x \quad \Longleftrightarrow \quad x^2 = n, \quad x \geq 0$$
+
+El símbolo $\sqrt{\phantom{n}}$ se llama \textbf{radical}. El número dentro del radical se llama \textbf{radicando}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Cuidado}]
+$\sqrt{9} = 3$, \textbf{no} $\pm 3$. La raíz cuadrada siempre entrega el valor \textbf{positivo}. El $\pm$ aparece al resolver ecuaciones ($x^2 = 9 \Rightarrow x = \pm 3$), no al calcular $\sqrt{9}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+  \item $\sqrt{36} = 6$ porque $6^2 = 36$. \hfill Verificación: $6 \times 6 = 36$ \checkmark
+  \item $\sqrt{81} = 9$ porque $9^2 = 81$. \hfill Verificación: $9 \times 9 = 81$ \checkmark
+  \item $\sqrt{144} = 12$ porque $12^2 = 144$.
+  \item $\sqrt{1} = 1$ porque $1^2 = 1$.
+  \item ¿Es 50 un cuadrado perfecto? $7^2=49$ y $8^2=64$, por lo tanto \textbf{no}: no existe un entero cuya raíz cuadrada sea exactamente $\sqrt{50}$.
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{1.3 Estimación de raíces de números no perfectos}
+
+Cuando el radicando no es un cuadrado perfecto, la raíz no es un número entero. Sin embargo, podemos \textbf{estimar} entre qué dos enteros consecutivos se encuentra.
+
+\medskip
+\textbf{Estrategia:} Buscar los dos cuadrados perfectos consecutivos entre los que se ubica el número:
+
+$$k^2 < n < (k+1)^2 \quad \Longrightarrow \quad k < \sqrt{n} < k+1$$
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+Para estimar $\sqrt{n}$: encontrar $k$ tal que $k^2 \leq n < (k+1)^2$. Entonces $\sqrt{n}$ está entre $k$ y $k+1$. Cuanto más cercano esté $n$ a $k^2$, más se acercará $\sqrt{n}$ a $k$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Cuidado}]
+No confundir estimar con calcular. $\sqrt{20} \approx 4{,}5$ es una estimación; el valor exacto es irracional (se explicará más adelante). Por ahora basta ubicarla entre dos enteros.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+
+\item \textbf{Estimar $\sqrt{20}$:}
+
+$4^2 = 16 < 20 < 25 = 5^2$, por lo tanto $4 < \sqrt{20} < 5$.
+
+Como $20$ está más cerca de $16$ que de $25$, $\sqrt{20} \approx 4{,}4$ o $4{,}5$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+  \draw[->, thick] (0,0) -- (6.5,0);
+  \foreach \x/\lab in {1/4, 3.5/{\sqrt{20}}, 6/5}{
+    \draw (\x, 0.12) -- (\x,-0.12);
+    \node[below] at (\x, -0.15) {\small $\lab$};
+  }
+  \node[above, color=zenitblue] at (3.5, 0.15) {\small ?};
+  \draw[fill=zenitgold, color=zenitgold] (3.5,0) circle (2.5pt);
+\end{tikzpicture}
+\end{center}
+
+\item \textbf{Estimar $\sqrt{50}$:}
+
+$7^2=49 < 50 < 64=8^2$, entonces $7 < \sqrt{50} < 8$. Como $50$ es muy cercano a $49$, concluimos $\sqrt{50} \approx 7{,}1$.
+
+\item \textbf{Estimar $\sqrt{72}$:}
+
+$8^2=64 < 72 < 81=9^2$, entonces $8 < \sqrt{72} < 9$. Como $72-64=8$ y $81-72=9$, está ligeramente más cerca de 8: $\sqrt{72} \approx 8{,}5$.
+
+\item \textbf{Estimar $\sqrt{5}$:}
+
+$2^2=4 < 5 < 9=3^2$, entonces $2 < \sqrt{5} < 3$. Como $5$ está mucho más cerca de $4$, $\sqrt{5} \approx 2{,}2$.
+
+\item \textbf{Estimar $\sqrt{110}$:}
+
+$10^2=100 < 110 < 121=11^2$, entonces $10 < \sqrt{110} < 11$. $\sqrt{110} \approx 10{,}5$.
+
+\item \textbf{Ordenar de menor a mayor:} $\sqrt{10}$, $3$, $\sqrt{15}$, $4$, $\sqrt{5}$.
+
+$\sqrt{5} \approx 2{,}2$ · $3$ · $\sqrt{10} \approx 3{,}2$ · $\sqrt{15} \approx 3{,}9$ · $4$.
+
+Orden: $\sqrt{5} < 3 < \sqrt{10} < \sqrt{15} < 4$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+\textit{Nivel} \bigstar\ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula las siguientes raíces cuadradas exactas:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{4}$
+    \item $\sqrt{49}$
+    \item $\sqrt{100}$
+    \item $\sqrt{169}$
+    \item $\sqrt{225}$
+    \item $\sqrt{64}$
+    \item $\sqrt{121}$
+    \item $\sqrt{196}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Determina si los siguientes números son cuadrados perfectos. Si lo son, indica su raíz:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $40$
+    \item $81$
+    \item $50$
+    \item $144$
+    \item $200$
+    \item $36$
+    \item $75$
+    \item $256$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Para cada raíz, indica entre qué dos enteros consecutivos se encuentra:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{7}$
+    \item $\sqrt{30}$
+    \item $\sqrt{55}$
+    \item $\sqrt{90}$
+    \item $\sqrt{130}$
+    \item $\sqrt{200}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Ordena de menor a mayor:
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{3}$, $2$, $\sqrt{7}$, $3$, $\sqrt{12}$
+    \item $\sqrt{40}$, $6$, $\sqrt{50}$, $7$, $\sqrt{30}$
+    \item $\sqrt{99}$, $10$, $\sqrt{101}$, $\sqrt{80}$, $9$
+  \end{enumerate}
+
+  \item Una baldosa cuadrada tiene un área de 50 cm$^2$. Estima el largo de cada lado e indica entre qué dos valores enteros (en cm) se encuentra. ¿La valla para un cuadrado de esa área tendría más o menos de 28 cm? Justifica.
+
+  \item ¿Entre qué par de enteros consecutivos se ubica $\sqrt{n}$ si $n$ está entre 180 y 200? Explica tu razonamiento.
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Un cuadrado tiene diagonal de $\sqrt{98}$ cm. Estima la longitud de esa diagonal y determina si el lado del cuadrado es más o menos de 7 cm. (Pista: la diagonal de un cuadrado de lado $l$ mide $l\sqrt{2}$.)
+
+  \item Sin calcular, determina cuál es mayor: $\sqrt{48}+\sqrt{3}$ o $\sqrt{75}$. Justifica usando estimaciones.
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 2 — 8° BÁSICO
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Bloque 2 · 8° Básico — Raíz cuadrada y raíz cúbica: concepto formal}
+
+\subbloque{2.1 La raíz cuadrada como operación inversa}
+
+La raíz cuadrada y elevar al cuadrado son \textbf{operaciones inversas}: una deshace a la otra. Así como la división deshace a la multiplicación, $\sqrt{\phantom{x}}$ deshace a $(\phantom{x})^2$.
+
+\begin{center}
+\begin{tikzpicture}[node distance=2.0cm, thick]
+  \node[draw, rounded corners, fill=zenitlightgray, minimum width=1.5cm, minimum height=0.8cm] (a) {$x$};
+  \node[draw, rounded corners, fill=zenitblue!20, minimum width=1.5cm, minimum height=0.8cm, right=2.5cm of a] (b) {$x^2$};
+  \draw[->, color=zenitblue] (a) -- node[above]{\small elevar al $\Box$} (b);
+  \draw[->, color=zenitgold] (b) -- node[below]{\small $\sqrt{\phantom{x}}$} (a);
+\end{tikzpicture}
+\end{center}
+
+\medskip
+De esta relación se derivan dos identidades importantes (con $x \geq 0$):
+$$(\sqrt{x})^2 = x \qquad \text{y} \qquad \sqrt{x^2} = x$$
+
+\begin{tcolorbox}[importantbox, title={Procedimiento o propiedad}]
+\textbf{Definición formal de raíz cuadrada:}
+
+$$\sqrt{n} = x \quad \Longleftrightarrow \quad x^2 = n, \quad x \geq 0, \quad n \geq 0$$
+
+\textbf{Tabla de relación (ida y vuelta):}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|c||c|c}
+\toprule
+$x$ & $x^2$ & $x^2$ & $x=\sqrt{x^2}$\\
+\midrule
+1 & 1 & 1 & 1\\
+2 & 4 & 4 & 2\\
+3 & 9 & 9 & 3\\
+4 & 16 & 16 & 4\\
+5 & 25 & 25 & 5\\
+6 & 36 & 36 & 6\\
+7 & 49 & 49 & 7\\
+8 & 64 & 64 & 8\\
+9 & 81 & 81 & 9\\
+10 & 100 & 100 & 10\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\subbloque{2.2 Representación concreta, pictórica y simbólica}
+
+Todo número se puede entender en tres niveles:
+
+\textbf{Concreto:} Si tengo 36 baldosas cuadradas idénticas, ¿puedo formar un cuadrado? Sí: un cuadrado de $6 \times 6 = 36$. Por lo tanto $\sqrt{36}=6$.
+
+\textbf{Pictórico:} Dibujar la cuadrícula y contar los lados.
+
+\textbf{Simbólico:} Escribir $\sqrt{36}=6$, donde $\sqrt{\phantom{x}}$ es el radical, 36 es el radicando y 6 es el resultado.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.4]
+  \draw[fill=zenitblue!10, draw=zenitnavy] (0,0) grid (6,6) rectangle (0,0);
+  \draw[very thick, color=zenitnavy] (0,0) rectangle (6,6);
+  \node at (3,-0.8) {\small $6 \times 6 = 36$ celdas};
+  \node at (3,-1.6) {\small $\sqrt{36}=6$};
+\end{tikzpicture}
+\end{center}
+
+\subbloque{2.3 La raíz cúbica: definición y cubos perfectos}
+
+\begin{tcolorbox}[importantbox, title={Procedimiento o propiedad}]
+\textbf{Definición formal de raíz cúbica:}
+
+$$\sqrt[3]{n} = x \quad \Longleftrightarrow \quad x^3 = n$$
+
+A diferencia de la raíz cuadrada, la raíz cúbica \textbf{existe para cualquier número real}, incluyendo los negativos: $\sqrt[3]{-8} = -2$ porque $(-2)^3=-8$.
+
+\medskip
+\textbf{Analogía geométrica:} $\sqrt[3]{n}$ es el largo de la arista de un cubo cuyo volumen es $n$.
+
+\medskip
+\textbf{Tabla de cubos perfectos:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|c|c}
+\toprule
+$x$ & $x^3$ & $\sqrt[3]{x^3}$\\
+\midrule
+1 & 1 & 1\\
+2 & 8 & 2\\
+3 & 27 & 3\\
+4 & 64 & 4\\
+5 & 125 & 5\\
+6 & 216 & 6\\
+7 & 343 & 7\\
+8 & 512 & 8\\
+9 & 729 & 9\\
+10 & 1000 & 10\\
+$-2$ & $-8$ & $-2$\\
+$-3$ & $-27$ & $-3$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+
+\item \textbf{Calcular $(\sqrt{7})^2$:}
+
+Por la relación inversa: $(\sqrt{7})^2 = 7$. \hfill (No es necesario calcular $\sqrt{7}$.)
+
+\item \textbf{Simplificar $\sqrt{11^2}$:}
+
+$\sqrt{11^2} = 11$. \hfill (La raíz deshace el cuadrado.)
+
+\item \textbf{Calcular $\sqrt[3]{125}$:}
+
+Buscamos $x$ tal que $x^3=125$. Como $5^3=125$, $\sqrt[3]{125}=5$.
+
+\item \textbf{Calcular $\sqrt[3]{-27}$:}
+
+Buscamos $x$ tal que $x^3=-27$. Como $(-3)^3=-27$, $\sqrt[3]{-27}=-3$.
+
+\item \textbf{Problema geométrico — raíz cuadrada:}
+
+Un jardín cuadrado tiene 144 m$^2$ de césped. ¿Cuántos metros de valla necesita para cerrarlo completamente?
+
+\textit{Solución:} El lado mide $\sqrt{144}=12$ m. El perímetro es $4 \times 12 = \textbf{48 m}$.
+
+\item \textbf{Problema geométrico — raíz cúbica:}
+
+Una caja cúbica tiene volumen de 512 cm$^3$. ¿Cuánto mide su arista?
+
+\textit{Solución:} Arista $= \sqrt[3]{512} = \sqrt[3]{8^3} = \textbf{8 cm}$.
+
+\item \textbf{Calcular $(\sqrt[3]{5})^3$:}
+
+Por la relación inversa: $(\sqrt[3]{5})^3=5$.
+
+\item \textbf{¿Cuántas fichas cúbicas de 1 cm$^3$ forman exactamente un cubo de arista entera si se dispone de 216?}
+
+Arista $= \sqrt[3]{216} = 6$ cm, pues $6^3=216$. \textbf{Sí es posible}: un cubo de $6\times6\times6$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+\textit{Nivel} \bigstar\ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula y verifica la operación inversa:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $(\sqrt{9})^2$
+    \item $\sqrt{5^2}$
+    \item $(\sqrt{13})^2$
+    \item $\sqrt{7^2}$
+    \item $(\sqrt[3]{4})^3$
+    \item $\sqrt[3]{2^3}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Calcula las siguientes raíces cúbicas (usar la tabla):
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt[3]{8}$
+    \item $\sqrt[3]{64}$
+    \item $\sqrt[3]{343}$
+    \item $\sqrt[3]{1000}$
+    \item $\sqrt[3]{-8}$
+    \item $\sqrt[3]{-125}$
+    \item $\sqrt[3]{27}$
+    \item $\sqrt[3]{729}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Resuelve los siguientes problemas geométricos mostrando todos los pasos:
+  \begin{enumerate}[label=\alph*)]
+    \item Una plaza cuadrada tiene área de 625 m$^2$. ¿Cuánto mide cada lado? ¿Cuánto mide el perímetro?
+    \item Un terreno cuadrado se desea cercar. Su área es 196 m$^2$. ¿Cuántos metros de cerco se necesitan?
+    \item Una pantalla cuadrada tiene área de 256 cm$^2$. ¿Cuánto mide su diagonal? (Pista: use el Teorema de Pitágoras, que veremos formalmente más adelante: diagonal $= \text{lado} \times \sqrt{2} \approx 1{,}41$.)
+  \end{enumerate}
+
+  \item Resuelve los siguientes problemas con raíz cúbica:
+  \begin{enumerate}[label=\alph*)]
+    \item Una piscina cúbica tiene volumen de 343 m$^3$. ¿Cuánto mide cada arista?
+    \item Un cubo de hielo tiene volumen de 27 cm$^3$. ¿Cuánto mide su lado?
+    \item ¿Cuántos cubos de arista 1 cm caben en un cubo de arista $\sqrt[3]{512}$ cm?
+  \end{enumerate}
+
+  \item Completa la siguiente tabla de doble entrada:
+
+  \begin{center}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  \textbf{Número} & \textbf{Su cuadrado} & \textbf{Su raíz cuadrada}\\
+  \hline
+  $7$ & \quad\quad & \quad\quad\\
+  \hline
+  \quad\quad & $144$ & \quad\quad\\
+  \hline
+  \quad\quad & \quad\quad & $13$\\
+  \hline
+  $11$ & \quad\quad & \quad\quad\\
+  \hline
+  \quad\quad & $225$ & \quad\quad\\
+  \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Ordena de menor a mayor las siguientes expresiones (sin calculadora, usando estimaciones): $\sqrt[3]{10}$,\ $\sqrt{3}$,\ $2$,\ $\sqrt[3]{27}$,\ $\sqrt{5}$,\ $\sqrt[3]{50}$.
+
+  \item Un arquitecto diseña una sala cuadrada de 200 m$^2$ y un depósito cúbico de 200 m$^3$. ¿Cuál de las dos medidas (lado de la sala o arista del depósito) es mayor? Justifica usando estimaciones de raíces.
+
+  \item Si $\sqrt[3]{n}=4$, ¿cuánto vale $n$? ¿Y si $\sqrt{m}=\sqrt[3]{n}$ y $n=125$, cuánto vale $m$?
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 3 — 1° MEDIO
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Bloque 3 · 1° Medio — Propiedades de las raíces y simplificación}
+
+\subbloque{3.1 Relación inversa: repaso y formalización algebraica}
+
+Ya sabemos que elevar al cuadrado y sacar raíz cuadrada son operaciones inversas. Podemos escribirlo formalmente para $a \geq 0$:
+
+$$(\sqrt{a})^2 = a \qquad \text{y} \qquad \sqrt{a^2} = a$$
+
+Igualmente para la raíz cúbica, para cualquier $a \in \mathbb{R}$:
+
+$$(\sqrt[3]{a})^3 = a \qquad \text{y} \qquad \sqrt[3]{a^3} = a$$
+
+Estas relaciones nos permiten simplificar expresiones sin necesidad de calcular el valor exacto de la raíz.
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+\textbf{Propiedades fundamentales de las raíces cuadradas} (con $a \geq 0$, $b \geq 0$, $b \neq 0$):
+
+\medskip
+\begin{enumerate}[label=\textbf{P\arabic*.}]
+  \item \textbf{Raíz de un producto:} $\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}$
+  \item \textbf{Raíz de un cociente:} $\dfrac{\sqrt{a}}{\sqrt{b}} = \sqrt{\dfrac{a}{b}}$
+  \item \textbf{Raíz de una potencia:} $\sqrt{a^n} = a^{n/2}$ \quad (cuando el resultado es entero)
+\end{enumerate}
+
+\medskip
+Estas propiedades permiten \textbf{descomponer} raíces complejas en partes más simples.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente}]
+\textbf{La raíz de una suma NO es la suma de las raíces:}
+
+$$\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$$
+
+\textbf{Contraejemplo:} $\sqrt{9+16} = \sqrt{25} = 5$, pero $\sqrt{9}+\sqrt{16} = 3 + 4 = 7 \neq 5$.
+
+\medskip
+Este error es uno de los más comunes en álgebra. Nunca separar una raíz sobre una suma o una resta.
+\end{tcolorbox}
+
+\subbloque{3.2 Técnica de simplificación: descomposición en factores perfectos}
+
+Para simplificar $\sqrt{n}$ cuando $n$ no es cuadrado perfecto:
+
+\begin{enumerate}
+  \item Descomponer $n$ en factores primos.
+  \item Identificar pares de factores iguales (grupos de exponente 2).
+  \item Sacar cada par fuera del radical como un solo factor.
+  \item Dejar dentro del radical solo lo que no puede salir.
+\end{enumerate}
+
+\textbf{Ejemplo-modelo:}
+$$\sqrt{72} = \sqrt{4 \cdot 18} = \sqrt{4 \cdot 9 \cdot 2} = \sqrt{4}\cdot\sqrt{9}\cdot\sqrt{2} = 2\cdot 3 \cdot \sqrt{2} = 6\sqrt{2}$$
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+
+\item \textbf{Simplificar $\sqrt{50}$:}
+$$\sqrt{50} = \sqrt{25 \cdot 2} = \sqrt{25}\cdot\sqrt{2} = 5\sqrt{2}$$
+
+\item \textbf{Simplificar $\sqrt{12}$:}
+$$\sqrt{12} = \sqrt{4 \cdot 3} = 2\sqrt{3}$$
+
+\item \textbf{Simplificar $\sqrt{180}$:}
+$$\sqrt{180} = \sqrt{4 \cdot 9 \cdot 5} = 2 \cdot 3 \cdot \sqrt{5} = 6\sqrt{5}$$
+
+\item \textbf{Simplificar $\sqrt{200}$:}
+$$\sqrt{200} = \sqrt{4 \cdot 50} = \sqrt{4 \cdot 25 \cdot 2} = 2 \cdot 5 \cdot \sqrt{2} = 10\sqrt{2}$$
+
+\item \textbf{Aplicar propiedad del producto — $\sqrt{4 \cdot 25}$:}
+$$\sqrt{4 \cdot 25} = \sqrt{4}\cdot\sqrt{25} = 2 \cdot 5 = 10 \quad \text{Verificación: } \sqrt{100}=10 \checkmark$$
+
+\item \textbf{Aplicar propiedad del cociente — $\sqrt{\dfrac{25}{9}}$:}
+$$\sqrt{\dfrac{25}{9}} = \dfrac{\sqrt{25}}{\sqrt{9}} = \dfrac{5}{3} \quad \text{Verificación: } \left(\dfrac{5}{3}\right)^2 = \dfrac{25}{9} \checkmark$$
+
+\item \textbf{Simplificar $3\sqrt{48}$:}
+$$3\sqrt{48} = 3\sqrt{16 \cdot 3} = 3 \cdot 4 \cdot \sqrt{3} = 12\sqrt{3}$$
+
+\item \textbf{Simplificar $\sqrt{2^3 \cdot 3^4 \cdot 5}$:}
+$$\sqrt{2^3 \cdot 3^4 \cdot 5} = \sqrt{2^2 \cdot 2 \cdot 3^4 \cdot 5} = 2 \cdot 9 \cdot \sqrt{2 \cdot 5} = 18\sqrt{10}$$
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+\textit{Nivel} \bigstar\ \textit{(básico): Verificación de propiedades}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Simplifica usando la \textbf{propiedad del producto}:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{4 \cdot 9}$
+    \item $\sqrt{16 \cdot 25}$
+    \item $\sqrt{9 \cdot 49}$
+    \item $\sqrt{100 \cdot 4}$
+    \item $\sqrt{36 \cdot 4}$
+    \item $\sqrt{25 \cdot 4}$
+    \item $\sqrt{9 \cdot 16}$
+    \item $\sqrt{4 \cdot 121}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Simplifica usando la \textbf{propiedad del cociente}:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{\dfrac{49}{4}}$
+    \item $\sqrt{\dfrac{100}{25}}$
+    \item $\sqrt{\dfrac{81}{9}}$
+    \item $\sqrt{\dfrac{144}{4}}$
+    \item $\dfrac{\sqrt{36}}{\sqrt{4}}$
+    \item $\dfrac{\sqrt{100}}{\sqrt{25}}$
+    \item $\dfrac{\sqrt{144}}{\sqrt{16}}$
+    \item $\dfrac{\sqrt{225}}{\sqrt{9}}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Simplifica descomponiendo el radicando (un solo factor perfecto):
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{8}$
+    \item $\sqrt{18}$
+    \item $\sqrt{20}$
+    \item $\sqrt{45}$
+    \item $\sqrt{50}$
+    \item $\sqrt{75}$
+    \item $\sqrt{28}$
+    \item $\sqrt{98}$
+    \item $\sqrt{32}$
+    \item $\sqrt{27}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica completamente (puede haber más de un factor perfecto):
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{72}$
+    \item $\sqrt{108}$
+    \item $\sqrt{150}$
+    \item $\sqrt{180}$
+    \item $\sqrt{200}$
+    \item $\sqrt{288}$
+    \item $\sqrt{363}$
+    \item $\sqrt{500}$
+    \item $3\sqrt{48}$
+    \item $2\sqrt{75}$
+    \item $4\sqrt{32}$
+    \item $5\sqrt{80}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Detecta y corrige el error en cada uno:
+  \begin{enumerate}[label=\alph*)]
+    \item ``$\sqrt{16+9} = \sqrt{16}+\sqrt{9} = 4+3 = 7$''
+    \item ``$\sqrt{36} = \pm 6$''
+    \item ``$\sqrt{8} = 4\sqrt{2}$''
+    \item ``$\sqrt{50} = 5\sqrt{10}$''
+  \end{enumerate}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica completamente (con exponentes y múltiples factores):
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{2^4 \cdot 3^2 \cdot 7}$
+    \item $\sqrt{2^3 \cdot 5^2 \cdot 3}$
+    \item $\sqrt{2^2 \cdot 3^3 \cdot 5^2}$
+    \item $\sqrt{2^5 \cdot 7^2}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Una habitación rectangular mide $\sqrt{200}$ m de largo y $\sqrt{50}$ m de ancho. Calcula su área y su perímetro en forma simplificada.
+
+  \item Demuestra con un contraejemplo que $\sqrt{a^2 + b^2} \neq a + b$ para $a, b > 0$.
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 4 — 2° MEDIO
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Bloque 4 · 2° Medio — Raíces en geometría y números irracionales}
+
+\subbloque{4.1 Números irracionales: ¿qué son?}
+
+Hasta ahora hemos trabajado con raíces de cuadrados perfectos (resultado entero) o hemos simplificado raíces que quedaban con un radical. Pero, ¿qué tipo de número \emph{es} $\sqrt{2}$?
+
+\medskip
+Si intentamos calcular $\sqrt{2}$ con una calculadora obtenemos: $1{,}41421356\ldots$ — una expansión decimal que nunca termina y que no tiene periodo. Esto significa que $\sqrt{2}$ \textbf{no puede escribirse como fracción}.
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+\textbf{Números irracionales:} Son números reales que no pueden expresarse como una fracción $\dfrac{p}{q}$ con $p, q \in \mathbb{Z}$ y $q \neq 0$. Su expansión decimal es \emph{infinita y no periódica}.
+
+\medskip
+Ejemplos: $\sqrt{2},\ \sqrt{3},\ \sqrt{5},\ \sqrt{7},\ \pi,\ e$
+
+\medskip
+En cambio, $\sqrt{4}=2=\dfrac{2}{1}$ \textbf{sí es racional} porque el resultado es un número entero exacto.
+\end{tcolorbox}
+
+\subbloque{4.2 El Teorema de Pitágoras}
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+\textbf{Teorema de Pitágoras:} En todo triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos:
+
+$$\boxed{c^2 = a^2 + b^2}$$
+
+donde $c$ es la hipotenusa (lado opuesto al ángulo recto) y $a$, $b$ son los catetos.
+
+\medskip
+\textbf{Ternas pitagóricas más importantes} (producen resultados exactos):
+
+\begin{center}
+\begin{tabular}{cccc}
+$(3,\,4,\,5)$ & $(5,\,12,\,13)$ & $(8,\,15,\,17)$ & $(7,\,24,\,25)$\\
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\textbf{Tres formas de usar el Teorema de Pitágoras:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Se pide} & \textbf{Se conoce} & \textbf{Fórmula}\\
+\hline
+Hipotenusa $c$ & Catetos $a$ y $b$ & $c = \sqrt{a^2+b^2}$\\
+\hline
+Cateto $a$ & $c$ y $b$ & $a = \sqrt{c^2-b^2}$\\
+\hline
+Verificar si es rectángulo & Los tres lados & $a^2+b^2 \stackrel{?}{=} c^2$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente}]
+\textbf{La hipotenusa siempre es el lado más largo.} Nunca puede ser cateto. Al aplicar la fórmula, asegúrate de que $c$ sea el mayor de los tres lados.
+
+\medskip
+Además: $\sqrt{a^2+b^2} \neq a+b$ (ver bloque anterior). No se puede separar la raíz sobre una suma.
+\end{tcolorbox}
+
+\subbloque{4.3 Distancia entre dos puntos en el plano cartesiano}
+
+A partir del Teorema de Pitágoras se puede derivar la fórmula de la distancia entre dos puntos en el plano:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+  \draw[->] (-0.3,0)--(4.5,0) node[right]{\small $x$};
+  \draw[->] (0,-0.3)--(0,3.5) node[above]{\small $y$};
+  \fill[zenitblue] (1,1) circle (2.5pt) node[below left]{\small $A(x_1,y_1)$};
+  \fill[zenitgold]  (4,3) circle (2.5pt) node[above right]{\small $B(x_2,y_2)$};
+  \draw[thick, color=zenitred] (1,1)--(4,3) node[midway, above left]{\small $d$};
+  \draw[dashed, color=zenitnavy] (1,1)--(4,1) node[midway, below]{\small $x_2-x_1$};
+  \draw[dashed, color=zenitnavy] (4,1)--(4,3) node[midway, right]{\small $y_2-y_1$};
+  \draw (3.85,1) rectangle (4,1.15);
+\end{tikzpicture}
+\end{center}
+
+El triángulo rectángulo formado tiene catetos $|x_2-x_1|$ e $|y_2-y_1|$, e hipotenusa $d$. Por Pitágoras:
+
+\begin{tcolorbox}[importantbox, title={Fórmula de distancia entre dos puntos}]
+$$d(A,B) = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$$
+
+Esta fórmula funciona para cualquier par de puntos del plano cartesiano.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+
+\item \textbf{Calcular la hipotenusa} del triángulo con catetos $a=3$ y $b=4$:
+$$c = \sqrt{3^2+4^2} = \sqrt{9+16} = \sqrt{25} = \mathbf{5}$$
+(terna 3-4-5, resultado exacto)
+
+\item \textbf{Calcular la hipotenusa} con catetos $a=5$ y $b=7$:
+$$c = \sqrt{5^2+7^2} = \sqrt{25+49} = \sqrt{74} = \sqrt{4 \cdot 18{,}5}\ldots$$
+Como 74 no tiene factores cuadrados perfectos (74 = 2·37), el resultado queda: $c = \sqrt{74} \approx 8{,}6$.
+
+\item \textbf{Calcular un cateto:} hipotenusa $c=13$, cateto $b=5$:
+$$a = \sqrt{13^2 - 5^2} = \sqrt{169-25} = \sqrt{144} = \mathbf{12}$$
+
+\item \textbf{Verificar terna:} ¿Es (6, 8, 10) una terna pitagórica?
+$$6^2+8^2 = 36+64 = 100 = 10^2 \quad \checkmark \text{ Sí es terna pitagórica.}$$
+
+\item \textbf{Distancia entre $A(1,2)$ y $B(4,6)$:}
+$$d = \sqrt{(4-1)^2+(6-2)^2} = \sqrt{9+16} = \sqrt{25} = \mathbf{5}$$
+
+\item \textbf{Distancia entre $P(-1,3)$ y $Q(2,-1)$:}
+$$d = \sqrt{(2-(-1))^2+(-1-3)^2} = \sqrt{9+16} = \sqrt{25} = \mathbf{5}$$
+
+\item \textbf{Problema aplicado:} Un kite vuela a 30 m de altura. La cuerda está anclada en el suelo a 40 m de la vertical bajo el kite. ¿Cuánto mide la cuerda?
+$$c = \sqrt{30^2+40^2}=\sqrt{900+1600}=\sqrt{2500}=\mathbf{50 \text{ m}}$$
+
+\item \textbf{Diagonal de un cuadrado de lado 6 cm:}
+$$d = \sqrt{6^2+6^2}=\sqrt{72}=6\sqrt{2}\approx 8{,}49 \text{ cm}$$
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+\textit{Nivel} \bigstar\ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Clasifica como racional o irracional y justifica:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{16}$
+    \item $\sqrt{7}$
+    \item $\sqrt{100}$
+    \item $\sqrt{2}$
+    \item $\sqrt{49}$
+    \item $\sqrt{50}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Calcula la hipotenusa o el cateto indicado:
+  \begin{enumerate}[label=\alph*)]
+    \item $a=6$, $b=8$. Calcula $c$.
+    \item $a=9$, $b=12$. Calcula $c$.
+    \item $c=17$, $a=8$. Calcula $b$.
+    \item $c=25$, $b=24$. Calcula $a$.
+    \item $a=1$, $b=1$. Calcula $c$ (simplificado).
+    \item $a=2$, $b=4$. Calcula $c$ (simplificado).
+  \end{enumerate}
+
+  \item Calcula la distancia entre los siguientes pares de puntos:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $A(0,0)$ y $B(3,4)$
+    \item $P(1,1)$ y $Q(4,5)$
+    \item $M(2,3)$ y $N(6,6)$
+    \item $C(-1,0)$ y $D(2,4)$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Verifica si los siguientes triángulos son rectángulos:
+  \begin{enumerate}[label=\alph*)]
+    \item Lados: 7, 24, 25.
+    \item Lados: 5, 7, 9.
+    \item Lados: 9, 40, 41.
+    \item Lados: 6, 7, 8.
+  \end{enumerate}
+
+  \item Usando la fórmula de distancia, determina si el triángulo con vértices $A(0,0)$, $B(4,0)$, $C(2,2\sqrt{3})$ es equilátero. Muestra el cálculo completo de los tres lados.
+
+  \item Un barco sale del punto $O(0,0)$, navega 5 km al este hasta $A(5,0)$, luego 12 km al norte hasta $B(5,12)$. ¿A qué distancia directa está $B$ del punto de partida $O$?
+
+  \item La diagonal de un rectángulo mide $\sqrt{200}$ cm. Si uno de los lados mide 10 cm, ¿cuánto mide el otro lado? Simplifica la raíz.
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Demuestra que el punto $M\left(\dfrac{x_1+x_2}{2},\dfrac{y_1+y_2}{2}\right)$ está a la misma distancia de $A(x_1,y_1)$ que de $B(x_2,y_2)$.
+
+  \item El triángulo con vértices $A(1,1)$, $B(5,1)$, $C(3,1+2\sqrt{3})$. Calcula sus tres lados y clasifica el triángulo. ¿Es equilátero? ¿Es rectángulo?
+
+  \item Una escalera de 10 m de largo apoya su base a 6 m de la pared. ¿A qué altura llega? Si la base se acerca 2 m más a la pared, ¿cuánto sube la escalera? (Calcula ambas alturas y simplifica las raíces.)
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN AVANZADA — 3° MEDIO
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Bloque 5 · 3° Medio — Raíces enésimas y potencias de exponente racional}
+
+\subbloque{5.1 Generalización: la raíz enésima}
+
+Ya conocemos $\sqrt{a}$ (índice 2) y $\sqrt[3]{a}$ (índice 3). La generalización natural es la \textbf{raíz enésima}.
+
+\begin{tcolorbox}[importantbox, title={Definición formal de raíz enésima}]
+$$\sqrt[n]{a} = x \quad \Longleftrightarrow \quad x^n = a$$
+
+\textbf{Condiciones de existencia en $\mathbb{R}$:}
+\begin{itemize}
+  \item Si $n$ es \textbf{par}: se requiere $a \geq 0$. Las raíces pares de negativos no existen en $\mathbb{R}$.
+  \item Si $n$ es \textbf{impar}: $a$ puede ser cualquier número real, incluyendo negativos.
+\end{itemize}
+
+Ejemplos:
+\begin{itemize}
+  \item $\sqrt[4]{16} = 2$ (par, $a>0$, definida) \hfill $\sqrt[4]{-16}$: \textbf{no definida en $\mathbb{R}$}
+  \item $\sqrt[5]{32} = 2$ (impar, $a>0$, definida) \hfill $\sqrt[5]{-32} = -2$ (impar, $a<0$, sí definida)
+  \item $\sqrt[6]{64} = 2$ \hfill $\sqrt[7]{-128} = -2$
+\end{itemize}
+\end{tcolorbox}
+
+\subbloque{5.2 Equivalencia fundamental: raíz enésima y potencia de exponente racional}
+
+Esta es la equivalencia más importante del bloque. Conecta la notación de raíz con la notación de potencia.
+
+\begin{tcolorbox}[importantbox, title={Equivalencia central}]
+Para $a \geq 0$ y $n \in \mathbb{N}$, $n \geq 2$:
+$$\boxed{\sqrt[n]{a} = a^{1/n}}$$
+
+Más generalmente:
+$$\boxed{\sqrt[n]{a^m} = a^{m/n}}$$
+
+\textbf{Demostración de la primera equivalencia:}
+
+Sea $x = a^{1/n}$. Entonces $x^n = \left(a^{1/n}\right)^n = a^{n/n} = a^1 = a$.
+
+Por definición de raíz enésima, $x = \sqrt[n]{a}$. Por lo tanto $a^{1/n} = \sqrt[n]{a}$. $\square$
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplo guiado}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+
+\item \textbf{Convertir de raíz a potencia racional:}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c|c}
+\toprule
+\textbf{Notación de raíz} & \textbf{Potencia racional}\\
+\midrule
+$\sqrt{5}$ & $5^{1/2}$\\
+$\sqrt[3]{7}$ & $7^{1/3}$\\
+$\sqrt[4]{11}$ & $11^{1/4}$\\
+$\sqrt[5]{32}$ & $32^{1/5} = 2$\\
+$\sqrt[3]{8^2}$ & $8^{2/3} = (8^{1/3})^2 = 2^2 = 4$\\
+$\sqrt[4]{81^3}$ & $81^{3/4} = (81^{1/4})^3 = 3^3 = 27$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\item \textbf{Calcular $8^{2/3}$ usando equivalencia con raíz:}
+$$8^{2/3} = \sqrt[3]{8^2} = \sqrt[3]{64} = 4 \qquad \text{o bien} \qquad 8^{2/3} = (\sqrt[3]{8})^2 = 2^2 = 4$$
+
+\item \textbf{Calcular $16^{3/4}$:}
+$$16^{3/4} = (\sqrt[4]{16})^3 = 2^3 = 8$$
+
+\item \textbf{Simplificar $\sqrt[3]{\sqrt{64}}$ (raíz de una raíz):}
+$$\sqrt[3]{\sqrt{64}} = \sqrt[3]{64^{1/2}} = 64^{1/6} = \sqrt[6]{64} = 2 \quad \text{(pues }2^6=64\text{)}$$
+
+\item \textbf{El logaritmo como operación inversa:}
+
+Si $2^x = 8$, entonces $x = \log_2(8) = 3$. Relación triangular:
+$$2^3 = 8 \quad \Longleftrightarrow \quad \sqrt[3]{8} = 2 \quad \Longleftrightarrow \quad \log_2(8) = 3$$
+Las tres expresiones comunican la misma relación entre 2, 3 y 8.
+
+\item \textbf{Calcular $\log_3(81)$:}
+
+$\log_3(81) = 4$ porque $3^4 = 81$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos: nivel avanzado}
+
+\textit{Nivel} \bigstar\ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Determina si cada raíz está definida en $\mathbb{R}$. Si lo está, calcula su valor:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt[4]{81}$
+    \item $\sqrt[4]{-16}$
+    \item $\sqrt[5]{-32}$
+    \item $\sqrt[6]{64}$
+    \item $\sqrt[3]{-125}$
+    \item $\sqrt[4]{16}$
+    \item $\sqrt[5]{-1}$
+    \item $\sqrt[6]{-64}$
+    \item $\sqrt[7]{128}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Convierte a potencia racional y calcula:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt[3]{27}$
+    \item $\sqrt[4]{16}$
+    \item $\sqrt[5]{32}$
+    \item $\sqrt[3]{8^2}$
+    \item $\sqrt[4]{81^3}$
+    \item $\sqrt[5]{32^2}$
+    \item $16^{3/4}$
+    \item $27^{2/3}$
+    \item $64^{5/6}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Calcula los siguientes logaritmos (usar la tabla de potencias):
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\log_2(8)$
+    \item $\log_3(27)$
+    \item $\log_{10}(1000)$
+    \item $\log_2(32)$
+    \item $\log_5(125)$
+    \item $\log_2(64)$
+    \item $\log_3(81)$
+    \item $\log_{10}(100)$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica usando equivalencia raíz–potencia y propiedades de potencias:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{a^{3/4}}{a^{1/4}}$
+    \item $\left(a^{2/3}\right)^6$
+    \item $a^{1/2} \cdot a^{3/2}$
+    \item $\dfrac{x^{5/3}}{x^{2/3}}$
+    \item $\left(x^{3/5}\right)^{10}$
+    \item $(4a^2)^{1/2}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Simplifica la raíz de una raíz:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt[4]{\sqrt{a}}$
+    \item $\sqrt[3]{\sqrt[3]{a}}$
+    \item $\sqrt{\sqrt[3]{64}}$
+    \item $\sqrt[6]{\sqrt{a^{12}}}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica completamente: $\dfrac{x^{1/2} \cdot x^{2/3}}{x^{1/6}}$
+
+  \item Relaciona las tres notaciones (completa la tabla):
+  \begin{center}
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  \textbf{Ecuación exponencial} & \textbf{Raíz} & \textbf{Logaritmo}\\
+  \hline
+  $2^5 = 32$ & $\sqrt[5]{32}=2$ & $\log_2(32)=\,?$\\
+  \hline
+  $3^? = 243$ & $\sqrt[?]{243}=3$ & $\log_3(243)=\,?$\\
+  \hline
+  $10^? = 10000$ & $\sqrt[?]{10000}=10$ & $\log_{10}(10000)=\,?$\\
+  \hline
+  $4^3 = 64$ & $\sqrt[?]{64}=4$ & $\log_?(64)=3$\\
+  \hline
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\begin{tcolorbox}[answerbox, title={Solución modelo}]
+\textbf{Solución de: Simplificar $\sqrt[3]{\sqrt{64}}$}
+
+\medskip
+\textbf{Paso 1.} Convertir la raíz cuadrada interior a potencia:
+$$\sqrt{64} = 64^{1/2}$$
+
+\textbf{Paso 2.} Sustituir y aplicar la equivalencia de raíz cúbica:
+$$\sqrt[3]{64^{1/2}} = \left(64^{1/2}\right)^{1/3}$$
+
+\textbf{Paso 3.} Aplicar la propiedad potencia de potencia (multiplicar exponentes):
+$$\left(64^{1/2}\right)^{1/3} = 64^{1/6} = \sqrt[6]{64}$$
+
+\textbf{Paso 4.} Calcular: $2^6 = 64$, por lo tanto $\sqrt[6]{64} = \mathbf{2}$.
+
+\medskip
+\textbf{Conclusión:} $\sqrt[3]{\sqrt{64}} = 2$.
+\end{tcolorbox}
+
+% ============================================================
+% SECCIÓN 6 — 4° MEDIO
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Bloque 6 · 4° Medio — Operatoria completa con raíces en $\mathbb{R}$}
+
+\subbloque{6.1 Suma y resta de radicales semejantes}
+
+Dos radicales son \textbf{semejantes} si tienen el mismo índice y el mismo radicando. Solo los radicales semejantes pueden sumarse o restarse directamente.
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+$$a\sqrt[n]{x} + b\sqrt[n]{x} = (a+b)\sqrt[n]{x}$$
+
+Analogía: $3\sqrt{5}+2\sqrt{5}=5\sqrt{5}$, igual que $3x+2x=5x$ (el $\sqrt{5}$ actúa como la ``unidad'').
+
+\medskip
+\textbf{Estrategia:} simplificar cada radical \emph{primero}, luego identificar semejantes y operar.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente}]
+$\sqrt{2}+\sqrt{3} \neq \sqrt{5}$. No se pueden sumar radicales con distinto radicando. Solo operamos si los radicandos y los índices son iguales \emph{después de simplificar}.
+\end{tcolorbox}
+
+\subbloque{6.2 Multiplicación de expresiones con raíces}
+
+$$\sqrt{a}\cdot\sqrt{b} = \sqrt{ab} \qquad (a,b \geq 0)$$
+
+Para expresiones con coeficientes: $(m\sqrt{a})\cdot(n\sqrt{b}) = mn\sqrt{ab}$.
+
+Productos notables importantes:
+$$(\sqrt{a}+\sqrt{b})(\sqrt{a}-\sqrt{b}) = a - b \qquad \text{(diferencia de cuadrados)}$$
+$$(\sqrt{a}+\sqrt{b})^2 = a + 2\sqrt{ab} + b$$
+
+\subbloque{6.3 Racionalización de denominadores}
+
+Racionalizar significa eliminar raíces del denominador de una fracción.
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+\textbf{Caso 1 — Denominador monómico:}
+$$\frac{k}{\sqrt{a}} = \frac{k}{\sqrt{a}} \cdot \frac{\sqrt{a}}{\sqrt{a}} = \frac{k\sqrt{a}}{a}$$
+
+\medskip
+\textbf{Caso 2 — Denominador binómico (conjugado):}
+$$\frac{k}{\sqrt{a}+\sqrt{b}} = \frac{k}{\sqrt{a}+\sqrt{b}} \cdot \frac{\sqrt{a}-\sqrt{b}}{\sqrt{a}-\sqrt{b}} = \frac{k(\sqrt{a}-\sqrt{b})}{a-b}$$
+
+\medskip
+\textbf{Caso 3 — Denominador con raíz cúbica:}
+$$\frac{k}{\sqrt[3]{a}} = \frac{k}{\sqrt[3]{a}} \cdot \frac{\sqrt[3]{a^2}}{\sqrt[3]{a^2}} = \frac{k\sqrt[3]{a^2}}{a}$$
+\end{tcolorbox}
+
+\subbloque{6.4 Ecuaciones con raíces}
+
+\begin{tcolorbox}[importantbox, title={Estrategia general para ecuaciones con raíces}]
+\begin{enumerate}
+  \item Aislar la raíz en un lado de la ecuación.
+  \item Elevar ambos lados al exponente igual al índice de la raíz.
+  \item Resolver la ecuación resultante.
+  \item \textbf{Verificar todas las soluciones} en la ecuación original (pueden aparecer soluciones extrañas).
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente}]
+Al elevar al cuadrado pueden generarse \textbf{soluciones extrañas} que no satisfacen la ecuación original. Siempre sustituir las soluciones en la ecuación de partida y descartar las que no cumplan.
+
+\medskip
+\textbf{Ejemplo de solución extraña:} $\sqrt{x} = -3$ no tiene solución en $\mathbb{R}$ (la raíz cuadrada es siempre $\geq 0$), aunque elevar al cuadrado dé $x=9$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*]
+
+\item \textbf{Suma y resta:} Simplificar $\sqrt{12}+\sqrt{27}-\sqrt{3}$
+$$= 2\sqrt{3}+3\sqrt{3}-\sqrt{3} = (2+3-1)\sqrt{3} = 4\sqrt{3}$$
+
+\item \textbf{Suma con simplificación previa:} $\sqrt{50}+\sqrt{8}$
+$$= 5\sqrt{2}+2\sqrt{2} = 7\sqrt{2}$$
+
+\item \textbf{Multiplicación:} $(3\sqrt{2})(4\sqrt{5})$
+$$= 12\sqrt{10}$$
+
+\item \textbf{Diferencia de cuadrados:} $(\sqrt{7}+\sqrt{3})(\sqrt{7}-\sqrt{3})$
+$$= 7-3 = 4$$
+
+\item \textbf{Cuadrado de binomio:} $(\sqrt{5}+\sqrt{2})^2$
+$$= 5+2\sqrt{10}+2 = 7+2\sqrt{10}$$
+
+\item \textbf{Racionalización caso 1:} $\dfrac{6}{\sqrt{3}}$
+$$= \frac{6}{\sqrt{3}}\cdot\frac{\sqrt{3}}{\sqrt{3}} = \frac{6\sqrt{3}}{3} = 2\sqrt{3}$$
+
+\item \textbf{Racionalización caso 2:} $\dfrac{4}{\sqrt{5}-\sqrt{3}}$
+$$= \frac{4(\sqrt{5}+\sqrt{3})}{(\sqrt{5})^2-(\sqrt{3})^2} = \frac{4(\sqrt{5}+\sqrt{3})}{5-3} = \frac{4(\sqrt{5}+\sqrt{3})}{2} = 2(\sqrt{5}+\sqrt{3})$$
+
+\item \textbf{Racionalización caso 3:} $\dfrac{5}{\sqrt[3]{4}}$
+$$= \frac{5}{\sqrt[3]{4}}\cdot\frac{\sqrt[3]{4^2}}{\sqrt[3]{4^2}} = \frac{5\sqrt[3]{16}}{4}$$
+
+\item \textbf{Ecuación tipo 1:} Resolver $\sqrt{2x+1}=5$
+\begin{align*}
+\sqrt{2x+1} &= 5\\
+2x+1 &= 25 \quad (\text{elevar al cuadrado})\\
+x &= 12
+\end{align*}
+Verificación: $\sqrt{2(12)+1}=\sqrt{25}=5$ \checkmark
+
+\item \textbf{Ecuación con solución extraña:} Resolver $\sqrt{x+2} = x-4$
+\begin{align*}
+x+2 &= (x-4)^2 = x^2-8x+16\\
+0 &= x^2-9x+14 = (x-7)(x-2)\\
+x &= 7 \quad \text{o} \quad x=2
+\end{align*}
+Verificación $x=7$: $\sqrt{9}=3=7-4$ \checkmark
+
+Verificación $x=2$: $\sqrt{4}=2\neq 2-4=-2$ \texttimes\ \textbf{(solución extraña, se descarta)}
+
+Respuesta: $x=7$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+\textit{Nivel} \bigstar\ \textit{(básico): Suma, resta y racionalización caso 1}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Opera y simplifica:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $3\sqrt{5}+2\sqrt{5}$
+    \item $7\sqrt{3}-4\sqrt{3}$
+    \item $\sqrt{8}+\sqrt{2}$
+    \item $\sqrt{12}+\sqrt{3}$
+    \item $\sqrt{18}-\sqrt{2}$
+    \item $\sqrt{45}+\sqrt{5}$
+    \item $2\sqrt{27}-\sqrt{75}$
+    \item $\sqrt{50}+\sqrt{72}-\sqrt{8}$
+    \item $3\sqrt{12}-\sqrt{48}+\sqrt{3}$
+    \item $\sqrt{98}-\sqrt{32}+\sqrt{2}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Racionaliza el denominador (caso 1):
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{4}{\sqrt{2}}$
+    \item $\dfrac{3}{\sqrt{5}}$
+    \item $\dfrac{10}{\sqrt{10}}$
+    \item $\dfrac{6}{\sqrt{3}}$
+    \item $\dfrac{2}{\sqrt{7}}$
+    \item $\dfrac{15}{\sqrt{5}}$
+    \item $\dfrac{1}{\sqrt{6}}$
+    \item $\dfrac{8}{\sqrt{2}}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Efectúa los siguientes productos:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $(2\sqrt{3})(5\sqrt{3})$
+    \item $(3\sqrt{2})^2$
+    \item $(\sqrt{5}+\sqrt{3})(\sqrt{5}-\sqrt{3})$
+    \item $(\sqrt{7}+2)^2$
+    \item $(\sqrt{a}-\sqrt{b})(\sqrt{a}+\sqrt{b})$
+    \item $(2\sqrt{3}-\sqrt{2})(2\sqrt{3}+\sqrt{2})$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Racionaliza el denominador (caso 2 — conjugado):
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{1}{\sqrt{3}+1}$
+    \item $\dfrac{2}{\sqrt{5}-\sqrt{2}}$
+    \item $\dfrac{6}{\sqrt{7}+\sqrt{3}}$
+    \item $\dfrac{3}{\sqrt{6}-2}$
+    \item $\dfrac{\sqrt{2}}{\sqrt{3}-\sqrt{2}}$
+    \item $\dfrac{10}{\sqrt{11}+\sqrt{10}}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Resuelve las ecuaciones y verifica las soluciones:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{x} = 7$
+    \item $\sqrt{3x-2} = 4$
+    \item $\sqrt{x+5} = 3$
+    \item $\sqrt{2x+7} = \sqrt{x+10}$
+    \item $\sqrt{x}+3=5$
+    \item $\sqrt{x+1}=x-1$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica completamente:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{\sqrt{75}-\sqrt{12}}{\sqrt{3}}$
+    \item $\dfrac{1}{\sqrt{2}}+\dfrac{1}{\sqrt{8}}+\dfrac{1}{\sqrt{18}}$
+    \item $(1+\sqrt{2}+\sqrt{3})(1+\sqrt{2}-\sqrt{3})$
+    \item $\dfrac{(\sqrt{5}+\sqrt{3})^2}{\sqrt{5}-\sqrt{3}}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Resuelve y verifica (identificar y descartar soluciones extrañas):
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{x+3}+\sqrt{x-2}=5$
+    \item $\sqrt{2x+1}-\sqrt{x-1}=2$
+    \item $\sqrt{3x+1}=x-1$
+  \end{enumerate}
+
+  \item Racionaliza completamente y simplifica: $\dfrac{\sqrt{6}+\sqrt{2}}{\sqrt{6}-\sqrt{2}}$
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN FINAL — INTEGRACIÓN
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Sección Final · Ejercicios de Integración}
+
+\begin{tcolorbox}[importantbox, title={Indicaciones}]
+Esta sección integra todos los bloques trabajados. Los ejercicios requieren aplicar más de un concepto en cada problema. Lee atentamente antes de comenzar, muestra todos los pasos y verifica tus respuestas.
+
+\medskip
+\textbf{Repaso de la progresión completa:}
+\begin{itemize}
+  \item \textbf{Bloque 1} (7° Básico): definición intuitiva, cuadrados perfectos, estimación.
+  \item \textbf{Bloque 2} (8° Básico): relación inversa, representaciones, raíz cúbica.
+  \item \textbf{Bloque 3} (1° Medio): propiedades del producto y cociente, simplificación.
+  \item \textbf{Bloque 4} (2° Medio): irracionales, Teorema de Pitágoras, distancia.
+  \item \textbf{Bloque 5} (3° Medio): raíces enésimas, exponentes racionales, logaritmos.
+  \item \textbf{Bloque 6} (4° Medio): suma/resta de radicales, multiplicación, racionalización, ecuaciones.
+\end{itemize}
+\end{tcolorbox}
+
+\subbloque{Ejercicios con alternativas}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\alternativasformato{
+  El valor de $\sqrt{75}+\sqrt{48}-\sqrt{3}$ es:
+}{
+  \item $6\sqrt{3}$
+  \item $8\sqrt{3}$
+  \item $7\sqrt{3}$
+  \item $9\sqrt{3}$
+}{}
+
+\alternativasformato{
+  La distancia entre los puntos $A(1,\,2)$ y $B(4,\,6)$ es:
+}{
+  \item $\sqrt{5}$
+  \item $7$
+  \item $5$
+  \item $\sqrt{7}$
+}{}
+
+\alternativasformato{
+  Si $\sqrt[4]{x} = 3$, entonces $x$ es igual a:
+}{
+  \item $12$
+  \item $81$
+  \item $27$
+  \item $9$
+}{}
+
+\alternativasformato{
+  La expresión racionalizada de $\dfrac{6}{\sqrt{6}-\sqrt{3}}$ es:
+}{
+  \item $2(\sqrt{6}+\sqrt{3})$
+  \item $6(\sqrt{6}-\sqrt{3})$
+  \item $2\sqrt{6}$
+  \item $6(\sqrt{6}+\sqrt{3})$
+}{}
+
+\alternativasformato{
+  ¿Cuál de las siguientes expresiones es equivalente a $32^{3/5}$?
+}{
+  \item $\sqrt[5]{32^3}$
+  \item $\sqrt[3]{32^5}$
+  \item $32\cdot 3/5$
+  \item $32^{5/3}$
+}{}
+
+\alternativasformato{
+  En un triángulo rectángulo con catetos $\sqrt{7}$ y $\sqrt{9}$, la hipotenusa mide:
+}{
+  \item $4$
+  \item $\sqrt{16}$
+  \item $\sqrt{2}$
+  \item $\sqrt{7}+3$
+}{}
+
+\alternativasformato{
+  La solución de $\sqrt{2x-3} = 5$ es:
+}{
+  \item $x = 14$
+  \item $x = 11$
+  \item $x = 16$
+  \item $x = 7$
+}{}
+
+\alternativasformato{
+  El número $\log_2(128)$ es igual a:
+}{
+  \item $5$
+  \item $6$
+  \item $7$
+  \item $8$
+}{}
+
+\end{enumerate}
+
+\clearpage
+\subbloque{Ejercicios de desarrollo}
+
+\textit{Nivel} \bigstar\bigstar\ \textit{(integración básica–intermedia)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+  \item Simplifica completamente cada expresión:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{48}+\sqrt{75}-\sqrt{12}$
+    \item $\dfrac{\sqrt{18}+\sqrt{50}}{\sqrt{2}}$
+    \item $\left(\sqrt{5}-\sqrt{3}\right)^2+2\sqrt{15}$
+    \item $\sqrt{2^4\cdot 3^3\cdot 5}$
+    \item $\dfrac{4}{\sqrt{5}-1}$
+    \item $\dfrac{\sqrt{3}+1}{\sqrt{3}-1}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item \textbf{Problema de geometría combinado:}
+
+  Un parque de forma cuadrada tiene área de 200 m$^2$. Desde una de sus esquinas se quiere llegar a la esquina opuesta en diagonal.
+
+  \begin{enumerate}[label=\alph*)]
+    \item ¿Cuánto mide el lado del parque? Simplifica la raíz.
+    \item ¿Cuánto mide la diagonal? Simplifica y racionaliza si es necesario.
+    \item Si el parque se divide en 4 cuadrados iguales, ¿cuánto mide el lado de cada cuadrado pequeño?
+  \end{enumerate}
+
+  \item \textbf{Propiedad inversa:} Simplifica sin calcular el valor de $\sqrt{17}$:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $(\sqrt{17})^2$
+    \item $\sqrt{17^2}$
+    \item $\left(\sqrt[3]{17}\right)^3$
+    \item $\sqrt{(3\sqrt{2})^2}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item \textbf{Ecuaciones con raíces} (mostrar verificación completa):
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{3x+1} = 4$
+    \item $\sqrt{x+4} = x-2$
+    \item $\sqrt{5x-4} = \sqrt{2x+5}$
+  \end{enumerate}
+
+\end{enumerate}
+
+\textit{Nivel} \bigstar\bigstar\bigstar\ \textit{(integración avanzada)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+  \item \textbf{Problema integrador:} Un triángulo rectángulo tiene catetos de longitud $\sqrt{50}$ y $\sqrt{72}$.
+  \begin{enumerate}[label=\alph*)]
+    \item Simplifica ambas longitudes.
+    \item Calcula la hipotenusa y simplifica.
+    \item Calcula el área del triángulo (simplificada).
+    \item Si los vértices del cateto mayor están en $A(0,0)$ y $B(6,6)$, ¿coincide la longitud que calculaste? Verifica usando la fórmula de distancia.
+  \end{enumerate}
+
+  \item \textbf{Expresiones con potencias racionales:}
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{a^{1/2}\cdot a^{2/3}}{a^{1/6}}$
+    \item $\left(\dfrac{x^{3/4}}{x^{1/4}}\right)^2$
+    \item $\sqrt[3]{\sqrt{a^{12}}}$
+    \item $\dfrac{(8x^3)^{1/3}}{(4x^2)^{1/2}}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item \textbf{Problema aplicado:}
+
+  Una empresa fabrica cajas cúbicas y baldosas cuadradas. La caja tiene volumen de $a^3$ dm$^3$ y la baldosa tiene área de $b^2$ dm$^2$. Si $a=\sqrt[3]{216}$ y $b=\sqrt{25}$:
+  \begin{enumerate}[label=\alph*)]
+    \item ¿Cuál es la arista de la caja?
+    \item ¿Cuál es el lado de la baldosa?
+    \item ¿Cuántas baldosas se necesitan para cubrir exactamente el fondo de la caja?
+    \item Expresa $a \cdot b$ como potencia racional y calcula.
+  \end{enumerate}
+
+  \item Demuestra que $\dfrac{1}{\sqrt{n+1}-\sqrt{n}} = \sqrt{n+1}+\sqrt{n}$ racionalizando el denominador. Usa este resultado para calcular $\displaystyle\sum_{n=1}^{4}\dfrac{1}{\sqrt{n+1}-\sqrt{n}}$.
+
+\end{enumerate}
+
+\begin{tcolorbox}[answerbox, title={Respuestas de algunos ejercicios finales}]
+\textbf{Alternativas:}
+\begin{multicols}{4}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{B)} $8\sqrt{3}$
+  \item \textbf{C)} $5$
+  \item \textbf{B)} $81$
+  \item \textbf{A)} $2(\sqrt{6}+\sqrt{3})$
+  \item \textbf{A)} $\sqrt[5]{32^3}$
+  \item \textbf{B)} $\sqrt{16}=4$
+  \item \textbf{A)} $x=14$
+  \item \textbf{C)} $7$
+\end{enumerate}
+\end{multicols}
+
+\medskip
+\textbf{Desarrollo — Ej. 1:}
+\begin{enumerate}[label=\alph*)]
+  \item $\sqrt{48}+\sqrt{75}-\sqrt{12} = 4\sqrt{3}+5\sqrt{3}-2\sqrt{3} = 7\sqrt{3}$
+  \item $\dfrac{\sqrt{18}+\sqrt{50}}{\sqrt{2}} = \dfrac{3\sqrt{2}+5\sqrt{2}}{\sqrt{2}} = \dfrac{8\sqrt{2}}{\sqrt{2}} = 8$
+  \item $(\sqrt{5}-\sqrt{3})^2+2\sqrt{15} = 5-2\sqrt{15}+3+2\sqrt{15} = 8$
+\end{enumerate}
+
+\medskip
+\textbf{Desarrollo — Ej. 2 (Parque):}
+\begin{enumerate}[label=\alph*)]
+  \item Lado $= \sqrt{200} = 10\sqrt{2}$ m
+  \item Diagonal $= \sqrt{(10\sqrt{2})^2+(10\sqrt{2})^2} = \sqrt{400}=20$ m
+  \item Lado pequeño $= \dfrac{10\sqrt{2}}{2} = 5\sqrt{2}$ m
+\end{enumerate}
+
+\medskip
+\textbf{Desarrollo — Ej. 4 (Ecuaciones):}
+\begin{enumerate}[label=\alph*)]
+  \item $\sqrt{3x+1}=4 \Rightarrow 3x+1=16 \Rightarrow x=5$. Verificación: $\sqrt{16}=4$ \checkmark
+  \item $\sqrt{x+4}=x-2 \Rightarrow x+4=x^2-4x+4 \Rightarrow x^2-5x=0 \Rightarrow x(x-5)=0$. Candidatos: $x=0$ o $x=5$. Solo $x=5$ verifica. \checkmark
+  \item $\sqrt{5x-4}=\sqrt{2x+5} \Rightarrow 5x-4=2x+5 \Rightarrow x=3$. Verificación: $\sqrt{11}=\sqrt{11}$ \checkmark
+\end{enumerate}
+
+\medskip
+\textbf{Desarrollo — Ej. 5 (Triángulo):}
+\begin{enumerate}[label=\alph*)]
+  \item $\sqrt{50}=5\sqrt{2}$; $\sqrt{72}=6\sqrt{2}$
+  \item $c=\sqrt{50+72}=\sqrt{122}$ (no simplifica más, pues $122=2\cdot 61$)
+  \item Área $=\dfrac{5\sqrt{2}\cdot 6\sqrt{2}}{2}=\dfrac{60}{2}=30$ dm$^2$
+\end{enumerate}
+
+\medskip
+\textbf{Desarrollo — Ej. 8 (Telescópica):}
+$$\frac{1}{\sqrt{n+1}-\sqrt{n}}=\sqrt{n+1}+\sqrt{n} \quad \Rightarrow \quad \sum_{n=1}^{4}(\sqrt{n+1}+\sqrt{n}) = 2(\sqrt{2}+\sqrt{3}+\sqrt{4}+\sqrt{5})-\sqrt{1}+\sqrt{5} = \sqrt{5}+\sqrt{4}-\sqrt{1} = 1+2\sqrt{5}-1+\cdots$$
+
+Suma telescópica: $(\sqrt{2}+\sqrt{1})+(\sqrt{3}+\sqrt{2})+(\sqrt{4}+\sqrt{3})+(\sqrt{5}+\sqrt{4}) = 2(\sqrt{2}+\sqrt{3}+\sqrt{4})+\sqrt{1}+\sqrt{5} = 2\sqrt{2}+2\sqrt{3}+4+1+\sqrt{5} = 5+2\sqrt{2}+2\sqrt{3}+\sqrt{5}$.
+\end{tcolorbox}
+
+\vspace{8pt}
+\begin{center}
+  \rule{\linewidth}{1.5pt}\\[4pt]
+  {\large\bfseries\color{zenitnavy} La constancia y la práctica son la clave del aprendizaje.}\\[2pt]
+  {\color{zenitgold}\small Academia Zenit · Matemática \NivelGuia}
+  \rule{\linewidth}{1.5pt}
+\end{center}
+
+\end{document}

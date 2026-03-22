@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.7.14)  20 MAR 2026 17:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.7.14)  21 MAR 2026 19:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**guia_racionales
-(./guia_racionales.tex
+**Guia_Raices_Zenit_v3
+(./Guia_Raices_Zenit_v3.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -57,8 +57,8 @@ Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
-LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 12.
-LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 12.
+LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 11.
+LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 11.
  (c:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (c:/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
@@ -491,13 +491,23 @@ Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
 \tcb@temp=\box76
 \tcb@temp=\box77
 \tcb@temp=\box78
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybabel.code.tex
+File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen307
+\pgfarrowlength=\dimen308
+\pgfarrowwidth=\dimen309
+\pgfarrowlinewidth=\dimen310
 ) (c:/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks51
 \t@pgfplots@tokb=\toks52
 \t@pgfplots@tokc=\toks53
-\pgfplots@tmpa=\dimen307
+\pgfplots@tmpa=\dimen311
 \c@pgfplots@coordindex=\count337
 \c@pgfplots@scanlineindex=\count338
  (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
@@ -513,24 +523,24 @@ Package pgfplots: loading complementary utilities for your pgf version...
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count341
  (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen308
-\pgfdecoratedremainingdistance=\dimen309
-\pgfdecoratedinputsegmentcompleteddistance=\dimen310
-\pgfdecoratedinputsegmentremainingdistance=\dimen311
-\pgf@decorate@distancetomove=\dimen312
+\pgfdecoratedcompleteddistance=\dimen312
+\pgfdecoratedremainingdistance=\dimen313
+\pgfdecoratedinputsegmentcompleteddistance=\dimen314
+\pgfdecoratedinputsegmentremainingdistance=\dimen315
+\pgf@decorate@distancetomove=\dimen316
 \pgf@decorate@repeatstate=\count342
-\pgfdecorationsegmentamplitude=\dimen313
-\pgfdecorationsegmentlength=\dimen314
+\pgfdecorationsegmentamplitude=\dimen317
+\pgfdecorationsegmentlength=\dimen318
 )
 \tikz@lib@dec@box=\box79
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
 \pgfplots@numplots=\count343
-\pgfplots@xmin@reg=\dimen315
-\pgfplots@xmax@reg=\dimen316
-\pgfplots@ymin@reg=\dimen317
-\pgfplots@ymax@reg=\dimen318
-\pgfplots@zmin@reg=\dimen319
-\pgfplots@zmax@reg=\dimen320
+\pgfplots@xmin@reg=\dimen319
+\pgfplots@xmax@reg=\dimen320
+\pgfplots@ymin@reg=\dimen321
+\pgfplots@ymax@reg=\dimen322
+\pgfplots@zmin@reg=\dimen323
+\pgfplots@zmax@reg=\dimen324
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
@@ -547,22 +557,22 @@ Package: lastpagemodern 2025-06-06 v2.1g Refers to last page's name (HMM; JPG)
 Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
 \c@tracingmulticols=\count345
 \mult@box=\box80
-\multicol@leftmargin=\dimen321
+\multicol@leftmargin=\dimen325
 \c@unbalance=\count346
 \c@collectmore=\count347
 \doublecol@number=\count348
 \multicoltolerance=\count349
 \multicolpretolerance=\count350
-\full@width=\dimen322
-\page@free=\dimen323
-\premulticols=\dimen324
-\postmulticols=\dimen325
+\full@width=\dimen326
+\page@free=\dimen327
+\premulticols=\dimen328
+\postmulticols=\dimen329
 \multicolsep=\skip78
 \multicolbaselineskip=\skip79
 \partial@page=\box81
 \last@line=\box82
 \mc@boxedresult=\box83
-\maxbalancingoverflow=\dimen326
+\maxbalancingoverflow=\dimen330
 \mult@rightbox=\box84
 \mult@grightbox=\box85
 \mult@firstbox=\box86
@@ -606,9 +616,9 @@ Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
 \c@minrows=\count351
 \c@columnbadness=\count352
 \c@finalcolumnbadness=\count353
-\last@try=\dimen327
-\multicolovershoot=\dimen328
-\multicolundershoot=\dimen329
+\last@try=\dimen331
+\multicolovershoot=\dimen332
+\multicolundershoot=\dimen333
 \mult@nat@firstbox=\box124
 \colbreak@box=\box125
 \mc@col@check@num=\count354
@@ -642,30 +652,30 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 ) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count356
-) (./guia_racionales.aux
+) (./Guia_Raices_Zenit_v3.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported  on input line 8.
 )
-\openout1 = `guia_racionales.aux'.
+\openout1 = `Guia_Raices_Zenit_v3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Info: Redefining \. on input line 176.
-LaTeX Info: Redefining \% on input line 176.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -704,13 +714,13 @@ LaTeX Info: Redefining \% on input line 176.
 (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count357
-\scratchdimen=\dimen330
+\scratchdimen=\dimen334
 \scratchbox=\box130
 \nofMPsegments=\count358
 \nofMParguments=\count359
 \everyMPshowfont=\toks58
 \MPscratchCnt=\count360
-\MPscratchDim=\dimen331
+\MPscratchDim=\dimen335
 \MPnumerator=\count361
 \makeMPintoPDFobject=\count362
 \everyMPtoPDFconversion=\toks59
@@ -725,13 +735,13 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 <logosin fondo.png, id=4, 2180.145pt x 2143.00626pt>
 File: logosin fondo.png Graphic file (type png)
 <use logosin fondo.png>
-Package pdftex.def Info: logosin fondo.png  used on input line 184.
+Package pdftex.def Info: logosin fondo.png  used on input line 139.
 (pdftex.def)             Requested size: 140.1349pt x 137.73071pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 203.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 151.
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 203.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 151.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -740,23 +750,87 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./logosin fondo.png>]
 
-[2
+[2]
+
+[3
 
 ]
 
-[3]
+[4]
 
-[4
 
-]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [5]
 
-[6]
-
-[7
+[6
 
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[7]
+
+
+
+
+
+
+
+
 
 [8]
 
@@ -764,13 +838,84 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
-[10
 
-]
 
-[11
 
-]
+
+
+
+
+
+
+Overfull \vbox (2.1684pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (2.1684pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (2.1684pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (2.1684pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (2.1684pt too high) has occurred while \output is active []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[11]
+
+
+
+
+
+
 
 [12]
 
@@ -780,11 +925,59 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [14]
 
-[15
 
-]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[15]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [16]
+
+
+
+
+
+
 
 [17]
 
@@ -792,49 +985,101 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
+
+
+
+
+
+
+
+
+
+
 [19]
 
+
+
+
+
+
+
+
+
+
+
+
+
 [20]
+Underfull \hbox (badness 10000) in paragraph at lines 1149--1150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1167--1168
+
+ []
+
+
 
 [21
 
 ]
-
-[22
-
-]
-
-[23
-
-]
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 1112--1113
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1177
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1126--1127
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1194--1195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1203--1204
 
  []
 
 
 
-[25
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
+
+ []
+
+
+
+[23]
+
+
+
+
+
+
+
+[24
 
 ]
 
-[26]
 
-[27
 
-]
 
-[28]
 
-[29] 
+
+
+[25]
+
+[26] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
-(./guia_racionales.aux
+(./Guia_Raices_Zenit_v3.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -844,18 +1089,18 @@ L3 programming layer <2025-07-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31341 strings out of 467816
- 777083 string characters out of 5436425
- 1319235 words of memory out of 5000000
- 59470 multiletter control sequences out of 15000+600000
- 646731 words of font info for 86 fonts, out of 8000000 for 9000
+ 31732 strings out of 467816
+ 787574 string characters out of 5436425
+ 1344496 words of memory out of 5000000
+ 59850 multiletter control sequences out of 15000+600000
+ 647420 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,14n,101p,732b,1389s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on guia_racionales.pdf (29 pages, 415362 bytes).
+ 98i,16n,101p,745b,1399s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on Guia_Raices_Zenit_v3.pdf (26 pages, 545977 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
+ 234 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

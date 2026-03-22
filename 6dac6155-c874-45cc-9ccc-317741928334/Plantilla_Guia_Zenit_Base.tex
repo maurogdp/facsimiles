@@ -1,0 +1,392 @@
+% ============================================================
+% PLANTILLA MAESTRA DE GUÍAS — ACADEMIA ZENIT
+% ============================================================
+%
+% INSTRUCCIONES PARA EL GPT:
+% - Esta es la plantilla institucional base de Academia Zenit.
+% - Debes conservar el preámbulo, colores, comandos, cajas,
+%   encabezados y estructura general.
+% - Debes modificar solamente:
+%     1. <<TIPO_GUIA>>
+%     2. <<TITULO_GUIA>>
+%     3. <<TEMA_ENCABEZADO>>
+%     4. <<NIVEL>>
+%     5. <<PROPOSITO_GUIA>>
+%     6. Los bloques de contenido matemático
+% - No debes cambiar nombres de colores, cajas ni comandos.
+% - La salida final debe ser un documento LaTeX completo y compilable.
+%
+% MARCADORES PRINCIPALES:
+% <<TIPO_GUIA>>
+% <<TITULO_GUIA>>
+% <<TEMA_ENCABEZADO>>
+% <<NIVEL>>
+% <<PROPOSITO_GUIA>>
+% <<SECCION_1_TITULO>>
+% <<SECCION_1_CONTENIDO>>
+% <<SECCION_1_EJEMPLOS>>
+% <<SECCION_1_EJERCICIOS>>
+% <<SECCION_2_TITULO>>
+% <<SECCION_2_CONTENIDO>>
+% <<SECCION_2_EJEMPLOS>>
+% <<SECCION_2_EJERCICIOS>>
+% <<SECCION_3_TITULO>>
+% <<SECCION_3_CONTENIDO>>
+% <<SECCION_3_EJEMPLOS>>
+% <<SECCION_3_EJERCICIOS>>
+% <<SECCION_AVANZADA_TITULO>>
+% <<SECCION_AVANZADA_CONTENIDO>>
+% <<SECCION_AVANZADA_EJERCICIOS>>
+% <<SOLUCION_MODELO>>
+% <<SECCION_FINAL_TITULO>>
+% <<SECCION_FINAL_CONTENIDO>>
+% <<EJERCICIOS_FINALES>>
+% <<RESPUESTAS_FINALES>>
+%
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+% -- Paquetes de Compatibilidad y Corrección --
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+
+% -- Colores Institucionales Academia Zenit --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+% -- Estilos de tcolorbox --
+\tcbuselibrary{skins, breakable}
+
+\tcbset{
+  importantbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitblue,
+    colbacktitle=zenitblue,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitblue,
+      colback=zenitblue,
+      arc=2pt
+    }
+  },
+  examplebox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitgold,
+    colbacktitle=zenitgold,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitgold,
+      colback=zenitgold,
+      arc=2pt
+    }
+  },
+  warningbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitred,
+    colbacktitle=zenitred,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitred,
+      colback=zenitred,
+      arc=2pt
+    }
+  },
+  answerbox/.style={
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=zenitnavy,
+    colbacktitle=zenitnavy,
+    coltitle=white,
+    left=8pt, right=8pt, top=8pt, bottom=6pt,
+    arc=4pt,
+    leftrule=5pt,
+    fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+      colframe=zenitnavy,
+      colback=zenitnavy,
+      arc=2pt
+    }
+  }
+}
+
+% -- Encabezados de sección --
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.2em}
+  \noindent
+  {\Large\bfseries\color{#1} #2}\par
+  \vspace{0.3em}
+  {\noindent\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{0.8em}
+}
+
+\newcommand{\subbloque}[1]{%
+  \vspace{8pt}
+  \noindent{\large\bfseries\color{zenitnavy} #1}\par
+  \vspace{3pt}
+  \hrule height 1pt
+  \vspace{6pt}
+}
+
+% -- Espacios de desarrollo --
+\newcommand{\espaciobasico}{\vspace{1.5cm}}
+\newcommand{\espaciointermedio}{\vspace{2.2cm}}
+\newcommand{\espacioavanzado}{\vspace{3.2cm}}
+
+% -- Formato para preguntas con alternativas --
+\newcommand{\alternativasformato}[3]{%
+\item
+\begin{minipage}[t]{\linewidth}
+#1
+\\
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {
+    \begin{minipage}{0.58\linewidth}
+    \begin{enumerate}[label=\Alph*), leftmargin=14pt]
+      #2
+    \end{enumerate}
+    \end{minipage}
+  };
+  \node (figura) at (10.4,0) {
+    #3
+  };
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+}
+
+% -- Configuración dinámica básica --
+\newcommand{\TipoGuia}{<<TIPO_GUIA>>}
+\newcommand{\TituloGuia}{<<TITULO_GUIA>>}
+\newcommand{\TemaEncabezado}{<<TEMA_ENCABEZADO>>}
+\newcommand{\NivelGuia}{<<NIVEL>>}
+
+% -- Configuración de Encabezado --
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \textbf{Academia Zenit} $\cdot$ \TemaEncabezado}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small \textit{\NivelGuia\ · Matemática}}
+\fancyfoot[R]{\small Prohibida su reproducción total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\thispagestyle{empty}
+
+\vspace*{1.2cm}
+
+\begin{center}
+    \includegraphics[width=0.28\linewidth]{logosin fondo.png}\\[1.2cm]
+
+    {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.35cm]
+
+    {\LARGE\bfseries\color{zenitblue} \TipoGuia}\\[0.2cm]
+    {\LARGE\bfseries\color{zenitblue} \TituloGuia}\\[0.8cm]
+
+    {\Large\color{zenitgold}\bfseries \NivelGuia\ · Matemática}\\[0.6cm]
+
+    \rule{0.72\linewidth}{1.2pt}\\[0.8cm]
+
+    {\large\itshape\color{zenitnavy} Material de apoyo y ejercitación}\\[2cm]
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.82\linewidth}
+\begin{tcolorbox}[importantbox, title={Propósito de la guía}]
+<<PROPOSITO_GUIA>>
+\end{tcolorbox}
+\end{minipage}
+\end{center}
+
+\vfill
+
+\begin{center}
+{\large\bfseries\color{zenitnavy} Academia Zenit}\\[2pt]
+{\color{zenitgold} \NivelGuia}
+\end{center}
+
+% ============================================================
+% SECCIÓN 1
+% ============================================================
+\clearpage
+\seccionheader{blocka}{<<SECCION_1_TITULO>>}
+
+\subbloque{<<SECCION_1_SUBBLOQUE_1>>}
+
+<<SECCION_1_CONTENIDO>>
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+<<SECCION_1_IDEA_CLAVE>>
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Cuidado}]
+<<SECCION_1_ADVERTENCIA>>
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+<<SECCION_1_EJEMPLOS>>
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+<<SECCION_1_EJERCICIOS>>
+
+% ============================================================
+% SECCIÓN 2
+% ============================================================
+\clearpage
+\seccionheader{blocka}{<<SECCION_2_TITULO>>}
+
+\subbloque{<<SECCION_2_SUBBLOQUE_1>>}
+
+<<SECCION_2_CONTENIDO>>
+
+\begin{tcolorbox}[importantbox, title={Procedimiento o propiedad}]
+<<SECCION_2_IDEA_CLAVE>>
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+<<SECCION_2_EJEMPLOS>>
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+<<SECCION_2_EJERCICIOS>>
+
+% ============================================================
+% SECCIÓN 3
+% ============================================================
+\clearpage
+\seccionheader{blockb}{<<SECCION_3_TITULO>>}
+
+\subbloque{<<SECCION_3_SUBBLOQUE_1>>}
+
+<<SECCION_3_CONTENIDO>>
+
+\begin{tcolorbox}[importantbox, title={Idea clave}]
+<<SECCION_3_IDEA_CLAVE>>
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente}]
+<<SECCION_3_ADVERTENCIA>>
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+<<SECCION_3_EJEMPLOS>>
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+<<SECCION_3_EJERCICIOS>>
+
+% ============================================================
+% SECCIÓN AVANZADA
+% ============================================================
+\clearpage
+\seccionheader{blockc}{<<SECCION_AVANZADA_TITULO>>}
+
+\subbloque{<<SECCION_AVANZADA_SUBBLOQUE_1>>}
+
+<<SECCION_AVANZADA_CONTENIDO>>
+
+\begin{tcolorbox}[examplebox, title={Ejemplo guiado}]
+<<SECCION_AVANZADA_EJEMPLO>>
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos: nivel avanzado}
+
+<<SECCION_AVANZADA_EJERCICIOS>>
+
+\begin{tcolorbox}[answerbox, title={Solución modelo}]
+<<SOLUCION_MODELO>>
+\end{tcolorbox}
+
+% ============================================================
+% SECCIÓN FINAL
+% ============================================================
+\clearpage
+\seccionheader{blockc}{<<SECCION_FINAL_TITULO>>}
+
+\begin{tcolorbox}[importantbox, title={Indicaciones}]
+<<SECCION_FINAL_CONTENIDO>>
+\end{tcolorbox}
+
+\subbloque{Ejercicios con alternativas}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+<<EJERCICIOS_ALTERNATIVAS>>
+
+\end{enumerate}
+
+\clearpage
+\subbloque{Ejercicios de desarrollo}
+
+<<EJERCICIOS_FINALES>>
+
+\begin{tcolorbox}[answerbox, title={Respuestas de algunos ejercicios finales}]
+<<RESPUESTAS_FINALES>>
+\end{tcolorbox}
+
+\vspace{8pt}
+\begin{center}
+  \rule{\linewidth}{1.5pt}\\[4pt]
+  {\large\bfseries\color{zenitnavy} La constancia y la práctica son la clave del aprendizaje.}\\[2pt]
+  {\color{zenitgold}\small Academia Zenit · Matemática \NivelGuia}
+  \rule{\linewidth}{1.5pt}
+\end{center}
+
+\end{document}
