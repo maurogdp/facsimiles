@@ -201,17 +201,17 @@ $\bigstar\bigstar\bigstar$ & Nivel avanzado\\
 \begin{multicols}{2}
 {\small
 \begin{tabular}{r @{\hspace{4pt}} p{5.5cm} @{\hspace{6pt}} r}
-\textbf{§} & \textbf{Sección 1 · Raíz cuadrada} & \textbf{p.\,\pageref{sec:1}}\\
+\textbf{\S{}} & \textbf{Sección 1 · Raíz cuadrada} & \textbf{p.\,\pageref{sec:1}}\\
 1.1 & La pregunta que da origen al concepto & \pageref{sub:1.1}\\
 1.2 & Cuadrados perfectos & \pageref{sub:1.2}\\
 1.3 & Números irracionales & \pageref{sub:1.3}\\
 1.4 & Propiedad de orden & \pageref{sub:1.4}\\
 1.5 & Dos estrategias para ordenar & \pageref{sub:1.5}\\
 1.6 & Estimación por aproximación & \pageref{sub:1.6}\\[3pt]
-\textbf{§} & \textbf{Sección 2 · Raíz cúbica y enésima} & \textbf{p.\,\pageref{sec:2}}\\
+\textbf{\S{}} & \textbf{Sección 2 · Raíz cúbica y enésima} & \textbf{p.\,\pageref{sec:2}}\\
 2.1 & La raíz cúbica: volumen y arista & \pageref{sub:2.1}\\
 2.2 & La raíz enésima: generalización & \pageref{sub:2.2}\\[3pt]
-\textbf{§} & \textbf{Sección 3 · Propiedades} & \textbf{p.\,\pageref{sec:3}}\\
+\textbf{\S{}} & \textbf{Sección 3 · Propiedades} & \textbf{p.\,\pageref{sec:3}}\\
 3.1 & Relación inversa & \pageref{sub:3.1}\\
 3.2 & Propiedades P1 y P2 & \pageref{sub:3.2}\\
 3.3 & Simplificación de raíces & \pageref{sub:3.3}\\
@@ -221,25 +221,25 @@ $\bigstar\bigstar\bigstar$ & Nivel avanzado\\
 \columnbreak
 
 \begin{tabular}{r @{\hspace{4pt}} p{5.5cm} @{\hspace{6pt}} r}
-\textbf{§} & \textbf{Sección 4 · Multiplicación} & \textbf{p.\,\pageref{sec:4}}\\
+\textbf{\S{}} & \textbf{Sección 4 · Multiplicación} & \textbf{p.\,\pageref{sec:4}}\\
 4.1 & Mismo índice & \pageref{sub:4.1}\\
 4.2 & Distinto índice (m.c.m.) & \pageref{sub:4.2}\\
 4.3 & Productos notables & \pageref{sub:4.3}\\[3pt]
-\textbf{§} & \textbf{Sección 5 · Potencias racionales} & \textbf{p.\,\pageref{sec:5}}\\
+\textbf{\S{}} & \textbf{Sección 5 · Potencias racionales} & \textbf{p.\,\pageref{sec:5}}\\
 5.1 & Motivación y equivalencia & \pageref{sub:5.1}\\
 5.2 & Propiedades & \pageref{sub:5.2}\\
 5.3 & Cambio de índice & \pageref{sub:5.3}\\
 5.4 & Raíz de una raíz y raíz única & \pageref{sub:5.4}\\[3pt]
-\textbf{§} & \textbf{Sección 6 · Racionalización} & \textbf{p.\,\pageref{sec:6}}\\
+\textbf{\S{}} & \textbf{Sección 6 · Racionalización} & \textbf{p.\,\pageref{sec:6}}\\
 6.2 & Caso 1: denominador $\sqrt{a}$ & \pageref{sub:6.2}\\
 6.3 & Caso 2: denominador $\sqrt[n]{a^k}$ & \pageref{sub:6.3}\\
 6.4 & Caso 3: conjugado & \pageref{sub:6.4}\\
 6.5 & Caso 4: raíces cúbicas & \pageref{sub:6.5}\\
 6.6 & Caso 5: trinomios y anidadas & \pageref{sub:6.6}\\[3pt]
-\textbf{§} & \textbf{Sección 7 · Ecuaciones y geometría} & \textbf{p.\,\pageref{sec:7}}\\
+\textbf{\S{}} & \textbf{Sección 7 · Ecuaciones y geometría} & \textbf{p.\,\pageref{sec:7}}\\
  & Ejercicios con alternativas & \pageref{sub:ej.alt}\\
  & Ejercicios de desarrollo & \pageref{sub:ej.des}\\[3pt]
-\textbf{§} & \textbf{Solucionario completo} & \textbf{p.\,\pageref{sec:sol}}\\[3pt]
+\textbf{\S{}} & \textbf{Solucionario completo} & \textbf{p.\,\pageref{sec:sol}}\\[3pt]
 \multicolumn{3}{l}{\rule{0pt}{6pt}\textit{Galería matemática}} \\
  & Hipatia de Alejandría · Al-Juarismi & \pageref{sec:galeria}\\
 \end{tabular}
@@ -295,8 +295,12 @@ Esta guía construye el concepto de \textbf{raíz} de forma continua y rigurosam
 % El archivo debe estar en la misma carpeta que el .tex
 % Nombre sugerido: hipatia.jpg  (o .png)
 % -------------------------------------------------------
-\includegraphics[width=\linewidth, height=3.2cm,
-  keepaspectratio]{hipatia.png}
+\begin{tikzpicture}
+  \draw[fill=blockb!12, draw=blockb, rounded corners=4pt, thick]
+    (0,0) rectangle (2.4,3.0);
+  \node[align=center, text=blockb, font=\small\itshape] at (1.2,1.5)
+    {Retrato\\[2pt]no conservado};
+\end{tikzpicture}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.78\linewidth}
@@ -324,7 +328,7 @@ Fue directora de la escuela neoplatónica de Alejandría, y sus clases atraían 
   fonttitle=\bfseries,
   attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
   boxed title style={colframe=blockc, colback=blockc, arc=2pt},
-  title={Muḥammad ibn Mūsā al-Juarismi \hfill \normalfont\itshape c.\,780 — 850 d.C.}]
+  title={Muhammad ibn M\={u}s\={a} al-Juarismi \hfill \normalfont\itshape c.\,780 — 850 d.C.}]
 
 \begin{minipage}[t]{0.78\linewidth}
 \vspace{0pt}
@@ -347,8 +351,12 @@ El título de ese tratado dio origen a la palabra \textit{álgebra} (de \textit{
 % El archivo debe estar en la misma carpeta que el .tex
 % Nombre sugerido: aljuarismi.jpg  (o .png)
 % -------------------------------------------------------
-\includegraphics[width=\linewidth, height=3.2cm,
-  keepaspectratio]{al-juarismi.png}
+\begin{tikzpicture}
+  \draw[fill=blockc!10, draw=blockc, rounded corners=4pt, thick]
+    (0,0) rectangle (2.4,3.0);
+  \node[align=center, text=blockc, font=\small\itshape] at (1.2,1.5)
+    {Retrato\\[2pt]no conservado};
+\end{tikzpicture}
 \end{minipage}
 
 \end{tcolorbox}
@@ -954,7 +962,7 @@ $\sqrt[3]{8} = 2$ y $\sqrt{8} \approx 2{,}83$ son completamente distintos. Sin �
 
 \item \textbf{Calcular $\sqrt[5]{-32}$}
 
-El índice 5 es impar → la raíz existe. Como $(-2)^5 = -32$:
+El índice 5 es impar $\rightarrow$ la raíz existe. Como $(-2)^5 = -32$:
 $$\sqrt[5]{-32} = -2$$
 \textbf{Conclusión:} $\sqrt[5]{-32} = -2$.
 
@@ -2534,6 +2542,899 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 \end{enumerate}
 
 % ============================================================
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\sqrt{x}-\left[-\sqrt{x}-\left(\sqrt{x}+\sqrt{y}-\sqrt{z}\right)\right]$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\sqrt{x}+\sqrt{y}-\sqrt{z}$
+\item $3\sqrt{x}+\sqrt{y}-\sqrt{z}$
+\item $-\sqrt{x}-\sqrt{y}-\sqrt{z}$
+\item $3\sqrt{x}-\sqrt{y}-\sqrt{z}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $m>0$, entonces, ¿cuál de las siguientes expresiones es equivalente a $2\sqrt{18m^{2}}-\sqrt{32m^{2}}-3m\sqrt{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-m\sqrt{2}$
+\item $m\sqrt{2}$
+\item $-2m\sqrt{2}$
+\item $2m\sqrt{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Para qué valor(es) real(es) de $m$ se tiene que $\sqrt{m}=-1$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item Solo el $1$.
+\item Solo el $-1$.
+\item $-1$ y $1$.
+\item No existe un valor real que satisfaga tal igualdad.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si se sabe que $\sqrt{8}-x\sqrt{3}+\sqrt{2}=\sqrt{18}-y\sqrt{2}+\sqrt{27}$ y que $x$ e $y$ son valores enteros, ¿cuál es el valor de $x+y$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0$
+\item $-1$
+\item $-2$
+\item $-3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\sqrt[n]{5}+\sqrt[n]{5}+2\sqrt[n]{5}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4\sqrt[4n]{15}$
+\item $2\sqrt[n]{15}$
+\item $4\sqrt[n]{5}$
+\item $4\sqrt[n]{15}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $3^{x}=\dfrac{\sqrt{12}}{\sqrt[5]{32}}$, entonces ¿cuál es el valor de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $1$
+\item $0{,}5$
+\item $0$
+\item $-0{,}5$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt[3]{x}+1=0$, entonces ¿cuál(es) es(son) el(los) valor(es) de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item Solo el $-1$.
+\item Solo el $1$.
+\item $-1$ y $1$.
+\item Es una ecuación sin solución real.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si la fracción $\dfrac{\sqrt{18}}{\sqrt{2}}$ se amplifica por $\sqrt{2}$, y luego la fracción resultante se amplifica por $\sqrt{3}$, ¿qué valor se obtiene?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $3$
+\item $6$
+\item $\sqrt{3}$
+\item $\sqrt{6}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt{x}=3$, entonces ¿cuál es el valor de $\sqrt{16}\cdot x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $18$
+\item $20$
+\item $24$
+\item $36$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $x-2=2^{2}$, entonces ¿cuál es el valor de $\left(\sqrt{4x}+\sqrt{x+2}\right)\cdot\sqrt{x}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $15$
+\item $16$
+\item $16\sqrt{3}$
+\item $12+4\sqrt{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt{\sqrt{3}+1}-\sqrt{\sqrt{3}-1}=m$, ¿cuál es el valor de $\dfrac{m^{2}}{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2\sqrt{3-2\sqrt{2}}$
+\item $\sqrt{3}-\sqrt{2}$
+\item $\sqrt{2}-\sqrt{3}$
+\item $4\sqrt{3}-4\sqrt{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $A=\sqrt{a+\sqrt{2a-1}}+\sqrt{a-\sqrt{2a-1}}$, con $a\geq 1$, ¿cuál de las siguientes expresiones es igual a $A^{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4a-2$
+\item $3a-1$
+\item $2a+2\sqrt{a^{2}-2a-1}$
+\item $2a+\sqrt{a^{2}-2a-1}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es igual a $\dfrac{1}{\sqrt{5}-1}-\dfrac{1}{\sqrt{5}+1}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0{,}25$
+\item $0{,}5$
+\item $1$
+\item $\dfrac{1}{2\sqrt{5}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $x\geq 3$, ¿cuál es el valor de $\sqrt{(x-3)^{2}}+\sqrt{(3-x)^{2}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0$
+\item $2x-6$
+\item $2x+6$
+\item $2x^{2}-12x+18$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si se sabe que $\sqrt[3]{\sqrt[x]{2\sqrt[3]{3}}}=\dfrac{\sqrt[3]{2\sqrt[6]{3}}}{\sqrt[6]{2}}$, ¿cuál es el valor de $\sqrt{\dfrac{1}{3}\,x}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt[3]{\dfrac{4}{3}}$
+\item $\sqrt[9]{\dfrac{2}{7}}$
+\item $\sqrt[7]{3}$
+\item $\sqrt{\dfrac{2}{3}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt[3]{x}=a^{2}$ y $\sqrt{y}=b^{2}$, para $a,b\in\mathbb{R}$ con $a<0<b$, entonces ¿qué expresión es igual a $\sqrt[12]{x^{2}y^{3}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $ab$
+\item $-|ab|$
+\item $|ab|$
+\item $\sqrt{ab}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $1{,}7\overline{7}=x$, ¿cuál es el valor de $\left(\sqrt{x}-\dfrac{1}{3}\right)^{7}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\dfrac{1}{9}$
+\item $-1$
+\item $1$
+\item $\dfrac{2}{9}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\dfrac{\sqrt{3}}{\sqrt[3]{\sqrt{3}}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{\sqrt[3]{3}}{3}$
+\item $\sqrt[3]{3}$
+\item $\sqrt[3]{9}$
+\item $3\sqrt[3]{9}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de la expresión $\dfrac{\sqrt{2}}{\sqrt{7}-1}-\dfrac{\sqrt{2}}{\sqrt{7}+1}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0$
+\item $\dfrac{\sqrt{2}}{3}$
+\item $\dfrac{1}{6}$
+\item $\dfrac{\sqrt{3}}{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $16\sqrt{45-12\sqrt{12x-7}}=48$, entonces ¿cuál es el valor de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{7}{12}$
+\item $1$
+\item $\dfrac{4}{3}$
+\item $\dfrac{214}{297}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\dfrac{1}{\sqrt[3]{x}-1}$, con $x\neq 1$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{x-1}{\sqrt[3]{x}+1}$
+\item $\sqrt[3]{x^{2}}+1$
+\item $\dfrac{\sqrt[3]{x^{2}}+3\sqrt[3]{x}+1}{x+1}$
+\item $\dfrac{\sqrt[3]{x^{2}}+\sqrt[3]{x}+1}{x-1}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $\left(\dfrac{2-\sqrt{2}}{1-\sqrt{2}}\right)^{\!\frac{1}{3}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\sqrt[6]{2}$
+\item $\sqrt[6]{2}$
+\item $\sqrt[3]{2-\sqrt{2}}$
+\item $1$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de la expresión $1-\dfrac{1}{1-\sqrt{3}}+\dfrac{1}{1+\sqrt{3}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\sqrt{3}$
+\item $\sqrt{3}$
+\item $1-\sqrt{3}$
+\item $1+\sqrt{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de la expresión $(\sqrt{5}+2)^{5}(\sqrt{5}-2)^{4}-(\sqrt{5}-2)^{5}(\sqrt{5}+2)^{4}$ es:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item Entero positivo.
+\item Entero negativo.
+\item $0$
+\item Irracional positivo.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si se cumple que $\sqrt[3]{A}-\sqrt[B]{2}=0$ y $A,B\in\mathbb{Z}$, ¿cuál es el valor de $\sqrt{A^{4}+B^{2}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2\sqrt{2}$
+\item $3$
+\item $3\sqrt{2}$
+\item $5$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Una factorización de $x-2$ está dada por: $x-2=\left(\sqrt[3]{x}-\sqrt[3]{2}\right)\left(\sqrt[3]{x^{A}}+\sqrt[3]{Bx}+C\right)$. ¿Cuál es el valor de $A-B^{2}+C\sqrt[3]{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-2$
+\item $0$
+\item $1$
+\item $3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt{2{,}4}=a$, entonces $\sqrt{2{.}400}=$
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $24a\sqrt{1{.}000}$
+\item $10a\sqrt{10}$
+\item $10\sqrt{24}\,a$
+\item $10a$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+La expresión $\dfrac{\sqrt[3]{3^{14}+3^{14}+3^{14}}}{\sqrt[20]{3^{-41}+3^{-41}+3^{-41}}}$ es equivalente a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $3^{3}$
+\item $3^{7}$
+\item $\sqrt{3^{3}}$
+\item $\dfrac{1}{\sqrt[17]{3^{55}}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el resultado de racionalizar la expresión $\dfrac{2}{\sqrt[4]{9}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{3\sqrt{3}}{4}$
+\item $\dfrac{\sqrt[3]{9}}{3}$
+\item $\dfrac{2\sqrt[4]{3}}{3}$
+\item $\dfrac{2\sqrt[4]{9}}{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+$\dfrac{3}{3+\sqrt{2}}=$
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt{2}-1$
+\item $\dfrac{\sqrt{2}}{2}$
+\item $\dfrac{9-\sqrt{2}}{7}$
+\item $\dfrac{9-3\sqrt{2}}{7}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+$2\sqrt{x}-3\sqrt{x}=0$ si:
+\begin{enumerate}[label=(\arabic*), leftmargin=18pt]
+\item $x\geq 0$
+\item $x=0$
+\end{enumerate}
+\medskip%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item (1) por sí sola.
+\item (2) por sí sola.
+\item Ambas juntas, (1) y (2).
+\item Cada una por sí sola, (1) o (2).
+\item Se requiere información adicional.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+$\sqrt{31-12\sqrt{3}}=$
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt{31}-6\sqrt{3}$
+\item $3\sqrt{3}-2$
+\item $\sqrt{19\sqrt{3}}$
+\item $3\sqrt{3}-3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+La expresión $\dfrac{2\sqrt{18}+3\sqrt{8}}{\sqrt{8}}$ es equivalente a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $6\sqrt{2}+3$
+\item $6$
+\item $9\sqrt{2}$
+\item $\dfrac{5\sqrt{13}}{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $a>0$, ¿cuál de las siguientes opciones es equivalente a $\dfrac{\sqrt[8]{a^{7}}}{\sqrt[4]{a}\cdot\sqrt{a}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt[4]{a}$
+\item $\sqrt[8]{a}$
+\item $\sqrt[4]{a^{5}}$
+\item $\sqrt[8]{a^{5}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+El cubo de $A$ es igual a la raíz cuadrada de $B$ si:
+\begin{enumerate}[label=(\arabic*), leftmargin=18pt]
+\item $A=2$ y $B=64$
+\item $A=\sqrt[3]{8}$ y $B=4\sqrt{256}$
+\end{enumerate}
+\medskip%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item (1) por sí sola.
+\item (2) por sí sola.
+\item Ambas juntas, (1) y (2).
+\item Cada una por sí sola, (1) o (2).
+\item Se requiere información adicional.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $(0{,}125)^{x+2}=a^{-2}$, entonces $2^{x}$ es igual a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4\sqrt[3]{a^{2}}$
+\item $8\sqrt[3]{a^{8}}$
+\item $\dfrac{\sqrt[3]{a^{2}}}{8}$
+\item $\dfrac{\sqrt[3]{a^{2}}}{4}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Al reducir la expresión $\sqrt[30]{a^{17}}\div\sqrt[30]{a^{6}}\cdot\sqrt[20]{a^{12}}\cdot\sqrt[20]{a^{9}}$ se obtiene:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $a\sqrt[12]{a^{17}}$
+\item $a\sqrt[12]{a^{5}}$
+\item $\sqrt[10]{a^{32}}$
+\item $\sqrt[50]{a^{32}}$
+\item $\sqrt[50]{a^{4}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Sean $a,b,c$ y $d$ números enteros positivos. Se puede determinar que la expresión $\sqrt{a\sqrt{b}-c\sqrt{d}}$ es un número real si:
+\begin{enumerate}[label=(\arabic*), leftmargin=18pt]
+\item $a^{2}b>c^{2}d$
+\item $\sqrt{b}>\sqrt{d}$
+\end{enumerate}
+\medskip%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item (1) por sí sola.
+\item (2) por sí sola.
+\item Ambas juntas, (1) y (2).
+\item Cada una por sí sola, (1) o (2).
+\item Se requiere información adicional.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+El valor numérico de $M=\dfrac{1}{\sqrt{4}+\sqrt{5}}+\dfrac{1}{\sqrt{5}+\sqrt{6}}+\dfrac{1}{\sqrt{6}+\sqrt{7}}+\ldots+\dfrac{1}{\sqrt{63}+\sqrt{64}}$ es:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-6$
+\item $6$
+\item $-10$
+\item $10$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\end{enumerate}
+
 % SOLUCIONARIO COMPLETO
 % ============================================================
 \clearpage
@@ -2676,6 +3577,63 @@ d) $x=7$ ($x=2$ descarta). Resp.: $x=7$.
 \textbf{Ítem 5 ($\bigstar\bigstar\bigstar$, simplificar):} a)~$2+\sqrt{3}$ \; b)~8 \; c)~8 \; d)~$\frac{11\sqrt{2}}{12}$ \; e)~$2\sqrt{2}$ \; f)~$7\sqrt{5}+9\sqrt{3}$.
 
 \textbf{Ítem 6 (telescópica):} $5+2\sqrt{2}+2\sqrt{3}+\sqrt{5}$.
+
+
+
+\subbloque{Ejercicios tipo PAES}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c||c|c||c|c||c|c||c|c}
+\toprule
+\textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.}\\
+\midrule
+1  & B & 9  & D & 17 & C & 25 & D & 33 & B\\
+2  & A & 10 & D & 18 & B & 26 & D & 34 & B\\
+3  & D & 11 & B & 19 & B & 27 & A & 35 & B\\
+4  & D & 12 & A & 20 & C & 28 & D & 36 & B\\
+5  & C & 13 & B & 21 & D & 29 & D & 37 & B\\
+6  & B & 14 & B & 22 & A & 30 & D & 38 & A\\
+7  & A & 15 & D & 23 & D & 31 & B & 39 & B\\
+8  & A & 16 & C & 24 & A & 32 & B &   &  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Desarrollos clave:}
+
+\textbf{1.} $3\sqrt{x}+\sqrt{y}-\sqrt{z}$. \quad \textbf{2.} $6m\sqrt{2}-4m\sqrt{2}-3m\sqrt{2}=-m\sqrt{2}$. \quad \textbf{3.} $\sqrt{m}\geq0$ siempre; $-1$ no es posible.
+
+\textbf{4.} $y=0$, $x=-3$; $x+y=-3$. \quad \textbf{5.} $(1+1+2)\sqrt[n]{5}=4\sqrt[n]{5}$. \quad \textbf{6.} $3^x=\sqrt{3}=3^{1/2}\Rightarrow x=0{,}5$.
+
+\textbf{7.} $\sqrt[3]{x}=-1\Rightarrow x=-1$. \quad \textbf{8.} Amplificar no cambia el valor; $\sqrt{18}/\sqrt{2}=3$. \quad \textbf{9.} $x=9$; $4\cdot9=36$.
+
+\textbf{10.} $x=6$; $(2\sqrt{6}+2\sqrt{2})\cdot\sqrt{6}=12+4\sqrt{3}$. \quad \textbf{11.} $m^2=2\sqrt{3}-2\sqrt{2}$; $m^2/2=\sqrt{3}-\sqrt{2}$.
+
+\textbf{12.} $A^2=2a+2|a-1|=4a-2$ (para $a\geq1$). \quad \textbf{13.} $2/4=1/2=0{,}5$. \quad \textbf{14.} $2|x-3|=2(x-3)=2x-6$.
+
+\textbf{15.} $x=2$; $\sqrt{2/3}$. \quad \textbf{16.} $\sqrt[12]{a^{12}b^{12}}=|a|\cdot b=|ab|$. \quad \textbf{17.} $x=16/9$; $(4/3-1/3)^7=1$.
+
+\textbf{18.} $3^{1/2}/3^{1/6}=3^{1/3}=\sqrt[3]{3}$. \quad \textbf{19.} $\sqrt{2}\cdot2/(7-1)=2\sqrt{2}/6=\sqrt{2}/3$. \quad \textbf{20.} $\sqrt{12x-7}=3\Rightarrow x=4/3$.
+
+\textbf{21.} Multiplicar por $(\sqrt[3]{x^2}+\sqrt[3]{x}+1)$; denominador $=x-1$. \quad \textbf{22.} $(2-\sqrt{2})/(1-\sqrt{2})=-\sqrt{2}$; $(-\sqrt{2})^{1/3}=-\sqrt[6]{2}$.
+
+\textbf{23.} $\sqrt{3}+1=1+\sqrt{3}$. \quad \textbf{24.} $[(\sqrt{5}+2)(\sqrt{5}-2)]^4\cdot4=1^4\cdot4=4$ (entero positivo).
+
+\textbf{25.} $A=2$, $B=3$; $\sqrt{25}=5$. \quad \textbf{26.} $A=2,B=2,C=\sqrt[3]{4}$; $2-4+\sqrt[3]{8}=0$.
+
+\textbf{27.} $a\cdot10\sqrt{10}=10a\sqrt{10}$. \quad \textbf{28.} $\sqrt[3]{3^{15}}=3^5$; $\sqrt[20]{3^{-40}}=3^{-2}$; $3^5/3^{-2}=3^7$.
+
+\textbf{29.} $2/9^{1/4}\cdot9^{3/4}/9=2\cdot9^{1/2}/9=2\sqrt{9}/9=2\cdot3/9$... mejor: $\sqrt[4]{9}=3^{1/2}$, multiplicar por $\sqrt[4]{9}/\sqrt[4]{9}$: $2\sqrt[4]{9}/3$.
+
+\textbf{30.} $(9-3\sqrt{2})/7$. \quad \textbf{31.} $-\sqrt{x}=0\Leftrightarrow x=0$; (2) por sí sola.
+
+\textbf{32.} $(3\sqrt{3}-2)^2=31-12\sqrt{3}$ \checkmark{}. \quad \textbf{33.} $12\sqrt{2}/2\sqrt{2}=6$. \quad \textbf{34.} $a^{1/8}=\sqrt[8]{a}$.
+
+\textbf{35.} Ambas cumplen; cada una por sí sola. \quad \textbf{36.} $\sqrt[3]{a^2}/4$. \quad \textbf{37.} $a\sqrt[12]{a^5}$.
+
+\textbf{38.} Solo (1) garantiza $a\sqrt{b}\geq c\sqrt{d}$. \quad \textbf{39.} $\sqrt{k+1}-\sqrt{k}$ telescópica: $8-2=6$.
 
 \subbloque{Alternativas}
 

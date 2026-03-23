@@ -257,6 +257,13 @@ Esta guía construye el concepto de \textbf{potencia} de forma progresiva: desde
 
 \begin{minipage}[t]{0.18\linewidth}
 \vspace{0pt}
+% -------------------------------------------------------
+% RETRATO: reemplazar el bloque tikzpicture por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{noether.jpg}
+% El archivo debe estar en la misma carpeta que el .tex
+% Nombre sugerido: noether.jpg  (o .png)
+% -------------------------------------------------------
 \begin{tikzpicture}
   \draw[fill=blockb!12,draw=blockb,rounded corners=4pt,thick](0,0)rectangle(2.4,3.0);
   \node[align=center,text=blockb,font=\small\itshape]at(1.2,1.5){Fotografía\\[2pt]conservada};
@@ -303,6 +310,13 @@ También es autor del primer teorema de la teoría de grafos al resolver el prob
 \hfill
 \begin{minipage}[t]{0.18\linewidth}
 \vspace{0pt}
+% -------------------------------------------------------
+% RETRATO: reemplazar el bloque tikzpicture por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{euler.jpg}
+% El archivo debe estar en la misma carpeta que el .tex
+% Nombre sugerido: euler.jpg  (o .png)
+% -------------------------------------------------------
 \begin{tikzpicture}
   \draw[fill=blockc!10,draw=blockc,rounded corners=4pt,thick](0,0)rectangle(2.4,3.0);
   \node[align=center,text=blockc,font=\small\itshape]at(1.2,1.5){Retrato\\[2pt]conservado};
@@ -317,8 +331,10 @@ También es autor del primer teorema de la teoría de grafos al resolver el prob
   \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}
 \end{center}
 
-% ============================================================
-% SECCIÓN 1
+\clearpage
+\thispagestyle{empty}
+\phantom{x}
+\clearpage
 % ============================================================
 \clearpage
 \seccionheader{blocka}{Sección 1 · Concepto de potencia}
@@ -1254,7 +1270,7 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 \subbloque{3.4 Operatoria combinada de racionales con potencias}
 \label{sub:3.4}
 
-Los ejercicios de esta subsección mezclan operaciones con fracciones, decimales y potencias. La clave es aplicar siempre el orden correcto: paréntesis → potencias → multiplicación/división → suma/resta.
+Los ejercicios de esta subsección mezclan operaciones con fracciones, decimales y potencias. La clave es aplicar siempre el orden correcto: paréntesis $\rightarrow$ potencias $\rightarrow$ multiplicación/división $\rightarrow$ suma/resta.
 
 \begin{tcolorbox}[examplebox, title={Ejemplo — de lo simple a lo complejo}]
 \begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
@@ -1882,6 +1898,908 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
   \item Una tienda liquida vendiéndose la mitad del stock cada semana sin reponer. Si había 512 artículos, ¿cuántas semanas hasta agotarse?
 \end{enumerate}
 
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\left(x^{3}\right)\cdot\left(x^{2}\right)^{4}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $x^{9}$
+\item $x^{11}$
+\item $x^{18}$
+\item $x^{22}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\left(\dfrac{1}{3}\,b^{-3}\right)^{-2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{1}{3}\,b^{6}$
+\item $\dfrac{1}{3}\,b^{-5}$
+\item $9b^{-5}$
+\item $9b^{6}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\dfrac{a^{4}b^{-12}}{a^{-2}b^{-4}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $a^{2}b^{-16}$
+\item $a^{6}b^{-8}$
+\item $a^{6}b^{8}$
+\item $a^{-6}b^{8}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $n$ es un número entero, ¿cuál de las siguientes igualdades es \emph{siempre} verdadera?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $n^{2}\cdot n^{3}=n^{6}$
+\item $n^{4}-n^{3}=n$
+\item $2^{n}+3^{n}=5^{n}$
+\item $2^{n}\cdot 3^{n}=6^{n}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las ecuaciones siguientes es exponencial?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $x^{-1}=0{,}25$
+\item $x^{2}=3$
+\item $2^{x}=3$
+\item $\sqrt{2x}=\sqrt{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\left(a^{-1}+a^{-2}\right)\cdot a^{3}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $a^{-3}+a^{-6}$
+\item $a^{-9}$
+\item $a^{-6}$
+\item $a\cdot(a+1)$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $a\,\#\,b=\dfrac{b-a^{2}}{3}$, $c\ast d=c^{d}$ y $2\ast h=64$, ¿cuál es el valor de $h\,\#\,3$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-11$
+\item $-39$
+\item $11$
+\item $37$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $5^{r}=a$ y $7^{r}=b$, entonces ¿cuál de las siguientes expresiones es equivalente a $5^{r+1}\cdot 7^{r+1}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $35ab$
+\item $ab^{2}$
+\item $(ab)^{2}$
+\item $12ab$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $5^{x}=125\cdot 125$, entonces ¿cuál es el valor de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $5$
+\item $6$
+\item $7$
+\item $8$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Dada la ecuación $\left(\dfrac{1}{27}\right)^{x}=9^{3}$, ¿cuál es el valor de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2$
+\item $-1$
+\item $-2$
+\item $-3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Para qué valor de $x$ se tiene que $11^{x-3}=1$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-3$
+\item $0$
+\item $1$
+\item $3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $2^{x+3}=64$, entonces ¿cuál es el valor de $2^{x}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $3$
+\item $5$
+\item $8$
+\item $9$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Se sabe que un cultivo de bacterias se duplica cada 24 horas. Si al comienzo se partió con 1.000 bacterias, ¿al cabo de cuántos días la cantidad inicial se multiplicó por 64?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4$
+\item $5$
+\item $6$
+\item $7$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Qué valor se obtiene al calcular $m$ en $2^{m-1}=\left(\dfrac{1}{2}\right)^{m-3}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-1$
+\item $0$
+\item $1$
+\item $2$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es la solución de la ecuación $(0{,}01)^{-x+5}=100$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $6$
+\item $5$
+\item $4$
+\item $3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes alternativas representa el valor de $\dfrac{\left(\dfrac{2}{3}\right)^{-a}\cdot\left(\dfrac{3}{2}\right)^{a}}{\left(\dfrac{9}{4}\right)^{a}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $1$
+\item $\dfrac{3}{2}$
+\item $\left(\dfrac{3}{2}\right)^{2}$
+\item $\left(\dfrac{3}{2}\right)^{a^{2}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes alternativas es equivalente a $\dfrac{a^{n}+b^{n}}{(ab)^{n}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $(ab)^{-n}$
+\item $a^{-n}+b^{-n}$
+\item $a^{-n}-b^{-n}$
+\item $(-ab)^{n}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Dada la ecuación $3^{x-1}=9^{5}$, ¿cuál es el conjunto solución?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\{9\}$
+\item $\{11\}$
+\item $\{6{,}11\}$
+\item $\varnothing$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Dada la ecuación $25^{-3x}=\left(\dfrac{1}{125}\right)^{x+3}$, ¿cuál es el conjunto solución?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\{-6\}$
+\item $\{-3\}$
+\item $\{0\}$
+\item $\{3\}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $x$ en la ecuación $1{.}000^{x}=0{,}001$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-1$
+\item $-2$
+\item $-3$
+\item $0{,}01$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $x$ en la ecuación $\left(\dfrac{-1}{7}\right)^{-x}=2{.}401\cdot(-7)$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-4$
+\item $-3$
+\item $4$
+\item $5$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $3^{2x}\cdot 9^{x}\cdot 27^{2x}=\dfrac{1}{81^{5}}$, entonces ¿cuál es el valor de $\dfrac{x}{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-4$
+\item $-2$
+\item $-1$
+\item $1$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Dada la ecuación $\left(\dfrac{2}{3}\right)^{x-3}=\left(\dfrac{9}{4}\right)^{x+3}$, ¿cuál es el valor de $x^{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-1$
+\item $1$
+\item $-3$
+\item $3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de la expresión $\dfrac{2^{n+5}}{4\cdot 2^{n+1}}+\dfrac{25^{n+1}}{5^{2n+1}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{2}{5}$
+\item $5$
+\item $\dfrac{8}{5}$
+\item $9$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $3^{n}=2$, ¿cuál es el valor de la expresión $\dfrac{27^{n}+4\cdot 9^{n+1}-2^{3}}{81^{n}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $5$
+\item $7$
+\item $9$
+\item $11$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de la expresión $\dfrac{4\cdot 18^{t}}{3^{-1}\cdot 6^{2t+1}\cdot 2^{-t}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2^{t}$
+\item $4\cdot 2^{t}$
+\item $2$
+\item $6$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $\dfrac{A}{B}$, sabiendo que $A=\dfrac{8^{3}\cdot 400}{21^{2}\cdot 7}$ y $B=20\left(\dfrac{4\cdot 3^{-1}}{7}\right)^{3}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2^{5}\cdot 3\cdot 5$
+\item $2^{3}\cdot 3^{2}\cdot 5^{2}$
+\item $2^{5}\cdot 6^{3}\cdot 5$
+\item $2^{5}\cdot 3\cdot 5^{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Una pizza costó $\$\left(2^{4}\cdot 5^{3}\cdot 3^{2}\right)$. El primer comensal recibe $\tfrac{1}{4}$ de la pizza; cada comensal siguiente recibe la cuarta parte de lo que recibió el anterior. ¿Cuánto debe pagar quien estaba en $6^{\circ}$ lugar, si el pago es proporcional al trozo recibido?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\$\left(2^{3}\cdot 5^{3}\cdot 3\right)$
+\item $\$\left(2^{-8}\cdot 5^{3}\cdot 3^{2}\right)$
+\item $\$\left(2^{5}\cdot 5^{2}\cdot 3^{-8}\right)$
+\item $\$\left(2^{7}\cdot 5^{-3}\cdot 3^{2}\right)$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es igual a $\dfrac{5^{3n}+5^{2n}}{5^{2n}+5^{n}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $5$
+\item $25$
+\item $5^{n}$
+\item $5^{2n}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $x$ en la ecuación $\left(\dfrac{3}{5}\right)^{x+2}=\left(\dfrac{125}{27}\right)^{-x+2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $6$
+\item $5$
+\item $4$
+\item $3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes afirmaciones acerca del valor de $7^{22}-7^{21}$ es verdadera?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item El número es primo.
+\item El número es múltiplo de 12.
+\item El número es divisible por 14.
+\item El número es divisible por 22.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $x$ en la ecuación $\dfrac{3^{3x+8}+81^{\frac{3x+6}{4}}}{9^{x+3}}=90$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2$
+\item $4$
+\item $5$
+\item $6$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $p=3^{3}+3^{3}+3^{3}$ y $q=9^{6}+9^{6}+9^{6}$, entonces $\dfrac{q}{p}$ es:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $3^{3}$
+\item $3^{4}$
+\item $3^{9}$
+\item $3^{14}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Tamara deja caer una pelota desde 9 metros de altura. Cada vez que da un bote alcanza $\dfrac{2}{3}$ de la altura anterior. ¿A qué altura llegará luego del quinto bote?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\left(\dfrac{2}{3}\right)^{5}$ metros
+\item $\dfrac{2^{5}}{3^{3}}$ metros
+\item $9\cdot\left(\dfrac{2}{3}\right)^{4}$ metros
+\item $9\cdot\left(\dfrac{1}{3}\right)^{5}$ metros
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $4^{x+y}=32$ y $16^{\frac{x}{4}}=\dfrac{1}{4}$, entonces $x-y$ es igual a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\dfrac{13}{2}$
+\item $-2$
+\item $\dfrac{5}{2}$
+\item $\dfrac{9}{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $5^{a}=x$ y $2^{a}=y$, ¿cuál es el valor de $20^{a}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $xy^{2}$
+\item $2xy^{2}$
+\item $4xy$
+\item $12xy$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Sea $p$ un número racional tal que $-1<p<0$ y $n$ es un entero impar mayor que cero. ¿Cuál de las siguientes expresiones representa el número menor?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $(2p)^{n+1}$
+\item $p^{n+1}$
+\item $p^{2n}$
+\item $p^{3n}$
+\item $p^{n}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Una expresión equivalente a $3^{2n}-3^{-2n}-\left(9^{\frac{n}{2}}+9^{-\frac{n}{2}}\right)^{2}$ es:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-2\left(3^{-2n}+1\right)$
+\item $-2$
+\item $2\left(3^{-2n}+1\right)$
+\item $2$
+\item $0$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Una población de caballos se duplica cada 3 años. Si $P$ es la población inicial y $t$ es la cantidad de años transcurridos, ¿cuál de las siguientes opciones representa la población a los $t$ años?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $P\cdot 2^{3t}$
+\item $P\cdot 2^{t}$
+\item $P\cdot 2^{\frac{t}{3}}$
+\item $P\cdot 3^{2t}$
+\item $P\cdot 3^{\frac{t}{2}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Un estudio ha determinado que la salinidad del agua en un cierto lago aumenta a razón de un $8\%$ cada 3 metros de profundidad. Si la salinidad en la superficie es $S\%$, ¿cuál función modela la salinidad a los $d$ metros de profundidad (con $d$ múltiplo de 3)?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $S\cdot(1+0{,}08)^{\frac{d}{3}}$
+\item $S\cdot(1+0{,}03)^{8d}$
+\item $S\cdot(1-0{,}08)^{\frac{d}{3}}$
+\item $S\cdot(1-0{,}08)^{3d}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\end{enumerate}
+
 % ============================================================
 % SOLUCIONARIO
 % ============================================================
@@ -2014,6 +2932,55 @@ g: $x=4$ & h: $x=4$ & i: $x=3$ & j: $x=-3$ &  &
 \textbf{Ítem 3 ($\bigstar\bigstar$, aplicación):} a)~$64.000$ (cubo del doble: $(2a)^3=8a^3=8\cdot 8000$) \; b)~$9^3=729$ metros \; c)~$2\cdot 3^5=486$ llamadas \; d)~$5^7=78.125$.
 
 \textbf{Ítem 4 ($\bigstar\bigstar\bigstar$):} $x=3$ (pues $x=x^9/x^8=19683/6561=3$). Domingo. 10 semanas ($512=2^9$, $512/2^x=1\Rightarrow x=9$).
+
+
+
+\subbloque{Ejercicios tipo PAES}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c||c|c||c|c||c|c||c|c}
+\toprule
+\textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.}\\
+\midrule
+1  & B & 9  & B & 17 & B & 25 & C & 33 & E\\
+2  & D & 10 & C & 18 & B & 26 & C & 34 & A\\
+3  & B & 11 & D & 19 & D & 27 & A & 35 & A\\
+4  & D & 12 & C & 20 & A & 28 & C & 36 & E\\
+5  & C & 13 & C & 21 & B & 29 & C & 37 & C\\
+6  & D & 14 & D & 22 & C & 30 & A & 38 & A\\
+7  & A & 15 & A & 23 & D & 31 & D & 39 & C\\
+8  & A & 16 & A & 24 & D & 32 & B & 40 & A\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Desarrollos clave:}
+
+\textbf{1.} $x^3\cdot x^8=x^{11}$. \quad \textbf{2.} $3^2\cdot b^6=9b^6$. \quad \textbf{3.} $a^{4-(-2)}b^{-12-(-4)}=a^6b^{-8}$. \quad \textbf{4.} $2^n\cdot3^n=6^n$ \checkmark{}. \quad \textbf{5.} Variable en exponente: $2^x=3$.
+
+\textbf{6.} $a^2+a=a(a+1)$. \quad \textbf{7.} $h=6$; $h\#3=(3-36)/3=-11$. \quad \textbf{8.} $5\cdot5^r\cdot7\cdot7^r=35ab$. \quad \textbf{9.} $5^x=5^6\Rightarrow x=6$.
+
+\textbf{10.} $3^{-3x}=3^6\Rightarrow x=-2$. \quad \textbf{11.} $x-3=0\Rightarrow x=3$. \quad \textbf{12.} $x=3\Rightarrow2^3=8$. \quad \textbf{13.} $2^t=2^6\Rightarrow t=6$ días.
+
+\textbf{14.} $m-1=3-m\Rightarrow m=2$. \quad \textbf{15.} $-2(-x+5)=2\Rightarrow x=6$. \quad \textbf{16.} $\left(\frac{3}{2}\right)^{2a}/\left(\frac{3}{2}\right)^{2a}=1$. \quad \textbf{17.} $a^{-n}+b^{-n}$.
+
+\textbf{18.} $x=11$. \quad \textbf{19.} $x=3$. \quad \textbf{20.} $10^{3x}=10^{-3}\Rightarrow x=-1$. \quad \textbf{21.} $(-7)^x=(-7)^5\Rightarrow x=5$.
+
+\textbf{22.} $3^{10x}=3^{-20}\Rightarrow x=-2\Rightarrow x/2=-1$. \quad \textbf{23.} $x=-1\Rightarrow x^2=1$. \quad \textbf{24.} $2^{n+5-n-3}+5^{2n+2-2n-1}=4+5=9$.
+
+\textbf{25.} $(8+144-8)/16=9$. \quad \textbf{26.} Cociente de potencias: $2$. \quad \textbf{27.} $A/B=2^5\cdot3\cdot5$.
+
+\textbf{28.} 6° recibe $(1/4)^5$ del total $\Rightarrow 2^{-10}\cdot2^4\cdot5^3\cdot3^2=2^{-8}\cdot5^3\cdot3^2$. \quad \textbf{29.} $5^n$. \quad \textbf{30.} $x=4$.
+
+\textbf{31.} $7^{21}\cdot6=7^{21}\cdot2\cdot3$; divisible por 14. \quad \textbf{32.} $3^x\cdot10=90\Rightarrow x=2$. \quad \textbf{33.} $q/p=3^{13}/3^4=3^9$.
+
+\textbf{34.} $9\cdot(2/3)^5=2^5/3^3$. \quad \textbf{35.} $x=-2$, $y=9/2$; $x-y=-13/2$. \quad \textbf{36.} $20^a=y^2\cdot x=xy^2$.
+
+\textbf{37.} $p^n$ (negativo de mayor valor absoluto entre las opciones negativas). \quad \textbf{38.} $-2(1+3^{-2n})$.
+
+\textbf{39.} $P\cdot2^{t/3}$. \quad \textbf{40.} $S\cdot(1{,}08)^{d/3}$.
 
 \vspace{8pt}
 \begin{center}
