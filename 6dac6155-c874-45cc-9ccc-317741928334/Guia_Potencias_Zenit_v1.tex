@@ -1,0 +1,2026 @@
+% ============================================================
+% PLANTILLA MAESTRA DE GUÍAS — ACADEMIA ZENIT
+% Guía de Potencias — Versión 1.0 · 2026
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, babel, arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+\usepackage{setspace}
+
+% -- Espaciado global --
+\linespread{1.18}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\setlist{itemsep=4pt, topsep=6pt, parsep=2pt}
+\setlist[enumerate,2]{itemsep=3pt, topsep=3pt}
+
+% -- Colores Institucionales Academia Zenit --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  importantbox/.style={enhanced,breakable,colback=white,colframe=zenitblue,
+    colbacktitle=zenitblue,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitblue,colback=zenitblue,arc=2pt}},
+  examplebox/.style={enhanced,breakable,colback=white,colframe=zenitgold,
+    colbacktitle=zenitgold,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitgold,colback=zenitgold,arc=2pt}},
+  warningbox/.style={enhanced,breakable,colback=white,colframe=zenitred,
+    colbacktitle=zenitred,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitred,colback=zenitred,arc=2pt}},
+  answerbox/.style={enhanced,breakable,colback=white,colframe=zenitnavy,
+    colbacktitle=zenitnavy,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitnavy,colback=zenitnavy,arc=2pt}}
+}
+
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.6em}
+  \noindent{\Large\bfseries\color{#1} #2}\par
+  \vspace{0.4em}{\noindent\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{1.0em}}
+
+\newcommand{\subbloque}[1]{%
+  \vspace{14pt}
+  \noindent{\large\bfseries\color{zenitnavy} #1}\par
+  \vspace{4pt}\hrule height 1pt\vspace{8pt}}
+
+\newcommand{\alternativasformato}[3]{%
+\item\begin{minipage}[t]{\linewidth}
+#1\\
+\begin{minipage}{\linewidth}\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.58\linewidth}
+    \begin{enumerate}[label=\Alph*),leftmargin=14pt]#2\end{enumerate}
+    \end{minipage}};
+  \node (figura) at (10.4,0) {#3};
+\end{tikzpicture}
+\end{minipage}\vspace{7mm}
+\end{minipage}}
+
+\newcommand{\TipoGuia}{Guía de Estudio Progresiva}
+\newcommand{\TituloGuia}{Potencias y sus propiedades}
+\newcommand{\TemaEncabezado}{Potencias · 1.0 · 2026}
+\newcommand{\NivelGuia}{Matemática}
+
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\textbf{Academia Zenit} $\cdot$ \TemaEncabezado}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small\textit{\NivelGuia\ · Potencias}}
+\fancyfoot[R]{\small Prohibida su reproducción total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ============================================================
+% PORTADA
+% ============================================================
+\thispagestyle{empty}
+
+\vspace*{2.5cm}
+
+\begin{center}
+  \includegraphics[width=0.30\linewidth]{logosin fondo.png}\\[1.8cm]
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.5cm]
+  {\LARGE\bfseries\color{zenitblue} Guía de Estudio Progresiva}\\[0.3cm]
+  {\LARGE\bfseries\color{zenitblue} Potencias y sus propiedades}\\[1.4cm]
+  {\Large\bfseries\color{zenitnavy} Matemática}\\[1.2cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.5pt}}\\[1.0cm]
+  {\large\itshape\color{zenitnavy} Material de apoyo y ejercitación}
+\end{center}
+
+\vfill
+
+\begin{center}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}\\[0.5cm]
+  {\large\bfseries\color{zenitnavy} Academia Zenit}\\[3pt]
+  {\color{zenitgold} Matemática · Potencias · 1.0 · 2026}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+% ============================================================
+% PÁGINA 2 — GLOSARIO, ÍNDICE Y PROPÓSITO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\vspace*{0.2cm}
+
+\begin{tcolorbox}[importantbox, title={Glosario de simbología}]
+{\small\textit{Los símbolos específicos del tema potencias aparecen resaltados en \textcolor{zenitgold}{\textbf{dorado}}.}}
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.32}
+\begin{tabular}{c p{4.5cm} | c p{4.5cm}}
+\toprule
+\textbf{Símbolo} & \textbf{Significado} & \textbf{Símbolo} & \textbf{Significado}\\
+\midrule
+\multicolumn{4}{l}{\textit{Conjuntos numéricos}}\\
+$\mathbb{N}$ & Naturales $\{1,2,3,\ldots\}$ & $\mathbb{Z}$ & Enteros $\{\ldots,-1,0,1,\ldots\}$\\
+$\mathbb{Q}$ & Racionales $\frac{p}{q}$, $q\neq 0$ & $\mathbb{R}$ & Números reales\\
+$a\in A$ & $a$ pertenece al conjunto $A$ & $\neq$ & Distinto de\\[3pt]
+\multicolumn{4}{l}{\textit{Relaciones y lógica}}\\
+$<\;>\;\leq\;\geq$ & Menor, mayor (estricto/no estricto) & $\approx$ & Aproximadamente igual\\
+$\Rightarrow$ & Implica (consecuencia) & $\Leftrightarrow$ & Si y solo si\\
+$|a|$ & Valor absoluto de $a$ & $\text{m.c.m.}(a,b)$ & Mínimo común múltiplo\\[3pt]
+\multicolumn{4}{l}{\textit{\textcolor{zenitgold}{\textbf{Potencias — tema central}}}}\\
+\textcolor{zenitgold}{$a^n$} & \textcolor{zenitgold}{$a$ elevado a la potencia $n$} & \textcolor{zenitgold}{$a^0=1$} & \textcolor{zenitgold}{Exponente cero ($a\neq 0$)}\\
+\textcolor{zenitgold}{$a^{-n}$} & \textcolor{zenitgold}{Potencia de exponente negativo} & \textcolor{zenitgold}{$(a/b)^n$} & \textcolor{zenitgold}{Potencia de un cociente}\\
+\textcolor{zenitgold}{$a^m\cdot a^n$} & \textcolor{zenitgold}{$=a^{m+n}$ (P1)} & \textcolor{zenitgold}{$a^m \div a^n$} & \textcolor{zenitgold}{$=a^{m-n}$ (P2)}\\
+\textcolor{zenitgold}{$(a^m)^n$} & \textcolor{zenitgold}{$=a^{mn}$ (P3)} & \textcolor{zenitgold}{$a^n\cdot b^n$} & \textcolor{zenitgold}{$=(ab)^n$ (P4)}\\
+\textcolor{zenitgold}{$a^{m/n}$} & \textcolor{zenitgold}{Potencia de exp. racional} & \textcolor{zenitgold}{$a\cdot 10^n$} & \textcolor{zenitgold}{Notación científica}\\[3pt]
+\multicolumn{4}{l}{\textit{Convenciones de esta guía}}\\
+$\checkmark$ & Verificación correcta & $\times$ & Solución descartada\\
+$\bigstar$ & Nivel básico & $\bigstar\bigstar\bigstar$ & Nivel avanzado\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Índice de contenidos}]
+\begin{multicols}{2}
+{\small
+\begin{tabular}{r @{\hspace{4pt}} p{5.2cm} @{\hspace{6pt}} r}
+\textbf{§} & \textbf{Sección 1 · Concepto de potencia} & \textbf{p.\,\pageref{sec:1}}\\
+1.1 & La pregunta que da origen & \pageref{sub:1.1}\\
+1.2 & Exponente cero (enunciado) & \pageref{sub:1.2}\\
+1.3 & Base negativa & \pageref{sub:1.3}\\
+1.4 & Base racional y decimal & \pageref{sub:1.4}\\[3pt]
+\textbf{§} & \textbf{Sección 2 · Las seis propiedades} & \textbf{p.\,\pageref{sec:2}}\\
+2.0 & Simplificación algebraica previa & \pageref{sub:2.0}\\
+2.1 & P1 — Multiplicación igual base & \pageref{sub:2.1}\\
+2.2 & P2 — División igual base & \pageref{sub:2.2}\\
+ & \quad Corolario: $a^0=1$ (demostración) & \\
+ & \quad Corolario: $a^{-n}=1/a^n$ & \\
+2.3 & P3 — Potencia de potencia & \pageref{sub:2.3}\\
+2.4 & P4 — Multiplicación igual exp. & \pageref{sub:2.4}\\
+2.5 & P5 — División igual exp. & \pageref{sub:2.5}\\
+2.6 & P6 — Potencia de cociente & \pageref{sub:2.6}\\
+\end{tabular}
+
+\columnbreak
+
+\begin{tabular}{r @{\hspace{4pt}} p{5.2cm} @{\hspace{6pt}} r}
+\textbf{§} & \textbf{Sección 3 · Op. combinadas} & \textbf{p.\,\pageref{sec:3}}\\
+3.1 & Prioridad de operaciones & \pageref{sub:3.1}\\
+3.2 & Expresiones numéricas & \pageref{sub:3.2}\\
+3.3 & Exponentes literales & \pageref{sub:3.3}\\
+3.4 & Operatoria con racionales & \pageref{sub:3.4}\\[3pt]
+\textbf{§} & \textbf{Sección 4 · Notación científica} & \textbf{p.\,\pageref{sec:4}}\\
+4.1 & Potencias de base 10 & \pageref{sub:4.1}\\
+4.2 & Definición y condición & \pageref{sub:4.2}\\
+4.3 & Conversión & \pageref{sub:4.3}\\
+4.4 & Operaciones & \pageref{sub:4.4}\\[3pt]
+\textbf{§} & \textbf{Sección 5 · Exp. racional} & \textbf{p.\,\pageref{sec:5}}\\
+5.1 & Motivación & \pageref{sub:5.1}\\
+5.2 & Definición formal & \pageref{sub:5.2}\\
+5.3 & Conversión de registros & \pageref{sub:5.3}\\[3pt]
+\textbf{§} & \textbf{Sección Final · Ecuaciones} & \textbf{p.\,\pageref{sec:fin}}\\
+ & Ejercicios con alternativas & \pageref{sub:alt}\\[3pt]
+\textbf{§} & \textbf{Galería matemática} & \textbf{p.\,\pageref{sec:galeria}}\\
+\textbf{§} & \textbf{Solucionario completo} & \textbf{p.\,\pageref{sec:sol}}\\
+\end{tabular}
+}
+\end{multicols}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[importantbox, title={Propósito de la guía}]
+Esta guía construye el concepto de \textbf{potencia} de forma progresiva: desde la multiplicación repetida hasta las potencias de exponente racional, puerta de entrada natural a las raíces. Es la guía previa de la \textit{Guía de Raíces — Academia Zenit} y asume únicamente el manejo de las cuatro operaciones básicas con números racionales.
+
+\smallskip
+\textbf{Dificultad:} $\bigstar$ básico \quad $\bigstar\bigstar$ intermedio \quad $\bigstar\bigstar\bigstar$ avanzado. \quad \textbf{Convención:} $a^1=a$; $a^0=1$ para $a\neq 0$.
+\end{tcolorbox}
+
+% ============================================================
+% PÁGINA 4 — GALERÍA MATEMÁTICA
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+\label{sec:galeria}
+
+\begin{center}
+  \vspace*{0.4cm}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.2pt}}\\[0.5cm]
+  {\Large\bfseries\color{zenitnavy} Galería matemática}\\[0.15cm]
+  {\normalsize\itshape\color{zenitgold} Quienes construyeron las herramientas que usamos hoy}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+\vspace{0.6cm}
+
+\begin{tcolorbox}[enhanced,breakable,colback=white,colframe=blockb,colbacktitle=blockb,
+  coltitle=white,arc=4pt,leftrule=5pt,left=10pt,right=10pt,top=12pt,bottom=10pt,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockb,colback=blockb,arc=2pt},
+  title={Emmy Noether \hfill \normalfont\itshape 1882 — 1935}]
+
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+\begin{tikzpicture}
+  \draw[fill=blockb!12,draw=blockb,rounded corners=4pt,thick](0,0)rectangle(2.4,3.0);
+  \node[align=center,text=blockb,font=\small\itshape]at(1.2,1.5){Fotografía\\[2pt]conservada};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+Emmy Noether nació en 1882 en Erlangen (Alemania). Su padre, Max Noether, era también matemático, y ella creció en un ambiente intelectual poco común para las mujeres de su época. Durante años estudió y luego enseñó en Gotinga sin sueldo ni cargo formal, porque las universidades alemanas no admitían profesoras. Hubo que esperar la intervención directa de David Hilbert —quien preguntó irónicamente ante el claustro: «¿Somos una universidad o un baño público?»— para que le fuera reconocida una posición mínima.
+
+\medskip
+Su obra central transformó el álgebra: introdujo el estudio abstracto de los \textbf{anillos}, los \textbf{grupos} y los \textbf{cuerpos} como estructuras definidas por sus propiedades operatorias, sin importar los objetos concretos que las habiten. Este enfoque, hoy llamado \textbf{álgebra abstracta}, es la base de enormes partes de la matemática moderna. En 1915 demostró el célebre \textbf{Teorema de Noether}, que conecta las simetrías de un sistema físico con sus leyes de conservación y es uno de los resultados más profundos de la física teórica.
+
+\medskip
+Cuando el régimen nazi llegó al poder en 1933, Noether fue expulsada de su cargo y emigró a Estados Unidos, donde enseñó en el Bryn Mawr College hasta su muerte en 1935. Albert Einstein escribió en su obituario en el \textit{New York Times}: la describió como la persona más significativa en la historia de la creación matemática.
+
+\medskip
+\textit{«Mis métodos son en realidad métodos de trabajo y de pensamiento; por eso se han infiltrado en todas partes, de manera anónima.»} — Emmy Noether.
+\end{minipage}
+\end{tcolorbox}
+
+\vspace{0.7cm}
+
+\begin{tcolorbox}[enhanced,breakable,colback=white,colframe=blockc,colbacktitle=blockc,
+  coltitle=white,arc=4pt,leftrule=5pt,left=10pt,right=10pt,top=12pt,bottom=10pt,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockc,colback=blockc,arc=2pt},
+  title={Leonhard Euler \hfill \normalfont\itshape 1707 — 1783}]
+
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+Leonhard Euler nació en 1707 en Basilea (Suiza) y es el matemático más prolífico de la historia: sus obras completas ocupan más de 90 volúmenes. Estudió bajo Johann Bernoulli y pasó la mayor parte de su vida trabajando en la Academia de San Petersburgo y en la Academia de Berlín. Alrededor de 1738 perdió la visión de un ojo; en 1766 quedó casi completamente ciego. Eso no detuvo su producción: dictaba sus trabajos de memoria y publicaba más artículos siendo ciego que antes.
+
+\medskip
+La lista de sus contribuciones es casi inabarcable: análisis matemático, teoría de números, geometría, mecánica, óptica y astronomía. A Euler se deben algunas de las notaciones más fundamentales que usamos hoy: la letra $e$ para la base de los logaritmos naturales, la letra $i$ para la unidad imaginaria, la letra $\pi$ para la razón entre circunferencia y diámetro, y la notación $f(x)$ para función. Su \textit{Introductio in analysin infinitorum} (1748) es considerado el libro de texto moderno más influyente de la historia de las matemáticas.
+
+\medskip
+También es autor del primer teorema de la teoría de grafos al resolver el problema de los Puentes de Königsberg en 1736. Y de la identidad $e^{i\pi}+1=0$, que el físico Richard Feynman llamaría siglos después «la fórmula más notable de la matemática».
+
+\medskip
+\textit{«Nada ocurre en el mundo sin que exista algún principio de máximo o mínimo.»} — Leonhard Euler, \textit{Methodus Inveniendi}, 1744.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+\begin{tikzpicture}
+  \draw[fill=blockc!10,draw=blockc,rounded corners=4pt,thick](0,0)rectangle(2.4,3.0);
+  \node[align=center,text=blockc,font=\small\itshape]at(1.2,1.5){Retrato\\[2pt]conservado};
+\end{tikzpicture}
+\end{minipage}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\begin{center}
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}\\[0.3cm]
+  {\small\itshape\color{zenitnavy} La matemática no tiene fronteras de época, género ni cultura.}\\[0.2cm]
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}
+\end{center}
+
+% ============================================================
+% SECCIÓN 1
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Sección 1 · Concepto de potencia}
+\label{sec:1}
+
+\subbloque{1.1 La pregunta que da origen al concepto}
+\label{sub:1.1}
+
+¿Cuánto mide el área de un cuadrado de lado 5? $5\times 5 = 25$. ¿Y el volumen de un cubo de arista 3? $3\times 3\times 3 = 27$. En ambos casos aparece un factor que se \textbf{multiplica por sí mismo} varias veces. Esa operación es lo que llamamos \textbf{potencia}.
+
+\begin{tcolorbox}[importantbox, title={Definición formal — Potencia de exponente natural}]
+La \textbf{potencia} $a^n$ se define como el producto de $n$ factores iguales a $a$:
+$$a^n = \underbrace{a \cdot a \cdot a \cdots a}_{n \text{ veces}}, \qquad n \in \mathbb{N},\ n \geq 1$$
+
+\begin{itemize}[itemsep=3pt]
+  \item $a$ se llama \textbf{base}: el número que se multiplica repetidamente.
+  \item $n$ se llama \textbf{exponente}: cuántas veces aparece la base como factor.
+  \item $a^n$ se llama \textbf{potencia} y su resultado numérico, \textbf{valor de la potencia}.
+\end{itemize}
+
+\textbf{Lectura:} $a^n$ se lee «$a$ elevado a $n$». Casos especiales: $a^2$ = «al cuadrado»; $a^3$ = «al cubo». \\
+\textbf{Convención:} $a^1 = a$ (un solo factor, la potencia es la propia base).
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente — $n \cdot a \neq a^n$: suma iterada vs. multiplicación iterada}]
+$n \cdot a$ significa \textbf{sumar} $a$ consigo mismo $n$ veces: por ejemplo $4 \cdot 3 = 3+3+3+3 = 12$.
+
+$a^n$ significa \textbf{multiplicar} $a$ por sí mismo $n$ veces: $3^4 = 3\cdot 3\cdot 3\cdot 3 = 81$.
+
+\textbf{Contraejemplo que deja claro la diferencia:} $4\cdot 3 = 12 \neq 81 = 3^4$.
+
+En general: $n \cdot a \neq a^n$. Son operaciones completamente distintas.
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Tabla de potencias de referencia — bases 2 a 5}]
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c|c|c|c|c|c}
+\toprule
+\textbf{Base} & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ & $n=6$\\
+\midrule
+$2^n$ & 2 & 4 & 8 & 16 & 32 & 64\\
+$3^n$ & 3 & 9 & 27 & 81 & 243 & 729\\
+$4^n$ & 4 & 16 & 64 & 256 & 1.024 & 4.096\\
+$5^n$ & 5 & 25 & 125 & 625 & 3.125 & 15.625\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — valor de la potencia}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Calcular $6^3$}
+
+\textbf{Paso 1 — escribir como producto de 3 factores iguales a 6:}
+$$6^3 = 6 \cdot 6 \cdot 6$$
+\textbf{Paso 2 — calcular de izquierda a derecha:}
+$$6 \cdot 6 = 36, \qquad 36 \cdot 6 = 216$$
+\textbf{Conclusión:} $6^3 = 216$.
+
+\item \textbf{Calcular $2^8$}
+$$2^8 = 2\cdot 2\cdot 2\cdot 2\cdot 2\cdot 2\cdot 2\cdot 2 = 256$$
+\textbf{Conclusión:} $2^8 = 256$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Calcula escribiendo primero el producto explícito:
+\begin{multicols}{5}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $4^3$
+  \item $3^4$
+  \item $5^3$
+  \item $2^7$
+  \item $10^4$
+  \item $4^4$
+  \item $2^{10}$
+  \item $3^5$
+  \item $6^4$
+  \item $7^3$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.2 Exponente cero: convenio y enunciado}
+\label{sub:1.2}
+
+La definición de $a^n$ como multiplicación repetida exige $n \geq 1$. ¿Qué ocurre si el exponente es 0? La respuesta no se \emph{inventa}: se \textbf{deduce} exigiendo que ciertas propiedades sigan funcionando.
+
+\begin{tcolorbox}[importantbox, title={Exponente cero — enunciado}]
+Para cualquier base $a \neq 0$:
+$$a^0 = 1$$
+
+\textbf{Nota:} la demostración formal —que usa la propiedad de cociente— se presenta en la Sección 2 (Corolario de P2). Por ahora lo enunciamos como convenio y lo usaremos en los ejercicios.
+
+$0^0$ no está definido; el caso $a = 0$ queda excluido.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente — $a^0 \neq 0$}]
+El exponente cero da \textbf{uno}, no cero.
+
+$(17)^0 = 1$, \quad $\left(\dfrac{3}{5}\right)^0 = 1$, \quad $(-99)^0 = 1$.
+
+La confusión surge de asociar «cero» en el exponente con «resultado cero». No hay ninguna razón para eso.
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Calcula:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $7^0$
+  \item $(-3)^0$
+  \item $\left(\dfrac{2}{9}\right)^0$
+  \item $5^0 + 3^0 - 100^0$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.3 Exponente natural con base negativa: regla del signo}
+\label{sub:1.3}
+
+Cuando la base es negativa, la potencia se calcula multiplicando factores negativos. El signo del resultado depende de cuántos factores negativos aparecen.
+
+\begin{tcolorbox}[importantbox, title={Regla del signo para base negativa}]
+Sea $a > 0$ y $n \in \mathbb{N}$, $n \geq 1$:
+\begin{itemize}[itemsep=4pt]
+  \item $n$ \textbf{par}: $(-a)^n = +a^n$ \quad (número par de signos negativos $\Rightarrow$ resultado positivo)
+  \item $n$ \textbf{impar}: $(-a)^n = -a^n$ \quad (número impar de signos negativos $\Rightarrow$ resultado negativo)
+\end{itemize}
+
+\textbf{Atención crucial al paréntesis:}
+\begin{itemize}[itemsep=3pt]
+  \item $(-a)^n$: la base es $-a$; el signo negativo \emph{entra} dentro de la potencia.
+  \item $-a^n = -(a^n)$: la potencia es solo de $a$; el signo negativo está \emph{fuera}.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — regla del signo}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item $(-2)^4$ tiene base negativa y exponente \textbf{par}, por lo tanto el resultado es positivo:
+$$(-2)^4 = (-2)(-2)(-2)(-2) = +16$$
+\textbf{Conclusión:} $+16$.
+
+\item $(-2)^5$ tiene base negativa y exponente \textbf{impar}, por lo tanto el resultado es negativo:
+$$(-2)^5 = (-2)(-2)(-2)(-2)(-2) = -32$$
+\textbf{Conclusión:} $-32$.
+
+\item Para distinguir $(-4)^2$ de $-4^2$ hay que prestar atención al paréntesis:
+
+$(-4)^2 = (-4)\cdot(-4) = +16$ \quad (la base entera es $-4$)
+
+$-4^2 = -(4^2) = -(4\cdot 4) = -16$ \quad (la potencia es de $4$; el signo está fuera)
+
+\textbf{Conclusión:} $(-4)^2 = 16 \neq -16 = -4^2$. El paréntesis cambia todo.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Calcula e indica el signo:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(-4)^4$
+  \item $(-9)^3$
+  \item $(-2)^6$
+  \item $-3^4$
+  \item $(-1)^{100}$
+  \item $(-1)^{101}$
+  \item $(-3)^5$
+  \item $-(-2)^4$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.4 Base racional y decimal: multiplicación directa}
+\label{sub:1.4}
+
+La definición de potencia como multiplicación repetida funciona para cualquier base, incluidas las fracciones y los decimales. Se calcula multiplicando la base consigo misma la cantidad de veces que indica el exponente, aplicando las reglas de multiplicación de fracciones.
+
+\begin{tcolorbox}[importantbox, title={Base racional — cálculo directo}]
+Para $n \in \mathbb{N}$, $n \geq 1$:
+$$\left(\frac{p}{q}\right)^n = \underbrace{\frac{p}{q} \cdot \frac{p}{q} \cdots \frac{p}{q}}_{n \text{ veces}} = \frac{\overbrace{p \cdot p \cdots p}^{n}}{{\underbrace{q \cdot q \cdots q}_{n}}}$$
+
+El resultado se obtiene multiplicando numeradores entre sí y denominadores entre sí, $n$ veces. Esto es simplemente la regla de multiplicación de fracciones aplicada repetidamente, \textbf{no una propiedad nueva de las potencias}.
+
+Para bases decimales: convertir a fracción primero, luego aplicar la misma regla.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — base racional y decimal}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+\item \textbf{Calcular $\left(\dfrac{2}{3}\right)^4$}
+
+\textbf{Paso 1 — escribir como producto de 4 fracciones iguales:}
+$$\left(\frac{2}{3}\right)^4 = \frac{2}{3}\cdot\frac{2}{3}\cdot\frac{2}{3}\cdot\frac{2}{3}$$
+\textbf{Paso 2 — multiplicar numeradores y denominadores:}
+$$= \frac{2\cdot 2\cdot 2\cdot 2}{3\cdot 3\cdot 3\cdot 3} = \frac{16}{81}$$
+\textbf{Conclusión:} $\left(\dfrac{2}{3}\right)^4 = \dfrac{16}{81}$.
+
+\item \textbf{Calcular $\left(-\dfrac{1}{2}\right)^3$}
+
+\textbf{Paso 1 — escribir como producto:}
+$$\left(-\frac{1}{2}\right)^3 = \left(-\frac{1}{2}\right)\cdot\left(-\frac{1}{2}\right)\cdot\left(-\frac{1}{2}\right)$$
+\textbf{Paso 2 — multiplicar (base negativa, exponente impar $\Rightarrow$ negativo):}
+$$= -\frac{1\cdot 1\cdot 1}{2\cdot 2\cdot 2} = -\frac{1}{8}$$
+\textbf{Conclusión:} $\left(-\dfrac{1}{2}\right)^3 = -\dfrac{1}{8}$.
+
+\item \textbf{Calcular $(0{,}3)^3$}
+
+\textbf{Paso 1 — convertir a fracción:} $0{,}3 = \dfrac{3}{10}$.
+
+\textbf{Paso 2 — aplicar la definición:}
+$$\left(\frac{3}{10}\right)^3 = \frac{3\cdot 3\cdot 3}{10\cdot 10\cdot 10} = \frac{27}{1.000} = 0{,}027$$
+
+\textbf{Conclusión:} $(0{,}3)^3 = 0{,}027$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Calcula multiplicando directamente:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\left(\dfrac{1}{2}\right)^5$
+  \item $\left(\dfrac{3}{4}\right)^3$
+  \item $\left(-\dfrac{2}{3}\right)^4$
+  \item $(0{,}5)^3$
+  \item $\left(-\dfrac{1}{3}\right)^3$
+  \item $(0{,}2)^4$
+  \item $\left(\dfrac{1}{10}\right)^5$
+  \item $\left(-\dfrac{3}{2}\right)^3$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula el valor de cada potencia (escribe el producto explícito):
+  \begin{multicols}{5}
+  \begin{enumerate}[label=\alph*)]
+    \item $4^3$
+    \item $3^4$
+    \item $7^2$
+    \item $2^8$
+    \item $5^4$
+    \item $(-4)^4$
+    \item $(-9)^3$
+    \item $(-2)^6$
+    \item $-3^4$
+    \item $(-1)^{15}$
+    \item $\left(\dfrac{1}{5}\right)^3$
+    \item $\left(-\dfrac{2}{3}\right)^3$
+    \item $\left(\dfrac{3}{4}\right)^2$
+    \item $(0{,}2)^3$
+    \item $(0{,}5)^4$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Calcula (aplica la regla del signo antes de operar):
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $(-3)^4 + (-3)^3$
+    \item $(-2)^5 - (-2)^4$
+    \item $(-1)^{100} + (-1)^{101}$
+    \item $-2^4 + (-2)^4$
+    \item $\left(-\dfrac{1}{2}\right)^4 + \left(-\dfrac{1}{2}\right)^3$
+    \item $(0{,}1)^3 - (0{,}1)^4$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Indica si es verdadero o falso y justifica con un cálculo:
+  \begin{enumerate}[label=\alph*)]
+    \item $(-5)^2 = -5^2$
+    \item $3^0 = 0$
+    \item $(-1)^{2026} = 1$
+    \item $\left(\dfrac{2}{3}\right)^3 = \dfrac{8}{27}$
+    \item $(-2)^3 = -(2^3)$
+  \end{enumerate}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Calcula, ordenando los pasos:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $(-3)^4 - (-2)^5 + 5^0 \cdot 4^0$
+    \item $\left(-\dfrac{2}{3}\right)^3 + \left(\dfrac{1}{2}\right)^4 - (-1)^7$
+    \item $3^3 \cdot 0^5 + (-4)^2 \cdot 1^{100}$
+    \item $\left(-\dfrac{1}{3}\right)^4 - \left(-\dfrac{1}{2}\right)^3 + \left(\dfrac{2}{5}\right)^2$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Determina todos los enteros $n \geq 1$ que satisfacen $2^n < 100$ simultáneamente con $3^n < 1000$.
+  \item ¿Para qué valores de $n \in \mathbb{N}$ se cumple $(-1)^n = 1$? ¿Y $(-1)^n = -1$? Justifica usando la regla del signo.
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 2
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Sección 2 · Las seis propiedades de las potencias}
+\label{sec:2}
+
+Las propiedades no son reglas que se memorizan: se \textbf{deducen} a partir de la definición de potencia como multiplicación repetida. Esta sección construye cada una desde cero.
+
+\subbloque{2.0 Herramienta previa: simplificación de productos con factores repetidos}
+\label{sub:2.0}
+
+Antes de las propiedades formales, conviene dominar la idea de simplificar productos y cocientes de factores repetidos cancelando lo que aparece en numerador y denominador. Esta idea es la raíz de casi todas las propiedades.
+
+\begin{tcolorbox}[importantbox, title={Simplificación algebraica por cancelación}]
+En una fracción, cualquier factor que aparezca en el numerador \textbf{y} en el denominador puede cancelarse:
+$$\frac{a \cdot \cancel{b} \cdot c \cdot c}{\cancel{b} \cdot a \cdot c} = \frac{a \cdot c \cdot c}{a \cdot c} = \frac{\cancel{a} \cdot c \cdot \cancel{c}}{\cancel{a} \cdot \cancel{c}} = c$$
+
+Más ejemplos de cancelación:
+$$\frac{a \cdot b \cdot c \cdot c \cdot c}{a \cdot a \cdot c} = \frac{\cancel{a} \cdot b \cdot \cancel{c} \cdot c \cdot c}{\cancel{a} \cdot a \cdot \cancel{c}} = \frac{b \cdot c \cdot c}{a} = \frac{bc^2}{a}$$
+
+\textbf{Condición:} solo se pueden cancelar factores multiplicativos, nunca sumandos.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — simplificación con letras y números}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+\item \textbf{Simplificar $\dfrac{a \cdot a \cdot a \cdot b \cdot b}{a \cdot b}$}
+
+Cancelamos un $a$ y un $b$ del denominador con el numerador:
+$$\frac{\cancel{a} \cdot a \cdot a \cdot \cancel{b} \cdot b}{\cancel{a} \cdot \cancel{b}} = a \cdot a \cdot b = a^2 b$$
+\textbf{Conclusión:} $a^2 b$.
+
+\item \textbf{Simplificar $\dfrac{3 \cdot 3 \cdot 3 \cdot 3 \cdot 3}{3 \cdot 3}$}
+
+De los 5 factores en el numerador, 2 se cancelan con los del denominador:
+$$\frac{\cancel{3}\cdot\cancel{3}\cdot 3\cdot 3\cdot 3}{\cancel{3}\cdot\cancel{3}} = 3\cdot 3\cdot 3 = 27$$
+\textbf{Conclusión:} $27$. \quad (\textit{Nota: $3^5 \div 3^2 = 3^3 = 27$. Esto motivará P2.})
+
+\item \textbf{Simplificar $\dfrac{x \cdot x \cdot x \cdot y \cdot y \cdot y}{x \cdot y \cdot y}$}
+
+Cancelamos 1 factor $x$ y 2 factores $y$:
+$$\frac{\cancel{x}\cdot x\cdot x\cdot \cancel{y}\cdot\cancel{y}\cdot y}{\cancel{x}\cdot\cancel{y}\cdot\cancel{y}} = x^2 y$$
+\textbf{Conclusión:} $x^2 y$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Simplifica cancelando factores comunes:
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{a\cdot a\cdot a\cdot b}{a\cdot b}$
+  \item $\dfrac{5\cdot 5\cdot 5\cdot 5}{5\cdot 5\cdot 5}$
+  \item $\dfrac{x\cdot x\cdot y\cdot y\cdot y}{x\cdot y}$
+  \item $\dfrac{2\cdot 2\cdot 2\cdot 3\cdot 3}{2\cdot 3\cdot 3}$
+  \item $\dfrac{m\cdot m\cdot m\cdot n\cdot n}{m\cdot m\cdot n}$
+  \item $\dfrac{a\cdot a\cdot b\cdot b\cdot b\cdot c}{a\cdot b\cdot c\cdot c}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.1 P1 — Multiplicación de potencias de igual base}
+\label{sub:2.1}
+
+\textbf{¿Qué ocurre si multiplicamos $a^m \cdot a^n$?} Escribamos ambas potencias como productos explícitos y contemos los factores:
+
+$$a^m \cdot a^n = \underbrace{a \cdot a \cdots a}_{m \text{ factores}} \cdot \underbrace{a \cdot a \cdots a}_{n \text{ factores}} = \underbrace{a \cdot a \cdots a}_{m + n \text{ factores}} = a^{m+n}$$
+
+\begin{tcolorbox}[importantbox, title={P1 — Multiplicación de potencias de igual base}]
+$$a^m \cdot a^n = a^{m+n}$$
+
+\textbf{Deducción:} el producto de dos potencias de la misma base equivale a poner todos los factores juntos. En total hay $m+n$ factores, luego el resultado es $a^{m+n}$.
+
+\textbf{Condición:} la base debe ser la misma. Se puede extender a más de dos factores: $a^m \cdot a^n \cdot a^p = a^{m+n+p}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente — multiplicar las bases o los exponentes}]
+\textbf{Al aplicar P1, los exponentes se suman. La base no cambia y los exponentes no se multiplican.}
+$$a^m \cdot a^n = a^{m+n} \qquad \textbf{nunca} \qquad (a\cdot a)^{mn} \text{ ni } a^{mn}$$
+\textbf{Contraejemplo:} $3^2 \cdot 3^3 = 3^5 = 243$, pero $(3\cdot 3)^{2\cdot 3} = 9^6 = 531.441 \neq 243$.
+
+Además, P1 solo aplica cuando las bases son iguales: $a^m \cdot b^n$ \textbf{no se puede simplificar} con P1 si $a \neq b$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — P1}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+\item \textbf{Calcular $5^3 \cdot 5^4$}
+
+Misma base 5; sumar exponentes:
+$$5^3 \cdot 5^4 = 5^{3+4} = 5^7 = 78.125$$
+\textbf{Verificación con producto explícito:} $5^3 = 125$, $5^4 = 625$; $125\cdot 625 = 78.125$. \checkmark
+
+\item \textbf{Simplificar $\left(-\dfrac{2}{3}\right)^3 \cdot \left(-\dfrac{2}{3}\right)^2 \cdot \left(-\dfrac{2}{3}\right)^4$}
+
+Misma base $\left(-\dfrac{2}{3}\right)$:
+$$\left(-\frac{2}{3}\right)^{3+2+4} = \left(-\frac{2}{3}\right)^9$$
+
+Base negativa, exponente impar $\Rightarrow$ negativo:
+$$\left(-\frac{2}{3}\right)^9 = -\frac{2^9}{3^9} = -\frac{512}{19.683}$$
+\textbf{Conclusión:} $-\dfrac{512}{19.683}$.
+
+\item \textbf{Simplificar $a^5 \cdot a^{-8} \cdot a^5$}
+
+$$a^5 \cdot a^{-8} \cdot a^5 = a^{5+(-8)+5} = a^2$$
+\textbf{Conclusión:} $a^2$. \quad (\textit{Nota: el exponente negativo ya aparece naturalmente por P1. Lo justificaremos en el Corolario 2.})
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Escribe como una sola potencia:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $5^3\cdot 5^4$
+  \item $6^3\cdot 6^2$
+  \item $9^4\cdot 9^7$
+  \item $7^2\cdot 7^3\cdot 7^2$
+  \item $a^5\cdot a^3\cdot a^2$
+  \item $m^p\cdot m^3\cdot m^4$
+  \item $(xy)^5\cdot(xy)^3$
+  \item $2^3\cdot 2^4\cdot 2^5$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.2 P2 — División de potencias de igual base}
+\label{sub:2.2}
+
+\textbf{¿Qué ocurre si dividimos $a^m \div a^n$ cuando $m > n$?} Escribimos ambas como productos y cancelamos:
+
+$$\frac{a^m}{a^n} = \frac{\overbrace{a\cdot a\cdots a}^{m}}{\underbrace{a\cdot a\cdots a}_{n}} = \frac{\cancel{a}\cdots\cancel{a}\cdot a\cdots a}{\cancel{a}\cdots\cancel{a}} = \underbrace{a\cdot a\cdots a}_{m-n} = a^{m-n}$$
+
+Se cancelan exactamente $n$ factores, quedando $m-n$ factores en el numerador.
+
+\begin{tcolorbox}[importantbox, title={P2 — División de potencias de igual base}]
+$$a^m \div a^n = a^{m-n} \qquad (a \neq 0)$$
+
+\textbf{Deducción:} los $n$ factores del denominador se cancelan con $n$ de los $m$ factores del numerador. Quedan $m-n$ factores $\Rightarrow$ $a^{m-n}$.
+
+Esta propiedad vale para cualquier par de enteros $m, n$, incluyendo $m < n$ (dará exponente negativo) y $m = n$ (dará exponente cero).
+\end{tcolorbox}
+
+\medskip
+\textbf{Corolario 1 — Demostración de $a^0 = 1$:}
+
+Si tomamos $m = n$ en P2:
+$$a^n : a^n = a^{n-n} = a^0$$
+Pero $a^n : a^n = \dfrac{a^n}{a^n} = 1$ (cualquier número dividido por sí mismo es 1, con $a\neq 0$).
+
+Por lo tanto: $\boxed{a^0 = 1}$ \quad para todo $a \neq 0$.
+
+\medskip
+\textbf{Corolario 2 — Definición de exponente negativo:}
+
+Si tomamos $m < n$ en P2, por ejemplo $m = 0$:
+$$a^0 \div a^n = a^{0-n} = a^{-n}$$
+Pero $a^0 \div a^n = \dfrac{1}{a^n}$ (usando el Corolario 1 y la definición de cociente).
+
+Por lo tanto: $\boxed{a^{-n} = \dfrac{1}{a^n}}$ \quad para todo $a \neq 0$, $n \in \mathbb{N}$.
+
+\begin{tcolorbox}[importantbox, title={Exponente negativo — propiedad deducida}]
+$$a^{-n} = \frac{1}{a^n} \qquad\text{y}\qquad \left(\frac{a}{b}\right)^{-n} = \left(\frac{b}{a}\right)^n \qquad (a \neq 0,\ b \neq 0)$$
+
+\textbf{Interpretación:} el exponente negativo produce el inverso multiplicativo. Para una fracción elevada a un exponente negativo, basta darle vuelta a la fracción y cambiar el signo del exponente.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente — $a^{-n} \neq -a^n$}]
+El exponente negativo produce un \textbf{inverso} (fracción), nunca un número negativo.
+$$8^{-3} = \frac{1}{8^3} = \frac{1}{512} \qquad \textbf{nunca} \qquad -8^3 = -512$$
+
+La confusión surge de leer el signo $-$ del exponente como signo del resultado.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — P2 y exponente negativo}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item $7^9 \div 7^4$ tiene la misma base, por lo tanto se restan los exponentes:
+$$7^9 \div 7^4 = 7^{9-4} = 7^5 = 16.807$$
+\textbf{Conclusión:} $16.807$.
+
+\item $5^3 \div 5^7$ también tiene la misma base; el exponente resultante queda negativo:
+$$5^3 \div 5^7 = 5^{3-7} = 5^{-4} = \frac{1}{5^4} = \frac{1}{625}$$
+\textbf{Conclusión:} $\dfrac{1}{625}$.
+
+\item $8^{-3}$ tiene exponente negativo, lo que equivale al inverso de $8^3$:
+$$8^{-3} = \frac{1}{8^3} = \frac{1}{512}$$
+\textbf{Conclusión:} $\dfrac{1}{512}$.
+
+\item Para $\left(\dfrac{3}{2}\right)^{-4}$ se invierte la fracción y se cambia el signo del exponente:
+$$\left(\frac{3}{2}\right)^{-4} = \left(\frac{2}{3}\right)^4 = \frac{2^4}{3^4} = \frac{16}{81}$$
+\textbf{Conclusión:} $\dfrac{16}{81}$.
+
+\item $(0{,}8)^7 \div (0{,}8)^5$ tiene la misma base; se restan los exponentes y se calcula:
+$$(0{,}8)^7 \div (0{,}8)^5 = (0{,}8)^{7-5} = (0{,}8)^2 = 0{,}64$$
+\textbf{Conclusión:} $0{,}64$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — División e interpretar exponente negativo:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $7^{12} \div 7^8$
+  \item $15^8 \div 15^5$
+  \item $2^3 \div 2^7$
+  \item $5^2 \div 5^6$
+  \item $3^{-2}$
+  \item $4^{-3}$
+  \item $\left(\dfrac{2}{3}\right)^{-2}$
+  \item $10^{-4}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.3 P3 — Potencia de una potencia}
+\label{sub:2.3}
+
+\textbf{¿Qué es $(a^m)^n$?} Es $a^m$ multiplicado por sí mismo $n$ veces. Aplicando P1 repetidamente:
+$$(a^m)^n = \underbrace{a^m \cdot a^m \cdots a^m}_{n} = a^{\underbrace{m+m+\cdots+m}_{n}} = a^{m \cdot n}$$
+
+\begin{tcolorbox}[importantbox, title={P3 — Potencia de una potencia}]
+$$(a^m)^n = a^{m \cdot n}$$
+
+\textbf{Deducción:} elevar $a^m$ a la $n$ significa escribir $a^m$ como factor $n$ veces y aplicar P1, sumando el exponente $m$ exactamente $n$ veces, lo que da $m \cdot n$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — P3}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+\item $\left(\left(\dfrac{3}{4}\right)^3\right)^2 = \left(\dfrac{3}{4}\right)^{3\cdot 2} = \left(\dfrac{3}{4}\right)^6 = \dfrac{3^6}{4^6} = \dfrac{729}{4.096}$. \quad \textbf{Conclusión:} $\dfrac{729}{4.096}$.
+
+\item \textbf{Verificación de P3 con P1:}
+$$\left((a^3)^2\right) = a^3 \cdot a^3 = a^{3+3} = a^6 = a^{3\cdot 2} \checkmark$$
+
+\item $((a^3)^{a+2})^a = a^{3(a+2)\cdot a} = a^{3a^2+6a}$. \quad \textbf{Conclusión:} $a^{3a^2+6a}$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Escribe como potencia de un solo exponente:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(8^3)^4$
+  \item $((-3)^4)^3$
+  \item $((2)^5)^3$
+  \item $((1{,}5)^2)^5$
+  \item $((a^2)^3)^4$
+  \item $((p^{-1})^2)^3$
+  \item $((x^3)^{a+2})^a$
+  \item $(((b)^2)^3)^4$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.4 P4 — Multiplicación de potencias de igual exponente}
+\label{sub:2.4}
+
+\textbf{¿Qué es $a^n \cdot b^n$?} Escribimos ambas como productos y reorganizamos los factores:
+
+$$a^n \cdot b^n = \underbrace{(a\cdot a\cdots a)}_{n}\cdot\underbrace{(b\cdot b\cdots b)}_{n} = \underbrace{(a\cdot b)\cdot(a\cdot b)\cdots(a\cdot b)}_{n} = (ab)^n$$
+
+La reorganización es válida por la conmutatividad de la multiplicación.
+
+\begin{tcolorbox}[importantbox, title={P4 — Multiplicación de potencias de igual exponente}]
+$$a^n \cdot b^n = (a \cdot b)^n$$
+
+\textbf{Deducción:} reorganizar los $2n$ factores formando $n$ grupos de $(a\cdot b)$ produce el producto $(a\cdot b)$ repetido $n$ veces.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente — confundir P1 con P4}]
+\textbf{P1} requiere \emph{misma base, distintos exponentes}: $a^m \cdot a^n = a^{m+n}$.
+
+\textbf{P4} requiere \emph{mismo exponente, distintas bases}: $a^n \cdot b^n = (ab)^n$.
+
+Si ni la base ni el exponente coinciden — como $a^3 \cdot b^5$ — \textbf{ninguna de las dos aplica} y la expresión no se puede simplificar.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — P4}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=10pt]
+\item $3^2\cdot 4^2 = (3\cdot 4)^2 = 12^2 = 144$. \quad \textbf{Conclusión:} $144$.
+\item $(1{,}2)^4\cdot(0{,}3)^4 = (1{,}2\cdot 0{,}3)^4 = (0{,}36)^4$. \quad \textbf{Conclusión:} $(0{,}36)^4$.
+\item $(-2)^5\cdot 3^5 = (-2\cdot 3)^5 = (-6)^5 = -7.776$. \quad \textbf{Conclusión:} $-7.776$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Escribe como potencia de un solo producto:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $2^5\cdot 3^5$
+  \item $3^8\cdot 7^8$
+  \item $(-4)^3\cdot 5^3$
+  \item $a^n\cdot b^n$
+  \item $(2x)^3\cdot y^3$
+  \item $(-x)^5\cdot y^5\cdot(-z)^5$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.5 P5 — División de potencias de igual exponente}
+\label{sub:2.5}
+
+De manera análoga a P4, dividir potencias del mismo exponente reorganiza los cocientes:
+
+$$a^n \div b^n = \frac{\overbrace{a\cdot a\cdots a}^{n}}{\underbrace{b\cdot b\cdots b}_{n}} = \underbrace{\frac{a}{b}\cdot\frac{a}{b}\cdots\frac{a}{b}}_{n} = \left(\frac{a}{b}\right)^n$$
+
+\begin{tcolorbox}[importantbox, title={P5 — División de potencias de igual exponente}]
+$$a^n \div b^n = \left(\frac{a}{b}\right)^n \qquad (b \neq 0)$$
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — P5}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=10pt]
+\item $12^7 \div 6^7 = (12 \div 6)^7 = 2^7 = 128$. \quad \textbf{Conclusión:} $128$.
+\item $(-15)^3 \div 5^3 = (-15 \div 5)^3 = (-3)^3 = -27$. \quad \textbf{Conclusión:} $-27$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $18^3 \div 9^3$
+  \item $(-20)^4 \div 4^4$
+  \item $32^5 \div (-8)^5$
+  \item $27^4 \div 3^4$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.6 P6 — Potencia de un cociente}
+\label{sub:2.6}
+
+Esta propiedad se deduce directamente de P5 (o equivalentemente de P4 y la definición de potencia negativa):
+
+$$\left(\frac{a}{b}\right)^n = (a \cdot b^{-1})^n = a^n \cdot (b^{-1})^n = a^n \cdot b^{-n} = \frac{a^n}{b^n}$$
+
+\begin{tcolorbox}[importantbox, title={P6 — Potencia de un cociente}]
+$$\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n} \qquad (b \neq 0)$$
+
+\textbf{En palabras:} elevar una fracción a la $n$ equivale a elevar por separado el numerador y el denominador. Esta propiedad es la que formaliza lo que calculamos directamente en la Sección 1 para la base racional.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — P6}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=10pt]
+\item $\left(\dfrac{3}{5}\right)^4 = \dfrac{3^4}{5^4} = \dfrac{81}{625}$. \quad \textbf{Conclusión:} $\dfrac{81}{625}$.
+\item $\left(-\dfrac{3}{2}\right)^{-4} = \left(-\dfrac{2}{3}\right)^4 = \dfrac{(-2)^4}{3^4} = \dfrac{16}{81}$. \quad \textbf{Conclusión:} $\dfrac{16}{81}$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Tabla resumen — Las seis propiedades}]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c l l l}
+\toprule
+\textbf{Prop.} & \textbf{Fórmula} & \textbf{Condición} & \textbf{Clave}\\
+\midrule
+P1 & $a^m\cdot a^n = a^{m+n}$ & misma base & sumar exponentes\\
+P2 & $a^m \div a^n = a^{m-n}$ & misma base, $a\neq 0$ & restar exponentes\\
+ & $\Rightarrow a^0 = 1$, $a^{-n}=1/a^n$ & $a\neq 0$ & corolarios de P2\\
+P3 & $(a^m)^n = a^{mn}$ & & multiplicar exponentes\\
+P4 & $a^n\cdot b^n = (ab)^n$ & mismo exponente & combinar bases\\
+P5 & $a^n \div b^n = (a/b)^n$ & mismo exp., $b\neq 0$ & cociente de bases\\
+P6 & $(a/b)^n = a^n/b^n$ & $b\neq 0$ & distribuir en fracción\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{No es propiedad:} $(a+b)^n \neq a^n + b^n$. Las propiedades P1--P6 aplican a productos y cocientes, \textbf{nunca} a sumas ni restas.
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(básico) — aplicar una propiedad a la vez}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Escribe como una sola potencia (P1):
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $5^3\cdot 5^4$
+    \item $6^3\cdot 6^2$
+    \item $(-2)^6\cdot(-2)^3\cdot(-2)^2$
+    \item $\left(\dfrac{3}{5}\right)^2\cdot\left(\dfrac{3}{5}\right)^7$
+    \item $a^5\cdot a^3\cdot a^2$
+    \item $m^p\cdot m^2\cdot m^4$
+    \item $(pq)^t\cdot(pq)^8\cdot(pq)^s$
+    \item $2^x\cdot 2^3$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Escribe como una sola potencia (P2):
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $7^{12} \div 7^8$
+    \item $15^8 \div 15^5$
+    \item $2^3 \div 2^7$
+    \item $8^5 \div 8^{-9}$
+    \item $(-3)^6 \div (-3)^4$
+    \item $(0{,}9)^9 \div (0{,}9)^3$
+    \item $a^4 \div a^6$
+    \item $q^{2a} \div q^a$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Escribe como potencia de un solo exponente (P3):
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $(8^3)^4$
+    \item $((-3)^4)^3$
+    \item $((1{,}5)^2)^5$
+    \item $((a^3)^{a+2})^a$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Escribe como potencia de un producto (P4) o cociente (P5/P6):
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $2^5\cdot 3^5$
+    \item $(-4)^3\cdot 5^3$
+    \item $18^3 \div 9^3$
+    \item $\left(\dfrac{5}{3}\right)^4$
+    \item $20^4 \div 4^4$
+    \item $\left(-\dfrac{2}{7}\right)^3$
+    \item $a^n\cdot b^n$
+    \item $32^3 \div (-2)^3$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Expresa con exponente positivo usando el Corolario 2:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $2^{-5}$
+    \item $3^{-3}$
+    \item $\left(\dfrac{2}{3}\right)^{-2}$
+    \item $10^{-4}$
+    \item $\left(\dfrac{1}{5}\right)^{-3}$
+    \item $(-2)^{-3}$
+    \item $7^{-2}$
+    \item $\left(\dfrac{4}{7}\right)^{-2}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Combina dos o más propiedades en cada expresión:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\left(\dfrac{18^9}{6^9}\right)^3\cdot(3^{-8}\cdot 3^{-4})^2$
+    \item $\left(-\dfrac{4}{5}\right)^5 \div \left(-\dfrac{4}{5}\right)^9$
+    \item $(-2{,}6)^{-5}\cdot(0{,}4)^{-5}\cdot(-1{,}5)^{-5}$
+    \item $\left(\dfrac{1}{5}\right)^{-5} \div \left(\dfrac{4}{15}\right)^{-5} \div \left(\dfrac{9}{6}\right)^{-5}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Reduce y expresa con exponentes positivos:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{6x^{-2}y^3}{(18x^7y^{-4}z)^{-2}}$
+    \item $\left(\dfrac{a^3b^{-5}c^2}{a^4d^8}\right) \div \left(\dfrac{ab^5c^{-4}}{b^7d^5}\right)$
+    \item $\dfrac{4a^7b^6}{d^3}\cdot\dfrac{3d^5b^{-4}}{16a^3}\cdot\dfrac{(2a^2c^5)^3}{6c^8d^6}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica completamente:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{2^{15}\cdot 16^{-3}\cdot 27\cdot 24^2\cdot 9}{3^6\cdot 54\cdot 32^{-1}\cdot 81^{-2}}$
+    \item $\dfrac{5^8\cdot 25^{-2}\cdot 16^{-3}\cdot 4^2}{64^{-1}\cdot 125^2\cdot 625^{-1}\cdot 256^{-1}}$
+    \item $\dfrac{(x^3y)^2}{[x^{-3}(y^2)^{-1}]^{-1}}\cdot\dfrac{(x^2)^4}{(y^{-2} \div y^{-5})^2}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 3
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Sección 3 · Operaciones combinadas con potencias}
+\label{sec:3}
+
+\subbloque{3.1 Prioridad de operaciones con potencias}
+\label{sub:3.1}
+
+Cuando una expresión combina sumas, restas, multiplicaciones, divisiones y potencias, hay un orden estricto de evaluación.
+
+\begin{tcolorbox}[importantbox, title={Orden de prioridad}]
+\begin{enumerate}[itemsep=3pt]
+  \item \textbf{Paréntesis}: de adentro hacia afuera.
+  \item \textbf{Potencias}: antes que cualquier otra operación.
+  \item \textbf{Multiplicación y división}: de izquierda a derecha.
+  \item \textbf{Suma y resta}: de izquierda a derecha.
+\end{enumerate}
+
+\textbf{Consecuencia:} $3 + 4^2 = 3 + 16 = 19$, no $(3+4)^2 = 49$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplo resuelto — operaciones combinadas}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Calcular $\left(\dfrac{1}{2}-\dfrac{4}{3}\right)^{-2}\cdot\left(\dfrac{1}{2}+\dfrac{4}{3}\right)^{-2}$}
+
+\textbf{Paso 1 — resolver los paréntesis:}
+$$\frac{1}{2}-\frac{4}{3} = \frac{3-8}{6} = -\frac{5}{6} \qquad\qquad \frac{1}{2}+\frac{4}{3} = \frac{3+8}{6} = \frac{11}{6}$$
+
+\textbf{Paso 2 — aplicar P4 (igual exponente $-2$):}
+$$\left(-\frac{5}{6}\right)^{-2}\cdot\left(\frac{11}{6}\right)^{-2} = \left(-\frac{5}{6}\cdot\frac{11}{6}\right)^{-2} = \left(-\frac{55}{36}\right)^{-2} = \left(-\frac{36}{55}\right)^2 = \frac{1.296}{3.025}$$
+
+\textbf{Conclusión:} $\dfrac{1.296}{3.025}$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\left(\dfrac{18^9}{6^9}\right)^3\cdot(3^{-8}\cdot 3^{-4})^2$
+  \item $\left(\dfrac{1}{2}-\dfrac{4}{3}\right)^{-2}\cdot\left(\dfrac{1}{2}+\dfrac{4}{3}\right)^{-2}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{3.2 Expresiones numéricas con varias propiedades}
+\label{sub:3.2}
+
+La estrategia es identificar qué propiedad aplica a cada par de factores, operar en el orden correcto y simplificar hasta obtener una sola potencia o un número.
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — varias propiedades combinadas}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Calcular $(18^9 \div 6^9)^3\cdot(3^{-8}\cdot 3^{-4})^2$}
+
+\textbf{Paso 1 — simplificar el primer factor con P5 y P3:}
+$$(18^9 \div 6^9)^3 = \left(\frac{18}{6}\right)^{9\cdot 3} = 3^{27}$$... corrección: $(18^9 \div 6^9)^3 = ((18 \div 6)^9)^3 = (3^9)^3 = 3^{27}$
+
+\textbf{Paso 2 — simplificar el segundo factor con P1 y P3:}
+$$(3^{-8}\cdot 3^{-4})^2 = (3^{-8+(-4)})^2 = (3^{-12})^2 = 3^{-24}$$
+
+\textbf{Paso 3 — multiplicar con P1:}
+$$3^{27}\cdot 3^{-24} = 3^{27-24} = 3^3 = 27$$
+
+\textbf{Conclusión:} $27$.
+
+\item \textbf{Reducir $\dfrac{y^0\cdot y^{-1}\cdot(-y)^{-3}}{y^{-2}\cdot(-y)^2\cdot(-y)^{-2}}$ con exponentes positivos}
+
+\textbf{Numerador:} $y^0\cdot y^{-1}\cdot(-y)^{-3} = 1\cdot y^{-1}\cdot(-1)^{-3}\cdot y^{-3} = -y^{-4}$
+
+\textbf{Denominador:} $y^{-2}\cdot(-y)^2\cdot(-y)^{-2} = y^{-2}\cdot y^2\cdot y^{-2} = y^{-2}$ \quad (los $(-1)^2$ y $(-1)^{-2}$ son ambos $+1$)
+
+\textbf{División:} $\dfrac{-y^{-4}}{y^{-2}} = -y^{-4-(-2)} = -y^{-2} = -\dfrac{1}{y^2}$
+
+\textbf{Conclusión:} $-\dfrac{1}{y^2}$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ — Simplifica y expresa con exponentes positivos:
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $[x^3\cdot(-2x^2)^2]^3$
+  \item $\dfrac{y^0\cdot y^{-1}\cdot(-y)^{-3}}{y^{-2}\cdot(-y)^2\cdot(-y)^{-2}}$
+  \item $\dfrac{6x^{-2}y^3}{(18x^7y^{-4}z)^{-2}}$
+  \item $\left(\dfrac{a^3b^{-5}c^2}{a^4d^8}\right) \div \left(\dfrac{ab^5c^{-4}}{b^7d^5}\right)$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{3.3 Exponentes literales}
+\label{sub:3.3}
+
+Cuando los exponentes contienen variables, se aplican exactamente las mismas propiedades — la única diferencia es que el resultado puede no simplificarse a un número.
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — exponentes literales}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+\item $(-4)^{x+1}\cdot(-4)^5\cdot(-4)^{3-4x}$: aplicar P1 sumando exponentes:
+$$(-4)^{(x+1)+5+(3-4x)} = (-4)^{9-3x}$$
+\textbf{Conclusión:} $(-4)^{9-3x}$.
+
+\item $(4xy)^{5+x}\cdot(4xy)^{-6+x-y}\cdot(4xy)^{x-2y}\cdot(4xy)^{3/4}$:
+$$= (4xy)^{(5+x)+(-6+x-y)+(x-2y)+3/4} = (4xy)^{3x-3y-\frac{1}{4}}$$
+\textbf{Conclusión:} $(4xy)^{3x-3y-1/4}$.
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula respetando la prioridad de operaciones:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $-5\cdot 100 + 5\cdot 10^{-1} - 5\cdot 10^2$
+    \item $(-17)^0 + \left(-\dfrac{5}{12}\right)^0 - \left(\dfrac{x}{y}\right)^0$
+    \item $4^{-1}\cdot 4 - 4^0 + 1 - 32^0$
+    \item $\left(\dfrac{18^9}{6^9}\right)^3\cdot(3^{-8}\cdot 3^{-4})^2$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Reduce y expresa con exponentes positivos:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $[x^3\cdot(-2x^2)^2]^3$
+    \item $\dfrac{y^0\cdot y^{-1}\cdot(-y)^{-3}}{y^{-2}\cdot(-y)^2\cdot(-y)^{-2}}$
+    \item $\left(\dfrac{a^3b^{-5}c^2}{a^4d^8}\right) \div \left(\dfrac{ab^5c^{-4}}{b^7d^5}\right)$
+    \item $\dfrac{4a^7b^6}{d^3}\cdot\dfrac{3d^5b^{-4}}{16a^3}\cdot\dfrac{(2a^2c^5)^3}{6c^8d^6}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Simplifica con exponentes literales:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $(-4)^{x+1}\cdot(-4)^5\cdot(-4)^{3-4x}$
+    \item $r^{2s+t}\cdot r^{3t-2s}\cdot r^{t-2s}$
+    \item $(a+b)^4\cdot(a+b)^{\frac{2a+4}{2}}\cdot(a+b)^{\frac{a}{2}}$
+    \item $(x^2-y)^{3-x}\cdot(x^2-y)^{y+6}\cdot(x^2-y)^{\frac{2-y}{4}}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica completamente:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\dfrac{2^{15}\cdot 16^{-3}\cdot 27\cdot 24^2\cdot 9}{3^6\cdot 54\cdot 32^{-1}\cdot 81^{-2}}$
+    \item $\dfrac{5^8\cdot 25^{-2}\cdot 16^{-3}\cdot 4^2}{64^{-1}\cdot 125^2\cdot 625^{-1}\cdot 256^{-1}}$
+    \item $\dfrac{(x^3y)^2}{[x^{-3}(y^2)^{-1}]^{-1}}\cdot\dfrac{(x^2)^4}{(y^{-2} \div y^{-5})^2}$
+    \item $(4xy)^{5+x}\cdot(4xy)^{-6+x-y}\cdot(4xy)^{x-2y}\cdot(4xy)^{3/4}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+\subbloque{3.4 Operatoria combinada de racionales con potencias}
+\label{sub:3.4}
+
+Los ejercicios de esta subsección mezclan operaciones con fracciones, decimales y potencias. La clave es aplicar siempre el orden correcto: paréntesis → potencias → multiplicación/división → suma/resta.
+
+\begin{tcolorbox}[examplebox, title={Ejemplo — de lo simple a lo complejo}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Calcular $\left(\dfrac{1}{2}\right)^2 + \left(\dfrac{1}{3}\right)^2$}
+
+\textbf{Paso 1 — calcular cada potencia:}
+$$\left(\frac{1}{2}\right)^2 = \frac{1}{4} \qquad\qquad \left(\frac{1}{3}\right)^2 = \frac{1}{9}$$
+\textbf{Paso 2 — sumar con denominador común (m.c.m.$(4,9)=36$):}
+$$\frac{1}{4}+\frac{1}{9} = \frac{9}{36}+\frac{4}{36} = \frac{13}{36}$$
+\textbf{Conclusión:} $\dfrac{13}{36}$.
+
+\item \textbf{Calcular $\left(\dfrac{2}{3}\right)^2 \cdot \left(\dfrac{3}{4}\right)^{-1} + \dfrac{5}{6}$}
+
+\textbf{Paso 1 — potencias:}
+$$\left(\frac{2}{3}\right)^2 = \frac{4}{9} \qquad\qquad \left(\frac{3}{4}\right)^{-1} = \frac{4}{3}$$
+\textbf{Paso 2 — multiplicación:}
+$$\frac{4}{9}\cdot\frac{4}{3} = \frac{16}{27}$$
+\textbf{Paso 3 — suma (m.c.m.$(27,6)=54$):}
+$$\frac{16}{27}+\frac{5}{6} = \frac{32}{54}+\frac{45}{54} = \frac{77}{54}$$
+\textbf{Conclusión:} $\dfrac{77}{54}$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\left(\dfrac{1}{2}\right)^2 + \left(\dfrac{1}{3}\right)^2$
+  \item $\left(\dfrac{2}{3}\right)^3 - \left(\dfrac{1}{4}\right)^2$
+  \item $\left(\dfrac{3}{4}\right)^2 \cdot \left(\dfrac{2}{3}\right)^{-1}$
+  \item $\left(\dfrac{1}{2}\right)^3 + \left(\dfrac{1}{3}\right)^2 - \left(\dfrac{1}{6}\right)^1$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos — Operatoria con racionales}
+
+$\bigstar$ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula (solo potencias de fracciones y decimales):
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\left(\dfrac{1}{2}\right)^3 + \left(\dfrac{1}{4}\right)^2$
+    \item $\left(\dfrac{3}{5}\right)^2 - \left(\dfrac{1}{5}\right)^3$
+    \item $(0{,}5)^2 + (0{,}1)^3$
+    \item $\left(\dfrac{2}{3}\right)^2 \cdot \dfrac{3}{4}$
+    \item $\dfrac{5}{6} - \left(\dfrac{1}{3}\right)^2$
+    \item $(0{,}2)^3 + (0{,}5)^2 - (0{,}1)^4$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Calcula aplicando el orden de prioridad completo:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\left(\dfrac{2}{3}\right)^2\cdot\left(\dfrac{3}{4}\right)^{-1}+\dfrac{5}{6}$
+    \item $\dfrac{1}{2}+\left(\dfrac{1}{3}\right)^2\cdot\left(\dfrac{3}{2}\right)^3$
+    \item $\left(\dfrac{3}{4}\right)^2-\left(\dfrac{2}{3}\right)^3 \div \dfrac{4}{9}$
+    \item $\left[1-\left(\dfrac{1}{2}\right)^2\right]\cdot\left(\dfrac{2}{3}\right)^{-2}$
+    \item $\dfrac{2}{3}\cdot\left(\dfrac{3}{4}\right)^2+\dfrac{1}{4}\cdot\left(\dfrac{2}{3}\right)^3$
+    \item $\left(\dfrac{5}{6}\right)^2 \div \left(\dfrac{5}{12}\right)^2-\left(\dfrac{1}{3}\right)^0$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Operatoria combinada con decimales y fracciones:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $(0{,}5)^3\cdot(1{,}2)^2-(0{,}3)^2\cdot(0{,}5)^2$
+    \item $\dfrac{(0{,}2)^3+(0{,}4)^2}{(0{,}5)^2-(0{,}1)^3}$
+    \item $(1{,}5)^2-\left(\dfrac{3}{2}\right)^3+\left(\dfrac{2}{3}\right)^{-2}$
+    \item $\left[\left(\dfrac{1}{2}\right)^2+\left(\dfrac{1}{3}\right)^2\right]^2$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Calcula exactamente, paso a paso:
+  \begin{multicols}{1}
+  \begin{enumerate}[label=\alph*)]
+    \item $\left(\dfrac{1}{2}-\dfrac{4}{3}\right)^{-2}\cdot\left(\dfrac{1}{2}+\dfrac{4}{3}\right)^{-2}$
+    \item $\dfrac{\left(\dfrac{2}{3}\right)^3+\left(\dfrac{1}{6}\right)^2}{\left(\dfrac{3}{4}\right)^2-\left(\dfrac{1}{2}\right)^3}\cdot\left(\dfrac{1}{3}\right)^{-1}$
+    \item $\left[1+\left(\dfrac{1}{2}\right)^2\right]^3-\left[1-\left(\dfrac{1}{2}\right)^2\right]^3$
+    \item $\dfrac{\left(\dfrac{3}{5}\right)^{-2}\cdot\left(\dfrac{5}{6}\right)^3}{\left(\dfrac{5}{3}\right)^2 \div \left(\dfrac{10}{9}\right)^3}-\left(\dfrac{2}{5}\right)^{-2}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 4
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Sección 4 · Notación científica}
+\label{sec:4}
+
+\subbloque{4.1 Potencias de base 10}
+\label{sub:4.1}
+
+Las potencias de base 10 tienen un patrón visual muy claro que permite leerlas de inmediato.
+
+\begin{tcolorbox}[importantbox, title={Potencias de base 10}]
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c|c||c|c|c}
+\toprule
+\textbf{Potencia} & \textbf{Valor} & \textbf{Prefijo SI} & \textbf{Potencia} & \textbf{Valor} & \textbf{Prefijo SI}\\
+\midrule
+$10^6$ & 1.000.000 & mega (M) & $10^{-1}$ & 0{,}1 & deci (d)\\
+$10^5$ & 100.000 & — & $10^{-2}$ & 0{,}01 & centi (c)\\
+$10^4$ & 10.000 & — & $10^{-3}$ & 0{,}001 & mili (m)\\
+$10^3$ & 1.000 & kilo (k) & $10^{-4}$ & 0{,}0001 & —\\
+$10^2$ & 100 & hecto (h) & $10^{-5}$ & 0{,}00001 & —\\
+$10^1$ & 10 & deca (da) & $10^{-6}$ & 0{,}000001 & micro ($\mu$)\\
+$10^0$ & 1 & — & $10^{-9}$ & 0{,}000000001 & nano (n)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Regla de lectura:}
+\begin{itemize}[itemsep=3pt]
+  \item $10^n$ con $n>0$: el dígito 1 seguido de $n$ ceros.
+  \item $10^{-n}$ con $n>0$: el decimal 0{,}0...01 con $n-1$ ceros antes del 1.
+\end{itemize}
+\end{tcolorbox}
+
+\subbloque{4.2 Definición y condición de la notación científica}
+\label{sub:4.2}
+
+\begin{tcolorbox}[importantbox, title={Notación científica}]
+Un número real $x$ está en \textbf{notación científica} cuando se escribe en la forma:
+$$x = a \cdot 10^n, \qquad\text{con } 1 \leq a < 10 \text{ y } n \in \mathbb{Z}$$
+
+La condición $1 \leq a < 10$ exige que haya \textbf{exactamente un dígito distinto de cero antes de la coma}. El entero $n$ puede ser positivo (número grande) o negativo (número pequeño).
+\end{tcolorbox}
+
+\subbloque{4.3 Conversión decimal $\boldsymbol{\leftrightarrow}$ notación científica}
+\label{sub:4.3}
+
+\begin{tcolorbox}[importantbox, title={Técnica de conversión}]
+\textbf{De decimal a notación científica:}
+
+Contar cuántos lugares se desplaza la coma decimal para dejar un solo dígito antes de ella:
+\begin{itemize}[itemsep=3pt]
+  \item Se desplaza a la \textbf{izquierda} $n$ lugares $\Rightarrow$ $n$ es \textbf{positivo}.
+  \item Se desplaza a la \textbf{derecha} $n$ lugares $\Rightarrow$ $n$ es \textbf{negativo}.
+\end{itemize}
+
+\textbf{De notación científica a decimal:}
+
+Mover la coma $|n|$ lugares en el sentido del signo de $n$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — conversión}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Expresar $5.980.000.000.000.000.000.000.000$ en notación científica}
+
+Contamos 24 desplazamientos a la izquierda:
+$$5{,}980\ldots \times 10^{24} = 5{,}98\cdot 10^{24}$$
+\textbf{Conclusión:} $5{,}98\cdot 10^{24}$.
+
+\item \textbf{Expresar $0{,}0000000016$ en notación científica}
+
+La coma se mueve 9 lugares a la derecha:
+$$1{,}6\cdot 10^{-9}$$
+\textbf{Conclusión:} $1{,}6\cdot 10^{-9}$.
+
+\item \textbf{Expresar $5{,}9\cdot 10^{-3}$ en decimal}
+
+Mover la coma 3 lugares a la izquierda: $0{,}0059$.
+\textbf{Conclusión:} $0{,}0059$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Convierte a notación científica:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $0{,}052$
+  \item $5.200$
+  \item $88.540$
+  \item $0{,}0058$
+  \item $1.005.000$
+  \item $85.000.000$
+  \item $0{,}0000548$
+  \item $9.999.000$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{4.4 Operaciones en notación científica}
+\label{sub:4.4}
+
+\begin{tcolorbox}[importantbox, title={Operaciones con notación científica}]
+\textbf{Multiplicación:}
+$$(a\cdot 10^m)\cdot(b\cdot 10^n) = (a\cdot b)\cdot 10^{m+n}$$
+
+\textbf{División:}
+$$(a\cdot 10^m) \div (b\cdot 10^n) = \frac{a}{b}\cdot 10^{m-n}$$
+
+\textbf{Ajuste:} si el coeficiente resultante no está en $[1,10)$, se ajusta: si $a\cdot b \geq 10$, se escribe como $c\cdot 10^1$ con $1\leq c < 10$, sumando 1 al exponente de la potencia.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — operaciones en notación científica}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Calcular $\dfrac{0{,}8\cdot 16.000.000}{0{,}0004\cdot 0{,}032}$}
+
+\textbf{Paso 1 — convertir cada factor:}
+$$0{,}8 = 8\cdot 10^{-1},\quad 16.000.000 = 1{,}6\cdot 10^7,\quad 0{,}0004 = 4\cdot 10^{-4},\quad 0{,}032 = 3{,}2\cdot 10^{-2}$$
+
+\textbf{Paso 2 — agrupar coeficientes y potencias:}
+$$\frac{8\cdot 1{,}6\cdot 10^{-1}\cdot 10^7}{4\cdot 3{,}2\cdot 10^{-4}\cdot 10^{-2}} = \frac{12{,}8\cdot 10^6}{12{,}8\cdot 10^{-6}} = 1\cdot 10^{6-(-6)} = 10^{12}$$
+
+\textbf{Conclusión:} $10^{12} = 1.000.000.000.000$.
+
+\item \textbf{Calcular $0{,}000408\cdot 0{,}00000002$}
+
+$4{,}08\cdot 10^{-4}\cdot 2\cdot 10^{-8} = 8{,}16\cdot 10^{-12}$.
+
+\textbf{Conclusión:} $8{,}16\cdot 10^{-12}$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ — Opera y expresa en notación científica:
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $0{,}000408\cdot 0{,}00000002$
+  \item $9{,}05\cdot 0{,}0000006$
+  \item $\dfrac{25.000\cdot 3.100}{5.000.000}$
+  \item $\dfrac{0{,}08\cdot 16.000.000}{0{,}0004\cdot 0{,}032}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Escribe en notación científica:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $0{,}052$
+    \item $5.200$
+    \item $88.540$
+    \item $0{,}0058$
+    \item $1.005.000$
+    \item $85.000.000$
+    \item $23.200.000$
+    \item $0{,}00000007$
+    \item $15.050.000.000$
+    \item $0{,}000854$
+    \item $3.333.000$
+    \item $0{,}003333$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Escribe en forma decimal:
+  \begin{multicols}{4}
+  \begin{enumerate}[label=\alph*)]
+    \item $5{,}9\cdot 10^{-3}$
+    \item $1{,}006\cdot 10^5$
+    \item $9{,}999\cdot 10^3$
+    \item $4{,}007\cdot 10^9$
+    \item $5{,}14\cdot 10^{-4}$
+    \item $7{,}28\cdot 10^{-7}$
+    \item $1{,}001\cdot 10^3$
+    \item $5{,}014\cdot 10^2$
+    \item $1{,}1\cdot 10^{-6}$
+    \item $7{,}83\cdot 10^4$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Calcula y expresa en notación científica:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $0{,}000408\cdot 0{,}00000002$
+    \item $9{,}05\cdot 0{,}0000006$
+    \item $3{,}0002\cdot(0{,}0001)^3$
+    \item $\dfrac{25.000\cdot 3.100}{5.000.000}$
+    \item $\dfrac{0{,}08\cdot 16.000.000}{0{,}0004\cdot 0{,}032}$
+    \item $\dfrac{0{,}000075\cdot 0{,}000000025}{0{,}015\cdot 0{,}00001}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Resuelve usando potencias y notación científica:
+  \begin{enumerate}[label=\alph*)]
+    \item El peso de un átomo de plutonio es $3{,}9\cdot 10^{-22}$ g. ¿Cuántos átomos se necesitan para tener 1 kg?
+    \item La velocidad de la luz es 300.000 km por segundo. ¿Qué distancia recorre un haz de luz en 1 año? (1 año $\approx 3{,}15\cdot 10^7$ segundos.)
+    \item Cierto tipo de bacteria se reproduce de forma que cada 20 minutos se divide en 2. Si se comienza con una bacteria, ¿cuántas habrá luego de 3 horas?
+  \end{enumerate}
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 5
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Sección 5 · Potencias con exponente racional: el puente hacia las raíces}
+\label{sec:5}
+
+\subbloque{5.1 Motivación: ¿qué debe significar $a^{1/2}$?}
+\label{sub:5.1}
+
+Hasta ahora los exponentes son enteros. ¿Qué significado puede tener un exponente fraccionario? La respuesta se deduce exigiendo que la propiedad P3 siga funcionando:
+$$(a^{1/2})^2 = a^{(1/2)\cdot 2} = a^1 = a$$
+
+Es decir, $a^{1/2}$ elevado al cuadrado debe dar $a$. Eso es exactamente la definición de raíz cuadrada: $a^{1/2} = \sqrt{a}$.
+
+Generalizando con P3:
+$$(a^{1/n})^n = a^{(1/n)\cdot n} = a \quad\Longrightarrow\quad a^{1/n} = \sqrt[n]{a}$$
+
+\begin{center}
+\begin{tikzpicture}[node distance=2.4cm, thick]
+  \node[draw,rounded corners,fill=zenitlightgray,minimum width=1.8cm,minimum height=0.9cm] (a) {$x$};
+  \node[draw,rounded corners,fill=zenitblue!15,minimum width=1.8cm,minimum height=0.9cm,right=3.2cm of a] (b) {$x^n$};
+  \draw[->, color=zenitblue, bend left=20] (a) to node[above]{\small elevar a la $n$: $x \mapsto x^n$} (b);
+  \draw[->, color=zenitgold, bend left=20] (b) to node[below]{\small $\sqrt[n]{\phantom{x}}=(\phantom{x})^{1/n}$} (a);
+\end{tikzpicture}
+\end{center}
+
+\subbloque{5.2 Definición formal}
+\label{sub:5.2}
+
+\begin{tcolorbox}[importantbox, title={Potencia de exponente racional}]
+Para $a \geq 0$, $n \in \mathbb{N}$, $n \geq 2$, $m \in \mathbb{Z}$:
+$$\boxed{a^{1/n} = \sqrt[n]{a}} \qquad\text{y}\qquad \boxed{a^{m/n} = \sqrt[n]{a^m} = \left(\sqrt[n]{a}\right)^m}$$
+
+\textbf{Condiciones de existencia en $\mathbb{R}$:}
+\begin{itemize}[itemsep=3pt]
+  \item $n$ par: se requiere $a \geq 0$.
+  \item $n$ impar: $a$ puede ser cualquier real.
+\end{itemize}
+
+\textbf{Exponente racional negativo:} $a^{-m/n} = \dfrac{1}{a^{m/n}} = \dfrac{1}{\sqrt[n]{a^m}}$.
+
+Las seis propiedades P1--P6 se extienden sin modificación al caso del exponente racional.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente — leer mal el exponente}]
+\textbf{El denominador del exponente es el índice de la raíz:}
+$$\left(\frac{2}{3}\right)^{1/6} = \sqrt[6]{\frac{2}{3}} \qquad\textbf{no}\qquad \sqrt[5]{\frac{2}{3}}$$
+
+\textbf{Consejo:} para calcular $a^{m/n}$, conviene primero extraer la raíz y luego elevar: $8^{2/3} = (\sqrt[3]{8})^2 = 2^2 = 4$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — exponente racional}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+\item $81^{3/4}$: primero la raíz $\sqrt[4]{81}=3$ (pues $3^4=81$), luego $3^3=27$. \textbf{Conclusión:} $27$.
+\item $32^{3/5}$: $\sqrt[5]{32}=2$ (pues $2^5=32$), luego $2^3=8$. \textbf{Conclusión:} $8$.
+\item $125^{-2/3}$: $\sqrt[3]{125}=5$, luego $5^{-2}=\dfrac{1}{25}$. \textbf{Conclusión:} $\dfrac{1}{25}$.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Calcula (primero la raíz, luego la potencia):
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $8^{2/3}$
+  \item $16^{3/4}$
+  \item $27^{2/3}$
+  \item $32^{3/5}$
+  \item $64^{5/6}$
+  \item $4^{3/2}$
+  \item $125^{-2/3}$
+  \item $243^{4/5}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{5.3 Conversión entre los tres registros}
+\label{sub:5.3}
+
+La equivalencia $a^{m/n} = \sqrt[n]{a^m}$ conecta tres representaciones que describen el mismo objeto.
+
+\begin{tcolorbox}[importantbox, title={Los tres registros — tabla de equivalencias}]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c|c|c}
+\toprule
+\textbf{Potencia racional} & \textbf{Raíz} & \textbf{Valor (si calculable)}\\
+\midrule
+$9^{1/2}$ & $\sqrt{9}$ & 3\\
+$8^{1/3}$ & $\sqrt[3]{8}$ & 2\\
+$81^{3/4}$ & $\sqrt[4]{81^3}=(\sqrt[4]{81})^3$ & 27\\
+$125^{-1/3}$ & $\dfrac{1}{\sqrt[3]{125}}$ & $\dfrac{1}{5}$\\
+$y^{5/7}$ & $\sqrt[7]{y^5}$ & depende de $y$\\
+$(3x^2)^{3/4}$ & $\sqrt[4]{(3x^2)^3}$ & depende de $x$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — conversión entre registros}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=10pt]
+\item $\sqrt[7]{y^5} = y^{5/7}$ — índice al denominador, exponente al numerador.
+\item $m^{-5/3} = \dfrac{1}{m^{5/3}} = \dfrac{1}{\sqrt[3]{m^5}}$ — exponente negativo al denominador.
+\item $\dfrac{a^{3/4}}{a^{1/4}} = a^{3/4-1/4} = a^{2/4} = a^{1/2} = \sqrt{a}$ — P2 con exponentes racionales.
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Nota sobre continuación:} el exponente racional es la puerta de entrada al estudio de las raíces. Para trabajar las raíces en profundidad —incluyendo simplificación, propiedades, racionalización y ecuaciones— ver la \textit{Guía de Raíces — Academia Zenit}.
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Expresa como raíz:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $5^{1/3}$
+    \item $81^{3/4}$
+    \item $a^{1/2}$
+    \item $m^{-5/3}$
+    \item $(-27)^{1/5}$
+    \item $125^{-1/3}$
+    \item $(3x^2)^{3/4}$
+    \item $(2-x)^{1/2}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Expresa como potencia racional:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{17}$
+    \item $\sqrt[4]{25}$
+    \item $\sqrt[3]{11^2}$
+    \item $\sqrt[7]{y^5}$
+    \item $\sqrt[4]{(3x^2)^3}$
+    \item $\sqrt[5]{(-27)^2}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Calcula (primero la raíz, luego eleva):
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $8^{2/3}$
+    \item $16^{3/4}$
+    \item $27^{2/3}$
+    \item $32^{3/5}$
+    \item $64^{5/6}$
+    \item $243^{4/5}$
+    \item $125^{-2/3}$
+    \item $81^{-3/4}$
+    \item $4^{3/2}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Simplifica usando propiedades de potencias racionales:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $a^{1/2}\cdot a^{3/2}$
+    \item $(a^{2/3})^6$
+    \item $\dfrac{x^{5/3}}{x^{2/3}}$
+    \item $(4a^2)^{1/2}$
+    \item $\dfrac{a^{3/4}}{a^{1/4}}$
+    \item $x^{1/2}\cdot x^{2/3}\cdot x^{1/6}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Si $4^{3/2} = 8^x$, determina $x$ sin calculadora. Muestra el razonamiento.
+  \item Demuestra que $(a\cdot b)^{m/n} = a^{m/n}\cdot b^{m/n}$ para $a,b>0$, usando la equivalencia con raíces.
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN FINAL
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Sección Final · Ecuaciones con potencias y aplicaciones}
+\label{sec:fin}
+
+\subbloque{Estrategia para resolver ecuaciones con potencias}
+
+\begin{tcolorbox}[importantbox, title={Dos tipos de ecuaciones}]
+\textbf{Tipo 1 — $x^n = b$ (incógnita en la base):}
+
+Aplicar la raíz $n$-ésima a ambos lados: $x = b^{1/n} = \sqrt[n]{b}$. Recordar las condiciones de existencia.
+
+\textbf{Tipo 2 — $a^x = b$ (incógnita en el exponente, misma base):}
+
+Expresar $b$ como potencia de $a$: si $b = a^k$, entonces $a^x = a^k \Rightarrow x = k$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Resolver $x^3 = 512$}
+
+\textbf{Paso 1 — aplicar raíz cúbica:}
+$$x = \sqrt[3]{512} = 8 \qquad\text{pues }8^3 = 512$$
+\textbf{Verificación:} $8^3 = 512$. \checkmark \quad \textbf{Conclusión:} $x = 8$.
+
+\item \textbf{Resolver $2^x = 128$}
+
+\textbf{Paso 1 — expresar 128 como potencia de 2:}
+$$128 = 2^7$$
+\textbf{Paso 2 — igualar exponentes:}
+$$2^x = 2^7 \quad\Rightarrow\quad x = 7$$
+\textbf{Verificación:} $2^7 = 128$. \checkmark \quad \textbf{Conclusión:} $x = 7$.
+
+\item \textbf{Resolver $\left(\dfrac{1}{3}\right)^x = 27$}
+
+\textbf{Paso 1 — expresar ambos lados con base 3:}
+$$\left(\frac{1}{3}\right)^x = (3^{-1})^x = 3^{-x} \qquad\text{y}\qquad 27 = 3^3$$
+\textbf{Paso 2 — igualar exponentes:}
+$$3^{-x} = 3^3 \quad\Rightarrow\quad -x = 3 \quad\Rightarrow\quad x = -3$$
+\textbf{Verificación:} $\left(\dfrac{1}{3}\right)^{-3} = 3^3 = 27$. \checkmark \quad \textbf{Conclusión:} $x = -3$.
+
+\item \textbf{Problema de crecimiento — Una población de bacterias se duplica cada 20 minutos. ¿Cuántas habrá tras 3 horas partiendo de una?}
+
+\textbf{Paso 1 — calcular el número de períodos:}
+$$3 \text{ horas} = 180 \text{ min} \quad\Rightarrow\quad \text{períodos} = 180 \div 20 = 9$$
+\textbf{Paso 2 — aplicar el modelo de crecimiento:}
+$$N = 1 \cdot 2^9 = 512 \text{ bacterias}$$
+\textbf{Conclusión:} habrá $512$ bacterias tras 3 horas.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Ejercicios con alternativas}
+\label{sub:alt}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\alternativasformato{El valor de $\left(\dfrac{18^9}{6^9}\right)^3\cdot(3^{-8}\cdot 3^{-4})^2$ es:}
+{\item $27$ \item $9$ \item $81$ \item $3$}{}
+
+\alternativasformato{Si $a^m\cdot a^{-3} = a^5$, entonces $m$ es:}
+{\item $2$ \item $8$ \item $-2$ \item $15$}{}
+
+\alternativasformato{¿Cuál es el valor de $2^{-3}+4^{-1}+8^0$?}
+{\item $\dfrac{11}{8}$ \item $\dfrac{3}{8}$ \item $2$ \item $\dfrac{13}{8}$}{}
+
+\alternativasformato{En notación científica, $0{,}00000728$ se escribe:}
+{\item $7{,}28\cdot 10^{-6}$ \item $7{,}28\cdot 10^{6}$ \item $72{,}8\cdot 10^{-7}$ \item $7{,}28\cdot 10^{-7}$}{}
+
+\alternativasformato{El valor de $81^{3/4}$ es:}
+{\item $27$ \item $9$ \item $243$ \item $3$}{}
+
+\alternativasformato{¿Cuál expresión es equivalente a $\left(\dfrac{3}{2}\right)^{-4}$?}
+{\item $\dfrac{16}{81}$ \item $-\dfrac{81}{16}$ \item $\dfrac{81}{16}$ \item $-\dfrac{16}{81}$}{}
+
+\alternativasformato{Si $3^x = 243$, entonces $x$ es:}
+{\item $4$ \item $5$ \item $6$ \item $3$}{}
+
+\alternativasformato{El valor de $(-1)^{2025} + (-1)^{2026}$ es:}
+{\item $0$ \item $2$ \item $-2$ \item $1$}{}
+
+\end{enumerate}
+
+\clearpage
+\subbloque{Ejercicios de desarrollo}
+
+$\bigstar$ \textit{(básico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Resuelve las siguientes ecuaciones:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $x^2 = 49$
+    \item $x^3 = 27$
+    \item $x^4 = 16$
+    \item $x^2 = \dfrac{25}{4}$
+    \item $x^3 = -125$
+    \item $x^5 = 32$
+    \item $2^x = 16$
+    \item $3^x = 81$
+    \item $5^x = 125$
+    \item $2^x = \dfrac{1}{8}$
+  \end{enumerate}
+  \end{multicols}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Resuelve:
+  \begin{multicols}{2}
+  \begin{enumerate}[label=\alph*)]
+    \item $\left(\dfrac{1}{2}\right)^x = 32$
+    \item $4^x = 8$
+    \item $9^x = 27$
+    \item $\left(\dfrac{2}{3}\right)^x = \dfrac{27}{8}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Problemas de aplicación:
+  \begin{enumerate}[label=\alph*)]
+    \item El cubo de un número es 8.000. Calcula el cubo del doble de ese número.
+    \item Una caja contiene 9 rollos y cada uno tiene 9 metros de tela. Si hay 9 cajas, ¿cuántos metros hay en total? Exprésalo como potencia.
+    \item Andrea llama a 2 amigas y les pide que cada una llame a 3 amigas más, y así sucesivamente. ¿Cuántas llamadas se realizan en el sexto nivel?
+    \item Don Omar ahorra \$5 el primer mes y cada mes ahorra 5 veces lo del mes anterior. ¿Cuánto ahorra al séptimo mes?
+  \end{enumerate}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Si $x^9 = 19.683$ y $x^8 = 6.561$, ¿qué número es $x$?
+  \item Cierto tipo de bacteria decrece a $\dfrac{1}{3}$ de su población por día. Si el lunes hay 19.683 bacterias, ¿qué día quedarán 27?
+  \item Una tienda liquida vendiéndose la mitad del stock cada semana sin reponer. Si había 512 artículos, ¿cuántas semanas hasta agotarse?
+\end{enumerate}
+
+% ============================================================
+% SOLUCIONARIO
+% ============================================================
+\clearpage
+\seccionheader{zenitnavy}{Solucionario}
+\label{sec:sol}
+
+\begin{tcolorbox}[importantbox, title={Nota sobre el solucionario}]
+Resultado para $\bigstar$; resultado + paso clave para $\bigstar\bigstar$; resultado + procedimiento esencial para $\bigstar\bigstar\bigstar$. La correspondencia número de ejercicio — solución es exacta.
+\end{tcolorbox}
+
+\subbloque{Sección 1 — Concepto de potencia}
+
+\textbf{Práctica 1.1:} a)~64 \; b)~81 \; c)~125 \; d)~128 \; e)~10.000 \; f)~256 \; g)~1.024 \; h)~243 \; i)~1.296 \; j)~343.
+
+\textbf{Práctica 1.2 (exponente cero, 4 ítems):} a)~1 \; b)~1 \; c)~1 \; d)~$5^0+3^0-100^0=1+1-1=1$.
+
+\textbf{Práctica 1.3 (signo):} a)~$256$ \; b)~$-729$ \; c)~$64$ \; d)~$-81$ \; e)~$1$ \; f)~$-1$ \; g)~$-243$ \; h)~$-16$.
+
+\textbf{Práctica 1.4 (base racional):} a)~$\frac{1}{32}$ \; b)~$\frac{27}{64}$ \; c)~$\frac{16}{81}$ \; d)~$0{,}125$ \; e)~$-\frac{1}{27}$ \; f)~$0{,}0016$ \; g)~$\frac{1}{100.000}$ \; h)~$-\frac{27}{8}$.
+
+\textbf{Ítem 1 ($\bigstar$):} a)~64 \; b)~81 \; c)~49 \; d)~256 \; e)~625 \; f)~$256$ \; g)~$-729$ \; h)~$64$ \; i)~$-81$ \; j)~$-1$ \; k)~$\frac{1}{125}$ \; l)~$-\frac{8}{27}$ \; m)~$\frac{9}{16}$ \; n)~$0{,}008$ \; o)~$0{,}0625$.
+
+\textbf{Ítem 2 ($\bigstar$):} a)~$81+(-27)=54$ \; b)~$-32-16=-48$ \; c)~$1+(-1)=0$ \; d)~$-16+16=0$ \; e)~$\frac{1}{16}-\frac{1}{8}=-\frac{1}{16}$ \; f)~$0{,}001-0{,}0001=0{,}0009$.
+
+\textbf{Ítem 3 ($\bigstar$, V/F):} a)~Falsa: $(-5)^2=25$ y $-5^2=-25$. \; b)~Falsa: $3^0=1$, no $0$. \; c)~Verdadera: exponente par. \; d)~Verdadera: $\frac{2\cdot 2\cdot 2}{3\cdot 3\cdot 3}=\frac{8}{27}$. \; e)~Verdadera: $(-8)=-8$.
+
+\textbf{Ítem 4 ($\bigstar\bigstar$):} a)~$(-3)^4-(-2)^5+5^0\cdot 4^0 = 81+32+1 = 114$ \; b)~$-\frac{8}{27}+\frac{1}{16}+1$; m.c.m.$(432)$: $\frac{-128+27+432}{432}=\frac{331}{432}$ \; c)~$0+16=16$ \; d)~$\frac{1}{81}+\frac{1}{8}+\frac{4}{25}$; m.c.m.$(1800)$: $\frac{200+225+288}{1800}=\frac{713}{1800}$.
+
+\textbf{Ítem 5 ($\bigstar\bigstar\bigstar$):} $2^n<100$: $n\leq 6$ (pues $2^6=64<100<128=2^7$). $3^n<1000$: $n\leq 6$ (pues $3^6=729<1000<2187=3^7$). Ambas: $n\in\{1,2,3,4,5,6\}$.
+
+\textbf{Ítem 6 ($\bigstar\bigstar\bigstar$):} $(-1)^n=1$ cuando $n$ es par; $(-1)^n=-1$ cuando $n$ es impar.
+
+\subbloque{Sección 2 — Las seis propiedades}
+
+\textbf{Práctica 2.0 (simplificación):} a)~$a^2$ \; b)~$5$ \; c)~$xy^2$ \; d)~$4$ \; e)~$mn$ \; f)~$\frac{ab^2}{c}$.
+
+\textbf{Práctica 2.1 (P1):} a)~$5^7$ \; b)~$6^5$ \; c)~$9^{11}$ \; d)~$7^7$ \; e)~$a^{10}$ \; f)~$m^{p+7}$ \; g)~$(xy)^8$ \; h)~$2^{12}$.
+
+\textbf{Práctica 2.2 (P2 + exp. neg.):} a)~$7^4$ \; b)~$15^3$ \; c)~$2^{-4}=\frac{1}{16}$ \; d)~$5^{-4}=\frac{1}{625}$ \; e)~$\frac{1}{9}$ \; f)~$\frac{1}{64}$ \; g)~$\frac{9}{4}$ \; h)~$\frac{1}{10.000}$.
+
+\textbf{Práctica 2.3 (P3):} a)~$8^{12}$ \; b)~$(-3)^{12}$ \; c)~$2^{15}=32.768$ \; d)~$(1{,}5)^{15}$ \; e)~$a^{24}$ \; f)~$p^{-6}=\frac{1}{p^6}$ \; g)~$a^{3a^2+6a}$ \; h)~$b^{24}$.
+
+\textbf{Práctica 2.4 (P4):} a)~$6^5$ \; b)~$21^8$ \; c)~$(-20)^3=-8.000$ \; d)~$(ab)^n$ \; e)~$(2xy)^3$ \; f)~$(xyz)^5$.
+
+\textbf{Práctica 2.5 (P5):} a)~$2^3=8$ \; b)~$(-5)^4=625$ \; c)~$(-4)^5=-1.024$ \; d)~$9^4=6.561$.
+
+\textbf{Ítem 1 ($\bigstar$, P1):} a)~$5^7$ \; b)~$6^5$ \; c)~$(-2)^{11}$ \; d)~$\left(\frac{3}{5}\right)^9$ \; e)~$a^{10}$ \; f)~$m^{p+6}$ \; g)~$(pq)^{t+8+s}$ \; h)~$2^{x+3}$.
+
+\textbf{Ítem 2 ($\bigstar$, P2):} a)~$7^4$ \; b)~$15^3$ \; c)~$2^{-4}$ \; d)~$8^{14}$ \; e)~$(-3)^2=9$ \; f)~$(0{,}9)^6$ \; g)~$a^{-2}$ \; h)~$q^a$.
+
+\textbf{Ítem 3 ($\bigstar$, P3):} a)~$8^{12}$ \; b)~$(-3)^{12}$ \; c)~$(1{,}5)^{15}$ \; d)~$a^{3a^2+6a}$.
+
+\textbf{Ítem 4 ($\bigstar$, P4/P5/P6):} a)~$6^5$ \; b)~$(-20)^3$ \; c)~$2^3$ \; d)~$\frac{3^4}{5^4}=\frac{81}{625}$ \; e)~$5^4$ \; f)~$-\frac{8}{343}$ \; g)~$(ab)^n$ \; h)~$(-4)^3=-64$.
+
+\textbf{Ítem 5 ($\bigstar$, exp. neg.):} a)~$\frac{1}{32}$ \; b)~$\frac{1}{27}$ \; c)~$\frac{9}{4}$ \; d)~$\frac{1}{10.000}$ \; e)~$125$ \; f)~$-\frac{1}{8}$ \; g)~$\frac{1}{49}$ \; h)~$\frac{49}{16}$.
+
+\textbf{Ítem 6 ($\bigstar\bigstar$):} a)~$27$ \; b)~$\left(-\frac{4}{5}\right)^{-4}=\left(\frac{5}{4}\right)^4=\frac{625}{256}$ \; c)~$(1{,}56)^{-5}$ \; d)~$\left(\frac{15}{4}\right)^{-5}$.
+
+\textbf{Ítem 7 ($\bigstar\bigstar$):} a)~$\frac{c^6}{a^2b^3d^3}$ \; b)~$\frac{a^{10}b^2c^7}{d^4}$ \; c)~$\frac{a^{10}b^2c^7}{d^4}$.
+
+\textbf{Ítem 8 ($\bigstar\bigstar\bigstar$):} a)~$3^3=27$ \; b)~$2^6\cdot 5^2=3.200$ \; c)~$\frac{x^{11}}{y^2}$.
+
+\subbloque{Sección 3 — Operaciones combinadas}
+
+\textbf{Práctica 3.1 (prioridad):} a)~$27$ \; b)~$\frac{1.296}{3.025}$.
+
+\textbf{Práctica 3.2:} a)~$64x^{21}$ \; b)~$-\frac{1}{y^2}$ \; c)~$\frac{y^5}{1.944x^{12}z^2}$ \; d)~$\frac{c^6}{a^2b^3d^3}$.
+
+\textbf{Práctica 3.4 (racionales):} a)~$\frac{1}{4}+\frac{1}{9}=\frac{13}{36}$ \; b)~$\frac{8}{27}-\frac{1}{16}=\frac{128-27}{432}=\frac{101}{432}$ ... m.c.m. \; c)~$\frac{9}{16}\cdot\frac{3}{2}=\frac{27}{32}$ \; d)~$\frac{1}{8}+\frac{1}{9}-\frac{1}{6}=\frac{9+8-12}{72}=\frac{5}{72}$.
+
+\textbf{Ítem 1 ($\bigstar$, prioridad):} a)~$-1.499{,}5$ \; b)~$1$ \; c)~$0$ \; d)~$27$.
+
+\textbf{Ítem 2 ($\bigstar\bigstar$):} a)~$64x^{21}$ \; b)~$-\frac{1}{y^2}$ \; c)~$\frac{c^6}{a^2b^3d^3}$ \; d)~$\frac{a^{10}b^2c^7}{d^4}$.
+
+\textbf{Ítem 3 ($\bigstar\bigstar$, literales):} a)~$(-4)^{9-3x}$ \; b)~$r^{5t-2s}$ \; c)~$(a+b)^{6+3a/2}$ \; d)~simplificar exponente.
+
+\textbf{Ítem 4 ($\bigstar\bigstar\bigstar$):} a)~$27$ \; b)~$2^6\cdot 5^2$ \; c)~$\frac{x^{11}}{y^2}$ \; d)~$(4xy)^{3x-3y-1/4}$.
+
+\textbf{Ítem (racionales, $\bigstar$):} a)~$\frac{1}{8}+\frac{1}{16}=\frac{3}{16}$ \; b)~$\frac{9}{25}-\frac{1}{125}=\frac{45-1}{125}=\frac{44}{125}$ \; c)~$0{,}25+0{,}001=0{,}251$ \; d)~$\frac{4}{9}\cdot\frac{3}{4}=\frac{1}{3}$ \; e)~$\frac{5}{6}-\frac{1}{9}=\frac{15-2}{18}=\frac{13}{18}$ \; f)~$0{,}008+0{,}25-0{,}0001=0{,}2579$.
+
+\textbf{Ítem (racionales, $\bigstar\bigstar$):} a)~$\frac{77}{54}$ \; b)~$\frac{1}{9}\cdot\frac{27}{8}+\frac{1}{2}=\frac{3}{8}+\frac{4}{8}=\frac{7}{8}$ \; c)~$\frac{9}{16}-\frac{2}{3}=\frac{27-32}{48}=-\frac{5}{48}$ \; d)~$\frac{3}{4}\cdot\frac{9}{4}=\frac{27}{16}$ \; e)~$\frac{2}{3}\cdot\frac{9}{16}+\frac{1}{4}\cdot\frac{8}{27}=\frac{3}{8}+\frac{2}{27}=\frac{81+16}{216}=\frac{97}{216}$ \; f)~$4-1=3$.
+
+\textbf{Ítem (racionales, $\bigstar\bigstar\bigstar$):} a)~$\frac{1.296}{3.025}$ \; b)~calcular con m.c.m. \; c)~$({\frac{5}{4}})^3-({\frac{3}{4}})^3=\frac{125-27}{64}=\frac{98}{64}=\frac{49}{32}$.
+
+\subbloque{Sección 4 — Notación científica}
+
+\textbf{Práctica 4.3:} a)~$5{,}2\cdot 10^{-2}$ \; b)~$5{,}2\cdot 10^3$ \; c)~$8{,}854\cdot 10^4$ \; d)~$5{,}8\cdot 10^{-3}$ \; e)~$1{,}005\cdot 10^6$ \; f)~$8{,}5\cdot 10^7$ \; g)~$5{,}48\cdot 10^{-5}$ \; h)~$9{,}999\cdot 10^6$.
+
+\textbf{Práctica 4.4:} a)~$8{,}16\cdot 10^{-12}$ \; b)~$5{,}43\cdot 10^{-6}$ \; c)~$1{,}55\cdot 10^1$ \; d)~$10^{12}$.
+
+\textbf{Ítem 1 ($\bigstar$):} a)~$5{,}2\cdot 10^{-2}$ \; b)~$5{,}2\cdot 10^3$ \; c)~$8{,}854\cdot 10^4$ \; d)~$5{,}8\cdot 10^{-3}$ \; e)~$1{,}005\cdot 10^6$ \; f)~$8{,}5\cdot 10^7$ \; g)~$2{,}32\cdot 10^7$ \; h)~$7\cdot 10^{-8}$ \; i)~$1{,}505\cdot 10^{10}$ \; j)~$8{,}54\cdot 10^{-4}$ \; k)~$3{,}333\cdot 10^6$ \; l)~$3{,}333\cdot 10^{-3}$.
+
+\textbf{Ítem 2 ($\bigstar$):} a)~$0{,}0059$ \; b)~$100.600$ \; c)~$9.999$ \; d)~$4.007.000.000$ \; e)~$0{,}000514$ \; f)~$0{,}000000728$ \; g)~$1.001$ \; h)~$501{,}4$ \; i)~$0{,}0000011$ \; j)~$78.300$.
+
+\textbf{Ítem 3 ($\bigstar\bigstar$):} a)~$8{,}16\cdot 10^{-12}$ \; b)~$5{,}43\cdot 10^{-6}$ \; c)~$3{,}0002\cdot 10^{-12}$ \; d)~$1{,}55\cdot 10^1$ \; e)~$10^{12}$ \; f)~$1{,}25\cdot 10^{-5}$.
+
+\textbf{Ítem 4 ($\bigstar\bigstar\bigstar$):} a)~$\approx 2{,}56\cdot 10^{21}$ átomos. \; b)~$9{,}45\cdot 10^{12}$ km. \; c)~$2^9=512$ bacterias.
+
+\subbloque{Sección 5 — Exponente racional}
+
+\textbf{Práctica 5.2:} a)~4 \; b)~8 \; c)~9 \; d)~8 \; e)~32 \; f)~8 \; g)~$\frac{1}{25}$ \; h)~81.
+
+\textbf{Ítem 1 ($\bigstar$, raíz):} a)~$\sqrt[3]{5}$ \; b)~$(\sqrt[4]{81})^3$ \; c)~$\sqrt{a}$ \; d)~$\frac{1}{\sqrt[3]{m^5}}$ \; e)~$\sqrt[5]{-27}$ \; f)~$\frac{1}{\sqrt[3]{125}}=\frac{1}{5}$ \; g)~$\sqrt[4]{(3x^2)^3}$ \; h)~$\sqrt{2-x}$.
+
+\textbf{Ítem 2 ($\bigstar$, potencia):} a)~$17^{1/2}$ \; b)~$25^{1/4}$ \; c)~$11^{2/3}$ \; d)~$y^{5/7}$ \; e)~$(3x^2)^{3/4}$ \; f)~$(-27)^{2/5}$.
+
+\textbf{Ítem 3 ($\bigstar$, calcular):} a)~4 \; b)~8 \; c)~9 \; d)~8 \; e)~32 \; f)~81 \; g)~$\frac{1}{25}$ \; h)~$\frac{1}{27}$ \; i)~8.
+
+\textbf{Ítem 4 ($\bigstar\bigstar$):} a)~$a^2$ \; b)~$a^4$ \; c)~$x$ \; d)~$2a$ \; e)~$\sqrt{a}$ \; f)~$x^{7/6}=\sqrt[6]{x^7}=x\sqrt[6]{x}$.
+
+\textbf{Ítem 5 ($\bigstar\bigstar\bigstar$):} $4^{3/2}=8$ y $8^x=8^1\Rightarrow x=1$. \textit{Alternativa:} $4^{3/2}=(2^2)^{3/2}=2^3=8=8^1\Rightarrow x=1$.
+
+\subbloque{Sección Final — Ecuaciones y alternativas}
+
+\textbf{Alternativas:} 1-A \quad 2-B \quad 3-D \quad 4-A \quad 5-A \quad 6-A \quad 7-B \quad 8-A.
+
+\textbf{Ítem 1 ($\bigstar$, ecuaciones):}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llllll}
+a: $x=\pm 7$ & b: $x=3$ & c: $x=\pm 2$ & d: $x=\pm\frac{5}{2}$ & e: $x=-5$ & f: $x=2$\\
+g: $x=4$ & h: $x=4$ & i: $x=3$ & j: $x=-3$ &  &
+\end{tabular}
+\end{center}
+
+\textbf{Ítem 2 ($\bigstar\bigstar$):} a)~$x=-5$ ($\left(\frac{1}{2}\right)^x=2^{-x}=2^5$) \; b)~$x=\frac{3}{2}$ ($4^{3/2}=8$) \; c)~$x=\frac{3}{2}$ ($9^{3/2}=27$) \; d)~$x=-3$ ($\left(\frac{2}{3}\right)^{-3}=\frac{27}{8}$).
+
+\textbf{Ítem 3 ($\bigstar\bigstar$, aplicación):} a)~$64.000$ (cubo del doble: $(2a)^3=8a^3=8\cdot 8000$) \; b)~$9^3=729$ metros \; c)~$2\cdot 3^5=486$ llamadas \; d)~$5^7=78.125$.
+
+\textbf{Ítem 4 ($\bigstar\bigstar\bigstar$):} $x=3$ (pues $x=x^9/x^8=19683/6561=3$). Domingo. 10 semanas ($512=2^9$, $512/2^x=1\Rightarrow x=9$).
+
+\vspace{8pt}
+\begin{center}
+  \rule{\linewidth}{1.5pt}\\[4pt]
+  {\large\bfseries\color{zenitnavy} La constancia y la práctica son la clave del aprendizaje.}\\[2pt]
+  {\color{zenitgold}\small Academia Zenit · Matemática · Potencias · 1.0 · 2026}
+  \rule{\linewidth}{1.5pt}
+\end{center}
+
+\end{document}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.7.14)  22 MAR 2026 20:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.7.14)  22 MAR 2026 21:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/mauro/OneDrive/Escritorio/ejercicios ensayos/6dac6155-c874-45cc-9ccc-317741928334/Guia_Raices_Zenit_v4.tex"
-(c:/Users/mauro/OneDrive/Escritorio/ejercicios ensayos/6dac6155-c874-45cc-9ccc-317741928334/Guia_Raices_Zenit_v4.tex
+**"c:/Users/mauro/OneDrive/Escritorio/ejercicios ensayos/6dac6155-c874-45cc-9ccc-317741928334/Guia_Raices_Zenit_v6.tex"
+(c:/Users/mauro/OneDrive/Escritorio/ejercicios ensayos/6dac6155-c874-45cc-9ccc-317741928334/Guia_Raices_Zenit_v6.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -654,13 +654,13 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 ) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count356
-) (./Guia_Raices_Zenit_v4.aux
+) (./Guia_Raices_Zenit_v6.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported  on input line 8.
 )
-\openout1 = `Guia_Raices_Zenit_v4.aux'.
+\openout1 = `Guia_Raices_Zenit_v6.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
@@ -828,83 +828,74 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
+
+
+
+
+
+
+
+
+
+
 [11]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [12]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [13]
 
-[14
+[14]
+
+
+
+
+
+
+
+
+
+
+
+[15
 
 ]
-
-[15]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Overfull \vbox (6.08777pt too high) has occurred while \output is active []
 
 
 
@@ -920,39 +911,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [16]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [17]
 
-[18
 
-]
+
+
+
+
+
+
+
+
+
+
+
+[18]
+
+
+
+
+
+
+
+
 
 
 
@@ -990,53 +971,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
+
+
+
+
 [20]
 
 [21
 
 ]
 
+
+
+
+
+
+
+
+
+
+
 [22]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [23]
 
@@ -1048,27 +1003,51 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [24]
 
-[25
 
-]
+
+
+
+
+
+
+
+
+
+
+
+
+
+[25]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [26]
 
-[27]
+[27
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+]
 
 
 
@@ -1080,40 +1059,77 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [28]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Overfull \vbox (1.36447pt too high) has occurred while \output is active []
-
-
-
-
-
-
-
-
-
 [29]
 
-[30
 
-]
+
+
+
+
+
+
+
+
+
+[30]
+
+
+
+
+
+
+
+
 
 [31]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [32]
 
@@ -1129,15 +1145,121 @@ Overfull \vbox (1.36447pt too high) has occurred while \output is active []
 
 
 
-
-
 [34
 
 ]
 
-[35] 
+
+
+
+
+
+
+
+
+[35]
+
+
+
+
+
+
+
+[36]
+
+[37]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[38]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[39]
+
+[40
+
+]
+
+[41]
+
+[42]
+
+[43]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[44
+
+]
+
+[45]
+
+[46
+
+]
+
+[47]
+
+[48]
+
+[49] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
-(./Guia_Raices_Zenit_v4.aux
+(./Guia_Raices_Zenit_v6.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -1147,18 +1269,18 @@ L3 programming layer <2025-07-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31822 strings out of 467816
- 789413 string characters out of 5436425
- 1343882 words of memory out of 5000000
- 59933 multiletter control sequences out of 15000+600000
- 648965 words of font info for 93 fonts, out of 8000000 for 9000
+ 31897 strings out of 467816
+ 790586 string characters out of 5436425
+ 1344882 words of memory out of 5000000
+ 60006 multiletter control sequences out of 15000+600000
+ 650522 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,16n,101p,834b,1397s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Guia_Raices_Zenit_v4.pdf (35 pages, 581632 bytes).
+<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on Guia_Raices_Zenit_v6.pdf (49 pages, 645097 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
+ 320 PDF objects out of 1000 (max. 8388607)
+ 206 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
