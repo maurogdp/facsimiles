@@ -288,12 +288,15 @@ Esta guía construye el concepto de \textbf{raíz} de forma continua y rigurosam
 
 \begin{minipage}[t]{0.18\linewidth}
 \vspace{0pt}
-\begin{tikzpicture}
-  \draw[fill=blockb!12, draw=blockb, rounded corners=4pt, thick]
-    (0,0) rectangle (2.4,3.0);
-  \node[align=center, text=blockb, font=\small\itshape] at (1.2,1.5)
-    {Retrato\\[2pt]no conservado};
-\end{tikzpicture}
+% -------------------------------------------------------
+% RETRATO: reemplazar el bloque tikzpicture por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{hipatia.jpg}
+% El archivo debe estar en la misma carpeta que el .tex
+% Nombre sugerido: hipatia.jpg  (o .png)
+% -------------------------------------------------------
+\includegraphics[width=\linewidth, height=3.2cm,
+  keepaspectratio]{hipatia.png}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.78\linewidth}
@@ -337,12 +340,15 @@ El título de ese tratado dio origen a la palabra \textit{álgebra} (de \textit{
 \hfill
 \begin{minipage}[t]{0.18\linewidth}
 \vspace{0pt}
-\begin{tikzpicture}
-  \draw[fill=blockc!10, draw=blockc, rounded corners=4pt, thick]
-    (0,0) rectangle (2.4,3.0);
-  \node[align=center, text=blockc, font=\small\itshape] at (1.2,1.5)
-    {Retrato\\[2pt]no conservado};
-\end{tikzpicture}
+% -------------------------------------------------------
+% RETRATO: reemplazar el bloque tikzpicture por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{aljuarismi.jpg}
+% El archivo debe estar en la misma carpeta que el .tex
+% Nombre sugerido: aljuarismi.jpg  (o .png)
+% -------------------------------------------------------
+\includegraphics[width=\linewidth, height=3.2cm,
+  keepaspectratio]{al-juarismi.png}
 \end{minipage}
 
 \end{tcolorbox}
@@ -353,6 +359,11 @@ El título de ese tratado dio origen a la palabra \textit{álgebra} (de \textit{
   {\small\itshape\color{zenitnavy} La matemática no tiene fronteras de época, género ni cultura.}\\[0.2cm]
   \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}
 \end{center}
+
+\clearpage
+\thispagestyle{empty}
+\phantom{x}
+\clearpage
 
 % ============================================================
 % SECCIÓN 1
