@@ -1,6 +1,6 @@
 % ============================================================
 % PLANTILLA MAESTRA DE GUÍAS — ACADEMIA ZENIT
-% Guía de Raíces — Versión 4: Progresión Rigurosa
+% Guía de Raíces — Versión 1.0 · 2026
 % ============================================================
 
 \documentclass[11pt, letterpaper]{article}
@@ -97,7 +97,7 @@
 
 \newcommand{\TipoGuia}{Guía de Estudio Progresiva}
 \newcommand{\TituloGuia}{Raíces: construcción continua del concepto}
-\newcommand{\TemaEncabezado}{Raíces — Progresión continua · v4}
+\newcommand{\TemaEncabezado}{Raíces · 1.0 · 2026}
 \newcommand{\NivelGuia}{Matemática}
 
 \pagestyle{fancy}\fancyhf{}
@@ -109,47 +109,281 @@
 % ============================================================
 \begin{document}
 % ============================================================
-
+% PORTADA
+% ============================================================
 \thispagestyle{empty}
-\vspace*{1.2cm}
+
+\vspace*{2.5cm}
 
 \begin{center}
-  \includegraphics[width=0.28\linewidth]{logosin fondo.png}\\[1.2cm]
-  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.35cm]
-  {\LARGE\bfseries\color{zenitblue} Guía de Estudio Progresiva}\\[0.2cm]
-  {\LARGE\bfseries\color{zenitblue} Raíces: construcción continua del concepto}\\[0.8cm]
-  {\Large\color{zenitgold}\bfseries Matemática · Desde lo concreto hasta lo formal}\\[0.6cm]
-  \rule{0.72\linewidth}{1.2pt}\\[0.8cm]
-  {\large\itshape\color{zenitnavy} Material de apoyo y ejercitación — Versión 4}\\[2cm]
-\end{center}
-
-\begin{center}
-\begin{minipage}{0.82\linewidth}
-\begin{tcolorbox}[importantbox, title={Propósito de la guía}]
-Esta guía construye el concepto de \textbf{raíz} de forma continua y rigurosamente progresiva: cada sección solo usa herramientas que ya se han aprendido en secciones anteriores, y cada ejercicio solo exige lo que ha sido explicado. El recorrido parte de la idea más concreta (el lado de un cuadrado) y llega hasta la operatoria completa con potencias racionales, racionalización de todos los casos y ecuaciones con raíces.
-
-\medskip
-\textbf{Notación.} Por convención $\sqrt[2]{a}=\sqrt{a}$: el índice 2 no se escribe. Cuando aparezca $\sqrt{\phantom{a}}$ sin número, el índice es siempre 2.
-
-\medskip
-\textbf{Dificultad:} $\bigstar$ básico \quad $\bigstar\bigstar$ intermedio \quad $\bigstar\bigstar\bigstar$ avanzado.
-\end{tcolorbox}
-\end{minipage}
+  \includegraphics[width=0.30\linewidth]{logosin fondo.png}\\[1.8cm]
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.5cm]
+  {\LARGE\bfseries\color{zenitblue} Guía de Estudio Progresiva}\\[0.3cm]
+  {\LARGE\bfseries\color{zenitblue} Raíces: construcción continua del concepto}\\[1.4cm]
+  {\Large\bfseries\color{zenitnavy} Matemática}\\[1.2cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.5pt}}\\[1.0cm]
+  {\large\itshape\color{zenitnavy} Material de apoyo y ejercitación}
 \end{center}
 
 \vfill
+
 \begin{center}
-  {\large\bfseries\color{zenitnavy} Academia Zenit}\\[2pt]
-  {\color{zenitgold} Matemática · Raíces · v4}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}\\[0.5cm]
+  {\large\bfseries\color{zenitnavy} Academia Zenit}\\[3pt]
+  {\color{zenitgold} Matemática · Raíces · 1.0 · 2026}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
 \end{center}
+
+% ============================================================
+% PÁGINA 2 — GLOSARIO E ÍNDICE
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\vspace*{0.2cm}
+
+% ---- GLOSARIO ----
+
+\begin{tcolorbox}[importantbox, title={Glosario de simbología}]
+
+{\small\textit{Los símbolos específicos del tema raíces aparecen resaltados en \textcolor{zenitgold}{\textbf{dorado}}.}}
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.32}
+\begin{tabular}{c p{4.8cm} | c p{4.8cm}}
+\toprule
+\textbf{Símbolo} & \textbf{Significado} & \textbf{Símbolo} & \textbf{Significado}\\
+\midrule
+\multicolumn{4}{l}{\textit{Conjuntos numéricos}}\\
+$\mathbb{N}$ & Naturales $\{1,2,3,\ldots\}$ &
+$\mathbb{Z}$ & Enteros $\{\ldots,-1,0,1,\ldots\}$\\
+$\mathbb{Q}$ & Racionales $\frac{p}{q}$, $q\neq 0$ &
+$\mathbb{R}$ & Números reales\\
+$a \in A$ & $a$ pertenece al conjunto $A$ &
+$\{a,b,c\}$ & Conjunto de elementos\\[3pt]
+\multicolumn{4}{l}{\textit{Relaciones y lógica}}\\
+$=\ \neq$ & Igual / distinto de &
+$<\ >\ \leq\ \geq$ & Menor, mayor (estricto y no estricto)\\
+$\approx$ & Aproximadamente igual &
+$|a|$ & Valor absoluto de $a$\\
+$\Rightarrow$ & Implica (consecuencia) &
+$\Leftrightarrow$ & Si y solo si (equivalencia)\\[3pt]
+\multicolumn{4}{l}{\textit{Aritmética y álgebra}}\\
+$a^n$ & $a$ elevado a la potencia $n$ &
+$\dfrac{p}{q}$ & Fracción entre $p$ y $q$\\
+$\text{m.c.m.}(a,b)$ & Mínimo común múltiplo &
+$\text{m.c.d.}(a,b)$ & Máximo común divisor\\[3pt]
+\multicolumn{4}{l}{\textit{\textcolor{zenitgold}{\textbf{Raíces y potencias racionales — tema central}}}}\\
+\textcolor{zenitgold}{$\sqrt{a}$} & \textcolor{zenitgold}{Raíz cuadrada de $a$} &
+\textcolor{zenitgold}{$\sqrt[n]{a}$} & \textcolor{zenitgold}{Raíz enésima de $a$; $n$: índice}\\
+\textcolor{zenitgold}{$\sqrt[3]{a}$} & \textcolor{zenitgold}{Raíz cúbica de $a$} &
+\textcolor{zenitgold}{$a^{m/n}$} & \textcolor{zenitgold}{Potencia de exponente racional}\\
+\textcolor{zenitgold}{$a\sqrt[n]{b}$} & \textcolor{zenitgold}{Coeficiente $a$ · raíz $\sqrt[n]{b}$} &
+\textcolor{zenitgold}{$\sqrt[n]{a^m}$} & \textcolor{zenitgold}{Raíz de potencia: equivale a $a^{m/n}$}\\
+\textcolor{zenitgold}{$\sqrt[n]{\sqrt[m]{a}}$} & \textcolor{zenitgold}{Raíz de raíz $= \sqrt[nm]{a}$} &
+\textcolor{zenitgold}{$\sqrt{a}\pm\sqrt{b}$} & \textcolor{zenitgold}{Binomio con raíces}\\[3pt]
+\multicolumn{4}{l}{\textit{Convenciones de esta guía}}\\
+$\checkmark$ & Solución verificada en la original &
+$\times$ & Solución extraña: se descarta\\
+$\bigstar$ & Nivel básico &
+$\bigstar\bigstar\bigstar$ & Nivel avanzado\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\medskip
+
+% ---- ÍNDICE ----
+
+\begin{tcolorbox}[answerbox, title={Índice de contenidos}]
+\begin{multicols}{2}
+{\small
+\begin{tabular}{r @{\hspace{4pt}} p{5.5cm} @{\hspace{6pt}} r}
+\textbf{\S{}} & \textbf{Galería matemática} & \textbf{p.\,\pageref{sec:galeria}}\\
+ & Hipatia de Alejandría & \\
+ & Al-Juarismi & \\[3pt]
+\textbf{\S{}} & \textbf{Sección 1 · Raíz cuadrada} & \textbf{p.\,\pageref{sec:1}}\\
+1.1 & La pregunta que da origen al concepto & \pageref{sub:1.1}\\
+1.2 & Cuadrados perfectos & \pageref{sub:1.2}\\
+1.3 & Números irracionales & \pageref{sub:1.3}\\
+1.4 & Propiedad de orden & \pageref{sub:1.4}\\
+1.5 & Dos estrategias para ordenar & \pageref{sub:1.5}\\
+1.6 & Estimación por aproximación & \pageref{sub:1.6}\\[3pt]
+\textbf{\S{}} & \textbf{Sección 2 · Raíz cúbica y enésima} & \textbf{p.\,\pageref{sec:2}}\\
+2.1 & La raíz cúbica: volumen y arista & \pageref{sub:2.1}\\
+2.2 & La raíz enésima: generalización & \pageref{sub:2.2}\\[3pt]
+\textbf{\S{}} & \textbf{Sección 3 · Propiedades} & \textbf{p.\,\pageref{sec:3}}\\
+3.1 & Relación inversa & \pageref{sub:3.1}\\
+3.2 & Propiedades P1 y P2 & \pageref{sub:3.2}\\
+3.3 & Simplificación de raíces & \pageref{sub:3.3}\\
+3.4 & Suma y resta de semejantes & \pageref{sub:3.4}\\
+\end{tabular}
+
+\columnbreak
+
+\begin{tabular}{r @{\hspace{4pt}} p{5.5cm} @{\hspace{6pt}} r}
+\textbf{\S{}} & \textbf{Sección 4 · Multiplicación} & \textbf{p.\,\pageref{sec:4}}\\
+4.1 & Mismo índice & \pageref{sub:4.1}\\
+4.2 & Distinto índice (m.c.m.) & \pageref{sub:4.2}\\
+4.3 & Productos notables & \pageref{sub:4.3}\\[3pt]
+\textbf{\S{}} & \textbf{Sección 5 · Potencias racionales} & \textbf{p.\,\pageref{sec:5}}\\
+5.1 & Motivación y equivalencia & \pageref{sub:5.1}\\
+5.2 & Propiedades & \pageref{sub:5.2}\\
+5.3 & Cambio de índice & \pageref{sub:5.3}\\
+5.4 & Raíz de una raíz y raíz única & \pageref{sub:5.4}\\[3pt]
+\textbf{\S{}} & \textbf{Sección 6 · Racionalización} & \textbf{p.\,\pageref{sec:6}}\\
+6.2 & Caso 1: denominador $\sqrt{a}$ & \pageref{sub:6.2}\\
+6.3 & Caso 2: denominador $\sqrt[n]{a^k}$ & \pageref{sub:6.3}\\
+6.4 & Caso 3: conjugado & \pageref{sub:6.4}\\
+6.5 & Caso 4: raíces cúbicas & \pageref{sub:6.5}\\
+6.6 & Caso 5: trinomios y anidadas & \pageref{sub:6.6}\\[3pt]
+\textbf{\S{}} & \textbf{Sección 7 · Ecuaciones y geometría} & \textbf{p.\,\pageref{sec:7}}\\
+ & Ejercicios con alternativas & \pageref{sub:ej.alt}\\
+ & Ejercicios de desarrollo & \pageref{sub:ej.des}\\[3pt]
+\textbf{\S{}} & \textbf{Ejercicios tipo PAES} & \textbf{p.\,\pageref{sec:paes}}\\[3pt]
+\textbf{\S{}} & \textbf{Solucionario completo} & \textbf{p.\,\pageref{sec:sol}}\\
+\end{tabular}
+}
+\end{multicols}
+\end{tcolorbox}
+
+\medskip
+
+% ---- PROPÓSITO ----
+
+\begin{tcolorbox}[importantbox, title={Propósito de la guía}]
+Esta guía construye el concepto de \textbf{raíz} de forma continua y rigurosamente progresiva: cada sección usa únicamente herramientas ya introducidas en secciones anteriores. El recorrido parte de la raíz cuadrada como idea geométrica concreta y llega hasta la operatoria completa con potencias racionales, racionalización y ecuaciones con raíces.
+
+\smallskip
+\textbf{Dificultad:} $\bigstar$ básico \quad $\bigstar\bigstar$ intermedio \quad $\bigstar\bigstar\bigstar$ avanzado. \quad \textbf{Notación:} $\sqrt[2]{a}=\sqrt{a}$; sin índice escrito, el índice es siempre 2.
+\end{tcolorbox}
+
+% ============================================================
+% PÁGINA 4 — GALERÍA MATEMÁTICA
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+\label{sec:galeria}
+
+\begin{center}
+  \vspace*{0.4cm}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.2pt}}\\[0.5cm]
+  {\Large\bfseries\color{zenitnavy} Galería matemática}\\[0.15cm]
+  {\normalsize\itshape\color{zenitgold} Quienes construyeron las herramientas que usamos hoy}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+\vspace{0.6cm}
+
+% ---- HIPATIA ----
+
+\begin{tcolorbox}[enhanced, breakable,
+  colback=white, colframe=blockb, colbacktitle=blockb,
+  coltitle=white, arc=4pt, leftrule=5pt,
+  left=10pt, right=10pt, top=12pt, bottom=10pt,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockb, colback=blockb, arc=2pt},
+  title={Hipatia de Alejandría \hfill \normalfont\itshape c.\,360 — 415 d.C.}]
+
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+% -------------------------------------------------------
+% RETRATO: reemplazar el bloque tikzpicture por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{hipatia.jpg}
+% El archivo debe estar en la misma carpeta que el .tex
+% Nombre sugerido: hipatia.jpg  (o .png)
+% -------------------------------------------------------
+\begin{tikzpicture}
+  \draw[fill=blockb!12, draw=blockb, rounded corners=4pt, thick]
+    (0,0) rectangle (2.4,3.0);
+  \node[align=center, text=blockb, font=\small\itshape] at (1.2,1.5)
+    {Retrato\\[2pt]no conservado};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+
+Hipatia fue la \textbf{primera matemática de cuya vida y obra tenemos registro histórico documentado}. Nacida en Alejandría, ciudad que entonces era el centro intelectual del mundo mediterráneo, aprendió matemáticas y filosofía de su padre Teón, último miembro documentado del \textit{Mouseion} alejandrino y autor de importantes comentarios sobre Euclides y Ptolomeo.
+
+\medskip
+Fue directora de la escuela neoplatónica de Alejandría, y sus clases atraían estudiantes de todo el Imperio Romano. Escribió comentarios sobre la \textit{Aritmética} de Diofanto —obra central de la teoría de números y las ecuaciones algebraicas— y sobre las \textit{Cónicas} de Apolonio. Aunque ninguna de sus obras sobrevivió, las cartas de su discípulo Sinesio de Cirene atestiguan un pensamiento riguroso y una pedagogía excepcional.
+
+\medskip
+\textbf{Conexión con este tema:} las \textit{Cónicas} que Hipatia comentó describen figuras geométricas —parábolas, elipses, hipérbolas— cuyas medidas fundamentales como distancias y semiejes involucran directamente raíces cuadradas. Su trabajo contribuyó a que esas herramientas geométricas se mantuvieran vivas en la tradición matemática.
+\end{minipage}
+
+\end{tcolorbox}
+
+\vspace{0.7cm}
+
+% ---- AL-JUARISMI ----
+
+\begin{tcolorbox}[enhanced, breakable,
+  colback=white, colframe=blockc, colbacktitle=blockc,
+  coltitle=white, arc=4pt, leftrule=5pt,
+  left=10pt, right=10pt, top=12pt, bottom=10pt,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockc, colback=blockc, arc=2pt},
+  title={Muhammad ibn M\={u}s\={a} al-Juarismi \hfill \normalfont\itshape c.\,780 — 850 d.C.}]
+
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+
+Al-Juarismi fue matemático, astrónomo y geógrafo en la \textit{Bayt al-Hikma} (Casa de la Sabiduría) de Bagdad bajo el califato de al-Ma'mun. Su tratado \textit{Al-Kitab al-mukhtasar fi hisab al-jabr wal-muqabala} («Compendio sobre el cálculo por reintegración y equiparación», c.\,820) es \textbf{el documento fundacional del álgebra como disciplina independiente} y el primer texto que sistematiza la resolución de ecuaciones de primer y segundo grado de manera elemental y para uso práctico.
+
+\medskip
+El título de ese tratado dio origen a la palabra \textit{álgebra} (de \textit{al-jabr}, «restauración»). Y el nombre latinizado de su autor —\textit{Algoritmi}— dio origen a la palabra \textbf{algoritmo}, que hoy designa cualquier procedimiento paso a paso para resolver un problema.
+
+\medskip
+\textbf{Conexión directa con este tema:} al-Juarismi necesitaba las raíces cuadradas para resolver ecuaciones de segundo grado. En su tratado aparecen procedimientos geométricos y algebraicos para calcular $\sqrt{n}$ y expresar soluciones del tipo $x = \sqrt{a} + b$, demostrando la completación del cuadrado con justificaciones geométricas. Fue el primero en tratar las raíces como resultados legítimos y manipulables dentro del álgebra.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+% -------------------------------------------------------
+% RETRATO: reemplazar el bloque tikzpicture por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{aljuarismi.jpg}
+% El archivo debe estar en la misma carpeta que el .tex
+% Nombre sugerido: aljuarismi.jpg  (o .png)
+% -------------------------------------------------------
+\begin{tikzpicture}
+  \draw[fill=blockc!10, draw=blockc, rounded corners=4pt, thick]
+    (0,0) rectangle (2.4,3.0);
+  \node[align=center, text=blockc, font=\small\itshape] at (1.2,1.5)
+    {Retrato\\[2pt]no conservado};
+\end{tikzpicture}
+\end{minipage}
+
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\begin{center}
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}\\[0.3cm]
+  {\small\itshape\color{zenitnavy} La matemática no tiene fronteras de época, género ni cultura.}\\[0.2cm]
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}
+\end{center}
+
+\clearpage
+\thispagestyle{empty}
+\phantom{x}
+\clearpage
 
 % ============================================================
 % SECCIÓN 1
 % ============================================================
 \clearpage
 \seccionheader{blocka}{Sección 1 · La raíz cuadrada: del cuadrado al número}
+\label{sec:1}
 
 \subbloque{1.1 La pregunta que da origen al concepto}
+\label{sub:1.1}
 
 Si conocemos el \textbf{área} de un cuadrado, ¿podemos calcular cuánto mide su lado? La respuesta a esa pregunta es la raíz cuadrada.
 
@@ -178,10 +412,42 @@ La raíz cuadrada de $a$ \textbf{solo existe en los reales cuando $a \geq 0$}. S
 \end{tcolorbox}
 
 \begin{tcolorbox}[warningbox, title={Error frecuente — el signo de la raíz}]
-$\sqrt{49}=7$, \textbf{nunca} $-7$ ni $\pm 7$. La raíz cuadrada entrega siempre el valor positivo. Lo que sí se puede escribir es $-\sqrt{49}=-7$ para referirse a la raíz negativa. El símbolo $\pm$ aparece \emph{solo} al resolver ecuaciones: $x^2=49 \Rightarrow x=\pm 7$, porque en ese caso tanto $7$ como $-7$ elevan al cuadrado y dan 49. Pero $\sqrt{49}$ es uno solo: 7.
+$\sqrt{49}=7$, \textbf{nunca} $-7$ ni $\pm 7$. La raíz cuadrada entrega siempre el valor positivo. Lo que sí se puede escribir es $-\sqrt{49}=-7$ para referirse a la raíz negativa. El símbolo $\pm$ aparece \emph{solo} al resolver ecuaciones: $x^2=49 \Rightarrow x=\pm 7$. Pero $\sqrt{49}$ es uno solo: $7$.
 \end{tcolorbox}
 
+\begin{tcolorbox}[examplebox, title={Ejemplos — definición y existencia}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{¿Cuánto mide el lado de un cuadrado de área 36 cm$^2$?}
+
+Buscamos $b$ tal que $b^2 = 36$. Como $6^2 = 36$, el lado mide $\sqrt{36} = 6$ cm.
+
+\textbf{Verificación:} $6^2 = 36$. \checkmark \quad \textbf{Conclusión:} el lado mide $6$ cm.
+
+\item \textbf{¿Existe un cuadrado de área $-4$ cm$^2$?}
+
+No, porque el área es siempre positiva. Matemáticamente, $\sqrt{-4}$ no existe en $\mathbb{R}$: ningún número real elevado al cuadrado da $-4$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — ¿Cuánto mide el lado del cuadrado con el área indicada? Si la raíz no existe, explica por qué:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $A = 4$ cm$^2$
+  \item $A = 25$ cm$^2$
+  \item $A = 64$ cm$^2$
+  \item $A = 100$ cm$^2$
+  \item $A = -9$ cm$^2$
+  \item $A = 0$ cm$^2$
+  \item $A = 1$ cm$^2$
+  \item $A = 49$ cm$^2$
+\end{enumerate}
+\end{multicols}
+
 \subbloque{1.2 Cuadrados perfectos: cuando la raíz es exacta}
+\label{sub:1.2}
 
 Un número natural es un \textbf{cuadrado perfecto} si su raíz cuadrada también es un número natural. Solo en estos casos la raíz es exacta.
 
@@ -208,7 +474,46 @@ $n$ & $n^2$ & $\sqrt{n^2}$ & $n$ & $n^2$ & $\sqrt{n^2}$\\
 Memorizar esta tabla permite calcular raíces exactas de forma inmediata y es la base de toda la sección.
 \end{tcolorbox}
 
+\begin{tcolorbox}[examplebox, title={Ejemplos — cuadrados perfectos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Calcular $\sqrt{49}$, $\sqrt{169}$ y $\sqrt{400}$}
+
+Buscamos en la tabla el entero cuyo cuadrado coincide con el radicando:
+\begin{itemize}[itemsep=3pt]
+  \item $\sqrt{49}=7$, pues $7^2=49$. \hfill\checkmark
+  \item $\sqrt{169}=13$, pues $13^2=169$. \hfill\checkmark
+  \item $\sqrt{400}=20$, pues $20^2=400$. \hfill\checkmark
+\end{itemize}
+
+\item \textbf{¿Es 50 un cuadrado perfecto?}
+
+Buscamos en la tabla: $7^2=49$ y $8^2=64$. Como $49 < 50 < 64$, no existe ningún entero cuyo cuadrado sea exactamente 50.
+
+\textbf{Conclusión:} 50 \textbf{no} es un cuadrado perfecto; $\sqrt{50}$ no tiene valor exacto entero.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Calcula directamente con la tabla:
+\begin{multicols}{5}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{1}$
+  \item $\sqrt{36}$
+  \item $\sqrt{81}$
+  \item $\sqrt{144}$
+  \item $\sqrt{225}$
+  \item $\sqrt{4}$
+  \item $\sqrt{100}$
+  \item $\sqrt{169}$
+  \item $\sqrt{289}$
+  \item $\sqrt{400}$
+\end{enumerate}
+\end{multicols}
+
 \subbloque{1.3 Números irracionales: cuando la raíz no es exacta}
+\label{sub:1.3}
 
 Si el radicando no es un cuadrado perfecto, su raíz no puede escribirse como número entero ni como fracción. Estos números se llaman \textbf{irracionales}.
 
@@ -219,200 +524,129 @@ Si el radicando no es un cuadrado perfecto, su raíz no puede escribirse como n�
 \end{itemize}
 
 \textbf{Regla práctica:} $\sqrt{n}$ es irracional si y solo si $n$ \textbf{no} es un cuadrado perfecto.
-
-Por ejemplo: $\sqrt{4}=2$ es racional; $\sqrt{5}=2{,}2360\ldots$ es irracional.
 \end{tcolorbox}
 
-\subbloque{1.4 Comparación y ordenación de raíces cuadradas}
+\begin{tcolorbox}[examplebox, title={Ejemplos — clasificar como racional o irracional}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
 
-Antes de estimar decimales, conviene conocer una propiedad que permite comparar raíces directamente, sin calculadora.
+\item \textbf{Clasificar: $\sqrt{16}$, $\sqrt{7}$, $\sqrt{225}$, $\sqrt{50}$}
+
+Aplicamos la regla: $\sqrt{n}$ es racional si y solo si $n$ es cuadrado perfecto.
+\begin{itemize}[itemsep=3pt]
+  \item $\sqrt{16}$: como $4^2=16$, tenemos $\sqrt{16}=4$. \textbf{Racional.}
+  \item $\sqrt{7}$: $2^2=4$ y $3^2=9$; 7 no es cuadrado perfecto. \textbf{Irracional.}
+  \item $\sqrt{225}$: como $15^2=225$, tenemos $\sqrt{225}=15$. \textbf{Racional.}
+  \item $\sqrt{50}$: $7^2=49$ y $8^2=64$; 50 no es cuadrado perfecto. \textbf{Irracional.}
+\end{itemize}
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ — Clasifica como racional o irracional. Si es racional, escribe su valor:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{4}$
+  \item $\sqrt{5}$
+  \item $\sqrt{121}$
+  \item $\sqrt{50}$
+  \item $\sqrt{196}$
+  \item $\sqrt{200}$
+  \item $\sqrt{324}$
+  \item $\sqrt{300}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.4 Propiedad de orden: comparar sin calcular decimales}
+\label{sub:1.4}
 
 \begin{tcolorbox}[importantbox, title={Propiedad de orden — las raíces preservan el orden de los radicandos}]
 Para $a \geq 0$ y $b \geq 0$:
 $$a < b \quad\Longleftrightarrow\quad \sqrt{a} < \sqrt{b}$$
 
-En palabras: si el radicando es mayor, la raíz también es mayor. Esto se debe a que la función raíz cuadrada es \textbf{estrictamente creciente} para valores no negativos.
-
-\medskip
-\textbf{Consecuencia práctica:} para comparar $\sqrt{a}$ con $\sqrt{b}$, basta comparar $a$ con $b$ — sin calcular nada.
+Para comparar $\sqrt{a}$ con $\sqrt{b}$, basta comparar $a$ con $b$, sin calcular nada.
 
 Para comparar $\sqrt{a}$ con un entero $k$, basta comparar $a$ con $k^2$:
 $$\sqrt{a} < k \;\Leftrightarrow\; a < k^2 \qquad\text{y}\qquad \sqrt{a} > k \;\Leftrightarrow\; a > k^2$$
 \end{tcolorbox}
 
-Esto da lugar a \textbf{dos estrategias} para comparar y ordenar raíces con enteros, sin necesidad de calcular decimales:
+\begin{tcolorbox}[examplebox, title={Ejemplos — comparar con la propiedad de orden}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
 
-\medskip
-\textbf{Estrategia A — Escribir los enteros como raíces cuadradas:}
+\item \textbf{Comparar $\sqrt{50}$ con $7$, sin calcular decimales}
 
-Convertir cada entero $k$ a su raíz equivalente $k=\sqrt{k^2}$, y luego comparar todos los radicandos.
-
-\medskip
-\textbf{Estrategia B — Estimar el valor de las raíces:}
-
-Acotar cada raíz entre dos enteros consecutivos usando la tabla de cuadrados perfectos, y luego ubicar todos los valores en una recta numérica aproximada.
-
-\begin{tcolorbox}[importantbox, title={Procedimiento de estimación por aproximación sucesiva}]
-\textbf{Paso 1.} Buscar $k$ entero tal que $k^2 \leq n < (k+1)^2$. Entonces $k < \sqrt{n} < k+1$.
-
-\textbf{Paso 2.} Afinar entre décimas: probar $(k{,}1)^2$, $(k{,}2)^2$, \ldots\ hasta acotar el primer decimal.
-
-\textbf{Paso 3.} Repetir para obtener más decimales si se requiere.
-\end{tcolorbox}
-
-\begin{tcolorbox}[examplebox, title={Ejemplos}]
-\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=18pt]
-
-% -----------------------------------------------------------
-\item \textbf{Calcular raíces cuadradas exactas usando la tabla}
-
-Para calcular $\sqrt{n}$ cuando $n$ es cuadrado perfecto, basta buscar el entero $k$ tal que $k^2 = n$:
-
-\medskip
-\begin{itemize}[itemsep=4pt]
-  \item $\sqrt{49} = 7$, \quad pues $7^2 = 49$. \hfill\checkmark
-  \item $\sqrt{169} = 13$, \quad pues $13^2 = 169$. \hfill\checkmark
-  \item $\sqrt{400} = 20$, \quad pues $20^2 = 400$. \hfill\checkmark
-\end{itemize}
-
-\medskip
-¿Es 50 un cuadrado perfecto? Buscamos en la tabla: $7^2 = 49$ y $8^2 = 64$.
-Como $49 < 50 < 64$, no existe ningún entero cuyo cuadrado sea exactamente 50.
-
-\medskip
-\textbf{Conclusión:} 50 \textbf{no} es un cuadrado perfecto; $\sqrt{50}$ no tiene valor exacto entero.
-
-% -----------------------------------------------------------
-\item \textbf{Clasificar como racional o irracional: $\sqrt{16}$, $\sqrt{7}$, $\sqrt{225}$, $\sqrt{50}$}
-
-Aplicamos la regla: $\sqrt{n}$ es racional si y solo si $n$ es cuadrado perfecto.
-
-\medskip
-\begin{itemize}[itemsep=4pt]
-  \item $\sqrt{16}$: como $4^2 = 16$, tenemos $\sqrt{16} = 4$. \quad\textbf{Racional.}
-  \item $\sqrt{7}$: 7 no es cuadrado perfecto ($2^2=4$ y $3^2=9$). \quad\textbf{Irracional.}
-  \item $\sqrt{225}$: como $15^2 = 225$, tenemos $\sqrt{225} = 15$. \quad\textbf{Racional.}
-  \item $\sqrt{50}$: 50 no es cuadrado perfecto ($7^2=49$ y $8^2=64$). \quad\textbf{Irracional.}
-\end{itemize}
-
-% -----------------------------------------------------------
-\item \textbf{Comparar $\sqrt{50}$ con $7$ — usando la propiedad de orden}
-
-Queremos determinar si $\sqrt{50}$ es mayor o menor que $7$, sin calcular decimales.
-
-\medskip
-Escribimos el entero como raíz cuadrada: $7 = \sqrt{49}$.
-
-Ahora la comparación se reduce a comparar los radicandos:
-$$50 > 49 \quad\Longrightarrow\quad \sqrt{50} > \sqrt{49} = 7$$
-
+Escribimos $7 = \sqrt{49}$. Como $50 > 49$:
+$$\sqrt{50} > \sqrt{49} = 7$$
 \textbf{Conclusión:} $\sqrt{50} > 7$.
 
-% -----------------------------------------------------------
-\item \textbf{Comparar $\sqrt{75}$ con $9$ — usando la propiedad de orden}
+\item \textbf{Comparar $\sqrt{75}$ con $9$, sin calcular decimales}
 
-Escribimos el entero como raíz cuadrada: $9 = \sqrt{81}$.
-
-Comparamos radicandos:
-$$75 < 81 \quad\Longrightarrow\quad \sqrt{75} < \sqrt{81} = 9$$
-
+Escribimos $9 = \sqrt{81}$. Como $75 < 81$:
+$$\sqrt{75} < \sqrt{81} = 9$$
 \textbf{Conclusión:} $\sqrt{75} < 9$.
 
-% -----------------------------------------------------------
-\item \textbf{Estimar $\sqrt{2}$ con dos decimales — aproximación sucesiva}
+\end{enumerate}
+\end{tcolorbox}
 
 \medskip
-\textbf{Paso 1 — acotar entre enteros:}
+\textbf{Practica inmediata} \quad $\bigstar$ — Compara sin calcular decimales. Indica $<$, $>$ o $=$:
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{20}$ \quad vs \quad $4$
+  \item $\sqrt{35}$ \quad vs \quad $6$
+  \item $\sqrt{100}$ \quad vs \quad $10$
+  \item $\sqrt{48}$ \quad vs \quad $7$
+  \item $\sqrt{120}$ \quad vs \quad $11$
+  \item $\sqrt{63}$ \quad vs \quad $8$
+\end{enumerate}
+\end{multicols}
 
-Como $1^2 = 1$ y $2^2 = 4$, tenemos que:
-$$1 < \sqrt{2} < 2$$
+\subbloque{1.5 Dos estrategias para ordenar raíces con enteros}
+\label{sub:1.5}
 
-\medskip
-\textbf{Paso 2 — acotar entre décimas:}
+\textbf{Estrategia A — Convertir enteros a raíces cuadradas:}
 
-Probamos valores con un decimal hasta encontrar la cota:
-
-Como $(1{,}4)^2 = 1{,}96$ y $(1{,}5)^2 = 2{,}25$, tenemos que:
-$$1{,}4 < \sqrt{2} < 1{,}5$$
-
-\medskip
-\textbf{Paso 3 — acotar entre centésimas:}
-
-Probamos valores con dos decimales:
-
-Como $(1{,}41)^2 = 1{,}9881$ y $(1{,}42)^2 = 2{,}0164$, tenemos que:
-$$1{,}41 < \sqrt{2} < 1{,}42$$
+Escribir cada entero $k$ como $k=\sqrt{k^2}$. Todos los valores quedan como raíces cuadradas y se comparan directamente por sus radicandos.
 
 \medskip
-\textbf{Conclusión:} $\sqrt{2} \approx 1{,}41$ (al centésimo más cercano).
+\textbf{Estrategia B — Estimar y ubicar en la recta:}
 
-% -----------------------------------------------------------
-\item \textbf{Estimar $\sqrt{75}$ — acotación y estimación de cercanía}
+Acotar cada raíz entre dos enteros consecutivos usando la tabla, y ubicar todos los valores en una recta numérica aproximada.
 
-\medskip
-\textbf{Paso 1 — acotar entre enteros:}
+\begin{tcolorbox}[examplebox, title={Ejemplo — ordenar $\sqrt{10}$, $3$, $\sqrt{7}$, $4$, $\sqrt{15}$ con ambas estrategias}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=16pt]
 
-Como $8^2 = 64$ y $9^2 = 81$, tenemos que $8 < \sqrt{75} < 9$.
+\item \textbf{Estrategia A}
 
-\medskip
-\textbf{Paso 2 — estimar a cuál entero está más cerca:}
+\textbf{Paso 1 — escribir enteros como raíces:} $3=\sqrt{9}$ y $4=\sqrt{16}$.
 
-Calculamos la distancia de 75 a cada cuadrado:
-\begin{itemize}[itemsep=3pt]
-  \item Distancia a $8^2 = 64$: \quad $75 - 64 = 11$
-  \item Distancia a $9^2 = 81$: \quad $81 - 75 = \phantom{1}6$
-\end{itemize}
+\textbf{Paso 2 — comparar radicandos:} $7 < 9 < 10 < 15 < 16$.
 
-Como 75 está más cerca de 81 (distancia 6) que de 64 (distancia 11), la raíz $\sqrt{75}$ está más cerca de 9 que de 8.
-
-\medskip
-\textbf{Conclusión:} $\sqrt{75} < 9$, y $\sqrt{75} \approx 8{,}66$.
-
-% -----------------------------------------------------------
-\item \textbf{Ordenar $\sqrt{10}$, $3$, $\sqrt{7}$, $4$, $\sqrt{15}$ — Estrategia A}
-
-\textit{Convertir todos los valores a raíces cuadradas y comparar radicandos directamente.}
-
-\medskip
-Los enteros se escriben como raíces cuadradas:
-$$3 = \sqrt{9} \qquad\text{y}\qquad 4 = \sqrt{16}$$
-
-Ahora todos los valores son raíces cuadradas: $\sqrt{7}$, $\sqrt{9}$, $\sqrt{10}$, $\sqrt{15}$, $\sqrt{16}$.
-
-Comparamos los radicandos: $7 < 9 < 10 < 15 < 16$.
-
-Por la propiedad de orden, el mismo orden se preserva en las raíces:
+\textbf{Paso 3 — aplicar propiedad de orden:}
 $$\sqrt{7} < \sqrt{9} < \sqrt{10} < \sqrt{15} < \sqrt{16}$$
 
-\medskip
 \textbf{Conclusión:} $\sqrt{7} < 3 < \sqrt{10} < \sqrt{15} < 4$.
 
-% -----------------------------------------------------------
-\item \textbf{Ordenar $\sqrt{10}$, $3$, $\sqrt{7}$, $4$, $\sqrt{15}$ — Estrategia B}
+\item \textbf{Estrategia B}
 
-\textit{Estimar el valor decimal de cada raíz y ubicar todos los valores en la recta numérica.}
+\textbf{Paso 1 — acotar cada raíz:}
 
-\medskip
-Usando la técnica de acotación entre enteros:
-
-\medskip
 \begin{center}
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{c l l}
 \toprule
 \textbf{Valor} & \textbf{Acotación} & \textbf{Estimación}\\
 \midrule
-$\sqrt{7}$  & $2^2=4 < 7 < 9=3^2$ & $\sqrt{7}\approx 2{,}6$\\
-$3$         & --- & $3{,}0$ (exacto)\\
-$\sqrt{10}$ & $3^2=9 < 10 < 16=4^2$ & $\sqrt{10}\approx 3{,}2$\\
-$\sqrt{15}$ & $3^2=9 < 15 < 16=4^2$ & $\sqrt{15}\approx 3{,}9$\\
-$4$         & --- & $4{,}0$ (exacto)\\
+$\sqrt{7}$  & $4<7<9$ \quad ($2^2<7<3^2$) & $\approx 2{,}6$\\
+$3$         & exacto & $3{,}0$\\
+$\sqrt{10}$ & $9<10<16$ \quad ($3^2<10<4^2$) & $\approx 3{,}2$\\
+$\sqrt{15}$ & $9<15<16$ \quad ($3^2<15<4^2$) & $\approx 3{,}9$\\
+$4$         & exacto & $4{,}0$\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\medskip
-Ubicando estos valores en la recta numérica:
+\textbf{Paso 2 — ubicar en la recta:}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.95]
@@ -428,14 +662,84 @@ Ubicando estos valores en la recta numérica:
 \end{tikzpicture}
 \end{center}
 
-\medskip
 \textbf{Conclusión:} $\sqrt{7} < 3 < \sqrt{10} < \sqrt{15} < 4$.
 
 \medskip
-\textit{Nota: ambas estrategias producen el mismo resultado. La Estrategia A es exacta y no requiere cálculos; la Estrategia B es más visual y permite ubicar los valores en la recta numérica.}
+\textit{Nota: La Estrategia A es exacta y no requiere cálculos; la Estrategia B es más visual.}
 
 \end{enumerate}
 \end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ — Ordena de menor a mayor usando la Estrategia A. Verifica con la B:
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{3}$, $2$, $\sqrt{6}$, $\sqrt{1}$, $3$
+  \item $\sqrt{50}$, $7$, $\sqrt{40}$, $6$, $\sqrt{48}$
+\end{enumerate}
+
+\subbloque{1.6 Estimación por aproximación sucesiva}
+\label{sub:1.6}
+
+\begin{tcolorbox}[importantbox, title={Procedimiento de estimación}]
+\textbf{Paso 1.} Buscar $k$ entero tal que $k^2 \leq n < (k+1)^2$. Entonces $k < \sqrt{n} < k+1$.
+
+\textbf{Paso 2.} Afinar entre décimas: probar $(k{,}1)^2$, $(k{,}2)^2$, \ldots\ hasta acotar el primer decimal.
+
+\textbf{Paso 3.} Repetir para obtener más decimales si se requiere.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos — estimación por aproximación sucesiva}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=16pt]
+
+\item \textbf{Estimar $\sqrt{2}$ con dos decimales}
+
+\textbf{Paso 1 — acotar entre enteros:}
+
+Como $1^2=1$ y $2^2=4$, tenemos que $1 < \sqrt{2} < 2$.
+
+\textbf{Paso 2 — acotar entre décimas:}
+
+Como $(1{,}4)^2=1{,}96$ y $(1{,}5)^2=2{,}25$, tenemos que $1{,}4 < \sqrt{2} < 1{,}5$.
+
+\textbf{Paso 3 — acotar entre centésimas:}
+
+Como $(1{,}41)^2=1{,}9881$ y $(1{,}42)^2=2{,}0164$, tenemos que $1{,}41 < \sqrt{2} < 1{,}42$.
+
+\textbf{Conclusión:} $\sqrt{2} \approx 1{,}41$ (al centésimo más cercano).
+
+\item \textbf{Estimar $\sqrt{75}$ y determinar la cercanía a un entero}
+
+\textbf{Paso 1 — acotar:}
+
+Como $8^2=64$ y $9^2=81$, tenemos que $8 < \sqrt{75} < 9$. Por tanto $\sqrt{75} < 9$.
+
+\textbf{Paso 2 — determinar cercanía:}
+\begin{itemize}[itemsep=2pt]
+  \item Distancia a $8^2=64$: $75-64=11$
+  \item Distancia a $9^2=81$: $81-75=\phantom{1}6$
+\end{itemize}
+
+Como 75 está más cerca de 81 (distancia 6 vs. 11), la raíz está más cerca de 9.
+
+\textbf{Conclusión:} $\sqrt{75} < 9$, y $\sqrt{75} \approx 8{,}66$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ — Acota entre dos enteros consecutivos e indica a cuál está más cerca:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{10}$
+  \item $\sqrt{27}$
+  \item $\sqrt{50}$
+  \item $\sqrt{72}$
+  \item $\sqrt{110}$
+  \item $\sqrt{150}$
+  \item $\sqrt{200}$
+  \item $\sqrt{350}$
+\end{enumerate}
+\end{multicols}
 
 \subbloque{Ejercicios propuestos}
 
@@ -445,16 +749,16 @@ $\bigstar$ \textit{(básico)}
   \item Calcula usando la tabla de cuadrados perfectos:
   \begin{multicols}{5}
   \begin{enumerate}[label=\alph*)]
-    \item $\sqrt{1}$
+    \item $\sqrt{9}$
     \item $\sqrt{36}$
-    \item $\sqrt{81}$
+    \item $\sqrt{64}$
+    \item $\sqrt{121}$
+    \item $\sqrt{196}$
+    \item $\sqrt{16}$
+    \item $\sqrt{49}$
     \item $\sqrt{144}$
-    \item $\sqrt{225}$
-    \item $\sqrt{4}$
-    \item $\sqrt{100}$
-    \item $\sqrt{169}$
-    \item $\sqrt{289}$
-    \item $\sqrt{400}$
+    \item $\sqrt{256}$
+    \item $\sqrt{361}$
   \end{enumerate}
   \end{multicols}
 
@@ -474,7 +778,7 @@ $\bigstar$ \textit{(básico)}
   \end{enumerate}
   \end{multicols}
 
-  \item Clasifica como racional o irracional (justifica):
+  \item Clasifica como racional o irracional. Si es racional, escribe su valor:
   \begin{multicols}{4}
   \begin{enumerate}[label=\alph*)]
     \item $\sqrt{4}$
@@ -485,6 +789,18 @@ $\bigstar$ \textit{(básico)}
     \item $\sqrt{200}$
     \item $\sqrt{324}$
     \item $\sqrt{300}$
+  \end{enumerate}
+  \end{multicols}
+
+  \item Compara sin calcular decimales (usa la propiedad de orden). Indica $<$, $>$ o $=$:
+  \begin{multicols}{3}
+  \begin{enumerate}[label=\alph*)]
+    \item $\sqrt{20}$ \quad vs \quad $4$
+    \item $\sqrt{35}$ \quad vs \quad $6$
+    \item $\sqrt{63}$ \quad vs \quad $8$
+    \item $\sqrt{120}$ \quad vs \quad $11$
+    \item $\sqrt{48}$ \quad vs \quad $7$
+    \item $\sqrt{80}$ \quad vs \quad $9$
   \end{enumerate}
   \end{multicols}
 \end{enumerate}
@@ -506,7 +822,7 @@ $\bigstar\bigstar$ \textit{(intermedio)}
   \end{enumerate}
   \end{multicols}
 
-  \item Estima al décimo más cercano (sin calculadora, usando la técnica de paso 2):
+  \item Estima al décimo más cercano (sin calculadora):
   \begin{multicols}{4}
   \begin{enumerate}[label=\alph*)]
     \item $\sqrt{3}$
@@ -516,7 +832,7 @@ $\bigstar\bigstar$ \textit{(intermedio)}
   \end{enumerate}
   \end{multicols}
 
-  \item Ordena de menor a mayor, justificando:
+  \item Ordena de menor a mayor. Usa la Estrategia A y verifica con la B:
   \begin{enumerate}[label=\alph*)]
     \item $\sqrt{15}$, $4$, $\sqrt{10}$, $3$, $\sqrt{20}$
     \item $\sqrt{80}$, $9$, $\sqrt{99}$, $\sqrt{72}$, $8$
@@ -530,16 +846,16 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 
   \item ¿Es posible que la suma de dos números irracionales sea racional? Da un ejemplo con raíces cuadradas.
 
-  \item Demuestra que $\sqrt{2}$ es irracional por contradicción: supón que $\sqrt{2}=\dfrac{p}{q}$ con $p, q$ enteros positivos sin factores comunes. Eleva al cuadrado, analiza la paridad de $p^2$, deduce la paridad de $p$, sustituye y llega a que $q$ también sería par, lo que contradice que la fracción esté en mínima expresión.
+  \item Demuestra que $\sqrt{2}$ es irracional por contradicción: supón que $\sqrt{2}=\dfrac{p}{q}$ con $p, q$ enteros positivos sin factores comunes. Eleva al cuadrado, analiza la paridad de $p^2$, deduce la paridad de $p$, sustituye y llega a que $q$ también sería par, contradiciendo que la fracción esté en mínima expresión.
 \end{enumerate}
-% ============================================================
-% ============================================================
 % SECCIÓN 2
 % ============================================================
 \clearpage
 \seccionheader{blocka}{Sección 2 · La raíz cúbica y la raíz enésima}
+\label{sec:2}
 
 \subbloque{2.1 La raíz cúbica: del volumen a la arista}
+\label{sub:2.1}
 
 Así como la raíz cuadrada responde a «¿cuál es el lado de un cuadrado con esta área?», la raíz cúbica responde a «¿cuál es la arista de un cubo con este volumen?». Si un cubo tiene volumen $V$, su arista es el número $b$ tal que $b^3 = V$, es decir, la raíz cúbica de $V$.
 
@@ -616,6 +932,7 @@ $$a = \sqrt[3]{512} = 8 \text{ cm} \qquad\text{pues }8^3 = 512$$
 \end{enumerate}
 
 \subbloque{2.2 La raíz enésima: generalización completa}
+\label{sub:2.2}
 
 Los índices 2 y 3 son casos particulares de un patrón general. La pregunta natural es: ¿qué pasa con índices 4, 5, 6 o cualquier entero positivo?
 
@@ -647,7 +964,7 @@ $\sqrt[3]{8} = 2$ y $\sqrt{8} \approx 2{,}83$ son completamente distintos. Sin �
 
 \item \textbf{Calcular $\sqrt[5]{-32}$}
 
-El índice 5 es impar → la raíz existe. Como $(-2)^5 = -32$:
+El índice 5 es impar $\rightarrow$ la raíz existe. Como $(-2)^5 = -32$:
 $$\sqrt[5]{-32} = -2$$
 \textbf{Conclusión:} $\sqrt[5]{-32} = -2$.
 
@@ -773,8 +1090,10 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 % ============================================================
 \clearpage
 \seccionheader{blockb}{Sección 3 · Propiedades de las raíces y simplificación}
+\label{sec:3}
 
 \subbloque{3.1 La relación inversa}
+\label{sub:3.1}
 
 La relación inversa entre raíz y potencia se extiende a cualquier índice.
 
@@ -828,6 +1147,7 @@ No se necesita calcular decimales. La relación inversa se aplica directamente:
 \end{multicols}
 
 \subbloque{3.2 Propiedades de producto y cociente}
+\label{sub:3.2}
 
 \begin{tcolorbox}[importantbox, title={P1 y P2 — Raíz de un producto y de un cociente}]
 Para $a \geq 0$, $b \geq 0$ ($b \neq 0$ en P2), con el \textbf{mismo} índice $n$:
@@ -863,7 +1183,7 @@ Verificación directa: $\sqrt{36}=6$. \checkmark \quad \textbf{Conclusión:} $\s
 Aplicando P2: $\sqrt{\dfrac{25}{4}}=\dfrac{\sqrt{25}}{\sqrt{4}}=\dfrac{5}{2}$.
 Verificación: $\left(\dfrac{5}{2}\right)^2=\dfrac{25}{4}$. \checkmark \quad \textbf{Conclusión:} $\sqrt{\dfrac{25}{4}}=\dfrac{5}{2}$.
 
-\item \textbf{P1 con raíz cúbica: $\sqrt[5]{2}\cdot\sqrt[5]{16}$}
+\item \textbf{P1 con raíz quinta: $\sqrt[5]{2}\cdot\sqrt[5]{16}$}
 
 $\sqrt[5]{2}\cdot\sqrt[5]{16}=\sqrt[5]{2\cdot 16}=\sqrt[5]{32}=2$ \quad (pues $2^5=32$).
 
@@ -888,6 +1208,7 @@ $\sqrt[5]{2}\cdot\sqrt[5]{16}=\sqrt[5]{2\cdot 16}=\sqrt[5]{32}=2$ \quad (pues $2
 \end{multicols}
 
 \subbloque{3.3 Simplificación de raíces: forma más simple}
+\label{sub:3.3}
 
 \begin{tcolorbox}[importantbox, title={Procedimiento de simplificación}]
 Una raíz está en forma más simple cuando el radicando no tiene factores que sean potencias perfectas del índice. Para simplificar:
@@ -975,6 +1296,7 @@ $$\sqrt[3]{54}=3\sqrt[3]{2}$$
 \end{multicols}
 
 \subbloque{3.4 Suma y resta de radicales semejantes}
+\label{sub:3.4}
 
 \begin{tcolorbox}[importantbox, title={Radicales semejantes y operación}]
 Dos radicales son \textbf{semejantes} si tienen exactamente el mismo índice \textbf{y} el mismo radicando. Solo los semejantes pueden sumarse o restarse:
@@ -1125,8 +1447,10 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 % ============================================================
 \clearpage
 \seccionheader{blockb}{Sección 4 · Multiplicación y división de raíces}
+\label{sec:4}
 
 \subbloque{4.1 Multiplicación y división de raíces del mismo índice}
+\label{sub:4.1}
 
 La propiedad P1 del la sección anterior funciona en ambos sentidos: permite separar raíces y también combinarlas.
 
@@ -1175,6 +1499,7 @@ $$\frac{4\sqrt{6}}{2\sqrt{2}}=\frac{4}{2}\cdot\sqrt{\frac{6}{2}}=2\sqrt{3}$$
 \end{multicols}
 
 \subbloque{4.2 Multiplicación de raíces con distinto índice}
+\label{sub:4.2}
 
 Cuando dos raíces tienen índices distintos, \textbf{no se pueden multiplicar directamente} aplicando P1, porque P1 exige el mismo índice. Existen dos enfoques.
 
@@ -1274,6 +1599,7 @@ pues $61\div 30$: cociente 2, resto 1.
 \end{multicols}
 
 \subbloque{4.3 Productos notables con raíces}
+\label{sub:4.3}
 
 \begin{tcolorbox}[importantbox, title={Productos notables con raíces cuadradas}]
 Para $a\geq 0$, $b\geq 0$:
@@ -1421,8 +1747,10 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 % ============================================================
 \clearpage
 \seccionheader{blockc}{Sección 5 · Raíces y potencias racionales: la equivalencia fundamental}
+\label{sec:5}
 
 \subbloque{5.1 Motivación: ¿qué significa una potencia con exponente fraccionario?}
+\label{sub:5.1}
 
 Hasta ahora los exponentes son enteros. ¿Qué podría significar $9^{1/2}$? Si las propiedades de potencias deben seguir funcionando:
 $$(9^{1/2})^2 = 9^{(1/2)\cdot 2}=9^1=9$$
@@ -1439,6 +1767,7 @@ Es decir, $9^{1/2}$ elevado al cuadrado da 9. Eso es exactamente la raíz cuadra
 \end{center}
 
 \subbloque{5.2 La equivalencia y las propiedades}
+\label{sub:5.2}
 
 \begin{tcolorbox}[importantbox, title={Equivalencia fundamental}]
 Para $a\geq 0$, $n\in\mathbb{N}$, $n\geq 2$, $m\in\mathbb{Z}$:
@@ -1507,6 +1836,7 @@ $$\frac{a^{3/4}}{a^{1/4}}=a^{3/4-1/4}=a^{2/4}=a^{1/2}=\sqrt{a}$$
 \end{multicols}
 
 \subbloque{5.3 Cambio de índice: amplificación y simplificación}
+\label{sub:5.3}
 
 El cambio de índice permite transformar una raíz en otra equivalente con un índice diferente. Se puede realizar de dos maneras: usando potencias racionales, o directamente en notación de raíz.
 
@@ -1595,6 +1925,7 @@ m.c.d.$(3,2)=1$: índice y exponente no tienen factores comunes. La raíz \textb
 \end{multicols}
 
 \subbloque{5.4 Raíz de una raíz y expresar como raíz única}
+\label{sub:5.4}
 
 \begin{tcolorbox}[importantbox, title={Raíz de una raíz}]
 $$\sqrt[n]{\sqrt[m]{a}}=a^{1/(nm)}=\sqrt[nm]{a}$$
@@ -1762,12 +2093,15 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 % ============================================================
 \clearpage
 \seccionheader{blockc}{Sección 6 · Racionalización}
+\label{sec:6}
 
 \subbloque{6.1 ¿Para qué racionalizar?}
+\label{sub:6.1}
 
 Racionalizar es transformar una fracción con raíces en el denominador en una fracción equivalente con denominador racional. Se amplifica la fracción por un factor conveniente que elimina las raíces del denominador sin cambiar el valor.
 
 \subbloque{6.2 Caso 1 — Denominador con raíz cuadrada: $\dfrac{p}{\sqrt{a}}$}
+\label{sub:6.2}
 
 \begin{tcolorbox}[importantbox, title={Caso 1}]
 Factor de amplificación: $\dfrac{\sqrt{a}}{\sqrt{a}}$. Al multiplicar, $\sqrt{a}\cdot\sqrt{a}=a$:
@@ -1800,6 +2134,7 @@ $$\frac{n^3\cdot\sqrt{n}}{n}=n^2\sqrt{n}$$
 \end{multicols}
 
 \subbloque{6.3 Caso 2 — Denominador con raíz enésima: $\dfrac{p}{\sqrt[n]{a^k}}$}
+\label{sub:6.3}
 
 \begin{tcolorbox}[importantbox, title={Caso 2}]
 Objetivo: completar el exponente hasta $n$ para obtener $\sqrt[n]{a^n}=a$.
@@ -1839,6 +2174,7 @@ $$\frac{b^5\sqrt[6]{b^4}}{\sqrt[6]{b^6}}=\frac{b^5\sqrt[6]{b^4}}{b}=b^4\sqrt[6]{
 \end{multicols}
 
 \subbloque{6.4 Caso 3 — Denominador binómico: $\dfrac{p}{\sqrt{a}\pm\sqrt{b}}$}
+\label{sub:6.4}
 
 \begin{tcolorbox}[importantbox, title={Caso 3 — Conjugado}]
 Se amplifica por el \textbf{conjugado} (mismo binomio con signo opuesto), usando la diferencia de cuadrados:
@@ -1877,6 +2213,7 @@ $$\frac{6(\sqrt{3}+\sqrt{2})}{3-2}=6\sqrt{3}+6\sqrt{2}$$
 \end{multicols}
 
 \subbloque{6.5 Caso 4 — Denominador con raíces cúbicas: $\dfrac{p}{\sqrt[3]{a}\pm\sqrt[3]{b}}$}
+\label{sub:6.5}
 
 \begin{tcolorbox}[importantbox, title={Caso 4 — Suma/diferencia de cubos}]
 Se usan las identidades de suma y diferencia de cubos:
@@ -1900,6 +2237,7 @@ $$\frac{1}{\sqrt[3]{2}-1}\cdot\frac{\sqrt[3]{4}+\sqrt[3]{2}+1}{\sqrt[3]{4}+\sqrt
 \end{tcolorbox}
 
 \subbloque{6.6 Caso 5 — Denominadores trinomios o raíces anidadas}
+\label{sub:6.6}
 
 \begin{tcolorbox}[importantbox, title={Caso 5 — Etapas}]
 \textbf{Trinomio:} agrupar dos términos y tratar el conjunto como binomio, luego aplicar conjugado del grupo resultante.
@@ -2020,8 +2358,10 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado) — Caso 5}
 % ============================================================
 \clearpage
 \seccionheader{blockc}{Sección 7 · Ecuaciones con raíces y aplicaciones geométricas}
+\label{sec:7}
 
 \subbloque{7.1 Método para resolver ecuaciones con raíces}
+\label{sub:7.1}
 
 \begin{tcolorbox}[importantbox, title={Estrategia}]
 \begin{enumerate}[itemsep=4pt]
@@ -2102,6 +2442,7 @@ $\dfrac{l^2\sqrt{3}}{4}=4\sqrt{3} \Rightarrow l^2=16 \Rightarrow l=4$ cm. Altura
 \end{tcolorbox}
 
 \subbloque{Ejercicios con alternativas}
+\label{sub:ej.alt}
 
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
 
@@ -2133,6 +2474,7 @@ $\dfrac{l^2\sqrt{3}}{4}=4\sqrt{3} \Rightarrow l^2=16 \Rightarrow l=4$ cm. Altura
 
 \clearpage
 \subbloque{Ejercicios de desarrollo}
+\label{sub:ej.des}
 
 $\bigstar$ \textit{(básico)}
 
@@ -2202,10 +2544,897 @@ $\bigstar\bigstar\bigstar$ \textit{(avanzado)}
 \end{enumerate}
 
 % ============================================================
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\sqrt{x}-\left[-\sqrt{x}-\left(\sqrt{x}+\sqrt{y}-\sqrt{z}\right)\right]$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\sqrt{x}+\sqrt{y}-\sqrt{z}$
+\item $3\sqrt{x}+\sqrt{y}-\sqrt{z}$
+\item $-\sqrt{x}-\sqrt{y}-\sqrt{z}$
+\item $3\sqrt{x}-\sqrt{y}-\sqrt{z}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $m>0$, entonces, ¿cuál de las siguientes expresiones es equivalente a $2\sqrt{18m^{2}}-\sqrt{32m^{2}}-3m\sqrt{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-m\sqrt{2}$
+\item $m\sqrt{2}$
+\item $-2m\sqrt{2}$
+\item $2m\sqrt{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Para qué valor(es) real(es) de $m$ se tiene que $\sqrt{m}=-1$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item Solo el $1$.
+\item Solo el $-1$.
+\item $-1$ y $1$.
+\item No existe un valor real que satisfaga tal igualdad.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si se sabe que $\sqrt{8}-x\sqrt{3}+\sqrt{2}=\sqrt{18}-y\sqrt{2}+\sqrt{27}$ y que $x$ e $y$ son valores enteros, ¿cuál es el valor de $x+y$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0$
+\item $-1$
+\item $-2$
+\item $-3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\sqrt[n]{5}+\sqrt[n]{5}+2\sqrt[n]{5}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4\sqrt[4n]{15}$
+\item $2\sqrt[n]{15}$
+\item $4\sqrt[n]{5}$
+\item $4\sqrt[n]{15}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $3^{x}=\dfrac{\sqrt{12}}{\sqrt[5]{32}}$, entonces ¿cuál es el valor de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $1$
+\item $0{,}5$
+\item $0$
+\item $-0{,}5$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt[3]{x}+1=0$, entonces ¿cuál(es) es(son) el(los) valor(es) de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item Solo el $-1$.
+\item Solo el $1$.
+\item $-1$ y $1$.
+\item Es una ecuación sin solución real.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si la fracción $\dfrac{\sqrt{18}}{\sqrt{2}}$ se amplifica por $\sqrt{2}$, y luego la fracción resultante se amplifica por $\sqrt{3}$, ¿qué valor se obtiene?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $3$
+\item $6$
+\item $\sqrt{3}$
+\item $\sqrt{6}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt{x}=3$, entonces ¿cuál es el valor de $\sqrt{16}\cdot x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $18$
+\item $20$
+\item $24$
+\item $36$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $x-2=2^{2}$, entonces ¿cuál es el valor de $\left(\sqrt{4x}+\sqrt{x+2}\right)\cdot\sqrt{x}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $15$
+\item $16$
+\item $16\sqrt{3}$
+\item $12+4\sqrt{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt{\sqrt{3}+1}-\sqrt{\sqrt{3}-1}=m$, ¿cuál es el valor de $\dfrac{m^{2}}{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2\sqrt{3-2\sqrt{2}}$
+\item $\sqrt{3}-\sqrt{2}$
+\item $\sqrt{2}-\sqrt{3}$
+\item $4\sqrt{3}-4\sqrt{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $A=\sqrt{a+\sqrt{2a-1}}+\sqrt{a-\sqrt{2a-1}}$, con $a\geq 1$, ¿cuál de las siguientes expresiones es igual a $A^{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4a-2$
+\item $3a-1$
+\item $2a+2\sqrt{a^{2}-2a-1}$
+\item $2a+\sqrt{a^{2}-2a-1}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es igual a $\dfrac{1}{\sqrt{5}-1}-\dfrac{1}{\sqrt{5}+1}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0{,}25$
+\item $0{,}5$
+\item $1$
+\item $\dfrac{1}{2\sqrt{5}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $x\geq 3$, ¿cuál es el valor de $\sqrt{(x-3)^{2}}+\sqrt{(3-x)^{2}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0$
+\item $2x-6$
+\item $2x+6$
+\item $2x^{2}-12x+18$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si se sabe que $\sqrt[3]{\sqrt[x]{2\sqrt[3]{3}}}=\dfrac{\sqrt[3]{2\sqrt[6]{3}}}{\sqrt[6]{2}}$, ¿cuál es el valor de $\sqrt{\dfrac{1}{3}\,x}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt[3]{\dfrac{4}{3}}$
+\item $\sqrt[9]{\dfrac{2}{7}}$
+\item $\sqrt[7]{3}$
+\item $\sqrt{\dfrac{2}{3}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt[3]{x}=a^{2}$ y $\sqrt{y}=b^{2}$, para $a,b\in\mathbb{R}$ con $a<0<b$, entonces ¿qué expresión es igual a $\sqrt[12]{x^{2}y^{3}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $ab$
+\item $-|ab|$
+\item $|ab|$
+\item $\sqrt{ab}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $1{,}7\overline{7}=x$, ¿cuál es el valor de $\left(\sqrt{x}-\dfrac{1}{3}\right)^{7}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\dfrac{1}{9}$
+\item $-1$
+\item $1$
+\item $\dfrac{2}{9}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\dfrac{\sqrt{3}}{\sqrt[3]{\sqrt{3}}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{\sqrt[3]{3}}{3}$
+\item $\sqrt[3]{3}$
+\item $\sqrt[3]{9}$
+\item $3\sqrt[3]{9}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de la expresión $\dfrac{\sqrt{2}}{\sqrt{7}-1}-\dfrac{\sqrt{2}}{\sqrt{7}+1}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $0$
+\item $\dfrac{\sqrt{2}}{3}$
+\item $\dfrac{1}{6}$
+\item $\dfrac{\sqrt{3}}{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $16\sqrt{45-12\sqrt{12x-7}}=48$, entonces ¿cuál es el valor de $x$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{7}{12}$
+\item $1$
+\item $\dfrac{4}{3}$
+\item $\dfrac{214}{297}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál de las siguientes expresiones es equivalente a $\dfrac{1}{\sqrt[3]{x}-1}$, con $x\neq 1$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{x-1}{\sqrt[3]{x}+1}$
+\item $\sqrt[3]{x^{2}}+1$
+\item $\dfrac{\sqrt[3]{x^{2}}+3\sqrt[3]{x}+1}{x+1}$
+\item $\dfrac{\sqrt[3]{x^{2}}+\sqrt[3]{x}+1}{x-1}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de $\left(\dfrac{2-\sqrt{2}}{1-\sqrt{2}}\right)^{\!\frac{1}{3}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\sqrt[6]{2}$
+\item $\sqrt[6]{2}$
+\item $\sqrt[3]{2-\sqrt{2}}$
+\item $1$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el valor de la expresión $1-\dfrac{1}{1-\sqrt{3}}+\dfrac{1}{1+\sqrt{3}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-\sqrt{3}$
+\item $\sqrt{3}$
+\item $1-\sqrt{3}$
+\item $1+\sqrt{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de la expresión $(\sqrt{5}+2)^{5}(\sqrt{5}-2)^{4}-(\sqrt{5}-2)^{5}(\sqrt{5}+2)^{4}$ es:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item Entero positivo.
+\item Entero negativo.
+\item $0$
+\item Irracional positivo.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si se cumple que $\sqrt[3]{A}-\sqrt[B]{2}=0$ y $A,B\in\mathbb{Z}$, ¿cuál es el valor de $\sqrt{A^{4}+B^{2}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $2\sqrt{2}$
+\item $3$
+\item $3\sqrt{2}$
+\item $5$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Una factorización de $x-2$ está dada por: $x-2=\left(\sqrt[3]{x}-\sqrt[3]{2}\right)\left(\sqrt[3]{x^{A}}+\sqrt[3]{Bx}+C\right)$. ¿Cuál es el valor de $A-B^{2}+C\sqrt[3]{2}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-2$
+\item $0$
+\item $1$
+\item $3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\sqrt{2{,}4}=a$, entonces $\sqrt{2{.}400}=$
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $24a\sqrt{1{.}000}$
+\item $10a\sqrt{10}$
+\item $10\sqrt{24}\,a$
+\item $10a$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+La expresión $\dfrac{\sqrt[3]{3^{14}+3^{14}+3^{14}}}{\sqrt[20]{3^{-41}+3^{-41}+3^{-41}}}$ es equivalente a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $3^{3}$
+\item $3^{7}$
+\item $\sqrt{3^{3}}$
+\item $\dfrac{1}{\sqrt[17]{3^{55}}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cuál es el resultado de racionalizar la expresión $\dfrac{2}{\sqrt[4]{9}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\dfrac{3\sqrt{3}}{4}$
+\item $\dfrac{\sqrt[3]{9}}{3}$
+\item $\dfrac{2\sqrt[4]{3}}{3}$
+\item $\dfrac{2\sqrt[4]{9}}{3}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+$\dfrac{3}{3+\sqrt{2}}=$
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt{2}-1$
+\item $\dfrac{\sqrt{2}}{2}$
+\item $\dfrac{9-\sqrt{2}}{7}$
+\item $\dfrac{9-3\sqrt{2}}{7}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+$2\sqrt{x}-3\sqrt{x}=0$ si:
+\begin{enumerate}[label=(\arabic*), leftmargin=18pt]
+\item $x\geq 0$
+\item $x=0$
+\end{enumerate}
+\medskip%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item (1) por sí sola.
+\item (2) por sí sola.
+\item Ambas juntas, (1) y (2).
+\item Cada una por sí sola, (1) o (2).
+\item Se requiere información adicional.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+$\sqrt{31-12\sqrt{3}}=$
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt{31}-6\sqrt{3}$
+\item $3\sqrt{3}-2$
+\item $\sqrt{19\sqrt{3}}$
+\item $3\sqrt{3}-3$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+La expresión $\dfrac{2\sqrt{18}+3\sqrt{8}}{\sqrt{8}}$ es equivalente a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $6\sqrt{2}+3$
+\item $6$
+\item $9\sqrt{2}$
+\item $\dfrac{5\sqrt{13}}{2}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $a>0$, ¿cuál de las siguientes opciones es equivalente a $\dfrac{\sqrt[8]{a^{7}}}{\sqrt[4]{a}\cdot\sqrt{a}}$?
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $\sqrt[4]{a}$
+\item $\sqrt[8]{a}$
+\item $\sqrt[4]{a^{5}}$
+\item $\sqrt[8]{a^{5}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+El cubo de $A$ es igual a la raíz cuadrada de $B$ si:
+\begin{enumerate}[label=(\arabic*), leftmargin=18pt]
+\item $A=2$ y $B=64$
+\item $A=\sqrt[3]{8}$ y $B=4\sqrt{256}$
+\end{enumerate}
+\medskip%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item (1) por sí sola.
+\item (2) por sí sola.
+\item Ambas juntas, (1) y (2).
+\item Cada una por sí sola, (1) o (2).
+\item Se requiere información adicional.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Si $(0{,}125)^{x+2}=a^{-2}$, entonces $2^{x}$ es igual a:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $4\sqrt[3]{a^{2}}$
+\item $8\sqrt[3]{a^{8}}$
+\item $\dfrac{\sqrt[3]{a^{2}}}{8}$
+\item $\dfrac{\sqrt[3]{a^{2}}}{4}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Al reducir la expresión $\sqrt[30]{a^{17}}\div\sqrt[30]{a^{6}}\cdot\sqrt[20]{a^{12}}\cdot\sqrt[20]{a^{9}}$ se obtiene:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $a\sqrt[12]{a^{17}}$
+\item $a\sqrt[12]{a^{5}}$
+\item $\sqrt[10]{a^{32}}$
+\item $\sqrt[50]{a^{32}}$
+\item $\sqrt[50]{a^{4}}$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+Sean $a,b,c$ y $d$ números enteros positivos. Se puede determinar que la expresión $\sqrt{a\sqrt{b}-c\sqrt{d}}$ es un número real si:
+\begin{enumerate}[label=(\arabic*), leftmargin=18pt]
+\item $a^{2}b>c^{2}d$
+\item $\sqrt{b}>\sqrt{d}$
+\end{enumerate}
+\medskip%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item (1) por sí sola.
+\item (2) por sí sola.
+\item Ambas juntas, (1) y (2).
+\item Cada una por sí sola, (1) o (2).
+\item Se requiere información adicional.
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\item
+\begin{minipage}[t]{\linewidth}
+El valor numérico de $M=\dfrac{1}{\sqrt{4}+\sqrt{5}}+\dfrac{1}{\sqrt{5}+\sqrt{6}}+\dfrac{1}{\sqrt{6}+\sqrt{7}}+\ldots+\dfrac{1}{\sqrt{63}+\sqrt{64}}$ es:
+\\%--------------------------------------
+\begin{minipage}{\linewidth}
+\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node (texto) at (0,0) {
+\begin{minipage}{0.95\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+\item $-6$
+\item $6$
+\item $-10$
+\item $10$
+\end{enumerate}
+\end{minipage}};
+\node (figura) at (7,0) {};
+\end{tikzpicture}
+\end{minipage}
+\vspace{7mm}
+\end{minipage}
+
+\end{enumerate}
+
 % SOLUCIONARIO COMPLETO
 % ============================================================
 \clearpage
 \seccionheader{zenitnavy}{Solucionario}
+\label{sec:sol}
 
 \begin{tcolorbox}[importantbox, title={Nota sobre el solucionario}]
 Las respuestas se presentan con una indicación breve del procedimiento o del resultado intermedio clave. Para los ejercicios básicos se entrega solo el resultado; para los intermedios y avanzados se agrega el paso decisivo. Los ejercicios de las prácticas inmediatas siguen el mismo criterio.
@@ -2213,21 +3442,36 @@ Las respuestas se presentan con una indicación breve del procedimiento o del re
 
 \subbloque{Sección 1 — La raíz cuadrada}
 
-\textbf{Práctica inmediata (tras 1.2):} a)~1 \; b)~6 \; c)~9 \; d)~12 \; e)~15 \; f)~2 \; g)~10 \; h)~13 \; i)~17 \; j)~20.
+\textbf{Práctica 1.1 (definición):} a)~2 cm \; b)~5 cm \; c)~8 cm \; d)~10 cm \; e)~no existe ($a<0$) \; f)~0 cm \; g)~1 cm \; h)~7 cm.
 
-\textbf{Ej. 3 (Ejercicios $\bigstar$, ítem 1):} a)~1 \; b)~6 \; c)~9 \; d)~12 \; e)~15 \; f)~2 \; g)~10 \; h)~13 \; i)~17 \; j)~20.
+\textbf{Práctica 1.2 (cuadrados perfectos):} a)~1 \; b)~6 \; c)~9 \; d)~12 \; e)~15 \; f)~2 \; g)~10 \; h)~13 \; i)~17 \; j)~20.
 
-\textbf{Ítem 2 (cuadrados perfectos):} Sí: 81~(9), 144~(12), 361~(19), 324~(18), 256~(16), 289~(17). No: 40, 50, 75, 180.
+\textbf{Práctica 1.3 (racional/irracional):} a)~$\sqrt{4}=2$~(rac.) \; b)~irr. \; c)~$\sqrt{121}=11$~(rac.) \; d)~irr. \; e)~$\sqrt{196}=14$~(rac.) \; f)~irr. \; g)~$\sqrt{324}=18$~(rac.) \; h)~irr.
 
-\textbf{Ítem 3 (racionalidad):} $\sqrt{4}=2$~(rac.); $\sqrt{5}$~(irr.); $\sqrt{121}=11$~(rac.); $\sqrt{50}$~(irr.); $\sqrt{196}=14$~(rac.); $\sqrt{200}$~(irr.); $\sqrt{324}=18$~(rac.); $\sqrt{300}$~(irr.).
+\textbf{Práctica 1.4 (comparar):} a)~$\sqrt{20}>4$ (pues $20>16$) \; b)~$\sqrt{35}<6$ (pues $35<36$) \; c)~$\sqrt{100}=10$ \; d)~$\sqrt{48}<7$ (pues $48<49$) \; e)~$\sqrt{120}<11$ (pues $120<121$) \; f)~$\sqrt{63}<8$ (pues $63<64$).
 
-\textbf{Ítem 4 ($\bigstar\bigstar$, acotar):} a)~$3<\sqrt{10}<4$, más cerca de 3 \; b)~$5<\sqrt{27}<6$, más cerca de 5 \; c)~$7<\sqrt{50}<8$, más cerca de 7 \; d)~$8<\sqrt{72}<9$, más cerca de 8 \; e)~$10<\sqrt{110}<11$, más cerca de 10 \; f)~$12<\sqrt{150}<13$, más cerca de 12 \; g)~$14<\sqrt{200}<15$, más cerca de 14 \; h)~$18<\sqrt{350}<19$, más cerca de 19.
+\textbf{Práctica 1.5 (ordenar):} a)~$1<\sqrt{3}<2<\sqrt{6}<3$ \; b)~$6<\sqrt{40}<\sqrt{48}<7<\sqrt{50}$.
 
-\textbf{Ítem 5 (estimar al décimo):} a)~$\approx 1{,}7$ \; b)~$\approx 4{,}5$ \; c)~$\approx 6{,}7$ \; d)~$\approx 9{,}5$.
+\textbf{Práctica 1.6 (acotar):} a)~$3<\sqrt{10}<4$, más cerca de 3 \; b)~$5<\sqrt{27}<6$, más cerca de 5 \; c)~$7<\sqrt{50}<8$, más cerca de 7 \; d)~$8<\sqrt{72}<9$, más cerca de 8 \; e)~$10<\sqrt{110}<11$, más cerca de 10 \; f)~$12<\sqrt{150}<13$, más cerca de 12 \; g)~$14<\sqrt{200}<15$, más cerca de 14 \; h)~$18<\sqrt{350}<19$, más cerca de 19.
 
-\textbf{Ítem 6 (ordenar):} a)~$\sqrt{10}<3<\sqrt{15}<4<\sqrt{20}$ \; b)~$\sqrt{72}<8<\sqrt{80}<9<\sqrt{99}$.
+\medskip
+\textbf{Ítem 1 ($\bigstar$, calcular):} a)~3 \; b)~6 \; c)~8 \; d)~11 \; e)~14 \; f)~4 \; g)~7 \; h)~12 \; i)~16 \; j)~19.
 
-\textbf{Ítem 7 ($\bigstar\bigstar\bigstar$):} Enteros $n$ con $5<\sqrt{n}<6$: $n\in\{26,27,28,29,30,31,32,33,34,35\}$, hay 10.
+\textbf{Ítem 2 ($\bigstar$, cuadrados perfectos):} Sí: 81~(9), 144~(12), 361~(19), 324~(18), 256~(16), 289~(17). No: 40, 50, 75, 180.
+
+\textbf{Ítem 3 ($\bigstar$, racional/irracional):} a)~$\sqrt{4}=2$~(rac.) \; b)~irr. \; c)~$\sqrt{121}=11$~(rac.) \; d)~irr. \; e)~$\sqrt{196}=14$~(rac.) \; f)~irr. \; g)~$\sqrt{324}=18$~(rac.) \; h)~irr.
+
+\textbf{Ítem 4 ($\bigstar$, comparar):} a)~$>$ (20>16) \; b)~$<$ (35<36) \; c)~$<$ (63<64) \; d)~$<$ (120<121) \; e)~$<$ (48<49) \; f)~$<$ (80<81).
+
+\textbf{Ítem 5 ($\bigstar\bigstar$, acotar):} a)~$3<\sqrt{10}<4$, más cerca de 3 \; b)~$5<\sqrt{27}<6$, más cerca de 5 \; c)~$7<\sqrt{50}<8$, más cerca de 7 \; d)~$8<\sqrt{72}<9$, más cerca de 8 \; e)~$10<\sqrt{110}<11$, más cerca de 10 \; f)~$12<\sqrt{150}<13$, más cerca de 12 \; g)~$14<\sqrt{200}<15$, más cerca de 14 \; h)~$18<\sqrt{350}<19$, más cerca de 19.
+
+\textbf{Ítem 6 ($\bigstar\bigstar$, estimar al décimo):} a)~$\approx 1{,}7$ \; b)~$\approx 4{,}5$ \; c)~$\approx 6{,}7$ \; d)~$\approx 9{,}5$.
+
+\textbf{Ítem 7 ($\bigstar\bigstar$, ordenar):} a)~$3<\sqrt{10}<\sqrt{15}<4<\sqrt{20}$ \; b)~$8<\sqrt{72}<\sqrt{80}<9<\sqrt{99}$.
+
+\textbf{Ítem 8 ($\bigstar\bigstar\bigstar$):} Enteros $n$ con $5<\sqrt{n}<6$: $5^2=25$ y $6^2=36$, luego $n\in\{26,27,28,29,30,31,32,33,34,35\}$, hay \textbf{10}.
+
+\textbf{Ítem 9 ($\bigstar\bigstar\bigstar$):} Sí es posible. Ejemplo: $\sqrt{2}+(-\sqrt{2})=0\in\mathbb{Q}$. Otro: $(\sqrt{3}+1)+(-\sqrt{3}+1)=2$.
 
 \subbloque{Sección 2 — Raíz cúbica y enésima}
 
@@ -2243,39 +3487,39 @@ Las respuestas se presentan con una indicación breve del procedimiento o del re
 
 \textbf{Ítem 4 ($\bigstar\bigstar$):} a)~7 m \; b)~9 cm, área total $=6\cdot 81=486$ cm$^2$ \; c)~arista se multiplica por $\sqrt[3]{2}$.
 
-\textbf{Ítem 5 (ordenar):} a)~$\sqrt[3]{10}<2<\sqrt[3]{27}=3<\sqrt[3]{50}$ \; b)~$\sqrt[5]{32}=2=\sqrt[4]{16}=2=\sqrt{9}... $ todos iguales a 2 o 3: $\sqrt[5]{32}=\sqrt[4]{16}=2<\sqrt[3]{27}=\sqrt{9}=3$.
+\textbf{Ítem 5 (ordenar):} a)~$2<\sqrt[3]{10}<\sqrt[3]{27}=3<\sqrt[3]{50}$ \; b)~$\sqrt[5]{32}=2=\sqrt[4]{16}=2=\sqrt{9}... $ todos iguales a 2 o 3: $\sqrt[5]{32}=\sqrt[4]{16}=2<\sqrt[3]{27}=\sqrt{9}=3$.
 
 \subbloque{Sección 3 — Propiedades y simplificación}
 
 \textbf{Práctica inmediata (relación inversa):} a)~9 \; b)~5 \; c)~4 \; d)~6 \; e)~17 \; f)~11 \; g)~2 \; h)~$-4$.
 
-\textbf{Práctica inmediata (P1/P2):} a)~6 \; b)~21 \; c)~2 \; d)~3 \; e)~5 \; f)~5 \; g)~$\sqrt[3]{6}$ \; h)~$4/3$.
+\textbf{Práctica inmediata (P1/P2):} a)~8 \; b)~21 \; c)~4 \; d)~3 \; e)~$\tfrac{7}{2}$ \; f)~5 \; g)~$\sqrt[3]{6}$ \; h)~$\tfrac{4}{3}$.
 
 \textbf{Práctica inmediata (simplificación):} a)~$2\sqrt{2}$ \; b)~$3\sqrt{2}$ \; c)~$3\sqrt{5}$ \; d)~$5\sqrt{3}$ \; e)~$7\sqrt{2}$ \; f)~$4\sqrt[3]{2}$ \; g)~$3\sqrt[3]{2}$ \; h)~$12\sqrt{3}$ \; i)~$10\sqrt{3}$ \; j)~$5\sqrt[3]{2}$.
 
 \textbf{Práctica inmediata (suma/resta):} a)~$4\sqrt{2}$ \; b)~$8\sqrt{3}$ \; c)~$3\sqrt{3}$ \; d)~$3\sqrt{2}$ \; e)~$7\sqrt{3}$ \; f)~$\sqrt{3}$.
 
-\textbf{Ítem 1 ($\bigstar$, P1/P2):} a)~12 \; b)~21 \; c)~2 \; d)~3 \; e)~2 \; f)~$\sqrt[3]{6}/1=\sqrt[3]{6}$... ver tabla. Los resultados directos: e)~2, f)~$\sqrt[3]{6}$, g)~$\sqrt[3]{9}$, h)~$-2$.
+\textbf{Ítem 1 ($\bigstar$, P1/P2):} a)~6 \; b)~20 \; c)~2 \; d)~3 \; e)~2 \; f)~7 \; g)~$\sqrt[3]{9}$ \; h)~$\sqrt[5]{64}$.
 
-\textbf{Ítem 2 ($\bigstar$, simplificar):} a)~$2\sqrt{3}$ \; b)~$2\sqrt{5}$ \; c)~$2\sqrt{7}$ \; d)~$5\sqrt{2}$ \; e)~$6\sqrt{2}$ \; f)~$6\sqrt{3}$ \; g)~$10\sqrt{2}$ \; h)~$12\sqrt{2}$ \; i)~$8\sqrt{2}$ \; j)~$10\sqrt{5}$.
+\textbf{Ítem 2 ($\bigstar$, simplificar):} a)~$2\sqrt{3}$ \; b)~$2\sqrt{5}$ \; c)~$2\sqrt{7}$ \; d)~$5\sqrt{2}$ \; e)~$6\sqrt{2}$ \; f)~$6\sqrt{3}$ \; g)~$10\sqrt{2}$ \; h)~$12\sqrt{2}$ \; i)~$16\sqrt{2}$ \; j)~$20\sqrt{5}$.
 
-\textbf{Ítem 3 ($\bigstar$, semejantes):} a)~$16\sqrt[3]{4}$ \; b)~$15\sqrt[5]{7}$ \; c)~$\sqrt{11}-3\sqrt{5}$... ver simplificación final: $-3\sqrt{11}+\sqrt{5}$ \; d)~$2\sqrt[4]{5}-\sqrt[3]{6}$ \; e)~$6\sqrt[5]{6}+6\sqrt[8]{6}$ \; f)~$13\sqrt{2}-4\sqrt{3}$.
+\textbf{Ítem 3 ($\bigstar$, semejantes):} a)~$16\sqrt[3]{4}$ \; b)~$15\sqrt[5]{7}$ \; c)~$\sqrt{11}-3\sqrt{5}$... ver simplificación final: $-3\sqrt{11}+\sqrt{5}$ \; d)~$2\sqrt[4]{5}-\sqrt[3]{6}$ \; e)~$4\sqrt[5]{6}+6\sqrt[8]{6}$ \; f)~$13\sqrt{2}-4\sqrt{3}$.
 
-\textbf{Ítem 4 ($\bigstar\bigstar$, simplificar y sumar):} a)~$4\sqrt{2}$ \; b)~$\sqrt{3}\cdot 1=\sqrt{3}$... hay que calcular: $\sqrt{98}=7\sqrt{2}$, $\sqrt{32}=4\sqrt{2}$: $7\sqrt{2}-4\sqrt{2}+\sqrt{2}=4\sqrt{2}$ \; c)~$2\sqrt{5}$ \; d)~$-7\sqrt{17}-4\sqrt{13}$ \; e)~$2\sqrt[3]{2}+3\sqrt[3]{2}=5\sqrt[3]{2}$... calcular: $\sqrt[3]{16}=2\sqrt[3]{2}$, $\sqrt[3]{54}=3\sqrt[3]{2}$: $5\sqrt[3]{2}$ \; f)~$\sqrt[3]{24}=2\sqrt[3]{3}$, $\sqrt[3]{81}=3\sqrt[3]{3}$: $4\sqrt[3]{3}-3\sqrt[3]{3}=\sqrt[3]{3}$.
+\textbf{Ítem 4 ($\bigstar\bigstar$, simplificar y sumar):} a)~$4\sqrt{2}$ \; b)~$3\sqrt{3}$ \quad ($3\sqrt{12}=6\sqrt{3}$, $\sqrt{48}=4\sqrt{3}$: $6\sqrt{3}-4\sqrt{3}+\sqrt{3}=3\sqrt{3}$) \; c)~$2\sqrt{5}$ \; d)~$-5\sqrt{17}-4\sqrt{13}$ \; e)~$2\sqrt[3]{2}+3\sqrt[3]{2}=5\sqrt[3]{2}$... calcular: $\sqrt[3]{16}=2\sqrt[3]{2}$, $\sqrt[3]{54}=3\sqrt[3]{2}$: $5\sqrt[3]{2}$ \; f)~$\sqrt[3]{24}=2\sqrt[3]{3}$, $\sqrt[3]{81}=3\sqrt[3]{3}$: $4\sqrt[3]{3}-3\sqrt[3]{3}=\sqrt[3]{3}$.
 
 \textbf{Ítem 5 (errores):} a)~$\sqrt{25}=5\neq 7$ \; b)~$\sqrt{36}=6$ (solo positivo) \; c)~$\sqrt{8}=2\sqrt{2}$ \; d)~$\sqrt{50}=5\sqrt{2}$.
 
-\textbf{Ítem 6 ($\bigstar\bigstar\bigstar$):} a)~$4\cdot 3\sqrt{7}=12\sqrt{7}$ \; b)~$2\sqrt{2}\cdot 5\cdot 3=... $ calcular: $2^2\cdot 3$, coef $2$, bajo: $\sqrt{15}$: $2\cdot 5\sqrt{3}=10\sqrt{3}$ — en realidad: $\sqrt{2^3\cdot 5^2\cdot 3}=5\sqrt{2^3\cdot 3}=5\cdot 2\sqrt{6}=10\sqrt{6}$... \textit{ver cálculo directo}; c)~$3\cdot 5\cdot\sqrt{3}=15\sqrt{3}$; d)~$3\cdot\sqrt[3]{5}$ \; e)~$4\sqrt[3]{7^2}=4\sqrt[3]{49}$ \; f)~$2^1\cdot 5\sqrt[3]{7}=10\sqrt[3]{7}$.
+\textbf{Ítem 6 ($\bigstar\bigstar\bigstar$):} a)~$4\cdot 3\sqrt{7}=12\sqrt{7}$ \; b)~$2\sqrt{2}\cdot 5\cdot 3=... $ calcular: $2^2\cdot 3$, coef $2$, bajo: $\sqrt{15}$: $2\cdot 5\sqrt{3}=10\sqrt{3}$ — en realidad: $\sqrt{2^3\cdot 5^2\cdot 3}=5\sqrt{2^3\cdot 3}=5\cdot 2\sqrt{6}=10\sqrt{6}$... \textit{ver cálculo directo}; c)~$2\cdot 3\cdot 5\cdot\sqrt{3}=30\sqrt{3}$; d)~$2\cdot 3\cdot\sqrt[3]{10}=6\sqrt[3]{10}$ \; e)~$4\sqrt[3]{49}$ \; f)~$10\sqrt[3]{28}$.
 
 \subbloque{Sección 4 — Multiplicación y división}
 
-\textbf{Práctica inmediata (mismo índice):} a)~$\sqrt{15}$ \; b)~$\sqrt{2}$ (simplif.) $= 5\sqrt{2}$... calcular: $2\sqrt{5}\cdot 3\sqrt{5}=6\cdot 5=30$ \; c)~$\sqrt[3]{20}$ \; d)~2 \; e)~$2\sqrt{5}$ \; f)~$\sqrt[3]{6}$ \; g)~3 \; h)~$\sqrt{\frac{1}{2}}=\frac{\sqrt{2}}{2}$.
+\textbf{Práctica inmediata (mismo índice):} a)~$\sqrt{15}$ \; b)~$30$ \quad ($2\sqrt{5}\cdot 3\sqrt{5}=6\cdot 5=30$) \; c)~$\sqrt[3]{20}$ \; d)~2 \; e)~$2\sqrt{5}$ \; f)~$\sqrt[3]{6}$ \; g)~3 \; h)~$\sqrt{\frac{1}{2}}=\frac{\sqrt{2}}{2}$.
 
-\textbf{Práctica inmediata (mcm, distinto índice):} a)~$\sqrt[6]{108}$ \; b)~$\sqrt[12]{128}$ \; c)~$\sqrt[10]{5^7}=\sqrt[10]{78125}$ \; d)~$\sqrt[6]{a^5}$.
+\textbf{Práctica inmediata (mcm, distinto índice):} a)~$\sqrt[6]{108}$ \; b)~$\sqrt[12]{2048}$ \; c)~$\sqrt[10]{5^7}=\sqrt[10]{78125}$ \; d)~$\sqrt[6]{a^5}$.
 
 \textbf{Práctica inmediata (productos notables):} a)~2 \; b)~$11+4\sqrt{7}$ \; c)~$5-2\sqrt{6}$ \; d)~10 \; e)~$16-2\sqrt{55}$ \; f)~17.
 
-\textbf{Ítem 1 ($\bigstar$):} a)~$\sqrt{14}$ \; b)~$\sqrt[3]{20}$ \; c)~$\sqrt[5]{84}$ \; d)~2 \; e)~3 \; f)~$16\sqrt{6}$ \; g)~$-2$ (pues $\sqrt[5]{8\cdot(-2)\cdot(-2)}=\sqrt[5]{32}=2$... revisar signo: $8\cdot(-2)\cdot 2=-32$, así $\sqrt[5]{-32}=-2$) \; h)~$\frac{\sqrt{6}}{3}$ \; i)~$6ab\sqrt{a}$.
+\textbf{Ítem 1 ($\bigstar$):} a)~$\sqrt{14}$ \; b)~$\sqrt[3]{20}$ \; c)~$\sqrt[5]{84}$ \; d)~$16\sqrt{3}$ \; e)~$-2$ (pues $8\cdot(-2)\cdot 2=-32$ y $\sqrt[5]{-32}=-2$) \; f)~$\dfrac{\sqrt{6}}{3}$ \; g)~$\sqrt[3]{9}$ \; h)~$\dfrac{3\sqrt{10}}{5}$ \; i)~$\sqrt[n]{a^6}$.
 
 \textbf{Ítem 2 ($\bigstar\bigstar$, mcm):} a)~$\sqrt[6]{8\cdot 4^2}=\sqrt[6]{8\cdot 16}... $ calcular: m.c.m.$(2,3,6)=6$. $\sqrt{2}=\sqrt[6]{8}$, $\sqrt[3]{4}=\sqrt[6]{16}$, $\sqrt[6]{1/25}=\sqrt[6]{1/25}$. Resultado: $\sqrt[6]{\frac{128}{25}}$.
 
@@ -2285,15 +3529,15 @@ Las respuestas se presentan con una indicación breve del procedimiento o del re
 
 \textbf{Práctica inmediata (calcular):} a)~4 \; b)~8 \; c)~9 \; d)~8 \; e)~8 \; f)~81.
 
-\textbf{Práctica inmediata (simplificar índice):} a)~$\sqrt{a}$ \; b)~$\sqrt{a}$ \; c)~$\sqrt{a^2}=a$ \; d)~$\sqrt[3]{a^2}$ \; e)~$\sqrt[4]{x^3}$ \; f)~$\sqrt[5]{a^2}$ \; g)~$\sqrt{2}$ \; h)~$x\sqrt{x}$.
+\textbf{Práctica inmediata (simplificar índice):} a)~$\sqrt{a}$ \; b)~$\sqrt{a}$ \; c)~$\sqrt[3]{a^2}$ \; d)~$\sqrt[3]{a^2}$ \; e)~$\sqrt[4]{x^3}$ \; f)~$\sqrt[5]{a^2}$ \; g)~$\sqrt{2}$ \; h)~$x\sqrt{x}$.
 
 \textbf{Ítem 3 ($\bigstar$, calcular):} a)~4 \; b)~8 \; c)~9 \; d)~8 \; e)~32 \; f)~81.
 
-\textbf{Ítem 4 ($\bigstar$, simplificar índice):} a)~$\sqrt{a}$ \; b)~$\sqrt{a}$ \; c)~$a$ \; d)~$\sqrt{2}$ \; e)~$\sqrt[3]{a^2}$ \; f)~$\sqrt[4]{x^3}$ \; g)~$\sqrt[5]{a^2}$ \; h)~$x\sqrt{x}$.
+\textbf{Ítem 4 ($\bigstar$, simplificar índice):} a)~$\sqrt{a}$ \; b)~$\sqrt{a}$ \; c)~$\sqrt[3]{a^2}$ \; d)~$\sqrt{2}$ \; e)~$\sqrt[3]{a^2}$ \; f)~$\sqrt[4]{x^3}$ \; g)~$\sqrt[5]{a^2}$ \; h)~$x\sqrt{x}$.
 
 \textbf{Ítem 5 ($\bigstar\bigstar$, propiedades):} a)~$a^2=\sqrt{a^4}=a^2$ (\textit{o bien} $\sqrt{a^4}$) \; b)~$a^4$ \; c)~$x$ \; d)~$x^6$ \; e)~$2a$ \; f)~$\dfrac{2x}{2}=x$... calcular: $(8x^3)^{1/3}=2x$, $(4x^2)^{1/2}=2x$: resultado $1$.
 
-\textbf{Ítem 6 ($\bigstar\bigstar$, raíz de raíz):} a)~$\sqrt[12]{a}$ \; b)~$\sqrt[6]{5}$ \; c)~$\sqrt[n^3]{x}$ \; d)~$\sqrt[4]{12}$ \; e)~$\sqrt{4\cdot 3}=2\sqrt{3}$... calcular: $\sqrt{9\sqrt[3]{729}}=\sqrt{9\cdot 9}=\sqrt{81}=9$, así $\sqrt{4\cdot 9}=6$... \textit{calcular paso a paso}: $\sqrt[3]{729}=9$, $9\sqrt[3]{729}=81$, $\sqrt{81}=9$, $4\cdot 9=36$, $\sqrt{36}=6$ \; f)~$6\sqrt[6]{x}$.
+\textbf{Ítem 6 ($\bigstar\bigstar$, raíz de raíz):} a)~$\sqrt[12]{a}$ \; b)~$\sqrt[3]{5}$ \quad ($\sqrt{\sqrt[3]{25}}=25^{1/6}=(5^2)^{1/6}=5^{1/3}=\sqrt[3]{5}$) \; c)~$\sqrt[n^3]{x}$ \; d)~$\sqrt[4]{12}$ \; e)~$\sqrt{4\cdot 3}=2\sqrt{3}$... calcular: $\sqrt{9\sqrt[3]{729}}=\sqrt{9\cdot 9}=\sqrt{81}=9$, así $\sqrt{4\cdot 9}=6$... \textit{calcular paso a paso}: $\sqrt[3]{729}=9$, $9\sqrt[3]{729}=81$, $\sqrt{81}=9$, $4\cdot 9=36$, $\sqrt{36}=6$ \; f)~$6\sqrt[6]{x}$.
 
 \subbloque{Sección 6 — Racionalización}
 
@@ -2323,11 +3567,68 @@ d) $x=7$ ($x=2$ descarta). Resp.: $x=7$.
 
 \textbf{Ítem 3 ($\bigstar\bigstar$, geometría):} a)~$15\sqrt{2}$ cm \; b)~9 cm \; c)~$a=10\sqrt{3}$ cm \; d)~$\frac{49\sqrt{3}}{4}$ cm$^2$ \; e)~arista 5 m, diagonal $5\sqrt{3}$ m, volumen 125 m$^3$ \; f)~lado 4 cm, altura $2\sqrt{3}$ cm.
 
-\textbf{Ítem 4 ($\bigstar\bigstar\bigstar$, dos raíces):} a)~$x=6$ \; b)~$x=5$.
+\textbf{Ítem 4 ($\bigstar\bigstar\bigstar$, dos raíces):} a)~$x=6$ \; b)~$x=10+4\sqrt{5}$ \quad (se descarta $x=10-4\sqrt{5}$, que no verifica).
 
-\textbf{Ítem 5 ($\bigstar\bigstar\bigstar$, simplificar):} a)~$2+\sqrt{3}$ \; b)~8 \; c)~8 \; d)~$\frac{11\sqrt{2}}{12}$ \; e)~$2\sqrt{2}$ \; f)~$8+5\sqrt{3}$.
+\textbf{Ítem 5 ($\bigstar\bigstar\bigstar$, simplificar):} a)~$2+\sqrt{3}$ \; b)~8 \; c)~8 \; d)~$\frac{11\sqrt{2}}{12}$ \; e)~$2\sqrt{2}$ \; f)~$7\sqrt{5}+9\sqrt{3}$.
 
 \textbf{Ítem 6 (telescópica):} $5+2\sqrt{2}+2\sqrt{3}+\sqrt{5}$.
+
+
+
+\subbloque{Ejercicios tipo PAES}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c||c|c||c|c||c|c||c|c}
+\toprule
+\textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.}\\
+\midrule
+1  & B & 9  & D & 17 & C & 25 & D & 33 & B\\
+2  & A & 10 & D & 18 & B & 26 & D & 34 & B\\
+3  & D & 11 & B & 19 & B & 27 & A & 35 & B\\
+4  & D & 12 & A & 20 & C & 28 & D & 36 & B\\
+5  & C & 13 & B & 21 & D & 29 & D & 37 & B\\
+6  & B & 14 & B & 22 & A & 30 & D & 38 & A\\
+7  & A & 15 & D & 23 & D & 31 & B & 39 & B\\
+8  & A & 16 & C & 24 & A & 32 & B &   &  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Desarrollos clave:}
+
+\textbf{1.} $3\sqrt{x}+\sqrt{y}-\sqrt{z}$. \quad \textbf{2.} $6m\sqrt{2}-4m\sqrt{2}-3m\sqrt{2}=-m\sqrt{2}$. \quad \textbf{3.} $\sqrt{m}\geq0$ siempre; $-1$ no es posible.
+
+\textbf{4.} $y=0$, $x=-3$; $x+y=-3$. \quad \textbf{5.} $(1+1+2)\sqrt[n]{5}=4\sqrt[n]{5}$. \quad \textbf{6.} $3^x=\sqrt{3}=3^{1/2}\Rightarrow x=0{,}5$.
+
+\textbf{7.} $\sqrt[3]{x}=-1\Rightarrow x=-1$. \quad \textbf{8.} Amplificar no cambia el valor; $\sqrt{18}/\sqrt{2}=3$. \quad \textbf{9.} $x=9$; $4\cdot9=36$.
+
+\textbf{10.} $x=6$; $(2\sqrt{6}+2\sqrt{2})\cdot\sqrt{6}=12+4\sqrt{3}$. \quad \textbf{11.} $m^2=2\sqrt{3}-2\sqrt{2}$; $m^2/2=\sqrt{3}-\sqrt{2}$.
+
+\textbf{12.} $A^2=2a+2|a-1|=4a-2$ (para $a\geq1$). \quad \textbf{13.} $2/4=1/2=0{,}5$. \quad \textbf{14.} $2|x-3|=2(x-3)=2x-6$.
+
+\textbf{15.} $x=2$; $\sqrt{2/3}$. \quad \textbf{16.} $\sqrt[12]{a^{12}b^{12}}=|a|\cdot b=|ab|$. \quad \textbf{17.} $x=16/9$; $(4/3-1/3)^7=1$.
+
+\textbf{18.} $3^{1/2}/3^{1/6}=3^{1/3}=\sqrt[3]{3}$. \quad \textbf{19.} $\sqrt{2}\cdot2/(7-1)=2\sqrt{2}/6=\sqrt{2}/3$. \quad \textbf{20.} $\sqrt{12x-7}=3\Rightarrow x=4/3$.
+
+\textbf{21.} Multiplicar por $(\sqrt[3]{x^2}+\sqrt[3]{x}+1)$; denominador $=x-1$. \quad \textbf{22.} $(2-\sqrt{2})/(1-\sqrt{2})=-\sqrt{2}$; $(-\sqrt{2})^{1/3}=-\sqrt[6]{2}$.
+
+\textbf{23.} $\sqrt{3}+1=1+\sqrt{3}$. \quad \textbf{24.} $[(\sqrt{5}+2)(\sqrt{5}-2)]^4\cdot4=1^4\cdot4=4$ (entero positivo).
+
+\textbf{25.} $A=2$, $B=3$; $\sqrt{25}=5$. \quad \textbf{26.} $A=2,B=2,C=\sqrt[3]{4}$; $2-4+\sqrt[3]{8}=0$.
+
+\textbf{27.} $a\cdot10\sqrt{10}=10a\sqrt{10}$. \quad \textbf{28.} $\sqrt[3]{3^{15}}=3^5$; $\sqrt[20]{3^{-40}}=3^{-2}$; $3^5/3^{-2}=3^7$.
+
+\textbf{29.} $2/9^{1/4}\cdot9^{3/4}/9=2\cdot9^{1/2}/9=2\sqrt{9}/9=2\cdot3/9$... mejor: $\sqrt[4]{9}=3^{1/2}$, multiplicar por $\sqrt[4]{9}/\sqrt[4]{9}$: $2\sqrt[4]{9}/3$.
+
+\textbf{30.} $(9-3\sqrt{2})/7$. \quad \textbf{31.} $-\sqrt{x}=0\Leftrightarrow x=0$; (2) por sí sola.
+
+\textbf{32.} $(3\sqrt{3}-2)^2=31-12\sqrt{3}$ \checkmark{}. \quad \textbf{33.} $12\sqrt{2}/2\sqrt{2}=6$. \quad \textbf{34.} $a^{1/8}=\sqrt[8]{a}$.
+
+\textbf{35.} Ambas cumplen; cada una por sí sola. \quad \textbf{36.} $\sqrt[3]{a^2}/4$. \quad \textbf{37.} $a\sqrt[12]{a^5}$.
+
+\textbf{38.} Solo (1) garantiza $a\sqrt{b}\geq c\sqrt{d}$. \quad \textbf{39.} $\sqrt{k+1}-\sqrt{k}$ telescópica: $8-2=6$.
 
 \subbloque{Alternativas}
 

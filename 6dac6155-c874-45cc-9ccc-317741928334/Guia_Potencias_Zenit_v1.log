@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.7.14)  23 MAR 2026 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.7.14)  23 MAR 2026 22:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/mauro/OneDrive/Escritorio/ejercicios ensayos/6dac6155-c874-45cc-9ccc-317741928334/Guia_Potencias_Zenit_v1.tex"
-(c:/Users/mauro/OneDrive/Escritorio/ejercicios ensayos/6dac6155-c874-45cc-9ccc-317741928334/Guia_Potencias_Zenit_v1.tex
+**Guia_Potencias_Zenit_v1
+(./Guia_Potencias_Zenit_v1.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -659,10 +659,6 @@ LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported  on input line 8.
-
-
-LaTeX Warning: Label `sec:paes' multiply defined.
-
 )
 \openout1 = `Guia_Potencias_Zenit_v1.aux'.
 
@@ -1101,7 +1097,7 @@ Overfull \vbox (1.21477pt too high) has occurred while \output is active []
 
 
 Package multicol Warning: Using `1' columns doesn't seem a good idea.
- I therefore use two columns instead on input line 1358.
+ I therefore use two columns instead on input line 1360.
 
 
 
@@ -1253,9 +1249,7 @@ Package multicol Warning: Using `1' columns doesn't seem a good idea.
 
 ]
 
-[43
-
-]
+[43]
 
 [44]
 
@@ -1275,17 +1269,15 @@ Package multicol Warning: Using `1' columns doesn't seem a good idea.
 
 [52]
 
-[53]
-
-[54
+[53
 
 ]
 
+[54]
+
 [55]
 
-[56]
-
-[57] 
+[56] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./Guia_Potencias_Zenit_v1.aux
 LaTeX Info: Redefining \. on input line 8.
@@ -1295,24 +1287,20 @@ LaTeX Info: Redefining \% on input line 8.
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 31932 strings out of 467816
- 791022 string characters out of 5436425
- 1342559 words of memory out of 5000000
+ 31931 strings out of 467816
+ 790749 string characters out of 5436425
+ 1344520 words of memory out of 5000000
  60029 multiletter control sequences out of 15000+600000
  655033 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,15n,101p,837b,1263s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,15n,101p,740b,1263s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Guia_Potencias_Zenit_v1.pdf (57 pages, 745529 bytes).
+Output written on Guia_Potencias_Zenit_v1.pdf (56 pages, 745573 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
+ 375 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
