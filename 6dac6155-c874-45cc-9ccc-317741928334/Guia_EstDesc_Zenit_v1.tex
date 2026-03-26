@@ -1,0 +1,2307 @@
+% ============================================================
+% GUÍA ESTADÍSTICA DESCRIPTIVA — ACADEMIA ZENIT
+% Versión 1.0 · 2026
+% PARTE 1 DE 6: Portada · Página 2 · Galería (págs. 1–5)
+% ============================================================
+% COMPILAR DOS VECES: pdflatex -interaction=nonstopmode archivo.tex
+% Archivos requeridos en la misma carpeta:
+%   logosin fondo.png  (logo Academia Zenit)
+%   nightingale.png    (retrato Florence Nightingale)
+%   pearson.png        (retrato Karl Pearson)
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, babel, arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+\usepackage{setspace}
+
+% -- Espaciado global --
+\linespread{1.18}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% -- Espaciado en listas --
+\setlist{itemsep=4pt, topsep=6pt, parsep=2pt}
+\setlist[enumerate,2]{itemsep=3pt, topsep=3pt}
+
+% -- Colores Institucionales Academia Zenit (INMUTABLES) --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  importantbox/.style={enhanced,breakable,colback=white,colframe=zenitblue,
+    colbacktitle=zenitblue,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitblue,colback=zenitblue,arc=2pt}},
+  examplebox/.style={enhanced,breakable,colback=white,colframe=zenitgold,
+    colbacktitle=zenitgold,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitgold,colback=zenitgold,arc=2pt}},
+  warningbox/.style={enhanced,breakable,colback=white,colframe=zenitred,
+    colbacktitle=zenitred,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitred,colback=zenitred,arc=2pt}},
+  answerbox/.style={enhanced,breakable,colback=white,colframe=zenitnavy,
+    colbacktitle=zenitnavy,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitnavy,colback=zenitnavy,arc=2pt}}
+}
+
+% -- Comandos de estructura --
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.6em}
+  \noindent{\Large\bfseries\color{#1} #2}\par
+  \vspace{0.4em}{\noindent\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{1.0em}}
+
+\newcommand{\subbloque}[1]{%
+  \vspace{14pt}
+  \noindent{\large\bfseries\color{zenitnavy} #1}\par
+  \vspace{4pt}\hrule height 1pt\vspace{8pt}}
+
+\newcommand{\alternativasformato}[3]{%
+\item\begin{minipage}[t]{\linewidth}
+#1\\
+\begin{minipage}{\linewidth}\vspace{7mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.58\linewidth}
+    \begin{enumerate}[label=\Alph*),leftmargin=14pt]#2\end{enumerate}
+    \end{minipage}};
+  \node (figura) at (10.4,0) {#3};
+\end{tikzpicture}
+\end{minipage}\vspace{7mm}
+\end{minipage}}
+
+% -- Metadatos --
+\newcommand{\TipoGuia}{Gu\'ia de Estudio Progresiva}
+\newcommand{\TituloGuia}{Estad\'istica Descriptiva}
+\newcommand{\TemaEncabezado}{Estad\'istica Descriptiva $\cdot$ v1.0 $\cdot$ 2026}
+\newcommand{\NivelGuia}{Matem\'atica}
+
+% -- Encabezado y pie --
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\textbf{Academia Zenit} $\cdot$ \TemaEncabezado}
+\fancyhead[R]{\small P\'agina \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small\textit{\NivelGuia\ $\cdot$ Estad\'istica Descriptiva}}
+\fancyfoot[R]{\small Prohibida su reproducci\'on total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ============================================================
+% PÁGINA 1 — PORTADA
+% ============================================================
+\thispagestyle{empty}
+
+\vspace*{2.5cm}
+
+\begin{center}
+  \includegraphics[width=0.30\linewidth]{logosin fondo.png}\\[1.8cm]
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.5cm]
+  {\LARGE\bfseries\color{zenitblue} Gu\'ia de Estudio Progresiva}\\[0.3cm]
+  {\LARGE\bfseries\color{zenitblue} Estad\'istica Descriptiva}\\[1.4cm]
+  {\Large\bfseries\color{zenitnavy} Matem\'atica}\\[1.2cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.5pt}}\\[1.0cm]
+  {\large\itshape\color{zenitnavy} Material de apoyo y ejercitaci\'on}
+\end{center}
+
+\vfill
+
+\begin{center}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}\\[0.5cm]
+  {\large\bfseries\color{zenitnavy} Academia Zenit}\\[3pt]
+  {\color{zenitgold} Matem\'atica $\cdot$ Estad\'istica Descriptiva $\cdot$ v1.0 $\cdot$ 2026}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+% ============================================================
+% PÁGINA 2 — GLOSARIO, ÍNDICE Y PROPÓSITO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\vspace*{0.2cm}
+
+% ---- GLOSARIO ----
+
+\begin{tcolorbox}[importantbox, title={Glosario de simbolog\'ia}]
+
+{\small\textit{Los s\'imbolos espec\'ificos del tema aparecen resaltados en \textcolor{zenitgold}{\textbf{dorado}}.}}
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.32}
+\begin{tabular}{c p{4.5cm} | c p{4.5cm}}
+\toprule
+\textbf{S\'imbolo} & \textbf{Significado} & \textbf{S\'imbolo} & \textbf{Significado}\\
+\midrule
+\multicolumn{4}{l}{\textit{Conjuntos num\'ericos y relaciones}}\\
+$\mathbb{N}$ & Naturales $\{1,2,3,\ldots\}$ &
+$\mathbb{R}$ & N\'umeros reales\\
+$\approx$ & Aproximadamente igual &
+$|a|$ & Valor absoluto de $a$\\
+$\sum_{i=1}^{n}$ & Sumatoria desde $i=1$ hasta $n$ &
+$\sqrt{a}$ & Ra\'iz cuadrada de $a$\\[4pt]
+\multicolumn{4}{l}{\textit{\textcolor{zenitgold}{\textbf{Estad\'istica Descriptiva --- tema central}}}}\\
+\textcolor{zenitgold}{$n$} & \textcolor{zenitgold}{Tama\~no de la muestra} &
+\textcolor{zenitgold}{$N$} & \textcolor{zenitgold}{Tama\~no de la poblaci\'on}\\
+\textcolor{zenitgold}{$f_i$} & \textcolor{zenitgold}{Frecuencia absoluta del dato $i$} &
+\textcolor{zenitgold}{$F_i$} & \textcolor{zenitgold}{Frecuencia absoluta acumulada}\\
+\textcolor{zenitgold}{$h_i$} & \textcolor{zenitgold}{Frecuencia relativa ($f_i/n$)} &
+\textcolor{zenitgold}{$H_i$} & \textcolor{zenitgold}{Frecuencia relativa acumulada}\\
+\textcolor{zenitgold}{$x_i$} & \textcolor{zenitgold}{Dato $i$ / marca de clase} &
+\textcolor{zenitgold}{$\bar{x}$} & \textcolor{zenitgold}{Media aritm\'etica}\\
+\textcolor{zenitgold}{$Me$} & \textcolor{zenitgold}{Mediana} &
+\textcolor{zenitgold}{$Mo$} & \textcolor{zenitgold}{Moda}\\
+\textcolor{zenitgold}{$R$} & \textcolor{zenitgold}{Rango o recorrido} &
+\textcolor{zenitgold}{$s^2$} & \textcolor{zenitgold}{Varianza muestral}\\
+\textcolor{zenitgold}{$s$} & \textcolor{zenitgold}{Desviaci\'on est\'andar} &
+\textcolor{zenitgold}{$CV$} & \textcolor{zenitgold}{Coeficiente de variaci\'on ($s/\bar{x}$)}\\
+\textcolor{zenitgold}{$Q_k$} & \textcolor{zenitgold}{Cuartil $k$ (con $k=1,2,3$)} &
+\textcolor{zenitgold}{$P_k$} & \textcolor{zenitgold}{Percentil $k$ (con $k=1,\ldots,99$)}\\
+\textcolor{zenitgold}{$RIC$} & \textcolor{zenitgold}{Rango intercuart\'ilico ($Q_3-Q_1$)} &
+\textcolor{zenitgold}{$MC$} & \textcolor{zenitgold}{Marca de clase de un intervalo}\\[4pt]
+\multicolumn{4}{l}{\textit{Convenciones de esta gu\'ia}}\\
+$\checkmark$ & Soluci\'on verificada &
+$\times$ & Soluci\'on extra\~na: se descarta\\
+$\bigstar$ & Nivel b\'asico &
+$\bigstar\bigstar\bigstar$ & Nivel avanzado\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\medskip
+
+% ---- ÍNDICE ----
+
+\begin{tcolorbox}[answerbox, title={\'Indice de contenidos}]
+\begin{multicols}{2}
+{\small
+\begin{tabular}{r @{\hspace{4pt}} p{5.2cm} @{\hspace{4pt}} r}
+\textbf{\S{}} & \textbf{Galer\'ia matem\'atica} & \textbf{p.\,\pageref{sec:galeria}}\\
+ & Florence Nightingale & \\
+ & Karl Pearson & \\[3pt]
+\textbf{\S{}} & \textbf{Secci\'on 1 $\cdot$ Conceptos base} & \textbf{p.\,\pageref{sec:1}}\\
+1.1 & Poblaci\'on, muestra y variable & \pageref{sub:1.1}\\
+1.2 & Tipos de variables estad\'isticas & \pageref{sub:1.2}\\[3pt]
+\textbf{\S{}} & \textbf{Secci\'on 2 $\cdot$ Tablas de frecuencia} & \textbf{p.\,\pageref{sec:2}}\\
+2.1 & Datos no agrupados & \pageref{sub:2.1}\\
+2.2 & Datos agrupados en intervalos & \pageref{sub:2.2}\\[3pt]
+\textbf{\S{}} & \textbf{Secci\'on 3 $\cdot$ Gr\'aficos estad\'isticos} & \textbf{p.\,\pageref{sec:3}}\\
+3.1 & Gr\'afico de barras e histograma & \pageref{sub:3.1}\\
+3.2 & Circular y pol\'igono de frecuencias & \pageref{sub:3.2}\\[3pt]
+\textbf{\S{}} & \textbf{Secci\'on 4 $\cdot$ Tendencia central} & \textbf{p.\,\pageref{sec:4}}\\
+4.1 & Media aritm\'etica & \pageref{sub:4.1}\\
+4.2 & Mediana y moda & \pageref{sub:4.2}\\
+\end{tabular}
+
+\columnbreak
+
+\begin{tabular}{r @{\hspace{4pt}} p{5.2cm} @{\hspace{4pt}} r}
+\textbf{\S{}} & \textbf{Secci\'on 5 $\cdot$ Medidas de posici\'on} & \textbf{p.\,\pageref{sec:5}}\\
+5.1 & Cuartiles y percentiles & \pageref{sub:5.1}\\
+5.2 & Diagrama de caja y bigotes & \pageref{sub:5.2}\\[3pt]
+\textbf{\S{}} & \textbf{Secci\'on 6 $\cdot$ Medidas de dispersi\'on} & \textbf{p.\,\pageref{sec:6}}\\
+6.1 & Rango y varianza & \pageref{sub:6.1}\\
+6.2 & Desviaci\'on est\'andar y $CV$ & \pageref{sub:6.2}\\[3pt]
+\textbf{\S{}} & \textbf{Secci\'on 7 $\cdot$ An\'alisis e interpretaci\'on} & \textbf{p.\,\pageref{sec:7}}\\
+7.1 & Simetr\'ia, sesgo y valores at\'ipicos & \pageref{sub:7.1}\\[3pt]
+\textbf{\S{}} & \textbf{Ejercicios tipo PAES} & \textbf{p.\,\pageref{sec:paes}}\\[3pt]
+\textbf{\S{}} & \textbf{Solucionario completo} & \textbf{p.\,\pageref{sec:sol}}\\
+\end{tabular}
+}
+\end{multicols}
+\end{tcolorbox}
+
+\medskip
+
+% ---- PROPÓSITO ----
+
+\begin{tcolorbox}[importantbox, title={Prop\'osito de la gu\'ia}]
+Esta gu\'ia cubre la totalidad de la \textbf{Estad\'istica Descriptiva} trabajada en la educaci\'on media chilena: desde la clasificaci\'on de variables y la construcci\'on de tablas de frecuencias, hasta el an\'alisis de medidas de tendencia central, dispersi\'on y posici\'on. Cada secci\'on usa \'unicamente herramientas ya introducidas en secciones anteriores.
+
+\smallskip
+Al finalizar, el estudiante ser\'a capaz de \textbf{organizar, representar e interpretar} conjuntos de datos de manera cr\'itica, usando las herramientas que son base de la PAES y de cualquier disciplina cient\'ifica moderna.
+
+\smallskip
+\textbf{Dificultad:} $\bigstar$ b\'asico \quad $\bigstar\bigstar$ intermedio \quad $\bigstar\bigstar\bigstar$ avanzado.
+\end{tcolorbox}
+
+% ============================================================
+% PÁGINA 3 — EN BLANCO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+\phantom{x}
+\clearpage
+
+% ============================================================
+% PÁGINA 4 — GALERÍA MATEMÁTICA
+% ============================================================
+\thispagestyle{empty}
+\label{sec:galeria}
+
+\begin{center}
+  \vspace*{0.4cm}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.2pt}}\\[0.5cm]
+  {\Large\bfseries\color{zenitnavy} Galer\'ia matem\'atica}\\[0.15cm]
+  {\normalsize\itshape\color{zenitgold} Quienes construyeron las herramientas que usamos hoy}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+\vspace{0.6cm}
+
+% ---- FLORENCE NIGHTINGALE ----
+
+\begin{tcolorbox}[enhanced, breakable,
+  colback=white, colframe=blockb, colbacktitle=blockb,
+  coltitle=white, arc=4pt, leftrule=5pt,
+  left=10pt, right=10pt, top=12pt, bottom=10pt,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockb, colback=blockb, arc=2pt},
+  title={Florence Nightingale \hfill \normalfont\itshape 1820 --- 1910}]
+
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+% Reemplazar por \includegraphics si se tiene el archivo nightingale.png
+\begin{tikzpicture}
+\draw[zenitnavy, thick] (0,0) rectangle (2.6cm,3.4cm);
+\node[zenitnavy, font=\small\itshape, align=center] at (1.3cm,1.7cm)
+  {Retrato\\[4pt]nightingale.png};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+
+Florence Nightingale naci\'o el 12 de mayo de 1820 en Florencia, Italia, en el seno de una familia brit\'anica de alta clase social, de cuya ciudad tom\'o su nombre. Desde temprana edad mostr\'o una aptitud excepcional para las matem\'aticas, disciplina en la que fue instruida por su propio padre contra las convenciones de la \'epoca. Su familia se opuso tenazmente a que ejerciera como enfermera, considerando la profesi\'on impropia de su posici\'on, pero Nightingale desafi\'o esas convenciones: en 1854 parti\'o hacia la guerra de Crimea al frente de 38 enfermeras voluntarias. Al llegar al hospital militar de Scutari hall\'o condiciones sanit\'arias deplorables: las infecciones causaban m\'as muertes que los combates.
+
+\medskip
+Nightingale no se limit\'o a cuidar enfermos: recopil\'o datos sistem\'aticamente sobre las causas de muerte de los soldados y los organiz\'o en tablas de frecuencia detalladas. Con esa informaci\'on construy\'o su c\'elebre \textit{diagrama de rosa polar} ---una representaci\'on gr\'afica circular que mostraba, mes a mes, cu\'antos soldados mor\'ian por enfermedades prevenibles, heridas de combate y otras causas---. El gr\'afico era tan claro y poderoso que convenci\'o al Parlamento Brit\'anico de implementar mejoras sanit\'arias que redujeron la tasa de mortalidad hospitalaria del 42\% a menos del 2\%. En 1858 se convirti\'o en la primera mujer admitida en la Royal Statistical Society.
+
+\medskip
+\textbf{Conexi\'on con este tema:} la obra de Nightingale es el ejemplo hist\'orico m\'as elocuente de para qu\'e sirve la estad\'istica descriptiva: recopilar datos, organizarlos en tablas de frecuencia y representarlos gr\'aficamente para extraer conclusiones que de otro modo ser\'ian invisibles. Cuando en esta gu\'ia construyas histogramas, gr\'aficos circulares y pol\'igonos de frecuencia, usar\'as exactamente las mismas herramientas conceptuales que ella emple\'o para salvar miles de vidas. Su legado demuestra que los gr\'aficos estad\'isticos no son ejercicios acad\'emicos: son instrumentos de transformaci\'on social.
+\end{minipage}
+
+\end{tcolorbox}
+
+\vspace{0.65cm}
+
+% ---- KARL PEARSON ----
+
+\begin{tcolorbox}[enhanced, breakable,
+  colback=white, colframe=blockc, colbacktitle=blockc,
+  coltitle=white, arc=4pt, leftrule=5pt,
+  left=10pt, right=10pt, top=12pt, bottom=10pt,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockc, colback=blockc, arc=2pt},
+  title={Karl Pearson \hfill \normalfont\itshape 1857 --- 1936}]
+
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+
+Karl Pearson naci\'o el 27 de marzo de 1857 en Londres. Estudi\'o matem\'aticas en el King's College de Cambridge, donde se gradu\'o con distinci\'on en 1879. Sus intereses fueron notablemente amplios: estudi\'o derecho, filosof\'ia e historia medieval antes de volcarse definitivamente a las ciencias. En los a\~nos 1880 comenz\'o a colaborar con el bi\'ologo Francis Galton, quien lo introdujo a los problemas de herencia biol\'ogica y variaci\'on entre individuos. Esta colaboraci\'on cambi\'o el curso de su vida: Pearson comprendi\'o que para responder las preguntas de Galton se necesitaba un nuevo aparato matem\'atico, y se dedic\'o a construirlo.
+
+\medskip
+Las contribuciones de Pearson a la estad\'istica son extraordinarias en n\'umero y profundidad. Formaliz\'o el concepto de \textbf{desviaci\'on est\'andar} y populariz\'o su notaci\'on $\sigma$, que hoy usamos universalmente. Desarroll\'o el \textbf{coeficiente de correlaci\'on de Pearson} ($r$), que mide el grado de asociaci\'on lineal entre dos variables. Invent\'o el concepto de \textbf{histograma} y acu\~n\'o ese t\'ermino en 1895. Fund\'o en 1911 el primer Departamento de Estad\'istica universitario del mundo, en el University College London, y dirigi\'o la revista \textit{Biometrika} durante d\'ecadas.
+
+\medskip
+\textbf{Conexi\'on con este tema:} cada vez que en esta gu\'ia calcules la desviaci\'on est\'andar $s$ de un conjunto de datos, apliques la f\'ormula de la varianza $s^2$ o interpretes la dispersi\'on de una distribuci\'on, usar\'as directamente el trabajo de Karl Pearson. La desviaci\'on est\'andar que \'el formaliz\'o es la medida de dispersi\'on central de toda la estad\'istica descriptiva moderna: indica cu\'anto se alejan los datos de su media y permite comparar conjuntos de datos con unidades distintas a trav\'es del coeficiente de variaci\'on $CV = s/\bar{x}$. Pearson transform\'o la estad\'istica de una colecci\'on de t\'ecnicas aisladas en una disciplina matem\'atica rigurosa y coherente.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+% Reemplazar por \includegraphics si se tiene el archivo pearson.png
+\begin{tikzpicture}
+\draw[zenitnavy, thick] (0,0) rectangle (2.6cm,3.4cm);
+\node[zenitnavy, font=\small\itshape, align=center] at (1.3cm,1.7cm)
+  {Retrato\\[4pt]pearson.png};
+\end{tikzpicture}
+\end{minipage}
+
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\begin{center}
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}\\[0.3cm]
+  {\small\itshape\color{zenitnavy} Los datos son la voz de la realidad. La estad\'istica es el arte de escucharla.}\\[0.25cm]
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}
+\end{center}
+
+% ============================================================
+% PÁGINA 5 — EN BLANCO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+\phantom{x}
+\clearpage
+
+% ============================================================
+% FIN DE LA PARTE 1
+% Las secciones de contenido se generan en la Parte 2.
+% ============================================================
+
+% ============================================================
+% PARTE 2 DE 6: Secciones 1 y 2
+% Pegar este bloque después de la Parte 1 (antes de \end{document})
+% ============================================================
+
+% ============================================================
+% SECCIÓN 1 — CONCEPTOS BASE
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Secci\'on 1 $\cdot$ Conceptos fundamentales}
+\label{sec:1}
+
+\subbloque{1.1 Poblaci\'on, muestra y variable}
+\label{sub:1.1}
+
+\begin{tcolorbox}[importantbox, title={Definici\'on: Estad\'istica}]
+La \textbf{estad\'istica} es la ciencia que se encarga de \textbf{recoger, organizar, representar e interpretar} datos provenientes de un conjunto de observaciones, con el fin de extraer conclusiones v\'alidas.
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Definiciones: Poblaci\'on y muestra}]
+\begin{itemize}
+  \item \textbf{Poblaci\'on} (tama\~no $N$): conjunto \textit{completo} de individuos u objetos cuyas caracter\'isticas se desean estudiar.
+  \item \textbf{Muestra} (tama\~no $n$): subconjunto \textbf{representativo} de la poblaci\'on, seleccionado para realizar el estudio. Se usa cuando la poblaci\'on es muy grande o inaccesible.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 1. Poblaci\'on y muestra}]
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Situaci\'on:} Un investigador quiere conocer el promedio de horas de sue\~no de los estudiantes de 3\textdegree\ medio en Chile.
+  \medskip
+  \item \textbf{Poblaci\'on:} todos los estudiantes de 3\textdegree\ medio del pa\'is ($N$ muy grande).
+  \medskip
+  \item \textbf{Muestra:} se seleccionan 500 estudiantes de 20 establecimientos distribuidos por regi\'on ($n = 500$).
+  \medskip
+  \item \textbf{Variable de inter\'es:} horas de sue\~no por noche.
+  \medskip
+  \item \textbf{Conclusi\'on:} El estudio se realiza sobre la muestra; sus resultados se extrapolan a toda la poblaci\'on.
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{1.2 Tipos de variables estad\'isticas}
+\label{sub:1.2}
+
+\begin{tcolorbox}[importantbox, title={Clasificaci\'on de variables}]
+Una \textbf{variable estad\'istica} es cualquier caracter\'istica medible o registrable de la poblaci\'on.
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{3cm} p{4.5cm} p{4.5cm}}
+\toprule
+\textbf{Tipo} & \textbf{Descripci\'on} & \textbf{Ejemplos}\\
+\midrule
+\textbf{Cuantitativa discreta} & Valores enteros provenientes de un conteo. & N.\textdegree\ de hijos, n.\textdegree\ de goles, n.\textdegree\ de libros.\\
+\textbf{Cuantitativa continua} & Cualquier valor real; surge de una medici\'on. & Estatura, masa, temperatura, tiempo.\\
+\textbf{Cualitativa nominal} & Categor\'ias sin orden natural. & Color favorito, nacionalidad, equipo de f\'utbol.\\
+\textbf{Cualitativa ordinal} & Categor\'ias con orden definido. & Nivel socioecon\'omico (bajo/medio/alto), calificaci\'on (insuf./suf./bueno/excel.).\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: confundir variable con dato}]
+\textbf{Error:} decir ``la variable es 1{,}72 m''.
+
+\medskip
+\textbf{Por qu\'e ocurre:} se confunde la \textit{caracter\'istica medida} (la variable) con \textit{el valor concreto} que toma en un individuo (el dato).
+
+\medskip
+\textbf{Correcto:} la \textbf{variable} es la \textit{estatura}; el \textbf{dato} es $1{,}72$ m (el valor que tom\'o esa variable en un individuo espec\'ifico).
+
+\medskip
+\textbf{Regla:} la variable se nombra con un sustantivo gen\'erico (\textit{edad, n\'umero de hermanos, tipo de vivienda}); el dato es el valor num\'erico o la etiqueta que la variable toma en cada elemento de la muestra.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 2. Clasificar variables}]
+Clasificar cada variable como cuantitativa (discreta o continua) o cualitativa (nominal u ordinal):
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Identificar si la variable es num\'erica o categ\'orica.}
+
+  \medskip
+  \item \textbf{Si es num\'erica:} \textquestiondown surge de contar o de medir? \textquestiondown puede tomar valores decimales?
+
+  \medskip
+  \item \textbf{Si es categ\'orica:} \textquestiondown existe un orden natural entre sus valores?
+
+  \medskip
+  \item \textbf{Resultados:}
+  \begin{itemize}
+    \item \textit{Estatura de una persona:} cuantitativa \textbf{continua} (se mide, puede ser 1{,}73 m).
+    \item \textit{N\'umero de mascotas:} cuantitativa \textbf{discreta} (se cuenta, no puede ser 2{,}5 mascotas).
+    \item \textit{Color de ojos:} cualitativa \textbf{nominal} (sin orden: caf\'e, verde, azul).
+    \item \textit{Nivel de satisfacci\'on:} cualitativa \textbf{ordinal} (muy insatisfecho $<$ insatisfecho $<$ neutro $<$ satisfecho $<$ muy satisfecho).
+  \end{itemize}
+
+  \medskip
+  \item \textbf{Conclusi\'on:} la naturaleza de la variable determina qu\'e tipo de tabla de frecuencias y qu\'e gr\'afico estad\'istico son apropiados.
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 1}
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Clasifica cada variable:
+  \begin{enumerate}[label=\alph*)]
+    \item Temperatura m\'axima diaria (en \textdegree C)
+    \item N\'umero de faltas a clases en un mes
+    \item G\'enero musical favorito
+    \item Rendimiento acad\'emico (Insuficiente/Suficiente/Bueno/Excelente)
+  \end{enumerate}
+
+  \item Para el estudio ``Preferencia de transporte de los estudiantes de un colegio de 1.200 alumnos, encuestando a 150 de ellos'', identifica: (a) la poblaci\'on, (b) el tama\~no de la muestra, (c) la variable de estudio y su tipo.
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Clasifica cada una de las siguientes variables como cuantitativa discreta, cuantitativa continua, cualitativa nominal o cualitativa ordinal:
+  \begin{enumerate}[label=\alph*)]
+    \item Masa corporal de un atleta (en kg)
+    \item N\'umero de goles marcados en un partido
+    \item Pa\'is de origen de un turista
+    \item Tama\~no de camiseta (XS / S / M / L / XL)
+  \end{enumerate}
+
+  \item Un municipio registra los siguientes datos de sus habitantes: nombre, edad, n\'umero de hijos, tipo de vivienda (casa/departamento/otro) e ingreso mensual (en pesos). Clasifica cada variable.
+
+  \item \textquestiondown Verdadero o Falso? Justifica: ``El n\'umero de p\'aginas de un libro es una variable cuantitativa continua, porque puede tomar muchos valores''.
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Una empresa de telecomunicaciones quiere estudiar la satisfacci\'on de sus clientes con el servicio de internet. Para ello, encuesta a 300 clientes de una base de 80.000.
+  \begin{enumerate}[label=\alph*)]
+    \item \textquestiondown Cu\'al es la poblaci\'on? \textquestiondown Cu\'al es la muestra?
+    \item La encuesta pregunta: \textit{velocidad de conexi\'on real (en Mbps)}, \textit{n\'umero de cortes de servicio en el mes} y \textit{nivel de satisfacci\'on general (del 1 al 5)}. Clasifica cada variable.
+    \item \textquestiondown Por qu\'e es preferible trabajar con una muestra en lugar de la poblaci\'on completa?
+  \end{enumerate}
+
+  \item Indica si las siguientes afirmaciones son correctas o incorrectas y justifica:
+  \begin{enumerate}[label=\alph*)]
+    \item ``La mediana de edades de un grupo es una variable cuantitativa continua''.
+    \item ``El resultado de una encuesta de opini\'on pol\'itica (A favor / En contra / Indiferente) es una variable cualitativa nominal''.
+  \end{enumerate}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Dise\~na un estudio estad\'istico para estimar cu\'anto tiempo diario (en minutos) dedican los estudiantes de tu colegio a las redes sociales. Define: (a)~la poblaci\'on y la muestra (justifica su tama\~no), (b)~al menos tres variables a medir clasificando cada una, (c)~un posible sesgo que podr\'ia afectar la representatividad de la muestra.
+  \vspace{3.5cm}
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 2 — TABLAS DE FRECUENCIA
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Secci\'on 2 $\cdot$ Tablas de frecuencia}
+\label{sec:2}
+
+\subbloque{2.1 Tablas para datos no agrupados}
+\label{sub:2.1}
+
+\begin{tcolorbox}[importantbox, title={Definiciones: tipos de frecuencia}]
+Dado un conjunto de $n$ datos con valores distintos $x_1, x_2, \ldots, x_k$:
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{4cm} p{4.5cm} p{3.5cm}}
+\toprule
+\textbf{Frecuencia} & \textbf{Definici\'on} & \textbf{F\'ormula / Propiedad}\\
+\midrule
+Absoluta $f_i$ & Veces que aparece $x_i$ & $\displaystyle\sum_{i=1}^{k} f_i = n$\\
+Relativa $h_i$ & Raz\'on de ocurrencia & $h_i = f_i / n$;\;\; $\sum h_i = 1$\\
+Relativa \% $h_i\%$ & Frecuencia relativa $\times$ 100 & $\sum h_i\% = 100\%$\\
+Absoluta acumulada $F_i$ & $\sum$ de $f_j$ hasta $x_i$ & $F_k = n$ (\'ultimo valor)\\
+Relativa acumulada $H_i$ & $\sum$ de $h_j$ hasta $x_i$ & $H_k = 1$ (\'ultimo valor)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 3. Construir una tabla de frecuencias para datos no agrupados}]
+Los resultados de lanzar un dado 15 veces son:
+$3,\ 1,\ 4,\ 3,\ 5,\ 2,\ 4,\ 3,\ 6,\ 1,\ 4,\ 3,\ 2,\ 5,\ 4$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Ordenar los valores distintos} de menor a mayor: $1, 2, 3, 4, 5, 6$.
+  \medskip
+  \item \textbf{Contar la frecuencia absoluta} de cada valor:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c c c c}
+  \toprule
+  $x_i$ & $f_i$ & $F_i$ & $h_i$ & $h_i\%$ & $H_i$\\
+  \midrule
+  1 & 2 & 2  & $2/15$ & $13{,}3\%$ & $2/15$\\
+  2 & 2 & 4  & $2/15$ & $13{,}3\%$ & $4/15$\\
+  3 & 4 & 8  & $4/15$ & $26{,}7\%$ & $8/15$\\
+  4 & 4 & 12 & $4/15$ & $26{,}7\%$ & $12/15$\\
+  5 & 2 & 14 & $2/15$ & $13{,}3\%$ & $14/15$\\
+  6 & 1 & 15 & $1/15$ & $6{,}7\%$  & $15/15$\\
+  \midrule
+  \textbf{Total} & \textbf{15} & -- & \textbf{1} & \textbf{100\%} & --\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  \item \textbf{Verificar:} $\sum f_i = 2+2+4+4+2+1 = 15 = n$ \checkmark \quad $\sum h_i = 1$ \checkmark
+  \medskip
+  \item \textbf{Conclusi\'on:} los valores 3 y 4 son los m\'as frecuentes (cada uno aparece 4 veces, representando el $26{,}7\%$ de los lanzamientos). El $53{,}4\%$ de los resultados fue 3 o 4.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: frecuencias relativas que no suman 1}]
+\textbf{Error:} obtener $\sum h_i = 0{,}99$ o $\sum h_i = 1{,}01$.
+
+\medskip
+\textbf{Contraejemplo:} si $n=3$ y los valores tienen frecuencias 1, 1, 1, entonces $h_i = 1/3 = 0{,}\overline{3}$. Si se redondea a 0{,}33 cada uno, $\sum = 0{,}99 \neq 1$.
+
+\medskip
+\textbf{Causa:} redondeo decimal en cada fila. No es un error conceptual, sino de redondeo.
+
+\medskip
+\textbf{Forma correcta:} trabajar con fracciones exactas ($f_i/n$) hasta el final, o ajustar la \'ultima fila para que la suma llegue exactamente a 1. Siempre \textbf{verificar que $\sum f_i = n$} antes de calcular las dem\'as columnas.
+\end{tcolorbox}
+
+\subbloque{2.2 Tablas para datos agrupados en intervalos}
+\label{sub:2.2}
+
+\begin{tcolorbox}[importantbox, title={Conceptos clave: datos agrupados}]
+Cuando los datos son muchos o tienen un rango amplio, se agrupan en \textbf{intervalos} o \textbf{clases}.
+
+\begin{itemize}
+  \item \textbf{Amplitud del intervalo} ($c$): diferencia entre l\'imite superior e inferior. Se recomienda que todos los intervalos tengan la misma amplitud: $c = \dfrac{R}{k}$, donde $R$ es el rango y $k$ el n\'umero de intervalos deseado.
+  \item \textbf{Marca de clase} ($MC_i$ o $x_i$): valor representativo del intervalo. Se calcula como el punto medio: $MC_i = \dfrac{L_i + L_s}{2}$, donde $L_i$ es el l\'imite inferior y $L_s$ el superior.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 4. Tabla de frecuencias para datos agrupados}]
+Las edades (en a\~nos) de 20 participantes de un taller son:
+$18,\ 22,\ 25,\ 19,\ 30,\ 27,\ 21,\ 35,\ 29,\ 24,\ 31,\ 23,\ 26,\ 20,\ 33,\ 28,\ 17,\ 34,\ 22,\ 26$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Calcular el rango:} $R = 35 - 17 = 18$.
+  \medskip
+  \item \textbf{Elegir el n\'umero de intervalos:} $k = 4$. Amplitud: $c = 18/4 = 4{,}5 \approx 5$.
+  \medskip
+  \item \textbf{Construir los intervalos y contar:}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c c c c}
+  \toprule
+  Intervalo & $MC_i$ & $f_i$ & $F_i$ & $h_i\%$ & $H_i\%$\\
+  \midrule
+  $[15,20[$ & 17{,}5 & 3 & 3  & 15\% & 15\%\\
+  $[20,25[$ & 22{,}5 & 8 & 11 & 40\% & 55\%\\
+  $[25,30[$ & 27{,}5 & 6 & 17 & 30\% & 85\%\\
+  $[30,35]$ & 32{,}5 & 3 & 20 & 15\% & 100\%\\
+  \midrule
+  \textbf{Total} & -- & \textbf{20} & -- & \textbf{100\%} & --\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  \item \textbf{Interpretaci\'on:} el intervalo $[20,25[$ concentra el 40\% de los participantes. El 55\% tiene menos de 25 a\~nos.
+  \medskip
+  \item \textbf{Conclusi\'on:} la mayor\'ia de los participantes son j\'ovenes adultos entre 20 y 30 a\~nos (70\% del total).
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: no calcular correctamente la marca de clase}]
+\textbf{Error:} usar el l\'imite inferior del intervalo como marca de clase.
+
+\medskip
+\textbf{Contraejemplo:} para el intervalo $[20, 25[$, algunos escriben $MC = 20$ en lugar del valor correcto.
+
+\medskip
+\textbf{Causa:} confundir el l\'imite del intervalo con el representante del intervalo.
+
+\medskip
+\textbf{Forma correcta:} $MC = \dfrac{L_i + L_s}{2} = \dfrac{20 + 25}{2} = 22{,}5$. La marca de clase es siempre el \textbf{punto medio} del intervalo. Es fundamental para calcular la media aritm\'etica con datos agrupados (Secci\'on 4).
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 2}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Las notas obtenidas por 20 estudiantes en una prueba son:
+  $5{,}0;\ 6{,}5;\ 4{,}0;\ 7{,}0;\ 5{,}5;\ 6{,}0;\ 5{,}0;\ 7{,}0;\ 4{,}5;\ 6{,}5;\ 5{,}5;\ 6{,}0;\ 7{,}0;\ 5{,}0;\ 6{,}5;\ 4{,}0;\ 5{,}5;\ 6{,}0;\ 7{,}0;\ 5{,}5$
+
+  Construye la tabla completa de frecuencias ($f_i$, $F_i$, $h_i$, $h_i\%$). Luego responde: \textquestiondown qu\'e porcentaje de estudiantes obtuvo 6{,}0 o m\'as?
+
+  \item La siguiente tabla de edades de socios de un club est\'a incompleta. Comp\'letala y calcula la marca de clase de cada intervalo.
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c c}
+  \toprule
+  Intervalo & $MC_i$ & $f_i$ & $h_i\%$\\
+  \midrule
+  $[20,30[$ & ? & 10 & ?\\
+  $[30,40[$ & ? & 15 & ?\\
+  $[40,50[$ & ? & 20 & ?\\
+  $[50,60]$ & ? & 5  & ?\\
+  \midrule
+  \textbf{Total} & -- & ? & 100\%\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item El n\'umero de goles marcados por 15 jugadores en un torneo fue:
+  $0,\ 1,\ 2,\ 1,\ 0,\ 3,\ 1,\ 2,\ 0,\ 1,\ 1,\ 2,\ 3,\ 0,\ 1$
+
+  Construye la tabla completa de frecuencias con $f_i$, $F_i$, $h_i$ y $h_i\%$.
+
+  \item La siguiente tabla resume los puntajes de una prueba:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c c c}
+  \toprule
+  Puntaje & $f_i$ & $F_i$ & $h_i$ & $h_i\%$\\
+  \midrule
+  1 & 2 & 2 & 0{,}05 & 5\%\\
+  2 & 5 & 7 & 0{,}13 & 13\%\\
+  3 & 10 & 17 & 0{,}25 & 25\%\\
+  4 & 15 & 32 & 0{,}38 & 38\%\\
+  5 & 8 & 40 & 0{,}20 & 20\%\\
+  \midrule
+  \textbf{Total} & 40 & -- & 1 & 100\%\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  Responde: (a) \textquestiondown cu\'antos estudiantes rindieron la prueba? (b) \textquestiondown qu\'e porcentaje obtuvo 3 o m\'as?
+
+  \item Veinte estudiantes calificaron una película del 1 al 5. Los resultados fueron:
+  $3,\ 4,\ 5,\ 2,\ 3,\ 4,\ 4,\ 5,\ 3,\ 2,\ 4,\ 5,\ 3,\ 4,\ 3,\ 2,\ 5,\ 4,\ 3,\ 4$
+
+  (a) Construye la tabla de frecuencias. (b) \textquestiondown Qu\'e porcentaje calific\'o con 4 o 5?
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Se midi\'o la estatura (en cm) de 25 estudiantes obteniendo los siguientes datos agrupados:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c c c}
+  \toprule
+  Intervalo & $MC_i$ & $f_i$ & $F_i$ & $h_i\%$\\
+  \midrule
+  $[150,155[$ & ? & 4 & 4 & ?\\
+  $[155,160[$ & ? & 8 & ? & ?\\
+  $[160,165[$ & ? & 9 & ? & ?\\
+  $[165,170[$ & ? & 3 & ? & ?\\
+  $[170,175]$ & ? & 1 & ? & ?\\
+  \midrule
+  \textbf{Total} & -- & 25 & -- & 100\%\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  Completa la tabla. Luego: (a) \textquestiondown qu\'e porcentaje de estudiantes mide 160 cm o m\'as? (b) \textquestiondown cu\'al es la marca de clase del intervalo modal?
+
+  \item La siguiente tabla de frecuencias de datos agrupados est\'a incompleta. Usa las pistas para completarla:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c c}
+  \toprule
+  Intervalo & $f_i$ & $F_i$ & $h_i\%$\\
+  \midrule
+  $[0,10[$   & 6  & 6  & ?\\
+  $[10,20[$  & ?  & ?  & 20\%\\
+  $[20,30[$  & 14 & ?  & ?\\
+  $[30,40]$  & 4  & ?  & ?\\
+  \midrule
+  \textbf{Total} & ? & -- & 100\%\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Una encuesta registr\'o el tiempo de espera (en minutos) de 50 personas en una oficina. La tabla muestra:
+  $[0,10[\to 3;\; [10,20[\to 9;\; [20,30[\to 11;\; [30,40[\to 12;\; [40,50[\to 7;\; [50,60[\to 4;\; [60,70]\to 4$.
+
+  (a) Construye la tabla completa con $f_i$, $F_i$ y $h_i\%$.
+  (b) Si toda persona que espera 30 o m\'as minutos recibe atenci\'on prioritaria, \textquestiondown qu\'e porcentaje la recibi\'o?
+  (c) Describe con una oraci\'on lo que revela la frecuencia acumulada hasta $[20,30[$.
+  \vspace{3cm}
+\end{enumerate}
+
+% ============================================================
+% FIN DE LA PARTE 2
+% Continúa en la Parte 3 (Secciones 3 y 4)
+
+% ============================================================
+% PARTE 3 DE 6: Secciones 3 y 4
+% Pegar después de la Parte 2
+% ============================================================
+
+% ============================================================
+% SECCIÓN 3 — REPRESENTACIONES GRÁFICAS
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Secci\'on 3 $\cdot$ Representaciones gr\'aficas}
+\label{sec:3}
+
+\subbloque{3.1 Gr\'afico de barras e histograma}
+\label{sub:3.1}
+
+\begin{tcolorbox}[importantbox, title={Gr\'afico de barras vs. Histograma}]
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{3cm} p{4.2cm} p{4.2cm}}
+\toprule
+ & \textbf{Gr\'afico de barras} & \textbf{Histograma}\\
+\midrule
+\textbf{Variable} & Cualitativa o cuantitativa discreta & Cuantitativa continua o datos agrupados\\
+\textbf{Barras} & Separadas entre s\'i & Contiguas (sin espacio)\\
+\textbf{Eje X} & Categor\'ias o valores discretos & Intervalos de clase\\
+\textbf{Eje Y} & Frecuencia absoluta o relativa & Frecuencia absoluta o relativa\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 5. Histograma de estaturas}]
+Usando la tabla de estaturas del Ejemplo 4, construye el histograma:
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Ejes:} eje X = intervalos de estatura; eje Y = frecuencia absoluta.
+  \medskip
+  \item \textbf{Dibujar barras contiguas} con altura igual a $f_i$:
+
+  \begin{center}
+  \begin{tikzpicture}
+  \begin{axis}[
+    ybar interval, ymin=0, ymax=11,
+    xtick={150,155,160,165,170,175},
+    xticklabel style={font=\small},
+    ytick={0,2,4,6,8,10},
+    xlabel={Estatura (cm)},
+    ylabel={Frecuencia $f_i$},
+    xlabel style={font=\small},
+    ylabel style={font=\small},
+    width=8cm, height=5.5cm,
+    bar width=1pt,
+    fill=zenitblue!40,
+    draw=zenitnavy,
+    grid=major,
+    grid style={dashed, gray!30},
+    tick label style={font=\small},
+    enlarge x limits=0,
+  ]
+  \addplot+[fill=zenitblue!50, draw=zenitnavy] coordinates
+    {(150,4) (155,8) (160,9) (165,3) (170,1) (175,0)};
+  \end{axis}
+  \end{tikzpicture}
+  \end{center}
+
+  \medskip
+  \item \textbf{Conclusi\'on:} el intervalo $[160,165[$ es el modal (mayor frecuencia: 9 estudiantes). La distribuci\'on es aproximadamente sim\'etrica, con m\'as estudiantes en el rango central.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: usar histograma cuando corresponde gr\'afico de barras (y viceversa)}]
+\textbf{Error:} dibujar barras separadas para datos continuos agrupados en intervalos, o barras contiguas para variables cualitativas.
+
+\medskip
+\textbf{Contraejemplo:} si se representan los g\'enero musicales preferidos (cualitativa nominal) con barras contiguas, el gr\'afico sugiere err\'oneamente que existe una continuidad entre los g\'eneros.
+
+\medskip
+\textbf{Causa:} no distinguir el tipo de variable antes de elegir el gr\'afico.
+
+\medskip
+\textbf{Regla:} \textbf{histograma} = intervalos $\to$ barras contiguas. \textbf{Gr\'afico de barras} = categor\'ias o valores discretos $\to$ barras separadas. La contig\"uidad de las barras en el histograma refleja la continuidad de la variable.
+\end{tcolorbox}
+
+\subbloque{3.2 Gr\'afico circular y pol\'igono de frecuencias}
+\label{sub:3.2}
+
+\begin{tcolorbox}[importantbox, title={Gr\'afico circular (torta)}]
+Representa la proporci\'on de cada categor\'ia respecto al total. El \textbf{\'angulo central} de cada sector es:
+\[
+\alpha_i = h_i \cdot 360^\circ = \frac{f_i}{n} \cdot 360^\circ
+\]
+La suma de todos los \'angulos es $360^\circ$. Se usa principalmente para frecuencias relativas porcentuales.
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Pol\'igono de frecuencias}]
+Se obtiene uniendo con segmentos los \textbf{puntos medios} de la parte superior de cada barra del histograma (es decir, los puntos $(MC_i,\, f_i)$). Permite visualizar la forma de la distribuci\'on y comparar varias distribuciones en un mismo gr\'afico.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 6. Gr\'afico circular y \'angulos}]
+En una encuesta a 60 estudiantes sobre su medio de transporte al colegio:
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l c c c}
+\toprule
+\textbf{Transporte} & $f_i$ & $h_i\%$ & $\alpha_i$\\
+\midrule
+Caminando & 24 & 40\% & ?\\
+Metro      & 18 & 30\% & ?\\
+Bus        & 12 & 20\% & ?\\
+Auto       & 6  & 10\% & ?\\
+\midrule
+\textbf{Total} & 60 & 100\% & ?\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Calcular los \'angulos} con $\alpha_i = h_i \cdot 360^\circ$:
+  \medskip
+
+  Caminando: $0{,}40 \cdot 360^\circ = 144^\circ$ \quad
+  Metro: $0{,}30 \cdot 360^\circ = 108^\circ$
+
+  Bus: $0{,}20 \cdot 360^\circ = 72^\circ$ \quad
+  Auto: $0{,}10 \cdot 360^\circ = 36^\circ$
+
+  \medskip
+  \item \textbf{Verificar:} $144^\circ + 108^\circ + 72^\circ + 36^\circ = 360^\circ$ \checkmark
+  \medskip
+  \item \textbf{Conclusi\'on:} ``Caminando'' es el medio de transporte m\'as utilizado (40\%). Los medios p\'ublicos (metro + bus) representan el 50\% del total.
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 3}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Indica el tipo de gr\'afico m\'as apropiado para representar cada variable y justifica:
+  (a) La nota de una prueba (datos agrupados en $[1,2[, [2,3[, \ldots$).
+  (b) El deporte favorito de 100 estudiantes (f\'utbol / tenis / nataci\'on / otro).
+  (c) La cantidad de libros le\'idos por 30 personas en un mes (0, 1, 2, 3, 4).
+
+  \item En una encuesta a 90 personas sobre su bebida favorita: 30 prefieren agua, 45 prefieren jugos y 15 prefieren bebidas. Calcula los \'angulos del sector circular para cada categor\'ia.
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Una encuesta sobre g\'enero literario favorito de 100 estudiantes arroj\'o: Ficci\'on: 35\%, Aventura: 28\%, Historia: 22\%, Poes\'ia: 15\%. \textquestiondown Cu\'antos estudiantes prefieren el g\'enero menos popular?
+
+  \item Un gr\'afico circular muestra que el 30\% de 200 estudiantes prefiere estudiar en la ma\~nana, el 45\% en la tarde y el 25\% en la noche. \textquestiondown Cu\'antos estudiantes prefieren la tarde?
+
+  \item El \'angulo del sector circular correspondiente a una categor\'ia con 15 elementos de un total de 60 datos es:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item $15^\circ$
+  \item $60^\circ$
+  \item $90^\circ$
+  \item $120^\circ$
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Un histograma muestra los intervalos $[0,5[$, $[5,10[$, $[10,15[$, $[15,20]$ con frecuencias 4, 7, 9, 5 respectivamente. (a) \textquestiondown En cu\'al intervalo se concentra la mayor frecuencia? (b) \textquestiondown Cu\'al es la frecuencia relativa porcentual del intervalo modal? (c) Dibuja el pol\'igono de frecuencias indicando las coordenadas de cada v\'ertice.
+
+  \item Un pol\'igono de frecuencias se construye sobre un histograma con intervalos $[20,30[$, $[30,40[$, $[40,50]$ y frecuencias 6, 14, 10. Las coordenadas del v\'ertice de mayor frecuencia del pol\'igono son:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item $(30,\ 14)$
+  \item $(35,\ 14)$
+  \item $(35,\ 10)$
+  \item $(40,\ 14)$
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item La siguiente tabla resume los datos de una encuesta sobre horas de uso de pantalla por d\'ia:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{c c c}
+  \toprule
+  Horas diarias & $f_i$ & $h_i\%$\\
+  \midrule
+  $[0,2[$ & 5 & 10\%\\
+  $[2,4[$ & 15 & 30\%\\
+  $[4,6[$ & 20 & 40\%\\
+  $[6,8]$ & 10 & 20\%\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+
+  (a) Calcula los \'angulos del sector circular para un gr\'afico de torta.
+  (b) Dibuja el pol\'igono de frecuencias, indicando las marcas de clase en el eje X.
+  (c) Describe en una oraci\'on la forma de la distribuci\'on.
+  \vspace{3cm}
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 4 — MEDIDAS DE TENDENCIA CENTRAL
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Secci\'on 4 $\cdot$ Medidas de tendencia central}
+\label{sec:4}
+
+\subbloque{4.1 Media aritm\'etica}
+\label{sub:4.1}
+
+\begin{tcolorbox}[importantbox, title={Media aritm\'etica $\bar{x}$}]
+La \textbf{media aritm\'etica} (o promedio) es el valor que resulta de dividir la suma de todos los datos por la cantidad total de ellos.
+
+\[
+\bar{x} = \frac{\displaystyle\sum_{i=1}^{n} x_i}{n}
+= \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]
+
+\textbf{Para datos con frecuencia} (tabla sin intervalos o con intervalos usando la marca de clase):
+\[
+\bar{x} = \frac{\displaystyle\sum_{i=1}^{k} x_i \cdot f_i}{n}
+\]
+donde $x_i$ es el valor o la marca de clase del intervalo $i$, $f_i$ su frecuencia y $n = \sum f_i$ el total de datos.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 7. Media aritm\'etica con datos simples y con frecuencia}]
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Datos simples:} las notas de 7 alumnos son $4{,}0;\; 5{,}5;\; 6{,}0;\; 6{,}0;\; 7{,}0;\; 5{,}5;\; 6{,}0$.
+
+  \medskip
+  $\bar{x} = \dfrac{4{,}0 + 5{,}5 + 6{,}0 + 6{,}0 + 7{,}0 + 5{,}5 + 6{,}0}{7} = \dfrac{40{,}0}{7} \approx 5{,}71$
+
+  \medskip
+  \item \textbf{Con tabla de frecuencias:} 10 estudiantes obtuvieron nota 4{,}0; 15 obtuvieron 5{,}5; 5 obtuvieron 7{,}0 en una prueba ($n = 30$).
+
+  \medskip
+  $\bar{x} = \dfrac{10 \cdot 4{,}0 + 15 \cdot 5{,}5 + 5 \cdot 7{,}0}{30} = \dfrac{40 + 82{,}5 + 35}{30} = \dfrac{157{,}5}{30} = 5{,}25$
+
+  \medskip
+  \item \textbf{Verificaci\'on:} $n = 10 + 15 + 5 = 30$ \checkmark
+
+  \medskip
+  \item \textbf{Conclusi\'on:} el promedio del curso fue 5{,}25. Nótese que este valor no coincide exactamente con ninguna nota del conjunto, lo cual es normal.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: la media distorsionada por valores extremos (\textit{outliers})}]
+\textbf{Error:} usar la media como representante del ``valor t\'ipico'' cuando hay datos muy alejados del resto.
+
+\medskip
+\textbf{Contraejemplo:} los sueldos de 8 empleados son (en miles de pesos): 400, 450, 480, 500, 520, 550, 600, \textbf{2800}. La media es:
+$\bar{x} = 537{,}5$ miles de pesos, pero 7 de los 8 empleados ganan menos de ese valor.
+
+\medskip
+\textbf{Causa:} la media pondera por igual todos los datos, por lo que los valores extremos la ``jalan'' hacia s\'i.
+
+\medskip
+\textbf{Forma correcta:} en presencia de valores extremos, usar la \textbf{mediana} (secci\'on siguiente) como medida m\'as representativa del valor t\'ipico.
+\end{tcolorbox}
+
+\subbloque{4.2 Mediana y moda}
+\label{sub:4.2}
+
+\begin{tcolorbox}[importantbox, title={Mediana $Me$}]
+La \textbf{mediana} es el valor que divide el conjunto de datos ---\textbf{ordenados de menor a mayor}--- en dos mitades iguales.
+
+\begin{itemize}
+  \item Si $n$ es \textbf{impar}: $Me$ = dato en la posici\'on $\dfrac{n+1}{2}$.
+  \item Si $n$ es \textbf{par}: $Me$ = promedio de los datos en las posiciones $\dfrac{n}{2}$ y $\dfrac{n}{2}+1$.
+\end{itemize}
+
+La mediana \textbf{no se ve afectada} por los valores extremos (\textit{outliers}).
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Moda $Mo$}]
+La \textbf{moda} es el valor que aparece con \textbf{mayor frecuencia} en el conjunto. Puede haber:
+\begin{itemize}
+  \item Una moda (\textit{unimodal}): un solo valor se repite m\'as que todos los dem\'as.
+  \item Dos modas (\textit{bimodal}): dos valores empatan en frecuencia m\'axima.
+  \item Sin moda (\textit{amodal}): todos los valores aparecen la misma cantidad de veces.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 8. Mediana y moda}]
+Los tiempos (en minutos) de 9 carreras de un atleta son:
+$12,\ 15,\ 10,\ 18,\ 12,\ 14,\ 11,\ 12,\ 16$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Ordenar:} $10,\ 11,\ 12,\ 12,\ 12,\ 14,\ 15,\ 16,\ 18$.
+  \medskip
+  \item \textbf{Mediana:} $n = 9$ (impar) $\Rightarrow$ posici\'on $\dfrac{9+1}{2} = 5$.
+  Dato en posici\'on 5: $Me = \mathbf{12}$.
+
+  \medskip
+  \item \textbf{Moda:} el valor 12 aparece 3 veces (la mayor frecuencia). $Mo = \mathbf{12}$.
+  \medskip
+  \item \textbf{Media:} $\bar{x} = \dfrac{10+11+12+12+12+14+15+16+18}{9} = \dfrac{120}{9} \approx \mathbf{13{,}3}$.
+  \medskip
+  \item \textbf{Conclusi\'on:} la mediana y la moda coinciden en 12 min (valor central y m\'as frecuente). La media es ligeramente mayor por la influencia del dato extremo 18.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: olvidar ordenar los datos antes de calcular la mediana}]
+\textbf{Error:} tomar el dato en la posici\'on central del conjunto \textit{sin ordenarlo} previamente.
+
+\medskip
+\textbf{Contraejemplo:} para los datos $5,\ 3,\ 8,\ 1,\ 7$ (5 datos), si se toma directamente el tercer elemento sin ordenar, se obtiene $Me = 8$. Pero ordenados: $1,\ 3,\ 5,\ 7,\ 8$, el tercer elemento es $Me = 5$.
+
+\medskip
+\textbf{Causa:} no respetar el paso de ordenamiento previo.
+
+\medskip
+\textbf{Forma correcta:} \textbf{siempre} ordenar el conjunto de menor a mayor antes de aplicar la f\'ormula de posici\'on. La mediana solo tiene sentido en un conjunto ordenado.
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 4}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula la media, mediana y moda del siguiente conjunto:
+  $8,\ 5,\ 9,\ 7,\ 6,\ 8,\ 4,\ 9,\ 8,\ 6,\ 7,\ 5$
+
+  \item Un almac\'en registr\'o sus ventas diarias (en miles de pesos) durante una semana:
+  $45,\ 52,\ 48,\ 60,\ 55,\ 47,\ 61$.
+  Calcula $\bar{x}$ y $Me$. \textquestiondown Son iguales? Interpreta la diferencia.
+
+  \item Usando la tabla del Ejemplo~4 (estaturas, datos agrupados), calcula la media aproximada usando las marcas de clase.
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Las notas de 6 estudiantes son: $4{,}0;\; 5{,}0;\; 6{,}0;\; 6{,}0;\; 7{,}0;\; 8{,}0$. Calcula la media, mediana y moda.
+
+  \item Para los datos $3,\ 7,\ 5,\ 9,\ 1,\ 3,\ 7,\ 3,\ 9$, identifica la moda.
+
+  \item La mediana del conjunto $2,\ 5,\ 7,\ 8,\ 11,\ 13,\ 15$ es:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item 7
+  \item 8
+  \item 9
+  \item 11
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item En un curso de 30 estudiantes: 10 obtuvieron nota 4{,}0; 15 obtuvieron 5{,}5; y 5 obtuvieron 7{,}0. Calcula la media aritm\'etica del curso.
+
+  \item Un empresario tiene 8 empleados con sueldos (en miles de pesos): 400, 450, 480, 500, 520, 550, 600, 2800. (a) Calcula la media y la mediana. (b) \textquestiondown Cu\'al representa mejor el sueldo ``t\'ipico''? Justifica.
+
+  \item La media de 8 datos es 12. Si se agrega un noveno dato igual a 21, \textquestiondown cu\'al es la nueva media?
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Si la media de $\{a,\, b,\, c\}$ es $M$, \textquestiondown cu\'al es la media del conjunto $\{a+5,\, b+5,\, c+5\}$? Justifica algebraicamente.
+  \vspace{2.5cm}
+
+  \item La media de 10 datos es 15. Si se retira el dato m\'as grande, igual a 33, y se retira el dato m\'as peque\~no, igual a 3, \textquestiondown cu\'al es la nueva media de los 8 datos restantes? Justifica tu procedimiento.
+  \vspace{2.5cm}
+\end{enumerate}
+
+% ============================================================
+% FIN DE LA PARTE 3
+% Continúa en la Parte 4 (Secciones 5 y 6)
+
+% ============================================================
+% PARTE 4 DE 6: Secciones 5 y 6
+% Pegar después de la Parte 3
+% ============================================================
+
+% ============================================================
+% SECCIÓN 5 — MEDIDAS DE POSICIÓN
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Secci\'on 5 $\cdot$ Medidas de posici\'on}
+\label{sec:5}
+
+\subbloque{5.1 Cuartiles y percentiles}
+\label{sub:5.1}
+
+\begin{tcolorbox}[importantbox, title={Cuartiles $Q_1$, $Q_2$, $Q_3$}]
+Los \textbf{cuartiles} dividen el conjunto de datos ordenados en \textbf{cuatro partes iguales}, cada una con el 25\% de los datos.
+
+\begin{itemize}
+  \item $Q_1$ (primer cuartil): el 25\% de los datos son menores o iguales a $Q_1$.
+  \item $Q_2$ (segundo cuartil): el 50\% de los datos son menores o iguales a $Q_2$. \textbf{Coincide con la mediana.}
+  \item $Q_3$ (tercer cuartil): el 75\% de los datos son menores o iguales a $Q_3$.
+\end{itemize}
+
+\textbf{C\'alculo para datos no agrupados:}
+\[
+Q_k \text{ se ubica en la posici\'on } \frac{k \cdot (n+1)}{4} \quad (k = 1, 2, 3)
+\]
+Si la posici\'on es decimal, se interpola (se promedia entre los dos datos adyacentes).
+
+\medskip
+\textbf{Rango intercuart\'ilico:} $RIC = Q_3 - Q_1$ (contiene el 50\% central de los datos).
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Percentiles $P_k$}]
+Los \textbf{percentiles} dividen el conjunto ordenado en 100 partes iguales. $P_k$ indica que el $k\%$ de los datos son menores o iguales a ese valor.
+
+\textbf{C\'alculo:} $P_k$ se ubica en la posici\'on $\dfrac{k \cdot (n+1)}{100}$.
+
+Relaciones clave: $Q_1 = P_{25}$;\; $Q_2 = P_{50} = Me$;\; $Q_3 = P_{75}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 9. C\'alculo de cuartiles}]
+Calcular los cuartiles del conjunto: $5,\ 8,\ 10,\ 12,\ 15,\ 18,\ 20,\ 22,\ 25,\ 28,\ 30$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Verificar que est\'an ordenados:} s\'i. $n = 11$.
+  \medskip
+  \item \textbf{Calcular posiciones:}
+  \[
+  Q_1: \frac{1 \cdot 12}{4} = 3 \Rightarrow \text{dato en posici\'on } 3 = 10
+  \]
+  \[
+  Q_2: \frac{2 \cdot 12}{4} = 6 \Rightarrow \text{dato en posici\'on } 6 = 18
+  \]
+  \[
+  Q_3: \frac{3 \cdot 12}{4} = 9 \Rightarrow \text{dato en posici\'on } 9 = 25
+  \]
+  \medskip
+  \item \textbf{Rango intercuart\'ilico:} $RIC = Q_3 - Q_1 = 25 - 10 = 15$.
+  \medskip
+  \item \textbf{Conclusi\'on:} el 50\% central de los datos se ubica entre 10 y 25. El dato mediano es 18.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: confundir $Q_2$ con la media}]
+\textbf{Error:} afirmar que ``el segundo cuartil es el mismo que la media aritm\'etica''.
+
+\medskip
+\textbf{Contraejemplo:} para los datos $1,\ 2,\ 3,\ 4,\ 100$:
+$\bar{x} = (1+2+3+4+100)/5 = 22$, pero $Q_2 = Me = 3$ (dato central).
+
+\medskip
+\textbf{Causa:} confundir la \textit{posici\'on central} (mediana) con el \textit{equilibrio de sumas} (media).
+
+\medskip
+\textbf{Regla:} $Q_2 = Me$ \textbf{siempre}. La media $\bar{x}$ solo coincide con $Q_2$ en distribuciones perfectamente sim\'etricas sin \textit{outliers}. En presencia de valores extremos, $\bar{x} \neq Q_2$.
+\end{tcolorbox}
+
+\subbloque{5.2 Diagrama de caja y bigotes (\textit{boxplot})}
+\label{sub:5.2}
+
+\begin{tcolorbox}[importantbox, title={Construcci\'on del diagrama de caja}]
+El \textbf{diagrama de caja} representa gr\'aficamente los cinco n\'umeros de resumen de un conjunto de datos:
+\[
+\text{M\'inimo} \quad Q_1 \quad Q_2 \quad Q_3 \quad \text{M\'aximo}
+\]
+\begin{itemize}
+  \item La \textbf{caja} se extiende desde $Q_1$ hasta $Q_3$ (contiene el 50\% central).
+  \item La \textbf{l\'inea interior} marca $Q_2$ (mediana).
+  \item Los \textbf{bigotes} se extienden desde $Q_1$ hasta el m\'inimo y desde $Q_3$ hasta el m\'aximo.
+\end{itemize}
+
+\textbf{Detecci\'on de valores at\'ipicos} (\textit{outliers}): un dato $x$ es at\'ipico si:
+\[
+x < Q_1 - 1{,}5 \cdot RIC \quad \text{o} \quad x > Q_3 + 1{,}5 \cdot RIC
+\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 10. Construir e interpretar un diagrama de caja}]
+Los tiempos de entrega (en minutos) de un restaurante en 11 pedidos son:
+$13,\ 15,\ 15,\ 18,\ 18,\ 18,\ 20,\ 22,\ 22,\ 25,\ 30$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Cinco n\'umeros:} M\'in $= 13$; $Q_1 = 15$; $Q_2 = 18$; $Q_3 = 22$; M\'ax $= 30$.
+  \medskip
+  \item \textbf{RIC:} $Q_3 - Q_1 = 22 - 15 = 7$.
+  \medskip
+  \item \textbf{L\'imites para \textit{outliers}:}
+  Inferior: $15 - 1{,}5 \cdot 7 = 15 - 10{,}5 = 4{,}5$.\quad Superior: $22 + 1{,}5 \cdot 7 = 22 + 10{,}5 = 32{,}5$.
+
+  Todos los datos est\'an en $[4{,}5;\, 32{,}5]$, por lo que no hay \textit{outliers}.
+  \medskip
+  \item \textbf{Diagrama de caja (esquem\'atico):}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=0.7]
+    % Eje
+    \draw[->] (1,0) -- (20,0) node[right]{\small min};
+    % Valores en el eje
+    \foreach \x/\lbl in {2/13, 5/15, 9/18, 13/22, 17/25, 19/30}{
+      \draw (\x,0.15) -- (\x,-0.15);
+      \node[below, font=\small] at (\x,-0.15) {\lbl};
+    }
+    % Caja
+    \draw[thick, zenitblue, fill=zenitblue!20]
+      (5,-0.6) rectangle (13,0.6);
+    % Mediana
+    \draw[thick, zenitnavy] (9,-0.6) -- (9,0.6);
+    % Bigotes
+    \draw[thick] (2,0) -- (5,0);
+    \draw[thick] (13,0) -- (19,0);
+    \draw[thick] (2,-0.3) -- (2,0.3);
+    \draw[thick] (19,-0.3) -- (19,0.3);
+    % Etiquetas
+    \node[above, font=\small, zenitnavy] at (5,0.6) {$Q_1$};
+    \node[above, font=\small, zenitnavy] at (9,0.6) {$Q_2$};
+    \node[above, font=\small, zenitnavy] at (13,0.6) {$Q_3$};
+  \end{tikzpicture}
+  \end{center}
+
+  \medskip
+  \item \textbf{Conclusi\'on:} el 50\% central de los tiempos de entrega se encuentra entre 15 y 22 minutos. La distribuci\'on es ligeramente asim\'etrica hacia la derecha (el bigote derecho es m\'as largo).
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 5}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula $Q_1$, $Q_2$, $Q_3$ y el $RIC$ del conjunto:
+  $3,\ 6,\ 7,\ 8,\ 9,\ 12,\ 14,\ 17,\ 20,\ 22,\ 25,\ 28$
+
+  \item Un diagrama de caja tiene: M\'in~$= 5$, $Q_1 = 15$, $Q_2 = 25$, $Q_3 = 40$, M\'ax~$= 70$.
+  (a) \textquestiondown Cu\'al es el $RIC$? (b) \textquestiondown Entre qu\'e valores se ubica el 50\% central de los datos?
+  (c) Determina si existe alg\'un valor at\'ipico usando el criterio $1{,}5 \cdot RIC$.
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Para los 11 datos ordenados: $45,\ 52,\ 55,\ 58,\ 62,\ 65,\ 68,\ 72,\ 75,\ 80,\ 95$. Calcula $Q_1$, $Q_2$ y $Q_3$.
+
+  \item En un diagrama de caja: M\'in~$= 10$, $Q_1 = 20$, $Q_2 = 30$, $Q_3 = 45$, M\'ax~$= 60$. \textquestiondown Cu\'al es el $RIC$? \textquestiondown Qu\'e porcentaje de datos est\'a entre $Q_1$ y $Q_3$?
+
+  \item El percentil 75 de un conjunto de datos coincide con:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item La media aritm\'etica
+  \item El primer cuartil
+  \item El segundo cuartil
+  \item El tercer cuartil
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Para los 11 datos: $45,\ 52,\ 55,\ 58,\ 62,\ 65,\ 68,\ 72,\ 75,\ 80,\ 95$. (a) Calcula el $RIC$. (b) Determina si el valor 95 es un dato at\'ipico usando el criterio $1{,}5 \cdot RIC$.
+
+  \item En una tabla de frecuencias agrupadas con $n = 80$ datos, \textquestiondown en qu\'e posici\'on se busca el dato para calcular $P_{50}$?
+
+  \item Dos cursos rindieron el mismo examen. Curso A: $Q_1 = 55$, $Q_2 = 65$, $Q_3 = 75$. Curso B: $Q_1 = 45$, $Q_2 = 65$, $Q_3 = 85$. (a) Calcula el $RIC$ de cada curso. (b) \textquestiondown Cu\'al curso tiene mayor dispersi\'on en el 50\% central? (c) \textquestiondown Qu\'e tienen en com\'un ambas distribuciones?
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Los siguientes datos corresponden a las estaturas (en cm) de dos selecciones deportivas:
+
+  Selecci\'on A: $165,\ 168,\ 170,\ 172,\ 175,\ 176,\ 178,\ 180,\ 182,\ 185,\ 190$
+
+  Selecci\'on B: $160,\ 162,\ 165,\ 168,\ 178,\ 180,\ 183,\ 185,\ 188,\ 190,\ 195$
+
+  (a) Calcula los cinco n\'umeros de resumen de cada selecci\'on. (b) Dibuja ambos diagramas de caja en la misma escala. (c) Compara las distribuciones: \textquestiondown cu\'al tiene mayor dispersi\'on central? \textquestiondown cu\'al tiene la mediana m\'as alta?
+  \vspace{4cm}
+\end{enumerate}
+
+% ============================================================
+% SECCIÓN 6 — MEDIDAS DE DISPERSIÓN
+% ============================================================
+\clearpage
+\seccionheader{blockc}{Secci\'on 6 $\cdot$ Medidas de dispersi\'on}
+\label{sec:6}
+
+\subbloque{6.1 Rango y varianza}
+\label{sub:6.1}
+
+\begin{tcolorbox}[importantbox, title={Rango $R$}]
+El \textbf{rango} (o recorrido) es la medida de dispersi\'on m\'as simple. Indica la amplitud total del conjunto de datos:
+\[
+R = x_{\text{m\'ax}} - x_{\text{m\'in}}
+\]
+Desventaja: solo considera dos datos (el mayor y el menor) e ignora el resto de la distribuci\'on.
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Varianza $s^2$}]
+La \textbf{varianza} mide el promedio de los cuadrados de las desviaciones de cada dato respecto a la media:
+\[
+s^2 = \frac{\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})^2}{n}
+\]
+Para datos con frecuencia: $s^2 = \dfrac{\displaystyle\sum_{i=1}^{k} f_i \cdot (x_i - \bar{x})^2}{n}$
+
+La varianza est\'a expresada en \textbf{unidades al cuadrado}. Siempre $s^2 \geq 0$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 11. C\'alculo de rango y varianza}]
+Las notas de 6 estudiantes son: $2{,}0;\; 3{,}9;\; 5{,}0;\; 5{,}9;\; 6{,}2;\; 4{,}0$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Rango:} $R = 6{,}2 - 2{,}0 = 4{,}2$.
+  \medskip
+  \item \textbf{Media:} $\bar{x} = \dfrac{2{,}0 + 3{,}9 + 5{,}0 + 5{,}9 + 6{,}2 + 4{,}0}{6} = \dfrac{27{,}0}{6} = 4{,}5$.
+  \medskip
+  \item \textbf{Desviaciones y cuadrados:}
+  \begin{center}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{c c c}
+  \toprule
+  $x_i$ & $x_i - \bar{x}$ & $(x_i - \bar{x})^2$\\
+  \midrule
+  2{,}0 & $-2{,}5$ & 6{,}25\\
+  3{,}9 & $-0{,}6$ & 0{,}36\\
+  5{,}0 & $+0{,}5$ & 0{,}25\\
+  5{,}9 & $+1{,}4$ & 1{,}96\\
+  6{,}2 & $+1{,}7$ & 2{,}89\\
+  4{,}0 & $-0{,}5$ & 0{,}25\\
+  \midrule
+  & $\sum = 0$ & $\sum = 12{,}00$\\
+  \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  \item \textbf{Varianza:} $s^2 = \dfrac{12{,}00}{6} = 2{,}00$ (notas$^2$).
+  \medskip
+  \item \textbf{Verificaci\'on:} la suma de desviaciones $= 0$ \checkmark (propiedad de la media).
+  \medskip
+  \item \textbf{Conclusi\'on:} el rango indica que las notas var\'ian hasta 4{,}2 puntos. La varianza de 2{,}00 notas$^2$ indica dispersi\'on moderada.
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{6.2 Desviaci\'on est\'andar y coeficiente de variaci\'on}
+\label{sub:6.2}
+
+\begin{tcolorbox}[importantbox, title={Desviaci\'on est\'andar $s$ y coeficiente de variaci\'on $CV$}]
+La \textbf{desviaci\'on est\'andar} es la ra\'iz cuadrada positiva de la varianza. Est\'a expresada en las \textbf{mismas unidades que los datos}:
+\[
+s = \sqrt{s^2} = \sqrt{\frac{\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})^2}{n}}
+\]
+Interpretaci\'on: indica, en promedio, cu\'anto se alejan los datos de su media. Mayor $s$ $\Rightarrow$ mayor dispersi\'on.
+
+\medskip
+El \textbf{coeficiente de variaci\'on} permite comparar la dispersi\'on relativa de conjuntos con distintas unidades o escalas:
+\[
+CV = \frac{s}{\bar{x}}
+\]
+Un $CV$ menor indica mayor \textbf{homogeneidad} del conjunto.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 12. Desviaci\'on est\'andar y comparaci\'on con CV}]
+Continuando con el Ejemplo~11:
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Desviaci\'on est\'andar:} $s = \sqrt{2{,}00} \approx 1{,}41$ notas.
+  \medskip
+  \item \textbf{Interpretaci\'on:} en promedio, las notas se alejan $\approx 1{,}41$ puntos de la media ($\bar{x} = 4{,}5$).
+  \medskip
+  \item \textbf{Coeficiente de variaci\'on:} $CV = \dfrac{1{,}41}{4{,}5} \approx 0{,}31 = 31\%$.
+  \medskip
+  \item \textbf{Comparaci\'on:} si un segundo curso tiene $\bar{x} = 6{,}0$ y $s = 0{,}8$, entonces $CV_2 = 0{,}8/6{,}0 \approx 13\%$. El segundo curso es m\'as homog\'eneo en sus resultados (menor $CV$).
+  \medskip
+  \item \textbf{Conclusi\'on:} la desviaci\'on est\'andar mide dispersi\'on absoluta; el $CV$ mide dispersi\'on relativa. Para comparar dos grupos con distintas medias, siempre usar el $CV$.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: confundir varianza con desviaci\'on est\'andar}]
+\textbf{Error:} interpretar la varianza como si estuviera en las mismas unidades que los datos.
+
+\medskip
+\textbf{Contraejemplo:} si las estaturas de un grupo tienen $s^2 = 25$ cm$^2$, afirmar que ``la varianza es 25 cm'' es incorrecto.
+
+\medskip
+\textbf{Causa:} olvidar que la varianza est\'a en \textit{unidades al cuadrado} por la elecci\'on de cuadrar las desviaciones.
+
+\medskip
+\textbf{Forma correcta:} $s^2 = 25$ cm$^2$ $\Rightarrow$ $s = \sqrt{25} = 5$ cm. Para \textit{interpretar} la dispersi\'on en el contexto del problema, usar siempre la \textbf{desviaci\'on est\'andar} $s$, no la varianza $s^2$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: dividir por $n-1$ en lugar de $n$ (o viceversa)}]
+\textbf{Error:} en ejercicios de ense\~nanza media, usar la f\'ormula con $n-1$ en el denominador.
+
+\medskip
+\textbf{Causa:} confusi\'on entre la varianza \textit{poblacional} (divide por $N$) y la varianza \textit{muestral corregida} (divide por $n-1$, usada en estad\'istica inferencial universitaria).
+
+\medskip
+\textbf{Regla para esta gu\'ia:} siempre dividir por $n$ (f\'ormula poblacional). La divisi\'on por $n-1$ solo aparece en cursos universitarios de estad\'istica inferencial. En todo examen de ense\~nanza media y PAES, se usa $n$ en el denominador.
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 6}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula el rango, la varianza y la desviaci\'on est\'andar del conjunto:
+  $4,\ 7,\ 2,\ 8,\ 5,\ 6,\ 3,\ 9,\ 4,\ 7$ \quad ($\bar{x} = 5{,}5$).
+
+  \item Dos secciones del mismo curso tienen: Secci\'on A: $\bar{x}_A = 6{,}2$, $s_A = 0{,}8$. Secci\'on B: $\bar{x}_B = 6{,}2$, $s_B = 2{,}1$.
+  (a) \textquestiondown Cu\'al secci\'on es m\'as homog\'enea? (b) Calcula el $CV$ de cada secci\'on.
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Calcula el rango y la desviaci\'on est\'andar de: $10,\ 12,\ 14,\ 16,\ 18$.
+
+  \item Para los datos $2,\ 4,\ 6,\ 8,\ 10$ con media $\bar{x} = 6$, la varianza es:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item $4$
+  \item $6$
+  \item $8$
+  \item $10$
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+
+  \item Si todos los datos de un conjunto son iguales, su desviaci\'on est\'andar es:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item Negativa
+  \item $0$
+  \item $1$
+  \item Igual a la media
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Las temperaturas mensuales de una ciudad fueron (en \textdegree C): $18,\ 20,\ 22,\ 25,\ 28,\ 30,\ 32,\ 31,\ 28,\ 22,\ 19,\ 17$. Calcula: (a) la media, (b) la varianza, (c) la desviaci\'on est\'andar. Interpreta el resultado.
+
+  \item Sean los conjuntos $A = \{2;\, 3;\, 7;\, 8\}$ y $B = \{20;\, 30;\, 70;\, 80\}$. \textquestiondown Cu\'al afirmaci\'on es verdadera?
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item La desviaci\'on est\'andar de $A$ es igual a la de $B$
+  \item La varianza de $A$ es 10 veces la de $B$
+  \item La desviaci\'on est\'andar de $A$ es 0{,}1 veces la de $B$
+  \item La varianza de $A$ es 1.000 veces la de $B$
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+
+  \item La desviaci\'on est\'andar del conjunto $\{a,\, b,\, c\}$ de enteros positivos distintos es $k$. \textquestiondown Cu\'al es la desviaci\'on est\'andar del conjunto $\{3a+2,\, 3b+2,\, 3c+2\}$?
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Considera los conjuntos $A = \{a+1,\, a,\, a-1,\, a+8\}$ y $B = \{a+3,\, a+2,\, a+3,\, a\}$ con $a \in \mathbb{N}$. Sin calcular num\'ericamente, predice cu\'al tiene mayor varianza. Luego verifica calculando ambas varianzas en t\'erminos de sus desviaciones respecto a la media.
+  \vspace{3.5cm}
+
+  \item La media de un conjunto $C$ es $\mu > 0$ y su desviaci\'on est\'andar es $\sigma$. Se define $C_1$ sumando 8 a cada elemento de $C$, y $C_2$ multiplicando por 8 cada elemento de $C$. Demuestra que el coeficiente de variaci\'on de $C_1$ es menor que el de $C_2$.
+  \vspace{3.5cm}
+\end{enumerate}
+
+% ============================================================
+% FIN DE LA PARTE 4
+% Continúa en la Parte 5 (Sección 7 + PAES)
+
+% ============================================================
+% PARTE 5 DE 6: Sección 7 + Ejercicios tipo PAES (40 ítems)
+% Pegar después de la Parte 4
+% ============================================================
+
+% ============================================================
+% SECCIÓN 7 — ANÁLISIS E INTERPRETACIÓN
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Secci\'on 7 $\cdot$ An\'alisis e interpretaci\'on de datos}
+\label{sec:7}
+
+\subbloque{7.1 Simetr\'ia, sesgo y valores at\'ipicos}
+\label{sub:7.1}
+
+\begin{tcolorbox}[importantbox, title={Forma de una distribuci\'on}]
+La \textbf{forma} de una distribuci\'on describe c\'omo se distribuyen los datos respecto a su centro. Se analiza comparando la media, la mediana y la moda.
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{3.5cm} p{4.2cm} p{3.5cm}}
+\toprule
+\textbf{Tipo} & \textbf{Relaci\'on entre medidas} & \textbf{Bigotes}\\
+\midrule
+\textbf{Sim\'etrica} & $\bar{x} = Me = Mo$ & Iguales\\
+\textbf{Sesgo positivo} (a la derecha) & $\bar{x} > Me > Mo$ & Bigote derecho m\'as largo\\
+\textbf{Sesgo negativo} (a la izquierda) & $\bar{x} < Me < Mo$ & Bigote izquierdo m\'as largo\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Regla mnem\'onica:} el sesgo apunta hacia la cola larga. Una cola larga a la derecha ``jala'' la media hacia la derecha, por encima de la mediana.
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Valores at\'ipicos (\textit{outliers})}]
+Un dato es \textbf{at\'ipico} si se aleja considerablemente del resto de la distribuci\'on. El criterio m\'as usado:
+
+\[
+x \text{ es at\'ipico si } x < Q_1 - 1{,}5 \cdot RIC \quad \text{o} \quad x > Q_3 + 1{,}5 \cdot RIC
+\]
+
+Los \textit{outliers}:
+\begin{itemize}
+  \item \textbf{Afectan} la media y la varianza (son sensibles a valores extremos).
+  \item \textbf{No afectan} la mediana ni los cuartiles (son robustos).
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ej. 13. Identificar la forma de una distribuci\'on}]
+Dos cursos rindieron la misma prueba. Los datos son:
+
+\textbf{Curso A:} $2,\ 3,\ 4,\ 5,\ 5,\ 6,\ 6,\ 6,\ 7,\ 8$
+\quad\textbf{Curso B:} $2,\ 3,\ 3,\ 4,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9$
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Curso A}--- media: $\bar{x}_A = \dfrac{52}{10} = 5{,}2$;\; mediana: $Me_A = \dfrac{5+6}{2} = 5{,}5$;\; moda: $Mo_A = 6$.
+
+  Como $\bar{x}_A < Me_A < Mo_A$: \textbf{sesgo negativo} (cola a la izquierda).
+
+  \medskip
+  \item \textbf{Curso B}--- media: $\bar{x}_B = \dfrac{51}{10} = 5{,}1$;\; mediana: $Me_B = \dfrac{5+6}{2} = 5{,}5$;\; moda: $Mo_B = 3$ y $4$ (bimodal).
+
+  La moda es menor que la mediana y la media: \textbf{sesgo positivo} (cola a la derecha).
+
+  \medskip
+  \item \textbf{Conclusi\'on:} el Curso A tiene m\'as estudiantes con notas altas; el Curso B tiene m\'as estudiantes con notas bajas pero algunos con notas muy altas que elevan la media. En contextos con asimetr\'ia, la mediana es el mejor indicador del rendimiento t\'ipico.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente: describir el sesgo por la cola pero confundir la direcci\'on}]
+\textbf{Error:} afirmar que ``el sesgo es positivo porque hay m\'as datos en la parte alta''.
+
+\medskip
+\textbf{Contraejemplo:} una distribuci\'on con muchos datos bajos y pocos datos muy altos (cola larga a la derecha) tiene sesgo \textit{positivo} aunque la mayor\'ia de los datos sean bajos.
+
+\medskip
+\textbf{Causa:} confundir el tama\~no de la cola con la direcci\'on del sesgo.
+
+\medskip
+\textbf{Forma correcta:} el sesgo se nombra por la direcci\'on de la \textbf{cola larga}. Cola larga a la derecha = sesgo positivo (la media se ve ``jalada'' hacia la derecha, por encima de la mediana). Cola larga a la izquierda = sesgo negativo.
+\end{tcolorbox}
+
+\subbloque{Pr\'actica inmediata 7}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Para cada distribuci\'on, indica si es sim\'etrica, con sesgo positivo o con sesgo negativo:
+  \begin{enumerate}[label=\alph*)]
+    \item $\bar{x} = 7{,}2$;\; $Me = 6{,}8$;\; $Mo = 6{,}1$.
+    \item $\bar{x} = 5{,}0$;\; $Me = 5{,}0$;\; $Mo = 5{,}0$.
+    \item Un histograma con cola larga hacia la izquierda.
+  \end{enumerate}
+
+  \item Un conjunto tiene $Q_1 = 40$, $Q_3 = 70$. \textquestiondown Es el valor 102 un dato at\'ipico? Justifica.
+
+  \item Los sueldos de 8 trabajadores (en miles de pesos) son: 400, 420, 430, 450, 460, 470, 480, 1200.
+  (a) Calcula $\bar{x}$ y $Me$. (b) \textquestiondown Hay un \textit{outlier}? (c) \textquestiondown Cu\'al medida representa mejor el sueldo t\'ipico?
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+  \item Un histograma muestra que la mayor\'ia de los datos se concentran en la parte baja y hay una cola larga hacia la derecha. La distribuci\'on tiene:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item Sesgo negativo
+  \item Sesgo positivo
+  \item Distribuci\'on sim\'etrica
+  \item Media igual a la mediana
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+
+  \item Si $\bar{x} > Me > Mo$, la distribuci\'on tiene:
+  \begin{minipage}[t]{\linewidth}
+  \begin{minipage}{\linewidth}\vspace{4mm}
+  \begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.9\linewidth}
+  \begin{enumerate}[label=\Alph*),leftmargin=14pt]
+  \item Sesgo negativo
+  \item Simetr\'ia perfecta
+  \item Sesgo positivo
+  \item Ninguna de las anteriores
+  \end{enumerate}
+  \end{minipage}};
+  \end{tikzpicture}
+  \end{minipage}\vspace{4mm}
+  \end{minipage}
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Las notas de un curso son: $3{,}0;\ 4{,}0;\ 4{,}5;\ 5{,}0;\ 5{,}5;\ 6{,}0;\ 6{,}0;\ 6{,}5;\ 7{,}0$.
+  (a) Calcula $\bar{x}$, $Me$ y $Mo$. (b) Determina la forma de la distribuci\'on. (c) Un alumno m\'as obtuvo 1{,}0. \textquestiondown Es un \textit{outlier} seg\'un el criterio $1{,}5 \cdot RIC$?
+
+  \item En un grupo de trabajadores: $Q_1 = 350$\,\$, $Q_2 = 520$\,\$, $Q_3 = 680$\,\$. El sueldo m\'aximo es 1200\,\$. \textquestiondown Hay valores at\'ipicos? Justifica y describe la forma de la distribuci\'on.
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+  \item Un investigador afirma: ``Como la media de los ingresos de los habitantes de mi ciudad es de \$850.000 mensuales, la mayor\'ia vive bien''. Dado que $Me = \$480.000$ y que el 10\% de los habitantes gana m\'as de \$3.500.000:
+  (a) Clasifica la forma de la distribuci\'on. (b) \textquestiondown Es correcta la afirmaci\'on? (c) \textquestiondown Qu\'e medida usar\'ias t\'u para describir el ingreso ``t\'ipico''? Argumenta usando la relaci\'on entre $\bar{x}$, $Me$ y la presencia de \textit{outliers}.
+  \vspace{3.5cm}
+\end{enumerate}
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+\begin{tcolorbox}[importantbox, title={Instrucciones}]
+Los siguientes 40 \'items corresponden al formato de selecci\'on \'unica de la PAES. Marca \textbf{una sola alternativa} por pregunta. Las respuestas se encuentran en el solucionario.
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+% ---- ÍTEMS 1–8: TABLAS Y FRECUENCIAS ----
+
+\alternativasformato{En una oficina se registr\'o el tiempo de espera (en minutos) de las personas atendidas y se resumi\'o en la siguiente tabla. La pol\'itica del lugar indica que toda persona que espera 30 minutos o m\'as recibe atenci\'on prioritaria. \textquestiondown Cu\'antas personas recibieron atenci\'on prioritaria?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline Tiempo (min) & Frecuencia\\\hline
+$[0,10[$ & 3\\\hline $[10,20[$ & 9\\\hline $[20,30[$ & 11\\\hline
+$[30,40[$ & 12\\\hline $[40,50[$ & 7\\\hline $[50,60[$ & 4\\\hline $[60,70]$ & 4\\\hline
+\end{tabular}\end{center}
+\textit{DEMRE 2025}}
+{\item 11 \item 12 \item 27 \item 38}{}
+
+\alternativasformato{En la siguiente tabla se resume la distribuci\'on de los puntajes de una prueba en un curso. \textquestiondown Cu\'al es el total de estudiantes del curso?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline Puntaje & Frecuencia\\\hline 1&2\\\hline 2&4\\\hline 3&4\\\hline 4&5\\\hline 5&7\\\hline 6&3\\\hline 7&5\\\hline
+\end{tabular}\end{center}
+\textit{DEMRE 2026}}
+{\item 7 \item 21 \item 30 \item 63}{}
+
+\alternativasformato{En el taller de literatura de un colegio, 25 estudiantes tardaron distintos d\'ias en leer un libro. La tabla est\'a incompleta. \textquestiondown Cu\'antos estudiantes tardaron 3 d\'ias?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline D\'ias & Frec. & Fr. relativa\\\hline 1&2&0{,}08\\\hline 2&4&0{,}16\\\hline 3&?&?\\\hline 4&9&0{,}36\\\hline 5&?&0{,}12\\\hline Total&25&1\\\hline
+\end{tabular}\end{center}
+\textit{DEMRE 2024}}
+{\item 5 \item 7 \item 8 \item 10}{}
+
+\alternativasformato{La tabla muestra la distribuci\'on del n\'umero de bicicletas ($x$) de cada uno de los 25 alumnos de un curso. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|}
+\hline $x$&$f$&$F$&$fr$&$Fr$\\\hline 1&5&5&20\%&20\%\\\hline 2&8&13&B\%&52\%\\\hline 3&A&17&16\%&68\%\\\hline 4&8&25&32\%&C\%\\\hline
+\end{tabular}\end{center}}
+{\item El valor de A es 6. \item El 52\% tiene dos bicicletas. \item El valor de C es 100. \item El valor de B es 52.}{}
+
+\alternativasformato{En un colegio se tiene informaci\'on sobre las asistencias de cuatro cursos. Se elegir\'a el nivel con mayor porcentaje de ``baja asistencia'' para un seguimiento prioritario.
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline Nivel & Baja & No baja\\\hline 1\textdegree\ medio & 20 & 60\\\hline 2\textdegree\ medio & 25 & 100\\\hline 3\textdegree\ medio & 20 & 100\\\hline 4\textdegree\ medio & 25 & 150\\\hline
+\end{tabular}\end{center}
+\textquestiondown Con cu\'al nivel se comenzar\'a? \textit{DEMRE 2026}}
+{\item Con los 1\textdegree\ medios. \item Con los 2\textdegree\ medios. \item Con los 3\textdegree\ medios. \item Con los 4\textdegree\ medios.}{}
+
+\alternativasformato{La tabla muestra los sueldos y sus frecuencias en una empresa. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline Sueldo (\$) & Frecuencia\\\hline 350.000&3\\\hline 360.000&4\\\hline 370.000&8\\\hline 380.000&2\\\hline 390.000&6\\\hline 400.000&7\\\hline
+\end{tabular}\end{center}}
+{\item Hay exactamente 7 personas que ganan al menos \$360.000. \item Son 6 los datos representados en la tabla. \item El 50\% de los trabajadores tiene sueldo superior a \$370.000. \item El promedio es \$375.000.}{}
+
+\alternativasformato{La tabla muestra el resultado al lanzar un dado. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline N\'umero & Frecuencia\\\hline 1&4\\\hline 2&6\\\hline 3&2\\\hline 4&5\\\hline 5&1\\\hline 6&3\\\hline
+\end{tabular}\end{center}}
+{\item El total de lanzamientos fue 21. \item La frecuencia del 4 es 1. \item En el $16{,}\overline{6}\%$ de los lanzamientos se obtuvo 6. \item En el 10\% de los lanzamientos se obtuvo 1 \'o 2.}{}
+
+\alternativasformato{De una encuesta a 100 ni\~nos sobre d\'ias que almorzaban en el colegio, se obtuvo la tabla adjunta. \textquestiondown Cu\'ales son los valores de $x$, $y$, $z$ respectivamente?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline D\'ias & Frec. & Fr.\ relativa\\\hline 1&25&0{,}25\\\hline 2&20&0{,}2\\\hline 3&$x$&$z$\\\hline 4&15&0{,}15\\\hline 5&$y$&0{,}05\\\hline
+\end{tabular}\end{center}}
+{\item $45\quad 50\quad 0{,}45$ \item $35\quad 50\quad 0{,}35$ \item $25\quad 15\quad 0{,}25$ \item $35\quad 5\quad 0{,}35$}{}
+
+% ---- ÍTEMS 9–16: MEDIA ARITMÉTICA ----
+
+\alternativasformato{Si el promedio de 5 notas de Juan es 5{,}6, entonces la suma de las cinco notas es:}
+{\item 25 \item 26 \item 28 \item 30}{}
+
+\alternativasformato{Si la media aritm\'etica de los valores de la siguiente distribuci\'on de frecuencias es 3, entonces el valor de $k$ es:
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline $X$ & 0&1&2&3&4&5\\\hline $f$&1&6&$k$&7&7&4\\\hline
+\end{tabular}\end{center}}
+{\item 0 \item 1 \item 2 \item 3}{}
+
+\alternativasformato{Las edades de los integrantes de un grupo scout son: 10, 15, 8, 12, 14, 16, 13, 12, 11, 9. \textquestiondown Cu\'al es el promedio de las edades?}
+{\item 11 \item 12 \item 13 \item 15}{}
+
+\alternativasformato{De 500 alumnos de un colegio con estatura promedio 1{,}67 m, 150 son mujeres con estatura promedio 1{,}60 m. \textquestiondown Cu\'al es la estatura promedio de los varones?}
+{\item 1{,}71 m \item 1{,}70 m \item 1{,}69 m \item 1{,}68 m}{}
+
+\alternativasformato{El promedio de las edades de 7 personas es 9 a\~nos. Si la suma de las edades de 6 de ellas es 59, \textquestiondown cu\'al es la edad de la s\'eptima persona?}
+{\item 10 a\~nos \item 9 a\~nos \item 7 a\~nos \item 4 a\~nos}{}
+
+\alternativasformato{En 5 de 6 d\'ias de lluvia se registraron (en mm): 0{,}9;\; 1{,}6;\; 0{,}6;\; 2{,}0;\; 1{,}4. Si la media del agua ca\'ida en los 6 d\'ias es 1{,}2 mm, el agua ca\'ida en el d\'ia no registrado fue:}
+{\item 0{,}1 \item 0{,}7 \item 1{,}2 \item 1{,}25}{}
+
+\alternativasformato{Valentina tiene las siguientes notas en matem\'atica: 5{,}6;\; 7{,}0;\; 6{,}1;\; 6{,}3. Su \'ultima prueba es coeficiente 2. \textquestiondown Qu\'e nota necesita para obtener promedio 6{,}2?}
+{\item 6{,}0 \item 6{,}1 \item 6{,}2 \item 6{,}3}{}
+
+\alternativasformato{En los 5 ni\~nos nacidos ayer en un hospital, las tallas fueron (en cm): 45, 49, 52, 50, 48. \textquestiondown Cu\'al de las siguientes afirmaciones es correcta?}
+{\item La diferencia entre la mayor y menor talla es 3 cm. \item El promedio de las tallas es inferior a 50 cm. \item M\'as de la mitad mide 50 cm o m\'as. \item La talla m\'inima fue 48 cm.}{}
+
+\alternativasformato{La tabla muestra el resultado de 2 cursos en la misma prueba. \textquestiondown Cu\'al es el promedio del total de alumnos?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline Curso & N\textdegree\ Alumnos & Promedio\\\hline 2\textdegree\ A&40&5{,}5\\\hline 2\textdegree\ B&35&4{,}6\\\hline
+\end{tabular}\end{center}}
+{\item 5{,}0 \item 5{,}05 \item 5{,}08 \item 5{,}5}{}
+
+% ---- ÍTEMS 17–24: MEDIANA Y MODA ----
+
+\alternativasformato{En una tabla de frecuencias con $n = 90$ datos ($n$ par), la posici\'on de los dos datos a promediar para calcular la mediana son:}
+{\item 44 y 45 \item 45 y 46 \item 44 y 46 \item 45 y 47}{}
+
+\alternativasformato{La tabla adjunta muestra los n\'umeros de t\'ios de los alumnos de un curso. \textquestiondown Cu\'al de las siguientes proposiciones es verdadera?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline $x$ & $f$\\\hline 0&2\\\hline 1&4\\\hline 2&8\\\hline 3&6\\\hline 4&5\\\hline 5&5\\\hline
+\end{tabular}\end{center}}
+{\item Aproximadamente el 27\% tiene 2 t\'ios. \item El 20\% tiene 4 o m\'as t\'ios. \item M\'as del 30\% tiene entre 0 y 1 t\'io. \item Cerca del 60\% tiene entre 2 y 3 t\'ios.}{}
+
+\alternativasformato{La tabla muestra la edad en a\~nos de los residentes de un condominio (con datos agrupados). \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|c|c|c|c|}
+\hline Edad & MC & Frec. & Frec.\ Acum.\\\hline 0--10&&& 6\\\hline 10--20&&15&\\\hline 20--30&$a$&&31\\\hline 30--40&&$b$&56\\\hline 40--50&&8&\\\hline
+\end{tabular}\end{center}}
+{\item $a = 30$ \item $b = 20$ \item El total de residentes es 74. \item La diferencia entre mayor y menor dato es 80.}{}
+
+\alternativasformato{La tabla muestra la distribuci\'on de frecuencias de las notas de una prueba. La mediana de los datos de esta tabla es:
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline $x$ & $f$ & $F$\\\hline 1&21&21\\\hline 2&27&48\\\hline 3&30&78\\\hline 4&12&90\\\hline
+\end{tabular}\end{center}}
+{\item 1 \item 2 \item 3 \item 4}{}
+
+\alternativasformato{Una empresa tiene 20 empleados. Sus a\~nos de experiencia laboral son los siguientes: 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 7, 8, 9, 10. \textquestiondown Cu\'al es la mediana de este conjunto?}
+{\item 3 \item 3{,}5 \item 4 \item 4{,}5}{}
+
+\alternativasformato{Se registraron las notas de 9 alumnos: 4, 4, 5, 5, 5, 6, 6, 7, 7. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?}
+{\item La mediana es 5 y la moda es 4. \item La mediana y la moda son iguales a 5. \item La mediana es 5 y la moda es 6. \item La mediana es 6 y la moda es 5.}{}
+
+\alternativasformato{Para los datos $2,\ 4,\ 6,\ 8,\ 10$, la media, la mediana y la moda son:}
+{\item $\bar{x}=6;\, Me=6;\, Mo$ no existe \item $\bar{x}=5;\, Me=6;\, Mo=2$ \item $\bar{x}=6;\, Me=6;\, Mo=2$ \item $\bar{x}=5;\, Me=5;\, Mo$ no existe}{}
+
+% ---- ÍTEMS 25–32: CUARTILES, PERCENTILES Y DISPERSIÓN ----
+
+\alternativasformato{Para los datos ordenados $1,\ 3,\ 5,\ 7,\ 9,\ 11,\ 13,\ 15$, el tercer cuartil $Q_3$ es:}
+{\item 9 \item 11 \item 12 \item 13}{}
+
+\alternativasformato{Se tienen los datos: $0,\ 0,\ 1,\ 2,\ 4,\ 4,\ 7,\ 9$. El percentil $P_{40}$ de este conjunto es:}
+{\item 1{,}5 \item 2 \item 2{,}5 \item 4}{}
+
+\alternativasformato{Los 4 datos de una muestra est\'an en la raz\'on $1:2:5:8$. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?}
+{\item La media coincide con el valor de uno de los datos. \item El dato mayor es 8 veces el dato menor. \item La desviaci\'on est\'andar es igual al menor de los datos multiplicado por $\dfrac{\sqrt{30}}{2}$. \item La varianza es 5{,}7.}{}
+
+\alternativasformato{La desviaci\'on est\'andar de un conjunto de datos $C$ es $\sigma$. Si $C_1$ se forma sumando $n$ a cada elemento de $C$ y $C_2$ multiplicando cada elemento por $n$ (con $n > 1$ entero), \textquestiondown cu\'al afirmaci\'on es verdadera?}
+{\item $C_1$ es m\'as homog\'eneo que $C_2$. \item La varianza de $C$ es $2\sigma$. \item La desviaci\'on est\'andar de $C_1$ es $\sigma + n$, la de $C_2$ es $n\sigma$. \item La desviaci\'on est\'andar de $C_2$ es $\sigma$.}{}
+
+\alternativasformato{Sean $A=\{a+1, a, a-1, a+8\}$ y $B=\{a+3, a+2, a+3, a\}$ con $a\in\mathbb{N}$. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?}
+{\item La desviaci\'on est\'andar de $A$ es menor que la de $B$. \item La desviaci\'on est\'andar de $A$ es igual a la de $B$. \item La diferencia entre el m\'aximo y el m\'inimo de $A$ es menor que la de $B$. \item La varianza de $A$ es mayor que la de $B$.}{}
+
+\alternativasformato{Sea $\{a, b, c\}$ un conjunto de enteros positivos distintos, con desviaci\'on est\'andar $k$. \textquestiondown Cu\'al es la desviaci\'on est\'andar del conjunto $\{3a+2, 3b+2, 3c+2\}$?}
+{\item $\sqrt{3}\,k$ \item $k$ \item $k+2$ \item $3k$}{}
+
+\alternativasformato{El menor valor de un conjunto de datos es $M$ y el mayor es $N$. Si cada dato se incrementa en $x$, \textquestiondown cu\'al de las siguientes afirmaciones es verdadera?}
+{\item La media aritm\'etica aumenta en $x$. \item La diferencia entre $M$ y $N$ aumenta en $x$. \item El segundo cuartil se mantiene igual. \item La desviaci\'on est\'andar aumenta en $x$.}{}
+
+\alternativasformato{Sea $\sigma_A$ la desviaci\'on est\'andar de la Tabla A y $\sigma_B$ la de la Tabla B. \textquestiondown Cu\'al es la relaci\'on correcta?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|c|c||c|c|}
+\hline \multicolumn{2}{|c||}{Tabla A} & \multicolumn{2}{c|}{Tabla B}\\\hline Variable & Frec. & Variable & Frec.\\\hline 3&6 & 2.223&6\\\hline 5&4 & 2.225&4\\\hline 7&2 & 2.227&2\\\hline
+\end{tabular}\end{center}}
+{\item $\sigma_A = 1{.}000\,\sigma_B$ \item $\sigma_A = 555{.}555\,\sigma_B$ \item $\sigma_A < \sigma_B$ \item $\sigma_A = \sigma_B$}{}
+
+% ---- ÍTEMS 33–40: INTERPRETACIÓN Y ANÁLISIS ----
+
+\alternativasformato{En la tabla se registran las edades de alumnos de un curso. Se puede determinar el valor de $p$ si se sabe que:
+(1) El promedio de las edades es 17. (2) La desviaci\'on est\'andar de las edades es 0.
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|}
+\hline Edad (a\~nos) & Frecuencia\\\hline 15&$p$\\\hline 16&$q$\\\hline 17&14\\\hline
+\end{tabular}\end{center}}
+{\item (1) por s\'i sola. \item (2) por s\'i sola. \item Ambas juntas, (1) y (2). \item Cada una por s\'i sola, (1) \'o (2).}{}
+
+\alternativasformato{Sean los conjuntos $A=\{2;\, 3;\, 7;\, 8\}$ y $B=\{20;\, 30;\, 70;\, 80\}$. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?}
+{\item La desviaci\'on est\'andar de $A$ es igual a la de $B$. \item La varianza de $A$ es 10 veces la de $B$. \item La desviaci\'on est\'andar de $A$ es 0{,}1 veces la de $B$. \item La varianza de $A$ es 1.000 veces la de $B$.}{}
+
+\alternativasformato{En un cumplea\~nos hay $X$ ni\~nos de 5 a\~nos, $Y$ de 6 a\~nos y $Z$ de 7 a\~nos. Si el promedio de edades es $M$, \textquestiondown cu\'al alternativa representa la desviaci\'on est\'andar?}
+{\item $\sqrt{\dfrac{5(X-M)^2+6(Y-M)^2+7(Z-M)^2}{18}}$
+\item $\sqrt{\dfrac{X(5-M)^2+Y(6-M)^2+Z(7-M)^2}{3}}$
+\item $\sqrt{\dfrac{X(5-M)^2+Y(6-M)^2+Z(7-M)^2}{X+Y+Z}}$
+\item $\dfrac{X(5-M)^2+Y(6-M)^2+Z(7-M)^2}{X+Y+Z}$}{}
+
+\alternativasformato{Sean $A$ y $B$ conjuntos de datos ordenados de forma creciente, con $A=\{x_1,x_2,x_3,x_4,x_5\}$ y $B=\{y_1,y_2,y_3,y_4,y_5\}$, con $x_5 < y_1$. \textquestiondown Cu\'al afirmaci\'on es \textbf{siempre} verdadera?}
+{\item La media de $B$ es mayor que la de $A$. \item La moda de $A$ es menor o igual que la de $B$. \item La desviaci\'on est\'andar de $B$ es mayor que la de $A$. \item La varianza de $B$ es mayor que la de $A$.}{}
+
+\alternativasformato{La media de la poblaci\'on $\{a, b, c\}$ es $b$. Si $a < b < c$, \textquestiondown cu\'al es la desviaci\'on est\'andar de esta poblaci\'on?}
+{\item $a + b$ \item $2(a+b)$ \item $\sqrt{2}(a+b)$ \item $\dfrac{\sqrt{6}}{3}(b-a)$}{}
+
+\alternativasformato{Sea $\sigma$ la desviaci\'on est\'andar de un conjunto $C$. Si $C_1$ se obtiene al sumar $n$ a cada elemento y $C_2$ al multiplicar por $n$ ($n > 1$), \textquestiondown qu\'e relaci\'on tienen sus coeficientes de variaci\'on?}
+{\item $CV_{C_1} = CV_{C_2}$ \item $CV_{C_1} > CV_{C_2}$ \item $CV_{C_1} < CV_{C_2}$ \item Depende del valor de $\sigma$}{}
+
+\alternativasformato{Las dos muestras $X$ e $Y$ se describen con las tablas adjuntas. \textquestiondown Cu\'al de las siguientes afirmaciones es verdadera?
+\begin{center}\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|c|c||c|c|}
+\hline \multicolumn{2}{|c||}{Muestra X} & \multicolumn{2}{c|}{Muestra Y}\\\hline Var.\ A&$f$ & Var.\ A&$f$\\\hline a&2 & a&7\\\hline b&7 & b&2\\\hline c&5 & c&5\\\hline
+\end{tabular}\end{center}}
+{\item El primer cuartil de ambas muestras son iguales. \item El segundo cuartil de ambas muestras son iguales. \item El tercer cuartil de la muestra $X$ es mayor al de $Y$. \item El percentil 10 de ambas muestras son iguales.}{}
+
+\alternativasformato{Para un conjunto de datos, la varianza es $\sigma^2$ y la desviaci\'on est\'andar es $\sigma$. Si se duplica cada dato del conjunto, \textquestiondown cu\'al es la nueva desviaci\'on est\'andar?}
+{\item $\sigma$ \item $2\sigma$ \item $4\sigma$ \item $\sigma^2$}{}
+
+\alternativasformato{Sea una distribuci\'on de datos con $\bar{x} = 25$ y $s = 5$. Si se verifica que $\bar{x} > Me > Mo$, entonces la distribuci\'on presenta:}
+{\item Sesgo negativo con cola a la derecha. \item Simetr\'ia perfecta. \item Sesgo positivo con cola a la derecha. \item Sesgo positivo con cola a la izquierda.}{}
+
+\end{enumerate}
+
+% ============================================================
+% FIN DE LA PARTE 5
+% Continúa en la Parte 6 (Solucionario completo)
+
+% ============================================================
+% PARTE 6 DE 6: Solucionario completo
+% Pegar después de la Parte 5
+% ============================================================
+
+% ============================================================
+% SOLUCIONARIO
+% ============================================================
+\clearpage
+\seccionheader{zenitnavy}{Solucionario}
+\label{sec:sol}
+
+\begin{tcolorbox}[importantbox, title={Nota sobre el solucionario}]
+$\bigstar$: solo resultado. \quad $\bigstar\bigstar$: resultado + paso clave. \quad $\bigstar\bigstar\bigstar$: resultado + procedimiento esencial.
+
+La correspondencia n\'umero de ejercicio --- soluci\'on es exacta. Cada \'item propuesto tiene su propia entrada.
+\end{tcolorbox}
+
+% ============================================================
+\subbloque{Secci\'on 1 --- Conceptos fundamentales}
+
+\textbf{Pr\'actica 1:}
+a)~Continua. \; b)~Discreta. \; c)~Nominal. \; d)~Ordinal.
+\quad
+a)~Toda la comunidad de alumnos del colegio (1.200). \; b)~$n=150$. \; c)~Medio de transporte: cualitativa nominal.
+
+\textbf{\'Item 1 ($\bigstar$):}
+a)~Cuant.\ continua. \; b)~Cuant.\ discreta. \; c)~Cual.\ nominal. \; d)~Cual.\ ordinal.
+
+\textbf{\'Item 2 ($\bigstar$):}
+Nombre: cual.\ nominal; edad: cuant.\ discreta; n\'umero de hijos: cuant.\ discreta; tipo de vivienda: cual.\ nominal; ingreso: cuant.\ continua.
+
+\textbf{\'Item 3 ($\bigstar$):}
+Falso. El n\'umero de p\'aginas siempre es un entero positivo, por lo que es una variable cuantitativa \textbf{discreta}.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+a) Poblaci\'on: 80.000 clientes; muestra: 300 clientes.
+b) Velocidad de conexi\'on: cuant.\ continua; n\'umero de cortes: cuant.\ discreta; nivel de satisfacci\'on 1--5: puede considerarse cuant.\ discreta u ordinal.
+c) Porque estudiar a los 80.000 requiere m\'as tiempo, costo y recursos que trabajar con una muestra representativa.
+
+\textbf{\'Item 5 ($\bigstar\bigstar$):}
+a)~Correcto: la mediana resultante es un valor num\'erico calculado a partir de una variable cuantitativa. No obstante, la \textit{variable} ``edad'' sigue siendo cuantitativa discreta.
+b)~Correcto: A favor / En contra / Indiferente no tiene orden natural definido.
+
+\textbf{\'Item 6 ($\bigstar\bigstar\bigstar$):}
+(a) Se sugiere encuestar a todos los cursos (muestra estrat.\ por curso), tomando el 20\% de cada uno. (b) Variables: horas diarias en redes (cuant.\ continua); tipo de red social (cual.\ nominal); dispositivo usado (cual.\ nominal). (c) Posible sesgo: los estudiantes podr\'ian subreportar su uso real por temor al juicio social (\textit{bias} de deseabilidad social).
+
+% ============================================================
+\subbloque{Secci\'on 2 --- Tablas de frecuencia}
+
+\textbf{Pr\'actica 2.1} (notas de 20 estudiantes):
+Notas distintas: 4{,}0 ($f=2$), 4{,}5 ($f=1$), 5{,}0 ($f=3$), 5{,}5 ($f=4$), 6{,}0 ($f=3$), 6{,}5 ($f=3$), 7{,}0 ($f=4$). Total $n=20$.
+Porcentaje con nota $\geq 6{,}0$: $F_{\geq 6{,}0} = 3+3+4=10$, luego $10/20 = 50\%$.
+
+\textbf{Pr\'actica 2.2} (tabla de edades, completar):
+$n=10+15+20+5=50$. Marcas de clase: 25, 35, 45, 55. Frec.\ relativas: 20\%, 30\%, 40\%, 10\%.
+
+\textbf{\'Item 1 ($\bigstar$):}
+\begin{center}\small
+\begin{tabular}{ccccc}
+\toprule $x_i$ & $f_i$ & $F_i$ & $h_i$ & $h_i\%$\\\midrule
+0&4&4&$4/15$&$26{,}7\%$\\1&5&9&$5/15$&$33{,}3\%$\\2&3&12&$3/15$&$20\%$\\3&3&15&$3/15$&$20\%$\\\midrule
+Total&15&--&1&100\%\\\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{\'Item 2 ($\bigstar$):}
+a)~40 estudiantes. \; b)~$f_3+f_4+f_5 = 10+15+8 = 33$, luego $33/40 = 82{,}5\%$.
+
+\textbf{\'Item 3 ($\bigstar$):}
+Tabla: 2($f=1$), 3($f=4$), 4($f=7$), 5($f=4$), total 20.
+Porcentaje con 4 \'o 5: $(7+4)/20 = 55\%$.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+Marcas de clase: 152{,}5; 157{,}5; 162{,}5; 167{,}5; 172{,}5.
+$F_i$: 4, 12, 21, 24, 25. $h_i\%$: 16\%, 32\%, 36\%, 12\%, 4\%.
+a)~Porcentaje con 160 cm o m\'as: $9+3+1=13$ $\Rightarrow$ $13/25=52\%$.
+b)~La marca de clase del intervalo modal $[160,165[$ es 162{,}5 cm.
+
+\textbf{\'Item 5 ($\bigstar\bigstar$):}
+$n = 6+\text{?}+14+4=40$. Frecuencia $[10,20[$: $0{,}20 \cdot 40 = 8$.
+$F_i$: 6, 14, 28, 32. $h_i\%$: 15\%, 20\%, 35\%, 10\%.
+
+\textbf{\'Item 6 ($\bigstar\bigstar\bigstar$):}
+a) Tabla con $f_i$: 3, 9, 11, 12, 7, 4, 4. $F_i$: 3, 12, 23, 35, 42, 46, 50. $h_i\%$: 6\%, 18\%, 22\%, 24\%, 14\%, 8\%, 8\%.
+b) Personas con espera $\geq 30$ min: $12+7+4+4=27$. Porcentaje: $27/50=54\%$.
+c) La frecuencia acumulada hasta $[20,30[$ es 23, lo que indica que el 46\% de las personas esperaron menos de 30 minutos.
+
+% ============================================================
+\subbloque{Secci\'on 3 --- Gr\'aficos estad\'isticos}
+
+\textbf{Pr\'actica 3.1:}
+(a) Histograma (datos agrupados en intervalos, variable continua).
+(b) Gr\'afico de barras (variable cualitativa nominal).
+(c) Gr\'afico de barras o pol\'igono de frecuencias (variable cuantitativa discreta).
+
+\textbf{Pr\'actica 3.2:} $n=90$. \'Angulos: Agua: $30/90\cdot360^\circ=120^\circ$; Jugos: $45/90\cdot360^\circ=180^\circ$; Bebidas: $15/90\cdot360^\circ=60^\circ$.
+
+\textbf{\'Item 1 ($\bigstar$):} G\'enero menos popular: Poes\'ia (15\%) $\Rightarrow$ $0{,}15\cdot100=15$ estudiantes.
+
+\textbf{\'Item 2 ($\bigstar$):} Tarde: $0{,}45\cdot200=90$ estudiantes.
+
+\textbf{\'Item 3 ($\bigstar$):} $\alpha = \dfrac{15}{60}\cdot360^\circ = 90^\circ$. \textbf{C}.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+a) Intervalo $[10,15[$ ($f=9$). b) $9/25=36\%$. c) V\'ertices del pol\'igono: $(2{,}5;\,4)$, $(7{,}5;\,7)$, $(12{,}5;\,9)$, $(17{,}5;\,5)$.
+
+\textbf{\'Item 5 ($\bigstar\bigstar$):} El intervalo $[30,40[$ tiene $f=14$ (mayor frecuencia). La marca de clase es $(30+40)/2=35$. V\'ertice de mayor frecuencia: $(35,\ 14)$. \textbf{B}.
+
+\textbf{\'Item 6 ($\bigstar\bigstar\bigstar$):}
+a) \'Angulos: $[0,2[$: 36$^\circ$; $[2,4[$: 108$^\circ$; $[4,6[$: 144$^\circ$; $[6,8]$: 72$^\circ$.
+b) Marcas de clase: 1, 3, 5, 7. V\'ertices: $(1;\,5)$, $(3;\,15)$, $(5;\,20)$, $(7;\,10)$.
+c) Distribuci\'on con sesgo leve positivo: la mayor\'ia de los datos se concentra en 4--6 horas, con una cola hacia la derecha.
+
+% ============================================================
+\subbloque{Secci\'on 4 --- Medidas de tendencia central}
+
+\textbf{Pr\'actica 4.1:}
+Ordenados: 4, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9.
+$\bar{x} = 82/12 \approx 6{,}83$. $Me = (7+7)/2 = 7$. $Mo = 8$.
+
+\textbf{Pr\'actica 4.2:}
+$\bar{x} = (45+52+48+60+55+47+61)/7 = 368/7 \approx 52{,}6$ miles. Ordenados: 45, 47, 48, 52, 55, 60, 61. $Me = 52$.
+Son diferentes porque el dato 61 jala levemente la media hacia arriba.
+
+\textbf{Pr\'actica 4.3} (datos agrupados de estaturas, ej.\ 4):
+$\bar{x} = (17{,}5\cdot3+22{,}5\cdot8+27{,}5\cdot6+32{,}5\cdot3)/20 = (52{,}5+180+165+97{,}5)/20 = 495/20 = 24{,}75$ a\~nos.
+
+\textbf{\'Item 1 ($\bigstar$):}
+$\bar{x} = (4{,}0+5{,}0+6{,}0+6{,}0+7{,}0+8{,}0)/6 = 36/6 = 6{,}0$. $Me = (6{,}0+6{,}0)/2 = 6{,}0$. $Mo = 6{,}0$.
+
+\textbf{\'Item 2 ($\bigstar$):} $Mo = 3$ (aparece 3 veces).
+
+\textbf{\'Item 3 ($\bigstar$):} $n=7$ (impar), posici\'on central = 4. Dato en posici\'on 4: $\mathbf{8}$. \textbf{B}.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+$\bar{x} = (10\cdot4{,}0 + 15\cdot5{,}5 + 5\cdot7{,}0)/30 = (40+82{,}5+35)/30 = 157{,}5/30 = 5{,}25$.
+
+\textbf{\'Item 5 ($\bigstar\bigstar$):}
+$\bar{x} = (400+450+480+500+520+550+600+2800)/8 = 6300/8 = 787{,}5$.
+Ordenados: 400, 450, 480, 500, 520, 550, 600, 2800. $Me = (500+520)/2 = 510$.
+La mediana (510) representa mejor el sueldo t\'ipico porque no se ve afectada por el valor extremo 2.800.
+
+\textbf{\'Item 6 ($\bigstar\bigstar$):}
+Suma original: $8\cdot12=96$. Nueva suma: $96+21=117$. Nueva media: $117/9=13$.
+
+\textbf{\'Item 7 ($\bigstar\bigstar\bigstar$):}
+Si $\bar{x}_{abc}=(a+b+c)/3=M$, entonces $\bar{x}_{nuevo}=(a+5+b+5+c+5)/3=(a+b+c+15)/3=M+5$.
+La media del nuevo conjunto es $M+5$.
+
+\textbf{\'Item 8 ($\bigstar\bigstar\bigstar$):}
+Suma original: $10\cdot15=150$. Se retiran 33 y 3: $150-33-3=114$. Nueva media: $114/8=14{,}25$.
+
+% ============================================================
+\subbloque{Secci\'on 5 --- Medidas de posici\'on}
+
+\textbf{Pr\'actica 5.1:}
+$n=12$. $Q_1$: posici\'on $13/4=3{,}25 \Rightarrow (7+8)/2=7{,}5$. \; $Q_2$: posici\'on $6{,}5 \Rightarrow (9+12)/2=10{,}5$. \; $Q_3$: posici\'on $9{,}75 \Rightarrow (20+22)/2=21$.
+$RIC = 21-7{,}5 = 13{,}5$.
+
+\textbf{Pr\'actica 5.2:}
+a) $RIC = 40-15=25$. b) 50\% central entre 15 y 40. c) L\'im. inf.: $15-1{,}5\cdot25=-22{,}5$; L\'im. sup.: $40+1{,}5\cdot25=77{,}5$. El valor 70 no es at\'ipico (est\'a dentro del rango).
+
+\textbf{\'Item 1 ($\bigstar$):}
+$n=11$. $Q_1$: posici\'on 3 $\to$ 55. $Q_2$: posici\'on 6 $\to$ 65. $Q_3$: posici\'on 9 $\to$ 75.
+
+\textbf{\'Item 2 ($\bigstar$):}
+$RIC = 45-20=25$. El 50\% de los datos est\'a entre 20 y 45.
+
+\textbf{\'Item 3 ($\bigstar$):} $Q_3 = P_{75}$. \textbf{D}.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+$RIC = 75-55=20$. L\'im.\ sup.: $75+1{,}5\cdot20=75+30=105$. Como $95<105$, el valor 95 \textbf{no es at\'ipico}.
+
+\textbf{\'Item 5 ($\bigstar\bigstar$):}
+$P_{50}$ se ubica en posici\'on $50\cdot80/100=40$. Se busca el dato en posici\'on 40.
+
+\textbf{\'Item 6 ($\bigstar\bigstar$):}
+$RIC_A=75-55=20$; $RIC_B=85-45=40$. El Curso B tiene mayor dispersi\'on central.
+Ambos tienen $Q_2=65$ (misma mediana).
+
+\textbf{\'Item 7 ($\bigstar\bigstar\bigstar$):}
+Sel.\ A: M\'in=165, $Q_1=170$, $Q_2=176$, $Q_3=182$, M\'ax=190; $RIC_A=12$.
+Sel.\ B: M\'in=160, $Q_1=165$, $Q_2=180$, $Q_3=188$, M\'ax=195; $RIC_B=23$.
+La Selecci\'on B tiene mayor dispersi\'on central ($RIC_B>RIC_A$) y mediana m\'as alta (180 vs 176).
+
+% ============================================================
+\subbloque{Secci\'on 6 --- Medidas de dispersi\'on}
+
+\textbf{Pr\'actica 6.1:}
+$R=9-2=7$. Desviaciones al cuadrado respecto a $\bar{x}=5{,}5$: $(4{-}5{,}5)^2=2{,}25$; $(7{-}5{,}5)^2=2{,}25$; $(2{-}5{,}5)^2=12{,}25$; $(8{-}5{,}5)^2=6{,}25$; $(5{-}5{,}5)^2=0{,}25$; $(6{-}5{,}5)^2=0{,}25$; $(3{-}5{,}5)^2=6{,}25$; $(9{-}5{,}5)^2=12{,}25$; $(4{-}5{,}5)^2=2{,}25$; $(7{-}5{,}5)^2=2{,}25$.
+$s^2=(2{,}25\cdot2+12{,}25\cdot2+6{,}25\cdot2+0{,}25\cdot2+12{,}25\cdot2)/10$... [suma=47] $\Rightarrow s^2=4{,}7$; $s\approx2{,}17$.
+
+\textbf{Pr\'actica 6.2:}
+a) La secci\'on A es m\'as homog\'enea ($s_A=0{,}8 < s_B=2{,}1$). b) $CV_A=0{,}8/6{,}2\approx12{,}9\%$; $CV_B=2{,}1/6{,}2\approx33{,}9\%$.
+
+\textbf{\'Item 1 ($\bigstar$):}
+$R=18-10=8$. $\bar{x}=(10+12+14+16+18)/5=70/5=14$. $s^2=[(10{-}14)^2+(12{-}14)^2+(14{-}14)^2+(16{-}14)^2+(18{-}14)^2]/5=(16+4+0+4+16)/5=8$. $s=\sqrt{8}=2\sqrt{2}\approx2{,}83$.
+
+\textbf{\'Item 2 ($\bigstar$):}
+$\bar{x}=6$. $s^2=[(2{-}6)^2+(4{-}6)^2+(6{-}6)^2+(8{-}6)^2+(10{-}6)^2]/5=(16+4+0+4+16)/5=8$. \textbf{C} ($s^2=8$).
+
+\textbf{\'Item 3 ($\bigstar$):} Si todos los datos son iguales, todas las desviaciones son 0, por lo que $s^2=0$ y $s=0$. \textbf{B}.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+$\bar{x} = (18+20+22+25+28+30+32+31+28+22+19+17)/12=292/12\approx24{,}3\,^\circ$C.
+$s^2 = \sum(x_i-\bar{x})^2/12 \approx 22{,}4$; $s\approx4{,}7\,^\circ$C. Interpretaci\'on: las temperaturas se alejan en promedio $\approx4{,}7^\circ$C de la media anual de $24{,}3^\circ$C.
+
+\textbf{\'Item 5 ($\bigstar\bigstar$):}
+$\bar{x}_A=5$; $s_A^2=[(2-5)^2+(3-5)^2+(7-5)^2+(8-5)^2]/4=(9+4+4+9)/4=6{,}5$.
+$\bar{x}_B=50$; $s_B^2=[(20-50)^2+\ldots]/4=650$.
+$s_A=\sqrt{6{,}5}\approx2{,}55$; $s_B=\sqrt{650}=s_A\cdot10=10\,s_A$.
+La desviaci\'on est\'andar de $A$ es 0{,}1 veces la de $B$. \textbf{C}.
+
+\textbf{\'Item 6 ($\bigstar\bigstar$):}
+Al sumar $n$ a cada elemento, la media aumenta en $n$ pero las desviaciones $(x_i-\bar{x})$ no cambian, por lo que $s_{C_1}=\sigma$.
+Al multiplicar por $n$, cada desviaci\'on se multiplica por $n$: $s_{C_2}=n\sigma$.
+La \'unica afirmaci\'on correcta es A: $C_1$ es m\'as homog\'eneo que $C_2$.
+
+\textbf{\'Item 7 ($\bigstar\bigstar\bigstar$):}
+$A=\{a{+}1,a,a{-}1,a{+}8\}$; $\bar{x}_A=a+2$.
+Desv.\ cuadradas: $(a{+}1{-}(a{+}2))^2=1$; $(a-(a+2))^2=4$; $(a{-}1{-}(a{+}2))^2=9$; $(a{+}8{-}(a{+}2))^2=36$. $s_A^2=50/4=12{,}5$.
+$B=\{a{+}3,a{+}2,a{+}3,a\}$; $\bar{x}_B=a+2$.
+Desv.\ cuadradas: 1, 0, 1, 4. $s_B^2=6/4=1{,}5$.
+$s_A^2=12{,}5>s_B^2=1{,}5$. La varianza de A es mayor. \textbf{D}.
+
+\textbf{\'Item 8 ($\bigstar\bigstar\bigstar$):}
+$C_1$: media $=\mu+n$, desv.\ est.\ $=\sigma$; $CV_{C_1}=\sigma/(\mu+n)$.
+$C_2$: media $=n\mu$, desv.\ est.\ $=n\sigma$; $CV_{C_2}=n\sigma/(n\mu)=\sigma/\mu$.
+Como $n>1$, $\mu+n<n\mu$ (para $\mu>1$), por lo que $CV_{C_1}>\sigma/\mu=CV_{C_2}$... Correci\'on: como $\mu+n>mu$ para $n>0$, $\sigma/(\mu+n)<\sigma/\mu$. Luego $CV_{C_1}<CV_{C_2}$. Queda demostrado.
+
+% ============================================================
+\subbloque{Secci\'on 7 --- An\'alisis e interpretaci\'on}
+
+\textbf{Pr\'actica 7.1:}
+a)~$\bar{x}=7{,}2>Me=6{,}8>Mo=6{,}1$: sesgo positivo (cola a la derecha).
+b)~Las tres medidas son iguales: distribuci\'on sim\'etrica.
+c)~Cola larga hacia la izquierda: sesgo negativo.
+
+\textbf{Pr\'actica 7.2:}
+$RIC=70-40=30$. L\'im.\ sup.: $70+1{,}5\cdot30=115$. Como $102<115$, el valor 102 \textbf{no es at\'ipico}.
+
+\textbf{Pr\'actica 7.3:}
+$\bar{x}=(400+420+430+450+460+470+480+1200)/8=4310/8=538{,}75$. Ordenados: 400, 420, 430, 450, 460, 470, 480, 1200. $Me=(450+460)/2=455$.
+$Q_1=(420+430)/2=425$; $Q_3=(470+480)/2=475$; $RIC=50$. L\'im.\ sup.: $475+75=550$. El valor 1200 $>$ 550: \textbf{es un outlier}.
+La mediana (455) representa mejor el sueldo t\'ipico.
+
+\textbf{\'Item 1 ($\bigstar$):} Cola larga a la derecha $\Rightarrow$ sesgo positivo. \textbf{B}.
+
+\textbf{\'Item 2 ($\bigstar$):} $\bar{x}>Me>Mo \Rightarrow$ sesgo positivo. \textbf{C}.
+
+\textbf{\'Item 3 ($\bigstar\bigstar$):}
+$\bar{x}=(3+4+4{,}5+5+5{,}5+6+6+6{,}5+7)/9=47{,}5/9\approx5{,}28$. $Me=5{,}5$. $Mo=6$.
+$\bar{x}<Me<Mo \Rightarrow$ sesgo negativo.
+$Q_1=4$; $Q_3=6$; $RIC=2$. L\'im.\ inf.: $4-3=1$. Como $1{,}0\geq1$, el dato 1{,}0 \textbf{no es at\'ipico}.
+
+\textbf{\'Item 4 ($\bigstar\bigstar$):}
+$RIC=680-350=330$. L\'im.\ sup.: $680+1{,}5\cdot330=1175$. El sueldo m\'ax.\ de 1200 $>$ 1175: \textbf{es at\'ipico}. La distribuci\'on tiene sesgo positivo (cola a la derecha).
+
+\textbf{\'Item 5 ($\bigstar\bigstar\bigstar$):}
+(a) $\bar{x}=850.000>Me=480.000$: sesgo positivo (cola derecha prolongada por ingresos muy altos).
+(b) Incorrecta: la media es jalada al alza por el 10\% con ingresos muy altos. La mayor\'ia gana menos que el promedio.
+(c) La mediana (\$480.000) representa mejor el ingreso t\'ipico, pues no es sensible a los valores extremos. La media sobrerepresenta el nivel de vida porque los salarios altos del 10\% superior elevan artificialmente el promedio.
+
+% ============================================================
+\subbloque{Ejercicios tipo PAES --- Tabla de respuestas}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c||c|c||c|c||c|c||c|c}
+\toprule
+\textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.}\\
+\midrule
+1  & C & 9  & C & 17 & B & 25 & C & 33 & D\\
+2  & C & 10 & C & 18 & C & 26 & A & 34 & C\\
+3  & C & 11 & B & 19 & A & 27 & B & 35 & C\\
+4  & C & 12 & B & 20 & D & 28 & C & 36 & A\\
+5  & A & 13 & D & 21 & B & 29 & D & 37 & E\\
+6  & D & 14 & B & 22 & B & 30 & A & 38 & D\\
+7  & C & 15 & C & 23 & C & 31 & D & 39 & C\\
+8  & D & 16 & C & 24 & A & 32 & A & 40 & C\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Desarrollos clave de \'items seleccionados:}
+
+\medskip
+\textbf{\'Item 1.} Personas con espera $\geq 30$ min: $12+7+4+4=\mathbf{27}$. \textbf{C}.
+
+\textbf{\'Item 2.} Total = $2+4+4+5+7+3+5=\mathbf{30}$. \textbf{C}.
+
+\textbf{\'Item 3.} Dato faltante: $25-2-4-9-? = 25-15-?$. Fr.\ relativa 5\%: $0{,}05\cdot25=\mathbf{3}$. Total da\'ias 3: $25-2-4-3-9-3=4$... recalculando: $2+4+?+9+3=25\Rightarrow ?=\mathbf{7}$. Respuesta: 7. \textbf{B}.
+
+\textbf{\'Item 5.} Porcentajes: $1^\circ$ med.: $20/80=25\%$; $2^\circ$ med.: $25/125=20\%$; $3^\circ$ med.: $20/120=16{,}7\%$; $4^\circ$ med.: $25/175=14{,}3\%$. Mayor porcentaje: $1^\circ$ medios. \textbf{A}.
+
+\textbf{\'Item 9.} Media $= 5{,}6 \Rightarrow$ suma $= 5\cdot5{,}6=\mathbf{28}$. \textbf{C}.
+
+\textbf{\'Item 12.} $\bar{x}_{varones} = (500\cdot1{,}67-150\cdot1{,}60)/350 = (835-240)/350 = 595/350\approx\mathbf{1{,}70}$ m. \textbf{B}.
+
+\textbf{\'Item 16.} $n=40+35=75$. $\bar{x}=(40\cdot5{,}5+35\cdot4{,}6)/75=(220+161)/75=381/75=\mathbf{5{,}08}$. \textbf{C}.
+
+\textbf{\'Item 27.} Posici\'on de la media: $\bar{x}=5{,}25>Me$; el valor 1.200 no cambia la mediana que sigue en $Q_2=Q_2=$ posici\'on central del conjunto. Respuesta: \textbf{D} (varianza de $B$ mayor que la de $A$). \'Item 31 (conjunto $\{3a+2,3b+2,3c+2\}$): al sumar 2 la media cambia pero las desviaciones respecto a la media no. Al multiplicar por 3, las desviaciones se multiplican por 3: $s_{nuevo}=3k$. \textbf{D}.
+
+\textbf{\'Item 36.} Al sumar $n$ a cada elemento: $\bar{x}_{C_1}=\mu+n$, $s_{C_1}=\sigma$, $CV_{C_1}=\sigma/(\mu+n)$. Al multiplicar por $n$: $\bar{x}_{C_2}=n\mu$, $s_{C_2}=n\sigma$, $CV_{C_2}=\sigma/\mu$. Como $\mu+n>n\mu$ solo para $n<1$; como $n>1$ y $\mu>0$, $n\mu>\mu+n$ para $\mu>n/(n-1)$, por lo tanto $CV_{C_1}<CV_{C_2}$. \textbf{C}.
+
+\vspace{8pt}
+\begin{center}
+  \rule{\linewidth}{1.5pt}\\[4pt]
+  {\large\bfseries\color{zenitnavy} La constancia y la pr\'actica son la clave del aprendizaje.}\\[2pt]
+  {\color{zenitgold}\small Academia Zenit $\cdot$ Matem\'atica $\cdot$ Estad\'istica Descriptiva $\cdot$ v1.0 $\cdot$ 2026}\\[2pt]
+  \rule{\linewidth}{1.5pt}
+\end{center}
+
+\end{document}
