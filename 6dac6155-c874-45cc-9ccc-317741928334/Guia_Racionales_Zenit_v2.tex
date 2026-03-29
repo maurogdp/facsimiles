@@ -1,0 +1,2797 @@
+% ============================================================
+% GUÍAS ACADEMIA ZENIT
+% Guía 4 · Números Racionales — Versión 2.0 · 2026
+% ============================================================
+% Compilar DOS VECES con:
+%   pdflatex -interaction=nonstopmode Guia_Racionales_Zenit_v1.tex
+% El archivo "logosin fondo.png" debe estar en la misma carpeta.
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, babel, arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+\usepackage{setspace}
+
+% -- Espaciado global --
+\linespread{1.18}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% -- Espaciado en listas --
+\setlist{itemsep=4pt, topsep=6pt, parsep=2pt}
+\setlist[enumerate,2]{itemsep=3pt, topsep=3pt}
+
+% -- Colores Institucionales Academia Zenit (INMUTABLES) --
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  importantbox/.style={enhanced,breakable,colback=white,colframe=zenitblue,
+    colbacktitle=zenitblue,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitblue,colback=zenitblue,arc=2pt}},
+  examplebox/.style={enhanced,breakable,colback=white,colframe=zenitgold,
+    colbacktitle=zenitgold,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitgold,colback=zenitgold,arc=2pt}},
+  warningbox/.style={enhanced,breakable,colback=white,colframe=zenitred,
+    colbacktitle=zenitred,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitred,colback=zenitred,arc=2pt}},
+  answerbox/.style={enhanced,breakable,colback=white,colframe=zenitnavy,
+    colbacktitle=zenitnavy,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitnavy,colback=zenitnavy,arc=2pt}}
+}
+
+% -- Comandos de estructura (INMUTABLES) --
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.6em}
+  \noindent{\Large\bfseries\color{#1} #2}\par
+  \vspace{0.4em}{\noindent\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{1.0em}}
+
+\newcommand{\subbloque}[1]{%
+  \vspace{14pt}
+  \noindent{\large\bfseries\color{zenitnavy} #1}\par
+  \vspace{4pt}\hrule height 1pt\vspace{8pt}}
+
+% -- Metadatos --
+\newcommand{\TipoGuia}{Gu\'ia de Estudio Progresiva}
+\newcommand{\TituloGuia}{N\'umeros Racionales}
+\newcommand{\TemaEncabezado}{N\'umeros Racionales $\cdot$ 2.0 $\cdot$ 2026}
+\newcommand{\NivelGuia}{Matem\'atica}
+
+% -- Encabezado y pie de página --
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\textbf{Academia Zenit} $\cdot$ \TemaEncabezado}
+\fancyhead[R]{\small P\'agina \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small\textit{\NivelGuia\ $\cdot$ N\'umeros Racionales}}
+\fancyfoot[R]{\small Prohibida su reproducci\'on total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ============================================================
+% PÁGINA 1 — PORTADA
+% ============================================================
+\thispagestyle{empty}
+
+\vspace*{2.5cm}
+
+\begin{center}
+  \includegraphics[width=0.30\linewidth]{logosin fondo.png}\\[1.8cm]
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.5cm]
+  {\LARGE\bfseries\color{zenitblue} Gu\'ia de Estudio Progresiva}\\[0.3cm]
+  {\LARGE\bfseries\color{zenitblue} N\'umeros Racionales}\\[1.4cm]
+  {\Large\bfseries\color{zenitnavy} Matem\'atica}\\[1.2cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.5pt}}\\[1.0cm]
+  {\large\itshape\color{zenitnavy} Material de apoyo y ejercitaci\'on}
+\end{center}
+
+\vfill
+
+\begin{center}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}\\[0.5cm]
+  {\large\bfseries\color{zenitnavy} Academia Zenit}\\[3pt]
+  {\color{zenitgold} Matem\'atica $\cdot$ N\'umeros Racionales $\cdot$ 2.0 $\cdot$ 2026}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+% ============================================================
+% PÁGINA 2 — GLOSARIO, ÍNDICE Y PROPÓSITO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\vspace*{0.2cm}
+
+% ---- GLOSARIO ----
+
+\begin{tcolorbox}[importantbox, title={Glosario de simbolog\'ia}]
+
+{\small\textit{Los s\'imbolos espec\'ificos del tema N\'umeros Racionales aparecen resaltados en \textcolor{zenitgold}{\textbf{dorado}}.}}
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.32}
+\begin{tabular}{c p{4.8cm} | c p{4.8cm}}
+\toprule
+\textbf{S\'imbolo} & \textbf{Significado} & \textbf{S\'imbolo} & \textbf{Significado}\\
+\midrule
+\multicolumn{4}{l}{\textit{Conjuntos num\'ericos}}\\
+$\mathbb{N}$ & Naturales $\{1,2,3,\ldots\}$ &
+$\mathbb{Z}$ & Enteros $\{\ldots,-1,0,1,\ldots\}$\\
+$\mathbb{Q}$ & Racionales: $\frac{p}{q}$, $q\neq 0$ &
+$\mathbb{R}$ & N\'umeros reales\\
+$a \in A$ & $a$ pertenece al conjunto $A$ &
+$\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}$ & Contenci\'on de conjuntos\\[3pt]
+\multicolumn{4}{l}{\textit{Relaciones}}\\
+$=\ \neq$ & Igual / distinto de &
+$<\ >\ \leq\ \geq$ & Menor, mayor (estricto / no estricto)\\
+$\approx$ & Aproximadamente igual &
+$|a|$ & Valor absoluto de $a$\\[3pt]
+\multicolumn{4}{l}{\textit{\textcolor{zenitgold}{\textbf{N\'umeros Racionales --- tema central}}}}\\
+\textcolor{zenitgold}{$\dfrac{p}{q}$} & \textcolor{zenitgold}{Fracci\'on ($q\neq 0$)} &
+\textcolor{zenitgold}{$\text{mcd}(a,b)$} & \textcolor{zenitgold}{M\'aximo com\'un divisor}\\[6pt]
+\textcolor{zenitgold}{$\text{mcm}(a,b)$} & \textcolor{zenitgold}{M\'inimo com\'un m\'ultiplo} &
+\textcolor{zenitgold}{$a\,{:}\,b$} & \textcolor{zenitgold}{Raz\'on entre $a$ y $b$}\\[3pt]
+\textcolor{zenitgold}{$a\%$} & \textcolor{zenitgold}{Porcentaje: $\frac{a}{100}$} &
+\textcolor{zenitgold}{$0{,}\overline{d}$} & \textcolor{zenitgold}{Decimal peri\'odico de per\'iodo $d$}\\[3pt]
+\multicolumn{4}{l}{\textit{Convenciones de esta gu\'ia}}\\
+$\checkmark$ & Soluci\'on verificada &
+$\bigstar$ & Nivel b\'asico\\
+$\bigstar\bigstar$ & Nivel intermedio &
+$\bigstar\bigstar\bigstar$ & Nivel avanzado\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\medskip
+
+% ---- ÍNDICE ----
+
+\begin{tcolorbox}[answerbox, title={\'Indice de contenidos}]
+\begin{multicols}{2}
+{\small
+\begin{tabular}{r @{\hspace{4pt}} p{5.5cm} @{\hspace{6pt}} r}
+\textbf{\S{}} & \textbf{Galer\'ia matem\'atica} & \textbf{p.\,\pageref{sec:galeria}}\\
+ & Mary Cartwright & \\
+ & Bh\={a}skara II & \\[3pt]
+\textbf{\S{}} & \textbf{Secc. 1 $\cdot$ El conjunto $\mathbb{Q}$} & \textbf{p.\,\pageref{sec:1}}\\
+1.1 & Definici\'on y notaci\'on & \pageref{sub:1.1}\\
+1.2 & Relaci\'on con $\mathbb{N}$ y $\mathbb{Z}$ & \pageref{sub:1.2}\\
+1.3 & Representaci\'on decimal & \pageref{sub:1.3}\\
+1.4 & Conversi\'on fracci\'on--decimal & \pageref{sub:1.4}\\[3pt]
+\textbf{\S{}} & \textbf{Secc. 2 $\cdot$ Fracciones} & \textbf{p.\,\pageref{sec:2}}\\
+2.1 & Tipos de fracciones & \pageref{sub:2.1}\\
+2.2 & Equivalencia y amplificaci\'on & \pageref{sub:2.2}\\
+2.3 & Simplificaci\'on y fracci\'on irred. & \pageref{sub:2.3}\\
+2.4 & MCM y denominadores & \pageref{sub:2.4}\\[3pt]
+\textbf{\S{}} & \textbf{Secc. 3 $\cdot$ Orden y recta} & \textbf{p.\,\pageref{sec:3}}\\
+3.1 & Comparaci\'on de fracciones & \pageref{sub:3.1}\\
+3.2 & Orden en $\mathbb{Q}$ & \pageref{sub:3.2}\\
+3.3 & Recta num\'erica & \pageref{sub:3.3}\\
+3.4 & Densidad de $\mathbb{Q}$ & \pageref{sub:3.4}\\
+\end{tabular}
+
+\columnbreak
+
+\begin{tabular}{r @{\hspace{4pt}} p{5.5cm} @{\hspace{6pt}} r}
+\textbf{\S{}} & \textbf{Secc. 4 $\cdot$ Operaciones} & \textbf{p.\,\pageref{sec:4}}\\
+4.1 & Suma y resta & \pageref{sub:4.1}\\
+4.2 & Multiplicaci\'on & \pageref{sub:4.2}\\
+4.3 & Divisi\'on & \pageref{sub:4.3}\\
+4.4 & Operaciones combinadas & \pageref{sub:4.4}\\
+4.4 & Operaciones combinadas & \pageref{sub:4.4}\\[3pt]
+\textbf{\S{}} & \textbf{Secc. 5 $\cdot$ Potencias} & \textbf{p.\,\pageref{sec:5}}\\
+5.1 & Definici\'on y c\'alculo & \pageref{sub:5.1}\\
+5.2 & Exp. negativo y cero & \pageref{sub:5.2}\\[3pt]
+\textbf{\S{}} & \textbf{Ejercicios tipo PAES} & \textbf{p.\,\pageref{sec:paes}}\\
+\textbf{\S{}} & \textbf{Solucionario} & \textbf{p.\,\pageref{sec:sol}}\\
+\end{tabular}
+}
+\end{multicols}
+\end{tcolorbox}
+
+\medskip
+
+% ---- PROPÓSITO ----
+
+\begin{tcolorbox}[importantbox, title={Prop\'osito de la gu\'ia}]
+Esta gu\'ia construye, de forma progresiva y escalonada, el dominio completo de los \textbf{n\'umeros racionales} ($\mathbb{Q}$), cubriendo todo el curr\'iculum escolar chileno. Partiendo de la definici\'on formal y las representaciones decimales, avanza hacia las operaciones, las potencias, las razones y proporciones, los porcentajes y su aplicaci\'on a problemas de contexto real.
+
+\medskip
+
+Se asume que el estudiante maneja los conjuntos $\mathbb{N}$ y $\mathbb{Z}$  y las propiedades de potencias . Ning\'un concepto de racionales se usa antes de ser definido en estas p\'aginas.
+
+\medskip
+
+Al terminar esta gu\'ia, el estudiante estar\'a en condiciones de abordar los \textbf{n\'umeros reales} e \textbf{irracionales}, que se tratan en la Gu\'ia 6.
+\end{tcolorbox}
+
+% ============================================================
+% PÁGINA 3 — GALERÍA MATEMÁTICA
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+\label{sec:galeria}
+
+\begin{center}
+  \vspace*{0.4cm}
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{1.2pt}}\\[0.5cm]
+  {\Large\bfseries\color{zenitnavy} Galer\'ia matem\'atica}\\[0.15cm]
+  {\normalsize\itshape\color{zenitgold} Quienes construyeron las herramientas que usamos hoy}\\[0.4cm]
+  \textcolor{zenitnavy}{\rule{0.72\linewidth}{0.6pt}}
+\end{center}
+
+\vspace{0.6cm}
+
+% --- RESEÑA 1: MARY CARTWRIGHT (blockb) ---
+\begin{tcolorbox}[enhanced, breakable, colback=white, colframe=blockb,
+  colbacktitle=blockb, coltitle=white, arc=4pt, leftrule=5pt,
+  left=10pt, right=10pt, top=12pt, bottom=10pt, fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockb, colback=blockb, arc=2pt},
+  title={Mary Cartwright \hfill \normalfont\itshape 1900--1998 $\cdot$ Inglaterra}]
+
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+% -------------------------------------------------------
+% RETRATO: reemplazar este bloque por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{cartwright.png}
+% -------------------------------------------------------
+\begin{tikzpicture}[x=0.78cm, y=0.9cm]
+  \draw[zenitblue, thick] (0,0) rectangle (2.0,3.2);
+  \node[text=zenitblue, font=\scriptsize, align=center] at (1.0,1.6)
+    {Retrato\\Mary\\Cartwright};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+
+Mary Lucy Cartwright naci\'o el 17 de diciembre de 1900 en Aynho, Northamptonshire, Inglaterra. Estudi\'o matem\'aticas en el St~Hugh's College de Oxford, donde obtuvo en 1923 la m\'axima calificaci\'on (\textit{first class honours}) en su promoci\'on. Realiz\'o su doctorado en Oxford bajo la supervisi\'on de G.\,H.~Hardy, complet\'andolo en 1930. Desarroll\'o toda su carrera acad\'emica en Cambridge, donde fue directora (\textit{Mistress}) del Girton College entre 1948 y 1968.
+
+\medskip
+En 1947 fue elegida \textit{Fellow} de la Royal Society, convirti\'endose en la primera matem\'atica en recibir ese honor. Presidi\'o la London Mathematical Society entre 1961 y 1963, tambi\'en como primera mujer en ese cargo. Su trabajo m\'as influyente, junto a J.\,E.~Littlewood durante la Segunda Guerra Mundial, analiz\'o ecuaciones diferenciales que modelaban se\~nales de radio; ese trabajo es hoy reconocido como uno de los antecedentes directos de la teor\'ia del caos.
+
+\medskip
+\textbf{Conexi\'on con este tema:} el an\'alisis de Cartwright operaba con cocientes, razones y proporciones entre magnitudes continuas. Comprender c\'omo una se\~nal var\'ia respecto de otra es exactamente el tipo de razonamiento que esta gu\'ia desarrolla al tratar razones y proporcionalidad.
+\end{minipage}
+
+\end{tcolorbox}
+
+\vspace{0.7cm}
+
+% --- RESEÑA 2: BHĀSKARA II (blockc) ---
+\begin{tcolorbox}[enhanced, breakable, colback=white, colframe=blockc,
+  colbacktitle=blockc, coltitle=white, arc=4pt, leftrule=5pt,
+  left=10pt, right=10pt, top=12pt, bottom=10pt, fonttitle=\bfseries,
+  attach boxed title to top left={xshift=0.5cm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style={colframe=blockc, colback=blockc, arc=2pt},
+  title={Bh\={a}skara II \hfill \normalfont\itshape 1114--c.\,1185 $\cdot$ India}]
+
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{0pt}
+
+Bh\={a}skara II naci\'o en 1114, probablemente en Vijayapura, en el subcontinente indio, y falleci\'o hacia 1185. Fue astr\'onomo y matem\'atico jefe del observatorio de Ujjain, el centro cient\'ifico m\'as importante de la India medieval. Es llamado ``el segundo'' para distinguirlo del matem\'atico Bh\={a}skara I, que vivi\'o cinco siglos antes.
+
+\medskip
+En 1150 escribi\'o el \textit{Siddh\={a}nta Shiroma\d{n}i}, obra enciclop\'edica en cuatro partes. La primera, el \textit{L\={\i}l\={a}vat\={\i}}, es un tratado de aritm\'etica con operaciones de fracciones, razones, proporciones y regla de tres. La segunda, el \textit{B\={\i}jaga\d{n}ita}, es un tratado de \'algebra. El \textit{L\={\i}l\={a}vat\={\i}} fue traducido al persa en 1587 y al ingl\'es en 1816, y fue texto de ense\~nanza durante siglos en toda Asia.
+
+\medskip
+\textbf{Conexi\'on con este tema:} el \textit{L\={\i}l\={a}vat\={\i}} es, en buena medida, una gu\'ia de racionales \textit{avant la lettre}: sus problemas giran en torno a fracciones, proporciones y regla de tres en contextos de comercio y arquitectura. Bh\={a}skara simplificaba, amplificaba y comparaba denominadores con procedimientos equivalentes a los que esta gu\'ia ense\~na, siglos antes de que existiera la notaci\'on moderna.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.18\linewidth}
+\vspace{0pt}
+% -------------------------------------------------------
+% RETRATO: reemplazar este bloque por:
+%   \includegraphics[width=\linewidth, height=3.2cm,
+%     keepaspectratio]{bhaskara.png}
+% -------------------------------------------------------
+\begin{tikzpicture}[x=0.78cm, y=0.9cm]
+  \draw[blockc, thick] (0,0) rectangle (2.0,3.2);
+  \node[text=blockc, font=\scriptsize, align=center] at (1.0,1.6)
+    {Retrato\\Bh\={a}skara\\II};
+\end{tikzpicture}
+\end{minipage}
+
+\end{tcolorbox}
+
+\vspace{0.5cm}
+\begin{center}
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}\\[0.3cm]
+  {\small\itshape\color{zenitnavy} La matem\'atica no tiene fronteras de \'epoca, g\'enero ni cultura.}\\[0.2cm]
+  \textcolor{zenitgold}{\rule{0.5\linewidth}{0.5pt}}
+\end{center}
+
+% ============================================================
+% PÁGINA 4 — EN BLANCO (post-galería)
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+\phantom{x}
+\clearpage
+
+% ============================================================
+% SECCIÓN 1 — EL CONJUNTO Q
+% ============================================================
+\clearpage
+\seccionheader{blocka}{Secci\'on 1 $\cdot$ El conjunto $\mathbb{Q}$}
+\label{sec:1}
+
+\subbloque{1.1 Definici\'on y notaci\'on}
+\label{sub:1.1}
+
+Hasta ahora conocemos los n\'umeros naturales $\mathbb{N}=\{1,2,3,\ldots\}$ y los enteros $\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\}$. Sin embargo, muchas situaciones de la vida real producen n\'umeros que no son enteros: el precio de medio kilo de tomates, la parte de una pizza que le toca a cada persona, la tasa de cambio entre monedas.
+
+\begin{tcolorbox}[importantbox, title={Definici\'on --- N\'umero racional}]
+Un \textbf{n\'umero racional} es todo n\'umero que puede escribirse como el cociente de dos n\'umeros enteros:
+$$\mathbb{Q} = \left\{\, \frac{p}{q} \;\Big|\; p \in \mathbb{Z},\; q \in \mathbb{Z},\; q \neq 0 \,\right\}$$
+
+\medskip
+
+Donde $p$ se llama \textbf{numerador} y $q$ se llama \textbf{denominador}. La condici\'on $q \neq 0$ es obligatoria: la divisi\'on por cero no est\'a definida.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- identificar n\'umeros racionales}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{¿Es $-\dfrac{5}{7}$ un n\'umero racional?}
+
+S\'i: $p = -5 \in \mathbb{Z}$, $q = 7 \in \mathbb{Z}$, $q \neq 0$. Por lo tanto $-\dfrac{5}{7} \in \mathbb{Q}$. \checkmark
+
+\item \textbf{¿Es $4$ un n\'umero racional?}
+
+S\'i: basta escribirlo como $\dfrac{4}{1}$, con $p=4$ y $q=1$. Todo n\'umero entero es racional. \checkmark
+
+\item \textbf{¿Es $\dfrac{3}{0}$ un n\'umero racional?}
+
+No: el denominador es $0$, lo que est\'a prohibido por definici\'on. $\dfrac{3}{0}$ \textbf{no existe}. $\cdot$
+
+\item \textbf{¿Es $\pi$ un n\'umero racional?}
+
+No. $\pi = 3{,}14159265\ldots$ es un n\'umero cuya expansi\'on decimal es infinita y \textbf{sin ning\'un per\'iodo que se repita}. No existe ninguna fracci\'on $\dfrac{p}{q}$ con $p,q\in\mathbb{Z}$ que sea exactamente igual a $\pi$. Se dice que $\pi$ es un n\'umero \textbf{irracional}. $\cdot$
+
+\item \textbf{¿Es el n\'umero de Euler $e$ un n\'umero racional?}
+
+No. $e = 2{,}71828182\ldots$ tampoco puede expresarse como fracci\'on de enteros. Al igual que $\pi$, su expansi\'on decimal es infinita y aperiódi\-ca. Es un n\'umero \textbf{irracional}. $\cdot$
+
+\item \textbf{¿Es $\sqrt{2}$ un n\'umero racional?}
+
+No. $\sqrt{2}$ es el n\'umero que, multiplicado por s\'i mismo, da exactamente $2$: $\sqrt{2}\cdot\sqrt{2}=2$. Su valor aproximado es $1{,}41421356\ldots$, pero \textbf{nunca} puede escribirse exactamente como fracci\'on de enteros. Es un n\'umero \textbf{irracional}. $\cdot$
+
+\medskip
+\begin{tcolorbox}[importantbox, title={Nota --- Los irracionales no son racionales}]
+Los n\'umeros $\pi$, $e$ y $\sqrt{2}$ son ejemplos de n\'umeros \textbf{irracionales}: existen en la recta num\'erica, pero no pertenecen a $\mathbb{Q}$. Junto con los racionales forman los n\'umeros reales $\mathbb{R}$, que se estudiar\'an en una gu\'ia posterior.
+\end{tcolorbox}
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Indica si cada expresi\'on representa un n\'umero racional (s\'i/no) y justifica brevemente:
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{7}{3}$
+  \item $\dfrac{-2}{5}$
+  \item $\dfrac{0}{8}$
+  \item $\dfrac{11}{0}$
+  \item $-9$
+  \item $0$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.2 Relaci\'on con $\mathbb{N}$ y $\mathbb{Z}$: los conjuntos se contienen}
+\label{sub:1.2}
+
+\begin{tcolorbox}[importantbox, title={Contenci\'on de conjuntos num\'ericos}]
+Todo n\'umero natural es entero, y todo n\'umero entero es racional:
+$$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$$
+
+\medskip
+
+\noindent\textbf{¿Por qu\'e?}
+
+\noindent Todo $n \in \mathbb{N}$ se puede escribir como $\dfrac{n}{1} \in \mathbb{Q}$. \quad
+Todo $z \in \mathbb{Z}$ se puede escribir como $\dfrac{z}{1} \in \mathbb{Q}$.
+
+\medskip
+
+\noindent Pero $\mathbb{Q}$ contiene muchos m\'as n\'umeros: $\dfrac{1}{2}$, $\dfrac{-3}{4}$, $\dfrac{7}{5}$, etc., que no pertenecen a $\mathbb{Z}$.
+\end{tcolorbox}
+
+\begin{center}
+\begin{tikzpicture}[x=1.0cm, y=1.0cm]
+  % Rect\'angulo Q (exterior) — navy
+  \draw[thick, color=blocka, rounded corners=10pt]
+    (-5.4,-2.5) rectangle (5.4,2.5);
+  \node[color=blocka, font=\bfseries\large] at (4.6, 2.0) {$\mathbb{Q}$};
+  \node[font=\small, color=blocka] at (-3.8, 0) {$\dfrac{1}{2},\;\dfrac{-3}{4},\;\dfrac{7}{5}$};
+  % Rect\'angulo Z — verde
+  \draw[thick, color=blockb, rounded corners=7pt]
+    (-2.6,-2.0) rectangle (2.6,2.0);
+  \node[color=blockb, font=\bfseries] at (2.0, 1.6) {$\mathbb{Z}$};
+  \node[font=\small, color=blockb] at (-1.5, 1.0) {$-1,\;-2,\;-3$};
+  \node[font=\small, color=blockb] at (-1.5,-1.0) {$0$};
+  % Rect\'angulo N — morado
+  \draw[thick, color=blockc, rounded corners=4pt]
+    (-1.3,-1.2) rectangle (1.3,1.2);
+  \node[color=blockc, font=\bfseries] at (0, 0.8) {$\mathbb{N}$};
+  \node[font=\small] at (0, 0) {$1,\,2,\,3,\ldots$};
+\end{tikzpicture}
+\end{center}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Ubica cada n\'umero en el conjunto m\'as peque\~no al que pertenece ($\mathbb{N}$, $\mathbb{Z}$ o $\mathbb{Q}$):
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $5$
+  \item $-3$
+  \item $\dfrac{2}{7}$
+  \item $0$
+  \item $\dfrac{-6}{1}$
+  \item $\dfrac{8}{4}$
+  \item $\dfrac{-1}{3}$
+  \item $100$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.3 Representaci\'on decimal: tres tipos}
+\label{sub:1.3}
+
+Todo n\'umero racional, al dividir su numerador por su denominador, produce un decimal de uno de estos tres tipos:
+
+\begin{tcolorbox}[importantbox, title={Tipos de representaci\'on decimal de un racional}]
+\noindent\textbf{Tipo 1 --- Decimal finito:} tiene una cantidad finita de cifras distintas de cero; a partir de cierto lugar, todos los decimales son cero. La divisi\'on termina exactamente.
+
+\noindent\textit{C\'omo reconocerlo en fracci\'on irreducible:} la descomposici\'on prima del denominador \textbf{solo tiene factores 2 y/o 5} (y ninguno m\'as).
+
+\medskip
+
+\noindent\textbf{Ejemplos:}
+$$\frac{1}{4} = 0{,}25 \quad\text{pues }4=2^2 \qquad\qquad \frac{3}{8} = 0{,}375 \quad\text{pues }8=2^3 \qquad\qquad \frac{7}{20} = 0{,}35 \quad\text{pues }20=2^2\cdot5$$
+
+\medskip
+
+\noindent\textbf{Tipo 2 --- Decimal infinito peri\'odico:} a partir del primer decimal, un bloque de cifras (llamado \textbf{per\'iodo}) se repite indefinidamente. Las cifras del per\'iodo se escriben con una l\'inea en la parte superior: $0{,}\overline{142857}$.
+
+\noindent\textit{C\'omo reconocerlo en fracci\'on irreducible:} la descomposici\'on prima del denominador \textbf{no contiene ni el 2 ni el 5} como factores.
+
+\medskip
+
+\noindent\textbf{Ejemplos:}
+$$\frac{1}{3} = 0{,}\overline{3} \quad\text{pues }3=3 \qquad\qquad \frac{2}{9} = 0{,}\overline{2} \quad\text{pues }9=3^2 \qquad\qquad \frac{1}{7} = 0{,}\overline{142857} \quad\text{pues }7=7$$
+
+\medskip
+
+\noindent\textbf{Tipo 3 --- Decimal infinito semiperiódi\-co:} hay una parte inicial no repetida (llamada \textbf{anteper\'iodo}) y luego un bloque que se repite. El bloque repetido se indica con una l\'inea superior sobre las cifras que se repiten: $0{,}1\overline{6}$.
+
+\noindent\textit{C\'omo reconocerlo en fracci\'on irreducible:} la descomposici\'on prima del denominador contiene al \textbf{2 o al 5} (o ambos), pero \textbf{tambi\'en contiene otros factores primos distintos de 2 y 5}.
+
+\medskip
+
+\noindent\textbf{Ejemplos:}
+$$\frac{1}{6} = 0{,}1\overline{6} \quad\text{pues }6=2\cdot3 \qquad\qquad \frac{5}{12} = 0{,}41\overline{6} \quad\text{pues }12=2^2\cdot3 \qquad\qquad \frac{7}{12} = 0{,}58\overline{3} \quad\text{pues }12=2^2\cdot3$$
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- clasificar la representaci\'on decimal}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Clasificar $\dfrac{3}{8}$}
+
+\textbf{Paso 1 --- Reducir a m\'inima expresi\'on:} $\dfrac{3}{8}$ ya es irreducible ($\text{mcd}(3,8)=1$).
+
+\textbf{Paso 2 --- Descomponer el denominador:} $8 = 2^3$. Solo tiene el factor $2$.
+
+\textbf{Paso 3 --- Dividir:} $3 \div 8 = 0{,}375$. La divisi\'on termina.
+
+\textbf{Conclusi\'on:} $\dfrac{3}{8} = 0{,}375$ es un \textbf{decimal finito}. \checkmark
+
+\item \textbf{Clasificar $\dfrac{2}{7}$}
+
+\textbf{Paso 1 --- Reducir:} $\dfrac{2}{7}$ ya es irreducible.
+
+\textbf{Paso 2 --- Descomponer:} $7 = 7$. No contiene ni 2 ni 5.
+
+\textbf{Paso 3 --- Dividir:} $2 \div 7 = 0{,}285714285714\ldots$
+
+\textbf{Conclusi\'on:} $\dfrac{2}{7} = 0{,}\overline{285714}$ es un \textbf{decimal infinito peri\'odico}. \checkmark
+
+\item \textbf{Clasificar $\dfrac{5}{12}$}
+
+\textbf{Paso 1 --- Reducir:} $\dfrac{5}{12}$ ya es irreducible ($\text{mcd}(5,12)=1$).
+
+\textbf{Paso 2 --- Descomponer:} $12 = 2^2 \cdot 3$. Tiene el factor $2$ \textit{y} el factor $3$: hay factores distintos de 2 y 5.
+
+\textbf{Paso 3 --- Dividir:} $5 \div 12 = 0{,}41666\ldots$
+
+El primer decimal ($4$) y el segundo ($1$) no se repiten (forman el anteper\'iodo); a partir del tercero, el bloque $6$ se repite indefinidamente.
+
+\textbf{Conclusi\'on:} $\dfrac{5}{12} = 0{,}41\overline{6}$ es un \textbf{decimal infinito semiperi\'odico}. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Descompón el denominador, divide y clasifica (finito / inf. peri\'odico / inf. semiperi\'odico):
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{1}{4}$
+  \item $\dfrac{1}{3}$
+  \item $\dfrac{7}{6}$
+  \item $\dfrac{3}{5}$
+  \item $\dfrac{2}{9}$
+  \item $\dfrac{11}{12}$
+  \item $\dfrac{1}{8}$
+  \item $\dfrac{5}{6}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{1.4 Conversi\'on fracci\'on--decimal}
+\label{sub:1.4}
+
+Convertir un decimal a fracci\'on es la operaci\'on inversa. El procedimiento depende del tipo de decimal.
+
+\begin{tcolorbox}[importantbox, title={Convertir decimal a fracci\'on}]
+\noindent\textbf{Decimal finito:} el denominador es la potencia de 10 que corresponde al n\'umero de decimales.
+$$0{,}375 = \frac{375}{1000} = \frac{3}{8}$$
+
+\medskip
+
+\noindent\textbf{Decimal infinito peri\'odico} ($0{,}\overline{d}$, per\'iodo de $k$ cifras):
+
+Se llama $x$ al decimal. Se multiplica por $10^k$ para ``correr'' el per\'iodo un lugar. Al restar, el per\'iodo se cancela:
+$$10^k\cdot x - x = d_{\text{entero}} \;\Rightarrow\; (10^k-1)\,x = d \;\Rightarrow\; x = \frac{d}{\underbrace{99\cdots9}_{k\text{ nueves}}}$$
+
+\noindent\textbf{Regla pr\'actica:} \emph{el numerador es el n\'umero completo escrito sin coma; el denominador son tantos $9$ como d\'igitos tiene el per\'iodo.}
+
+\medskip
+
+\noindent\textbf{Decimal infinito semiperi\'odico} ($0{,}a\overline{b}$, anteper\'iodo de $m$ cifras, per\'iodo de $k$ cifras):
+
+\noindent\textbf{Regla pr\'actica:} \emph{el numerador es el n\'umero completo escrito sin coma, \textbf{menos} la parte no peri\'odica escrita sin coma. El denominador son tantos $9$ como d\'igitos tiene el per\'iodo, seguidos de tantos $0$ como d\'igitos tiene el anteper\'iodo.}
+$$x = 0{,}a\overline{b} \;\Rightarrow\; x = \frac{\overline{ab} - \overline{a}}{\underbrace{99\cdots9}_{k}\underbrace{00\cdots0}_{m}}$$
+
+\noindent(Se mantiene la derivaci\'on por $10^m$ y $10^{m+k}$ como referencia; la regla pr\'actica da el mismo resultado de forma directa.)
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- convertir decimal a fracci\'on}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=16pt]
+
+\item \textbf{Convertir $0{,}36$ a fracci\'on (decimal finito)}
+
+Tiene 2 decimales, luego el denominador es $10^2=100$:
+$$0{,}36 = \frac{36}{100} = \frac{9}{25}$$
+Verificaci\'on: $\text{mcd}(9,25)=1$, es irreducible. $\dfrac{9}{25}=0{,}36$. \checkmark
+
+\item \textbf{Convertir $0{,}\overline{7}$ a fracci\'on (decimal infinito peri\'odico)}
+
+\textbf{M\'etodo alg\'ebrico:}
+
+\textbf{Paso 1 ---} Sea $x = 0{,}7777\ldots$
+
+\textbf{Paso 2 ---} El per\'iodo tiene 1 cifra, as\'i que multiplicamos por $10$: $\quad 10x = 7{,}7777\ldots$
+
+\textbf{Paso 3 ---} Restamos: $\;10x - x = 7{,}7777\ldots - 0{,}7777\ldots = 7\;$, luego $\;9x = 7\;$, luego $\;x = \dfrac{7}{9}$.
+
+\textbf{Regla pr\'actica:} el n\'umero completo sin coma es $7$; el anteper\'iodo es vac\'io (sin cifras), luego el numerador es $7-0=7$. El denominador es $\underbrace{9}_{1\text{ nueve}}=9$.
+$$0{,}\overline{7} = \frac{7}{9} \qquad\checkmark$$
+
+\item \textbf{Convertir $0{,}\overline{27}$ a fracci\'on (decimal infinito peri\'odico, 2 cifras)}
+
+\textbf{Paso 1 ---} $x = 0{,}272727\ldots$
+
+\textbf{Paso 2 ---} Per\'iodo de 2 cifras: $100x = 27{,}2727\ldots$
+
+\textbf{Paso 3 ---} $100x - x = 27 \;\Rightarrow\; 99x = 27 \;\Rightarrow\; x = \dfrac{27}{99} = \dfrac{3}{11}$.
+
+\textbf{Regla pr\'actica:} n\'umero completo $27$, menos $0$ (sin anteper\'iodo) $= 27$; denominador: $\underbrace{99}_{2\text{ nueves}}=99$.
+$$0{,}\overline{27} = \frac{27}{99} = \frac{3}{11} \qquad\checkmark$$
+
+\item \textbf{Convertir $0{,}1\overline{6}$ a fracci\'on (decimal infinito semiperi\'odico)}
+
+\textbf{M\'etodo alg\'ebrico:}
+
+\textbf{Paso 1 ---} $x = 0{,}1666\ldots$
+
+\textbf{Paso 2 ---} El anteper\'iodo tiene 1 cifra: $10x = 1{,}666\ldots$
+
+\textbf{Paso 3 ---} El per\'iodo tiene 1 cifra: $100x = 16{,}666\ldots$
+
+\textbf{Paso 4 ---} Restamos: $100x - 10x = 16{,}666\ldots - 1{,}666\ldots = 15 \;\Rightarrow\; 90x=15 \;\Rightarrow\; x=\dfrac{15}{90}=\dfrac{1}{6}$.
+
+\textbf{Regla pr\'actica:} n\'umero completo sin coma $= 16$; parte no peri\'odica sin coma $= 1$; numerador $= 16 - 1 = 15$; denominador $= \underbrace{9}_{1\text{ nueve}}\underbrace{0}_{1\text{ cero}} = 90$.
+$$0{,}1\overline{6} = \frac{16-1}{90} = \frac{15}{90} = \frac{1}{6} \qquad\checkmark$$
+
+\item \textbf{Convertir $0{,}41\overline{6}$ a fracci\'on (anteper\'iodo 2 cifras, per\'iodo 1 cifra)}
+
+\textbf{Regla pr\'actica:} n\'umero completo sin coma $= 416$; parte no peri\'odica sin coma $= 41$; numerador $= 416 - 41 = 375$; denominador $= \underbrace{9}_{1\text{ nueve}}\underbrace{00}_{2\text{ ceros}} = 900$.
+$$0{,}41\overline{6} = \frac{416-41}{900} = \frac{375}{900} = \frac{5}{12} \qquad\checkmark$$
+
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Errores frecuentes --- conversiones de decimal a fracci\'on}]
+\noindent\textbf{Error 1:} $0{,}\overline{3} = \dfrac{3}{10}$ \quad (\textit{confundir decimal finito $0{,}3$ con decimal infinito peri\'odico $0{,}\overline{3}$})
+
+\noindent\textbf{Correcto:} $0{,}\overline{3} = \dfrac{3}{9} = \dfrac{1}{3}$ \quad y \quad $0{,}3 = \dfrac{3}{10}$.
+
+\medskip
+
+\noindent\textbf{Error 2:} aplicar la regla del semiperi\'odico cuando en realidad es peri\'odico puro.
+
+\noindent\textbf{Correcto:} identificar siempre el tipo antes de aplicar la regla. Si no hay anteper\'iodo, el denominador tiene solo $9$s.
+
+\medskip
+
+\noindent\textbf{Regla de oro:} antes de aplicar cualquier f\'ormula, \textbf{identifica el tipo de decimal} (finito, infinito peri\'odico o infinito semiperi\'odico).
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ --- Convierte a fracci\'on en m\'inima expresi\'on:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $0{,}75$
+  \item $0{,}\overline{4}$
+  \item $0{,}2\overline{7}$
+  \item $0{,}\overline{18}$
+  \item $0{,}625$
+  \item $0{,}\overline{1}$
+  \item $0{,}08\overline{3}$
+  \item $1{,}\overline{3}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos --- Secci\'on 1}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item Indica si cada expresi\'on es un n\'umero racional. Si lo es, escribe $p$ y $q$. Si no, explica por qu\'e:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{9}{4}$ \item $\dfrac{0}{5}$ \item $\dfrac{-3}{7}$ \item $\dfrac{5}{0}$
+  \item $-11$ \item $0$ \item $\dfrac{-1}{-4}$ \item $\dfrac{100}{3}$
+\end{enumerate}
+\end{multicols}
+
+\item Ubica cada n\'umero en el conjunto m\'as peque\~no al que pertenece ($\mathbb{N}$, $\mathbb{Z}$ o $\mathbb{Q}$):
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $7$ \item $-5$ \item $\dfrac{3}{4}$ \item $\dfrac{-8}{1}$
+  \item $\dfrac{12}{6}$ \item $0$ \item $\dfrac{-7}{3}$ \item $99$
+\end{enumerate}
+\end{multicols}
+
+\item Convierte cada fracci\'on a decimal. Clasifica el decimal obtenido (finito / infinito peri\'odico / infinito semiperi\'odico). Para cada caso, descompón el denominador en factores primos y verifica que la clasificaci\'on por descomposici\'on coincide con la divisi\'on:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{3}{4}$ \item $\dfrac{5}{9}$ \item $\dfrac{7}{12}$ \item $\dfrac{7}{8}$
+  \item $\dfrac{2}{3}$ \item $\dfrac{11}{6}$ \item $\dfrac{1}{11}$ \item $\dfrac{3}{7}$
+\end{enumerate}
+\end{multicols}
+
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Convierte cada decimal a fracci\'on irreducible:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $0{,}4$ \item $0{,}\overline{6}$ \item $0{,}3\overline{6}$ \item $0{,}\overline{27}$
+  \item $0{,}875$ \item $1{,}\overline{6}$ \item $0{,}41\overline{6}$ \item $2{,}\overline{142857}$
+\end{enumerate}
+\end{multicols}
+
+\item ¿Cu\'al o cu\'ales de los siguientes n\'umeros \textbf{no} pertenecen a $\mathbb{Q}$? Justifica cada respuesta indicando por qu\'e sí o por qu\'e no.
+
+\noindent a)~$\sqrt{9}$ \quad b)~$\sqrt{5}$ \quad c)~$3{,}\overline{14159}$ \quad d)~$-\dfrac{22}{7}$ \quad e)~$\pi$ \quad f)~$e$ \quad g)~$\sqrt{2}$
+
+\item Ordena los siguientes n\'umeros de menor a mayor. \textit{Tip: convierte todo a su expansi\'on decimal; para los peri\'odicos, extiende el per\'iodo hasta tener suficientes cifras para comparar con los dem\'as.}
+
+\noindent $\dfrac{1}{3}$; $\quad 0{,}\overline{3}$; $\quad 0{,}34$; $\quad 0{,}3$; $\quad \dfrac{1}{4}$; $\quad 0{,}\overline{34}$.
+
+
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Demuestra que $0{,}\overline{9} = 1$ usando el m\'etodo de la variable (igual a como se hizo en la secci\'on~1.4). ¿Qu\'e conclusi\'on obtienes sobre los decimales peri\'odicos y las fracciones?
+
+\item (a) Muestra que $0{,}\overline{99} = 1$ usando el m\'etodo alg\'ebrico. ¿Que ocurre con $0{,}9\overline{9}$?
+
+\noindent (b) Aplica la regla pr\'actica (n\'umero completo menos parte no peri\'odica, dividido por 9s y 0s) a los siguientes decimales infinitos semiperi\'odicos y simplifica a su m\'inima expresi\'on:
+
+\noindent \quad $0{,}3\overline{6}$ \quad $0{,}08\overline{3}$ \quad $1{,}4\overline{5}$ \quad $0{,}16\overline{6}$
+
+\noindent Verifica dividiendo el numerador por el denominador de cada fracci\'on obtenida.
+
+\end{enumerate}
+\clearpage
+\seccionheader{blockb}{Secci\'on 2 $\cdot$ Fracciones: tipos y equivalencia}
+\label{sec:2}
+
+\subbloque{2.1 Tipos de fracciones}
+\label{sub:2.1}
+
+\begin{tcolorbox}[importantbox, title={Clasificaci\'on de fracciones}]
+Sea $\dfrac{p}{q}$ con $p,q>0$ (positivos). Se distinguen tres tipos:
+
+\medskip
+
+\noindent\textbf{Fracci\'on propia:} $|p| < |q|$. Su valor absoluto es menor que 1.
+\quad Ej.: $\dfrac{3}{5}$,\; $\dfrac{7}{10}$,\; $\dfrac{1}{4}$.
+
+\medskip
+
+\noindent\textbf{Fracci\'on impropia:} $|p| \geq |q|$. Su valor absoluto es mayor o igual que 1.
+\quad Ej.: $\dfrac{7}{3}$,\; $\dfrac{5}{5}=1$,\; $\dfrac{11}{4}$.
+
+\medskip
+
+\noindent\textbf{N\'umero mixto:} combinaci\'on de un entero y una fracci\'on propia.
+\quad Ej.: $2\dfrac{1}{3}$,\; $5\dfrac{3}{4}$.
+
+\medskip
+
+\medskip
+\noindent\textbf{Conversi\'on mixto $\to$ impropia:}
+$$a\frac{b}{c} = \frac{a \cdot c + b}{c}$$
+Multiplicar el entero por el denominador y sumar el numerador. El denominador no cambia.
+
+\medskip
+\noindent\textbf{Conversi\'on impropia $\to$ mixto:} se divide el numerador por el denominador en los enteros. El \textbf{cociente} de esa divisi\'on es la parte entera del n\'umero mixto. El \textbf{resto} es el nuevo numerador, y el denominador queda igual. Por ejemplo: $\dfrac{22}{7}$ --- dividimos $22 \div 7$: cociente $3$, resto $1$ --- luego $\dfrac{22}{7} = 3\dfrac{1}{7}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- convertir entre formas}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Convertir $3\dfrac{2}{5}$ a fracci\'on impropia}
+
+\textbf{Paso 1 ---} Multiplicar entero por denominador: $3 \cdot 5 = 15$.
+
+\textbf{Paso 2 ---} Sumar el numerador: $15 + 2 = 17$.
+
+\textbf{Paso 3 ---} El denominador no cambia: $\dfrac{17}{5}$.
+
+\textbf{Conclusi\'on:} $3\dfrac{2}{5} = \dfrac{17}{5}$. \checkmark
+
+\item \textbf{Convertir $\dfrac{22}{7}$ a n\'umero mixto}
+
+\textbf{Paso 1 ---} Dividir: $22 \div 7 = 3$ con resto $1$.
+
+\textbf{Paso 2 ---} Parte entera: $3$. Fracci\'on sobrante: $\dfrac{1}{7}$.
+
+\textbf{Conclusi\'on:} $\dfrac{22}{7} = 3\dfrac{1}{7}$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ ---
+\textbf{(a–d)} Clasifica como propia, impropia o mixta. \textbf{(e–h)} Convierte la fracci\'on impropia a n\'umero mixto dividiendo en los enteros (escribe el cociente, el resto y el denominador). \textbf{(i–l)} Convierte el mixto a fracci\'on impropia.
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{5}{9}$
+  \item $\dfrac{7}{3}$
+  \item $\dfrac{4}{4}$
+  \item $\dfrac{3}{8}$
+  \item $\dfrac{13}{4}$
+  \item $\dfrac{17}{5}$
+  \item $\dfrac{20}{3}$
+  \item $\dfrac{11}{7}$
+  \item $2\dfrac{3}{7}$
+  \item $4\dfrac{1}{2}$
+  \item $1\dfrac{5}{6}$
+  \item $3\dfrac{2}{9}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.2 Fracciones equivalentes y amplificaci\'on}
+\label{sub:2.2}
+
+\begin{tcolorbox}[warningbox, title={Fracciones negativas: tres formas equivalentes}]
+Cuando una fracci\'on tiene signo negativo, este puede colocarse en tres posiciones y el resultado es \textbf{siempre el mismo n\'umero}:
+$$\frac{-a}{b} \;=\; \frac{a}{-b} \;=\; -\frac{a}{b} \qquad (a, b > 0)$$
+
+\medskip
+
+\noindent La forma est\'andar es $-\dfrac{a}{b}$ (signo fuera de la fracci\'on). Las otras dos son equivalentes pero se evitan para no generar confusi\'on.
+
+\medskip
+
+\noindent\textbf{Ejemplos:}
+$$\frac{-3}{5} = \frac{3}{-5} = -\frac{3}{5} = -0{,}6 \qquad\qquad \frac{-7}{4} = \frac{7}{-4} = -\frac{7}{4} = -1{,}75$$
+
+\noindent\textbf{Error frecuente:} $\dfrac{-3}{-5} \neq -\dfrac{3}{5}$. \quad Cuando \textbf{ambos} son negativos, el resultado es \textbf{positivo}: $\dfrac{-3}{-5} = \dfrac{3}{5}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Fracciones equivalentes}]
+Dos fracciones $\dfrac{a}{b}$ y $\dfrac{c}{d}$ son \textbf{equivalentes} si representan el mismo n\'umero racional:
+$$\frac{a}{b} = \frac{c}{d} \quad\Longleftrightarrow\quad a \cdot d = b \cdot c \quad \text{(producto cruzado igual)}$$
+
+\medskip
+
+\noindent\textbf{Amplificaci\'on:} multiplicar numerador y denominador por el mismo entero $k \neq 0$:
+$$\frac{p}{q} = \frac{p \cdot k}{q \cdot k}$$
+
+Esta operaci\'on \textbf{no cambia el valor} de la fracci\'on, solo su representaci\'on.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- amplificaci\'on y equivalencia}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Escribir $\dfrac{3}{4}$ con denominador 20}
+
+Necesitamos $k$ tal que $4 \cdot k = 20$, luego $k = 5$.
+
+$$\frac{3}{4} = \frac{3 \cdot 5}{4 \cdot 5} = \frac{15}{20}$$
+
+\textbf{Verificaci\'on:} $3 \cdot 20 = 60 = 4 \cdot 15$. \checkmark
+
+\item \textbf{¿Son equivalentes $\dfrac{4}{6}$ y $\dfrac{10}{15}$?}
+
+Producto cruzado: $4 \cdot 15 = 60$ y $6 \cdot 10 = 60$. Como son iguales, s\'i son equivalentes. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Completa la fracci\'on equivalente:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{2}{3} = \dfrac{\;?}{12}$
+  \item $\dfrac{5}{8} = \dfrac{\;?}{40}$
+  \item $\dfrac{1}{6} = \dfrac{\;?}{30}$
+  \item $\dfrac{3}{7} = \dfrac{\;?}{35}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.3 Simplificaci\'on (MCD) y fracci\'on irreducible}
+\label{sub:2.3}
+
+La operaci\'on inversa a la amplificaci\'on es la \textbf{simplificaci\'on}: dividir numerador y denominador por un mismo factor. El objetivo es llegar a la \textbf{fracci\'on irreducible}.
+
+\begin{tcolorbox}[importantbox, title={Simplificaci\'on y fracci\'on irreducible}]
+\noindent\textbf{Simplificar} una fracci\'on $\dfrac{p}{q}$ significa dividir numerador y denominador por un divisor com\'un $d > 1$:
+$$\frac{p}{q} = \frac{p \div d}{q \div d}$$
+
+\noindent\textbf{Fracci\'on irreducible:} cuando $\text{mcd}(p,q)=1$ (numerador y denominador no tienen ning\'un factor com\'un mayor que 1).
+
+\medskip
+
+\noindent\textbf{Recordatorio --- C\'omo calcular el MCD:}
+\begin{itemize}[itemsep=3pt]
+  \item \textbf{Por descomposici\'on prima:} descomponer ambos n\'umeros en factores primos y tomar el producto de los factores comunes con el \textbf{menor} exponente.
+  \item \textbf{Por tabla:} ir dividiendo sucesivamente ambos n\'umeros por el mismo primo hasta que ya no tengan factores comunes. Es el m\'etodo m\'as pr\'actico en papel.
+\end{itemize}
+
+\medskip
+
+\noindent\textbf{M\'etodo recomendado para simplificar:} simplificar \textbf{de forma sucesiva} por n\'umeros primos, empezando desde los m\'as peque\~nos (2, 3, 5, 7, 11, \ldots), apoy\'andose en los \textbf{criterios de divisibilidad}. Se contin\'ua hasta que numerador y denominador no tengan m\'as factores comunes.
+
+\medskip
+
+\noindent\textit{Criterios \'utiles:} divisible por $2$ si termina en cifra par; por $3$ si la suma de sus cifras es divisible por $3$; por $5$ si termina en $0$ o $5$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- simplificaci\'on sucesiva por primos}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Simplificar $\dfrac{36}{48}$ a su m\'inima expresi\'on}
+
+Simplificamos sucesivamente:
+$$\frac{36}{48} \xrightarrow{\div 2} \frac{18}{24} \xrightarrow{\div 2} \frac{9}{12} \xrightarrow{\div 3} \frac{3}{4}$$
+
+Verificaci\'on: $\text{mcd}(3,4)=1$ --- no hay m\'as factores comunes. \checkmark
+
+\textbf{Conclusi\'on:} $\dfrac{36}{48} = \dfrac{3}{4}$.
+
+\item \textbf{Simplificar $\dfrac{60}{84}$}
+
+Ambos son pares ($\div 2$); el resultado tambi\'en ($\div 2$); luego $30$ y $42$ son divisibles por $3$; luego verificamos:
+$$\frac{60}{84} \xrightarrow{\div 2} \frac{30}{42} \xrightarrow{\div 2} \frac{15}{21} \xrightarrow{\div 3} \frac{5}{7}$$
+
+$\text{mcd}(5,7)=1$. \checkmark \quad \textbf{Conclusi\'on:} $\dfrac{60}{84} = \dfrac{5}{7}$.
+
+\item \textbf{Simplificar $\dfrac{126}{210}$}
+
+Ambos terminan en cifra par ($\div 2$); el resultado: $63$ y $105$ son divisibles por $3$ (sumas: $9$ y $6$); luego $21$ y $35$ son divisibles por $7$:
+$$\frac{126}{210} \xrightarrow{\div 2} \frac{63}{105} \xrightarrow{\div 3} \frac{21}{35} \xrightarrow{\div 7} \frac{3}{5}$$
+
+$\text{mcd}(3,5)=1$. \checkmark \quad \textbf{Conclusi\'on:} $\dfrac{126}{210} = \dfrac{3}{5}$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Reduce a m\'inima expresi\'on:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{12}{18}$
+  \item $\dfrac{24}{36}$
+  \item $\dfrac{35}{56}$
+  \item $\dfrac{100}{150}$
+  \item $\dfrac{42}{70}$
+  \item $\dfrac{16}{48}$
+  \item $\dfrac{27}{81}$
+  \item $\dfrac{60}{84}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{2.4 M\'inimo com\'un m\'ultiplo (MCM) aplicado a denominadores}
+\label{sub:2.4}
+
+Para operar con fracciones de distintos denominadores, necesitamos un \textbf{denominador com\'un}. El m\'as eficiente es el \textbf{m\'inimo com\'un m\'ultiplo (MCM)}.
+
+\begin{tcolorbox}[importantbox, title={Recordatorio --- M\'inimo Com\'un M\'ultiplo (MCM)}]
+El $\text{mcm}(a,b)$ es el menor entero positivo que es m\'ultiplo tanto de $a$ como de $b$.
+
+\medskip
+
+\noindent\textbf{C\'alculo por factores primos:} descomponer ambos n\'umeros y tomar cada factor primo con el \textbf{mayor} exponente que aparece.
+
+\medskip
+
+\noindent\textbf{Ejemplo:} $\text{mcm}(6,8)$: \quad $6=2\cdot3$, \quad $8=2^3$. \quad $\text{mcm}=2^3\cdot3=24$.
+
+\medskip
+
+\noindent\textbf{Aplicaci\'on a fracciones:} para operar con fracciones de denominadores distintos, se busca el $\text{mcm}$ de esos denominadores. Ese valor se llama \textbf{denominador com\'un}, y permite amplificar cada fracci\'on para que todas tengan el mismo denominador. Se elige el $\text{mcm}$ porque es el menor posible, lo que mantiene los n\'umeros peque\~nos y facilita la simplificaci\'on posterior.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- hallar el el $\text{mcm}$ de los denominadores}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Hallar el el $\text{mcm}$ de los denominadores de $\dfrac{1}{6}$, $\dfrac{1}{8}$ y $\dfrac{1}{12}$}
+
+\textbf{Paso 1 ---} Descomponer: $6=2\cdot3$, $8=2^3$, $12=2^2\cdot3$.
+
+\textbf{Paso 2 ---} $\text{mcm}(6,8,12) = 2^3 \cdot 3 = 24$.
+
+\textbf{Paso 3 ---} Reescribir:
+$\dfrac{1}{6}=\dfrac{4}{24}$, \quad
+$\dfrac{1}{8}=\dfrac{3}{24}$, \quad
+$\dfrac{1}{12}=\dfrac{2}{24}$.
+
+\textbf{Conclusi\'on:} el el $\text{mcm}$ de los denominadores es $24$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Halla el el $\text{mcm}$ de los denominadores y reescribe cada fracci\'on:
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{1}{4}$ y $\dfrac{1}{6}$
+  \item $\dfrac{2}{3}$ y $\dfrac{3}{5}$
+  \item $\dfrac{1}{4}$, $\dfrac{1}{6}$ y $\dfrac{1}{9}$
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos --- Secci\'on 2}
+
+$\bigstar$ \textit{(b\'asico --- tipos, equivalencia y simplificaci\'on)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item Clasifica cada fracci\'on como propia, impropia o mixta. Si es impropia, conv\'ierte a mixto; si es mixta, conv\'ierte a impropia:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{5}{8}$ \item $\dfrac{11}{3}$ \item $3\dfrac{2}{5}$
+  \item $\dfrac{9}{9}$ \item $\dfrac{15}{4}$ \item $6\dfrac{1}{7}$
+  \item $\dfrac{7}{10}$ \item $\dfrac{23}{6}$
+\end{enumerate}
+\end{multicols}
+
+\item Amplifica cada fracci\'on al denominador indicado:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{1}{3} = \dfrac{\;}{15}$ \item $\dfrac{2}{5} = \dfrac{\;}{30}$
+  \item $\dfrac{3}{4} = \dfrac{\;}{28}$ \item $\dfrac{5}{6} = \dfrac{\;}{42}$
+  \item $\dfrac{7}{8} = \dfrac{\;}{40}$ \item $\dfrac{3}{7} = \dfrac{\;}{63}$
+  \item $\dfrac{4}{9} = \dfrac{\;}{72}$ \item $\dfrac{1}{12} = \dfrac{\;}{60}$
+\end{enumerate}
+\end{multicols}
+
+\item Reduce cada fracci\'on a su m\'inima expresi\'on:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{6}{8}$ \item $\dfrac{15}{20}$ \item $\dfrac{18}{24}$
+  \item $\dfrac{12}{30}$ \item $\dfrac{21}{35}$ \item $\dfrac{36}{48}$
+  \item $\dfrac{45}{60}$ \item $\dfrac{24}{32}$ \item $\dfrac{50}{75}$
+  \item $\dfrac{28}{70}$ \item $\dfrac{66}{99}$ \item $\dfrac{80}{120}$
+\end{enumerate}
+\end{multicols}
+
+\item Determina si cada par de fracciones es equivalente (usa el producto cruzado):
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{3}{4}$ y $\dfrac{9}{12}$
+  \item $\dfrac{5}{8}$ y $\dfrac{15}{25}$
+  \item $\dfrac{2}{7}$ y $\dfrac{6}{21}$
+  \item $\dfrac{4}{6}$ y $\dfrac{10}{15}$
+\end{enumerate}
+\end{multicols}
+
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio --- MCM, fracciones negativas y problemas de equivalencia)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Halla el el $\text{mcm}$ de los denominadores y reescribe todas las fracciones con ese denominador:
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{1}{6}$, $\dfrac{1}{4}$ y $\dfrac{1}{10}$
+  \item $\dfrac{3}{8}$, $\dfrac{5}{12}$ y $\dfrac{7}{16}$
+  \item $\dfrac{2}{3}$, $\dfrac{3}{5}$, $\dfrac{7}{15}$ y $\dfrac{1}{6}$
+\end{enumerate}
+
+\item Indica cu\'al de las siguientes formas equivalentes es la forma est\'andar y reescribe las dem\'as en forma est\'andar:
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{-5}{9}$, $\dfrac{5}{-9}$, $-\dfrac{5}{9}$
+  \item $\dfrac{-3}{-7}$, $-\dfrac{3}{7}$, $\dfrac{3}{7}$
+  \item $\dfrac{-8}{3}$, $\dfrac{8}{-3}$, $-\dfrac{8}{3}$
+  \item $\dfrac{-4}{-5}$, $-\dfrac{4}{5}$, $\dfrac{4}{5}$
+\end{enumerate}
+\end{multicols}
+
+\item Una fracci\'on irreducible tiene denominador $12$. Sus posibles numeradores (enteros positivos menores que $12$) son $1, 5, 7, 11$. Escribe las cuatro fracciones y verifica con el m\'etodo de simplificaci\'on sucesiva que no se pueden reducir m\'as.
+
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Si $\dfrac{a}{b} = \dfrac{3}{7}$ y $a + b = 50$, hallar $a$ y $b$.
+
+\item Una fracci\'on se amplifica multiplicando numerador y denominador por el mismo n\'umero $k$. Si la fracci\'on original es $\dfrac{2}{3}$ y la nueva fracci\'on tiene numerador y denominador con suma $100$, ¿cu\'anto vale $k$?
+
+
+
+\end{enumerate}
+\clearpage
+\seccionheader{blockc}{Secci\'on 3 $\cdot$ Orden y representaci\'on en la recta num\'erica}
+\label{sec:3}
+
+\subbloque{3.1 Comparaci\'on de fracciones}
+\label{sub:3.1}
+
+\begin{tcolorbox}[importantbox, title={Comparaci\'on de fracciones}]
+\noindent\textbf{Idea fundamental:} para comparar dos fracciones es m\'as c\'omodo igualar alguno de sus elementos (numerador o denominador) y luego comparar el otro.
+
+\medskip
+
+\noindent\textbf{Con igual denominador} ($c > 0$): la fracci\'on con \textbf{mayor numerador} es mayor.
+$$\frac{a}{c} < \frac{b}{c} \;\Longleftrightarrow\; a < b$$
+
+\noindent\textit{Intuici\'on:} si cortamos una pizza en $c$ trozos iguales, $a$ trozos son menos que $b$ trozos cuando $a<b$.
+
+\medskip
+
+\noindent\textbf{Con igual numerador} ($a > 0$): la fracci\'on con \textbf{menor denominador} es mayor.
+$$\frac{a}{b} > \frac{a}{d} \;\Longleftrightarrow\; b < d \quad (b,d>0)$$
+
+\noindent\textit{Intuici\'on:} si cortamos la misma cantidad en $b$ o en $d$ trozos, los trozos de $b$ partes son m\'as grandes que los de $d$ partes cuando $b<d$.
+
+\medskip
+
+\noindent\textbf{Con distintos numeradores y denominadores:} se igualan los denominadores amplificando al $\text{mcm}$, y luego se comparan los numeradores.
+
+\medskip
+
+\noindent\textbf{M\'etodo r\'apido --- Producto cruzado} (con $b,d > 0$ obligatoriamente):
+$$\frac{a}{b} \;\square\; \frac{c}{d} \;\Longleftrightarrow\; a \cdot d \;\square\; b \cdot c$$
+
+\noindent\textit{¿Por qu\'e funciona?} Si amplificamos al denominador com\'un $b\cdot d$: $\dfrac{a}{b}=\dfrac{a\cdot d}{b\cdot d}$ y $\dfrac{c}{d}=\dfrac{b\cdot c}{b\cdot d}$. Como el denominador es el mismo, comparar los numeradores equivale a comparar $a\cdot d$ con $b\cdot c$.
+
+\medskip
+\begin{tcolorbox}[warningbox, title={¡Atenci\'on con los denominadores negativos!}]
+El producto cruzado solo es v\'alido cuando $b>0$ y $d>0$. Si alguno fuera negativo, el sentido de la desigualdad se invertir\'ia. \textbf{Siempre} convierte la fracci\'on a la forma est\'andar (denominador positivo) antes de comparar.
+\end{tcolorbox}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- comparar fracciones}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Comparar $\dfrac{3}{7}$ y $\dfrac{4}{9}$}
+
+\textbf{Producto cruzado:} $3 \cdot 9 = 27$ y $7 \cdot 4 = 28$.
+
+Como $27 < 28$: $\dfrac{3}{7} < \dfrac{4}{9}$.
+
+\textbf{Conclusi\'on:} $\dfrac{3}{7} < \dfrac{4}{9}$. \checkmark
+
+\item \textbf{Ordenar $\dfrac{2}{3}$, $\dfrac{3}{5}$ y $\dfrac{5}{8}$ de menor a mayor}
+
+\textbf{Paso 1 ---} $\text{mcm}(3,5,8) = 120$.
+
+\textbf{Paso 2 ---} $\dfrac{2}{3}=\dfrac{80}{120}$, \quad $\dfrac{3}{5}=\dfrac{72}{120}$, \quad $\dfrac{5}{8}=\dfrac{75}{120}$.
+
+\textbf{Paso 3 ---} Comparar numeradores: $72 < 75 < 80$.
+
+\textbf{Conclusi\'on:} $\dfrac{3}{5} < \dfrac{5}{8} < \dfrac{2}{3}$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Usa el s\'imbolo correcto ($<$, $>$ o $=$):
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{2}{5}$ \quad\underline{\quad}\quad $\dfrac{3}{7}$
+  \item $\dfrac{4}{9}$ \quad\underline{\quad}\quad $\dfrac{5}{11}$
+  \item $\dfrac{7}{8}$ \quad\underline{\quad}\quad $\dfrac{8}{9}$
+  \item $\dfrac{1}{3}$ \quad\underline{\quad}\quad $\dfrac{2}{6}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{3.2 Orden en $\mathbb{Q}$: propiedades}
+\label{sub:3.2}
+
+\begin{tcolorbox}[importantbox, title={Propiedades del orden en $\mathbb{Q}$}]
+\noindent\textbf{Tricotom\'ia:} dados $a,b \in \mathbb{Q}$, exactamente uno de estos se cumple: $a < b$, $a = b$ o $a > b$.
+
+\medskip
+
+\noindent\textbf{Transitividad:} si $a < b$ y $b < c$, entonces $a < c$.
+
+\medskip
+
+\noindent\textbf{Compatibilidad con la suma:} si $a < b$, entonces $a + c < b + c$ para todo $c \in \mathbb{Q}$.
+
+\medskip
+
+\noindent\textbf{Compatibilidad con el producto:} si $a < b$ y $c > 0$, entonces $a \cdot c < b \cdot c$.
+
+Si $c < 0$, la desigualdad \textbf{se invierte}: $a \cdot c > b \cdot c$.
+\end{tcolorbox}
+
+\subbloque{3.3 Ubicaci\'on en la recta num\'erica}
+\label{sub:3.3}
+
+Todo n\'umero racional tiene un punto exacto en la recta num\'erica. Para ubicarlo, se divide el segmento entre los enteros adyacentes en $q$ partes iguales y se cuentan $p$ de ellas.
+
+\begin{tcolorbox}[examplebox, title={Ejemplo --- ubicar fracciones en la recta}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=10pt]
+
+\item \textbf{Ubicar $\dfrac{1}{4}$, $\dfrac{1}{2}$, $\dfrac{3}{4}$ y $\dfrac{7}{4}$ en la recta}
+
+Dividimos cada unidad en 4 partes iguales:
+
+\begin{center}
+\begin{tikzpicture}[x=1.2cm, y=0.6cm]
+  \draw[->, thick] (-0.3,0) -- (5.5,0);
+  % Marcas enteras
+  \foreach \x/\lab in {0/0, 4/1, 8/2}{
+    \draw (\x*0.5,0.18)--(\x*0.5,-0.18);
+    \node[below=5pt,font=\small\bfseries] at (\x*0.5,0) {$\lab$};
+  }
+  % Marcas de cuartos
+  \foreach \x in {1,2,3,5,6,7}{
+    \draw (\x*0.5,0.10)--(\x*0.5,-0.10);
+  }
+  % Puntos marcados
+  \foreach \x/\lab in {1/{$\frac{1}{4}$},2/{$\frac{1}{2}$},3/{$\frac{3}{4}$},7/{$\frac{7}{4}$}}{
+    \fill[zenitblue] (\x*0.5,0) circle (3pt);
+    \node[above=6pt,font=\small,color=zenitblue] at (\x*0.5,0) {\lab};
+  }
+\end{tikzpicture}
+\end{center}
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Dibuja una recta num\'erica y ubica los siguientes racionales:
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{1}{3}$, $\dfrac{2}{3}$, $\dfrac{4}{3}$ y $\dfrac{5}{3}$
+  \item $-\dfrac{3}{4}$, $-\dfrac{1}{4}$, $\dfrac{1}{4}$ y $\dfrac{3}{4}$
+\end{enumerate}
+
+\subbloque{3.4 Densidad de $\mathbb{Q}$: siempre hay m\'as racionales entre dos racionales}
+\label{sub:3.4}
+
+\begin{tcolorbox}[importantbox, title={Propiedad de densidad de $\mathbb{Q}$}]
+Entre dos n\'umeros racionales distintos $a$ y $b$ (con $a < b$), siempre existe (al menos) un n\'umero racional $m$ tal que $a < m < b$.
+
+\medskip
+
+\noindent\textbf{F\'ormula de la media:} $m = \dfrac{a + b}{2}$ es siempre racional y cumple $a < m < b$.
+
+\medskip
+
+Aplicando esta propiedad repetidamente, existen \textbf{infinitos} racionales entre $a$ y $b$. Decimos que $\mathbb{Q}$ es \textbf{denso}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplo --- encontrar un racional entre dos dados}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=10pt]
+
+\item \textbf{Hallar un racional entre $\dfrac{1}{3}$ y $\dfrac{1}{2}$}
+
+$$m = \frac{\dfrac{1}{3} + \dfrac{1}{2}}{2} = \frac{\dfrac{2}{6}+\dfrac{3}{6}}{2} = \frac{\dfrac{5}{6}}{2} = \frac{5}{12}$$
+
+\textbf{Verificaci\'on:} $\dfrac{1}{3} = \dfrac{4}{12} < \dfrac{5}{12} < \dfrac{6}{12} = \dfrac{1}{2}$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ --- Halla un racional entre los dos dados:
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item Entre $\dfrac{2}{5}$ y $\dfrac{3}{5}$
+  \item Entre $\dfrac{1}{4}$ y $\dfrac{1}{3}$
+  \item Entre $\dfrac{3}{7}$ y $\dfrac{4}{7}$
+  \item Entre $0{,}1$ y $0{,}2$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos --- Secci\'on 3}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item Usa el s\'imbolo correcto ($<$, $>$ o $=$):
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{3}{5}$ \quad \underline{\quad} \quad $\dfrac{4}{7}$
+  \item $\dfrac{5}{6}$ \quad \underline{\quad} \quad $\dfrac{7}{8}$
+  \item $\dfrac{2}{3}$ \quad \underline{\quad} \quad $\dfrac{4}{6}$
+  \item $\dfrac{1}{4}$ \quad \underline{\quad} \quad $\dfrac{2}{9}$
+  \item $\dfrac{7}{10}$ \quad \underline{\quad} \quad $\dfrac{3}{4}$
+  \item $\dfrac{5}{12}$ \quad \underline{\quad} \quad $\dfrac{3}{8}$
+\end{enumerate}
+\end{multicols}
+
+\item Ordena de menor a mayor:
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{1}{2}$,\; $\dfrac{3}{8}$,\; $\dfrac{5}{12}$,\; $\dfrac{7}{16}$
+  \item $\dfrac{2}{3}$,\; $\dfrac{3}{4}$,\; $\dfrac{5}{6}$,\; $\dfrac{7}{12}$
+  \item $\dfrac{1}{5}$,\; $\dfrac{2}{9}$,\; $\dfrac{3}{14}$,\; $\dfrac{4}{19}$
+\end{enumerate}
+
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Ubica en la recta num\'erica: $-\dfrac{3}{2}$,\; $-\dfrac{1}{3}$,\; $0$,\; $\dfrac{2}{3}$,\; $\dfrac{5}{4}$,\; $2$.
+
+\item Halla dos racionales entre cada par:
+\begin{enumerate}[label=\alph*)]
+  \item Entre $\dfrac{1}{3}$ y $\dfrac{1}{2}$
+  \item Entre $\dfrac{4}{5}$ y $1$
+  \item Entre $-1$ y $-\dfrac{3}{4}$
+\end{enumerate}
+
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item ¿Cu\'antos n\'umeros racionales hay entre $\dfrac{1}{100}$ y $\dfrac{2}{100}$? Escribe al menos cinco de ellos.
+
+\item Sea $\dfrac{p}{q} < \dfrac{r}{s}$ (con $q,s>0$). Demuestra que el n\'umero $\dfrac{ps+rq}{2qs}$ siempre est\'a entre $\dfrac{p}{q}$ y $\dfrac{r}{s}$. Aplica este resultado para encontrar un racional entre $\dfrac{3}{7}$ y $\dfrac{4}{9}$.
+
+\end{enumerate}
+\clearpage
+\seccionheader{blocka}{Secci\'on 4 $\cdot$ Operaciones con fracciones}
+\label{sec:4}
+
+\subbloque{4.1 Suma y resta}
+\label{sub:4.1}
+
+\begin{tcolorbox}[importantbox, title={Suma y resta de fracciones: el principio fundamental}]
+Solo se pueden sumar o restar fracciones que tienen el \textbf{mismo denominador}. Cuando los denominadores son distintos, se \textbf{amplifica} cada fracci\'on para que todas lleguen al mismo denominador (el el $\text{mcm}$ de los denominadores, secci\'on 2.4). El valor de cada fracci\'on no cambia, solo su representaci\'on.
+
+\medskip
+
+\noindent\textbf{Mismo denominador} (directo):
+$$\frac{a}{c} \pm \frac{b}{c} = \frac{a \pm b}{c}$$
+
+\medskip
+
+\noindent\textbf{Distinto denominador} (amplificar primero):
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+  \item Calcular el $\text{mcm}$ de todos los denominadores.
+  \item \textbf{Amplificar} cada fracci\'on: multiplicar numerador y denominador por el factor que lleve su denominador al mcm.
+  \item Sumar o restar los numeradores. El denominador es el mcm.
+  \item Simplificar el resultado si es posible.
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- suma y resta con amplificaci\'on}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Calcular $\dfrac{1}{4} + \dfrac{1}{6}$}
+
+\textbf{Paso 1 --- mcm:} $\text{mcm}(4,6) = 12$.
+
+\textbf{Paso 2 --- Amplificar:} $\dfrac{1}{4} = \dfrac{1\cdot3}{4\cdot3} = \dfrac{3}{12}$ \quad y \quad $\dfrac{1}{6} = \dfrac{1\cdot2}{6\cdot2} = \dfrac{2}{12}$.
+
+\textbf{Paso 3 --- Operar:} $\dfrac{3}{12} + \dfrac{2}{12} = \dfrac{5}{12}$.
+
+\textbf{Conclusi\'on:} $\dfrac{1}{4} + \dfrac{1}{6} = \dfrac{5}{12}$. \checkmark
+
+\item \textbf{Calcular $\dfrac{5}{12} + \dfrac{1}{8}$}
+
+\textbf{Paso 1 --- mcm:} $12 = 2^2\cdot3$, $8 = 2^3$. $\text{mcm} = 2^3\cdot3 = 24$.
+
+\textbf{Paso 2 --- Amplificar:} $\dfrac{5}{12} = \dfrac{5\cdot2}{12\cdot2} = \dfrac{10}{24}$ \quad y \quad $\dfrac{1}{8} = \dfrac{1\cdot3}{8\cdot3} = \dfrac{3}{24}$.
+
+\textbf{Paso 3 --- Operar:} $\dfrac{10}{24} + \dfrac{3}{24} = \dfrac{13}{24}$.
+
+\textbf{Conclusi\'on:} $\dfrac{5}{12} + \dfrac{1}{8} = \dfrac{13}{24}$. \checkmark
+
+\item \textbf{Calcular $\dfrac{7}{6} - \dfrac{3}{4}$}
+
+\textbf{Paso 1 --- mcm:} $\text{mcm}(6,4) = 12$.
+
+\textbf{Paso 2 --- Amplificar:} $\dfrac{7}{6} = \dfrac{7\cdot2}{6\cdot2} = \dfrac{14}{12}$ \quad y \quad $\dfrac{3}{4} = \dfrac{3\cdot3}{4\cdot3} = \dfrac{9}{12}$.
+
+\textbf{Paso 3 --- Operar:} $\dfrac{14}{12} - \dfrac{9}{12} = \dfrac{5}{12}$.
+
+\textbf{Conclusi\'on:} $\dfrac{7}{6} - \dfrac{3}{4} = \dfrac{5}{12}$. \checkmark
+
+\item \textbf{Calcular $\dfrac{1}{2} + \dfrac{1}{3} + \dfrac{1}{4}$}
+
+\textbf{Paso 1 --- mcm:} $\text{mcm}(2,3,4) = 12$.
+
+\textbf{Paso 2 --- Amplificar:} $\dfrac{1}{2}=\dfrac{6}{12}$, \quad $\dfrac{1}{3}=\dfrac{4}{12}$, \quad $\dfrac{1}{4}=\dfrac{3}{12}$.
+
+\textbf{Paso 3 --- Operar:} $\dfrac{6+4+3}{12} = \dfrac{13}{12}$.
+
+\textbf{Conclusi\'on:} $\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{4} = \dfrac{13}{12} = 1\dfrac{1}{12}$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[importantbox, title={Nota --- N\'umeros mixtos en sumas y restas}]
+Un n\'umero mixto como $2\dfrac{3}{4}$ no es m\'as que una escritura abreviada de una suma: $2\dfrac{3}{4} = 2 + \dfrac{3}{4}$. Para operar con ellos en sumas y restas, lo m\'as seguro es \textbf{convertirlos primero a fracci\'on impropia} (secci\'on 2.1) y luego operar normalmente.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente --- sumar numeradores Y denominadores}]
+\noindent\textbf{Error:} $\dfrac{1}{4} + \dfrac{1}{6} = \dfrac{2}{10}$ \quad (\textit{se sumaron numeradores y denominadores por separado})
+
+\medskip
+
+\noindent\textbf{Correcto:} amplificar primero al mcm $= 12$, luego sumar solo los numeradores: $\dfrac{3}{12}+\dfrac{2}{12}=\dfrac{5}{12}$.
+
+\medskip
+
+\noindent\textbf{Regla:} el denominador com\'un \textbf{nunca} se suma ni se resta. Solo se suman o restan los numeradores una vez que los denominadores son iguales.
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Calcula y simplifica. Algunos resultados son negativos:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{1}{4}+\dfrac{1}{6}$
+  \item $\dfrac{3}{5}-\dfrac{1}{4}$
+  \item $\dfrac{2}{3}+\dfrac{5}{9}$
+  \item $\dfrac{1}{6}-\dfrac{7}{8}$
+  \item $\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{6}$
+  \item $\dfrac{1}{4}-\dfrac{2}{3}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{4.2 Multiplicaci\'on de fracciones}
+\label{sub:4.2}
+
+\begin{tcolorbox}[importantbox, title={Multiplicaci\'on de fracciones}]
+\noindent\textbf{Regla:} se multiplica ``de frente'': numerador con numerador y denominador con denominador.
+$$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$$
+
+\noindent\textbf{¿Por qu\'e funciona la simplificaci\'on cruzada?} Observa:
+$$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d} = \frac{c \cdot a}{b \cdot d} = \frac{c}{b} \cdot \frac{a}{d}$$
+Esto muestra que podemos \textbf{cruzar} cualquier numerador con cualquier denominador. Por eso, si un numerador y un denominador (de distintas fracciones) comparten un factor com\'un, podemos simplificar \textbf{antes} de multiplicar. El resultado es el mismo, pero con n\'umeros m\'as peque\~nos.
+
+\medskip
+\noindent\textbf{Notaci\'on:} al simplificar, se tacha el n\'umero original, se escribe en \textcolor{red}{\textbf{rojo}} el resultado encima, y se indica el factor divisor.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- multiplicaci\'on con simplificaci\'on cruzada}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=16pt]
+
+\item \textbf{Calcular $\dfrac{4}{15} \cdot \dfrac{5}{8}$}
+
+Identificamos factores comunes entre numeradores y denominadores \textbf{cruzados}:
+\begin{itemize}[itemsep=2pt]
+  \item $4$ y $8$: factor com\'un $4$ $\;(\div 4)$
+  \item $5$ y $15$: factor com\'un $5$ $\;(\div 5)$
+\end{itemize}
+
+$$\frac{\overset{\textcolor{red}{1}}{\cancel{4}}}{15 \div 5} \cdot \frac{\overset{\textcolor{red}{1}}{\cancel{5}}}{8 \div 4}
+\;=\;
+\frac{\overset{\textcolor{red}{1}}{\cancel{4}}}{\overset{\textcolor{red}{3}}{\cancel{15}}} \cdot \frac{\overset{\textcolor{red}{1}}{\cancel{5}}}{\overset{\textcolor{red}{2}}{\cancel{8}}} = \frac{1 \cdot 1}{3 \cdot 2} = \frac{1}{6}$$
+
+\textbf{Conclusi\'on:} $\dfrac{4}{15}\cdot\dfrac{5}{8}=\dfrac{1}{6}$. \checkmark
+
+\item \textbf{Calcular $\dfrac{3}{8} \cdot \dfrac{4}{9}$}
+
+$3$ y $9$: factor com\'un $3$ $(\div 3)$. \quad $4$ y $8$: factor com\'un $4$ $(\div 4)$.
+
+$$\frac{\overset{\textcolor{red}{1}}{\cancel{3}}}{\overset{\textcolor{red}{2}}{\cancel{8}}} \cdot \frac{\overset{\textcolor{red}{1}}{\cancel{4}}}{\overset{\textcolor{red}{3}}{\cancel{9}}} = \frac{1 \cdot 1}{2 \cdot 3} = \frac{1}{6}$$
+
+\textbf{Conclusi\'on:} $\dfrac{3}{8}\cdot\dfrac{4}{9}=\dfrac{1}{6}$. \checkmark
+
+\item \textbf{Calcular $\left(-\dfrac{5}{6}\right) \cdot \dfrac{9}{10}$}
+
+Signo: negativo $\cdot$ positivo $=$ negativo. \quad $5$ y $10$: $(\div5)$. \quad $9$ y $6$: $(\div3)$.
+
+$$-\frac{\overset{\textcolor{red}{1}}{\cancel{5}}}{\overset{\textcolor{red}{2}}{\cancel{6}}} \cdot \frac{\overset{\textcolor{red}{3}}{\cancel{9}}}{\overset{\textcolor{red}{2}}{\cancel{10}}} = -\frac{1\cdot3}{2\cdot2} = -\frac{3}{4}$$
+
+\textbf{Conclusi\'on:} $\left(-\dfrac{5}{6}\right)\cdot\dfrac{9}{10}=-\dfrac{3}{4}$. \checkmark
+
+\item \textbf{Contexto: una receta para $6$ personas usa $\dfrac{3}{4}$ kg de harina. ¿Cu\'anto se necesita para $4$ personas?}
+
+La relaci\'on es proporcional: $\dfrac{4}{6}\cdot\dfrac{3}{4}$ kg.
+
+$$\frac{\overset{\textcolor{red}{1}}{\cancel{4}}}{\overset{\textcolor{red}{3}}{\cancel{6}}} \cdot \frac{\overset{\textcolor{red}{1}}{\cancel{3}}}{\overset{\textcolor{red}{1}}{\cancel{4}}} = \frac{1}{3} \text{ kg}$$
+
+\textbf{Conclusi\'on:} se necesita $\dfrac{1}{3}$ kg de harina para 4 personas. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Multiplica usando simplificaci\'on cruzada:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{2}{5}\cdot\dfrac{5}{8}$
+  \item $\dfrac{4}{9}\cdot\dfrac{3}{8}$
+  \item $\dfrac{7}{12}\cdot\dfrac{6}{7}$
+  \item $\dfrac{5}{6}\cdot\dfrac{12}{25}$
+  \item $\dfrac{3}{4}\cdot\dfrac{8}{15}$
+  \item $\left(-\dfrac{2}{3}\right)\cdot\dfrac{9}{14}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{4.3 Divisi\'on de fracciones}
+\label{sub:4.3}
+
+\begin{tcolorbox}[importantbox, title={Divisi\'on de fracciones}]
+Dividir por una fracci\'on equivale a multiplicar por su \textbf{rec\'iproco} (fracci\'on invertida):
+$$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c} \quad (c \neq 0)$$
+
+El rec\'iproco de $\dfrac{c}{d}$ es $\dfrac{d}{c}$. El producto de una fracci\'on por su rec\'iproco siempre es 1.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warningbox, title={Error frecuente --- invertir el dividendo en lugar del divisor}]
+\noindent\textbf{Error:} $\dfrac{3}{4} \div \dfrac{2}{5} = \dfrac{4}{3} \cdot \dfrac{2}{5}$ \quad (\textit{se invirti\'o el dividendo})
+
+\medskip
+
+\noindent\textbf{Correcto:} $\dfrac{3}{4} \div \dfrac{2}{5} = \dfrac{3}{4} \cdot \dfrac{5}{2} = \dfrac{15}{8}$
+
+\medskip
+
+\noindent\textbf{Regla:} \textbf{siempre} se invierte la fracci\'on que est\'a \textbf{despu\'es} del signo $\div$ (el divisor).
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- divisi\'on de fracciones}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Calcular $\dfrac{5}{6} \div \dfrac{10}{9}$}
+
+\textbf{Paso 1 ---} Invertir el divisor: $\dfrac{10}{9} \to \dfrac{9}{10}$.
+
+\textbf{Paso 2 ---} Multiplicar: $\dfrac{5}{6} \cdot \dfrac{9}{10}$.
+
+\textbf{Paso 3 ---} Simplificaci\'on cruzada ($5$ y $10$, $9$ y $6$):
+$$\frac{\cancelto{1}{5}}{\cancelto{2}{6}} \cdot \frac{\cancelto{3}{9}}{\cancelto{2}{10}} = \frac{3}{4}$$
+
+\textbf{Conclusi\'on:} $\dfrac{5}{6} \div \dfrac{10}{9} = \dfrac{3}{4}$. \checkmark
+
+\item \textbf{¿Cu\'antas veces cabe $\dfrac{3}{8}$ en $\dfrac{9}{4}$?}
+
+$$\frac{9}{4} \div \frac{3}{8} = \frac{9}{4} \cdot \frac{8}{3} = \frac{\cancelto{3}{9}}{\cancelto{1}{4}} \cdot \frac{\cancelto{2}{8}}{\cancelto{1}{3}} = \frac{3 \cdot 2}{1 \cdot 1} = 6$$
+
+\textbf{Conclusi\'on:} $\dfrac{3}{8}$ cabe exactamente $6$ veces en $\dfrac{9}{4}$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Divide y simplifica:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{2}{3} \div \dfrac{4}{9}$
+  \item $\dfrac{5}{8} \div \dfrac{15}{16}$
+  \item $\dfrac{7}{10} \div \dfrac{7}{5}$
+  \item $4 \div \dfrac{2}{3}$
+\end{enumerate}
+\end{multicols}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos en contexto --- divisi\'on de fracciones}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=14pt]
+
+\item \textbf{Una cinta de $\dfrac{9}{4}$ metros se corta en trozos de $\dfrac{3}{8}$ metros. ¿Cu\'antos trozos salen?}
+
+$$\frac{9}{4} \div \frac{3}{8} = \frac{9}{4} \cdot \frac{8}{3} = \frac{\overset{\textcolor{red}{3}}{\cancel{9}}}{\overset{\textcolor{red}{1}}{\cancel{4}}} \cdot \frac{\overset{\textcolor{red}{2}}{\cancel{8}}}{\overset{\textcolor{red}{1}}{\cancel{3}}} = \frac{3 \cdot 2}{1 \cdot 1} = 6 \text{ trozos}$$
+
+\item \textbf{Si tengo $\dfrac{5}{6}$ de litro de aceite y cada porci\'on de una receta usa $\dfrac{1}{4}$ de litro, ¿cu\'antas porciones puedo preparar?}
+
+$$\frac{5}{6} \div \frac{1}{4} = \frac{5}{6} \cdot 4 = \frac{20}{6} = \frac{10}{3} = 3\frac{1}{3}$$
+
+Puedo preparar $3$ porciones completas (y sobrar\'a $\dfrac{1}{3}$ de porci\'on de aceite).
+
+\end{enumerate}
+\end{tcolorbox}
+
+\subbloque{4.4 Operaciones combinadas y jerarqu\'ia}
+\label{sub:4.4}
+
+Las mismas reglas de jerarqu\'ia que rigen en $\mathbb{Z}$ se aplican en $\mathbb{Q}$:
+
+\begin{tcolorbox}[importantbox, title={Jerarqu\'ia de operaciones en $\mathbb{Q}$}]
+\begin{enumerate}[leftmargin=*, itemsep=4pt]
+  \item S\'imbolos de agrupaci\'on: par\'entesis $(\;)$, corchetes $[\;]$, llaves $\{\;\}$ --- desde el m\'as interno al m\'as externo.
+  \item Potencias: $\left(\dfrac{p}{q}\right)^n$
+  \item Multiplicaciones y divisiones: de izquierda a derecha.
+  \item Sumas y restas: de izquierda a derecha.
+\end{enumerate}
+\noindent\textbf{Fracciones negativas:} cuando una fracci\'on tiene signo negativo y aparece en una suma o resta, la encerramos en par\'entesis para mayor claridad: $\dfrac{1}{2} + \left(-\dfrac{3}{4}\right)$ o $-\left(-\dfrac{2}{5}\right)$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos sin s\'imbolos de agrupaci\'on (dificultad progresiva)}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=18pt]
+
+\item \textbf{$\dfrac{1}{2} - \dfrac{3}{4} + \dfrac{1}{6}$ \quad (solo sumas y restas)}
+
+Solo hay sumas y restas: operamos de izquierda a derecha. $\text{mcm}(2,4,6)=12$.
+$$\frac{6}{12} - \frac{9}{12} + \frac{2}{12} = \frac{6 - 9 + 2}{12} = \frac{-1}{12} = -\frac{1}{12}$$
+
+\item \textbf{$\dfrac{3}{4} \cdot \dfrac{2}{3} + \dfrac{1}{6}$ \quad (multiplicaci\'on y suma)}
+
+\textbf{Paso 1 ---} La multiplicaci\'on va primero:
+$$\frac{3}{4} \cdot \frac{2}{3} = \frac{\overset{\textcolor{red}{1}}{\cancel{3}}}{\overset{\textcolor{red}{2}}{\cancel{4}}} \cdot \frac{\overset{\textcolor{red}{1}}{\cancel{2}}}{\overset{\textcolor{red}{1}}{\cancel{3}}} = \frac{1}{2}$$
+
+\textbf{Paso 2 ---} Sumar: $\dfrac{1}{2} + \dfrac{1}{6} = \dfrac{3}{6}+\dfrac{1}{6} = \dfrac{4}{6} = \dfrac{2}{3}$.
+
+\item \textbf{$\dfrac{5}{6} - \dfrac{2}{3} \cdot \dfrac{3}{4} + \dfrac{1}{4} \div \dfrac{3}{8}$ \quad (mult., div. y resta)}
+
+\textbf{Paso 1 ---} Multiplicaciones y divisiones primero (de izquierda a derecha):
+$$\frac{2}{3} \cdot \frac{3}{4} = \frac{1}{2} \qquad\qquad \frac{1}{4} \div \frac{3}{8} = \frac{1}{4} \cdot \frac{8}{3} = \frac{2}{3}$$
+
+\textbf{Paso 2 ---} Sustituir y operar: $\dfrac{5}{6} - \dfrac{1}{2} + \dfrac{2}{3}$.
+
+$\text{mcm}(6,2,3)=6$: $\dfrac{5}{6} - \dfrac{3}{6} + \dfrac{4}{6} = \dfrac{6}{6} = 1$.
+
+\item \textbf{$\dfrac{3}{4} + \left(-\dfrac{2}{3}\right) \cdot \dfrac{9}{8} - \left(-\dfrac{1}{6}\right)$ \quad (con fracciones negativas)}
+
+\textbf{Paso 1 ---} Multiplicaci\'on: $\left(-\dfrac{2}{3}\right)\cdot\dfrac{9}{8} = -\dfrac{\overset{\textcolor{red}{1}}{\cancel{2}}}{\overset{\textcolor{red}{1}}{\cancel{3}}} \cdot \dfrac{\overset{\textcolor{red}{3}}{\cancel{9}}}{\overset{\textcolor{red}{4}}{\cancel{8}}} = -\dfrac{3}{4}$.
+
+\textbf{Paso 2 ---} Sustituir: $\dfrac{3}{4} + \left(-\dfrac{3}{4}\right) - \left(-\dfrac{1}{6}\right) = \dfrac{3}{4} - \dfrac{3}{4} + \dfrac{1}{6} = 0 + \dfrac{1}{6} = \dfrac{1}{6}$.
+
+\item \textbf{$1\dfrac{1}{3} \cdot \dfrac{3}{4} - \dfrac{1}{2} \div \dfrac{3}{4}$ \quad (mixto, mult. y div.)}
+
+\textbf{Paso 0 ---} Convertir mixto: $1\dfrac{1}{3} = \dfrac{4}{3}$.
+
+\textbf{Paso 1 ---} Multiplicaci\'on: $\dfrac{4}{3} \cdot \dfrac{3}{4} = 1$.
+
+\textbf{Paso 2 ---} Divisi\'on: $\dfrac{1}{2} \div \dfrac{3}{4} = \dfrac{1}{2} \cdot \dfrac{4}{3} = \dfrac{2}{3}$.
+
+\textbf{Paso 3 ---} Restar: $1 - \dfrac{2}{3} = \dfrac{3}{3} - \dfrac{2}{3} = \dfrac{1}{3}$.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos con s\'imbolos de agrupaci\'on (dificultad creciente)}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=20pt]
+
+\item \textbf{$\left(\dfrac{1}{2}+\dfrac{1}{3}\right)\cdot\dfrac{3}{5}$ \quad (un par\'entesis)}
+
+\textbf{Paso 1 --- Par\'entesis primero:}
+$$\frac{1}{2}+\frac{1}{3} = \frac{3}{6}+\frac{2}{6} = \frac{5}{6}$$
+
+\textbf{Paso 2 --- Multiplicar:}
+$$\frac{5}{6} \cdot \frac{3}{5} = \frac{\overset{\textcolor{red}{1}}{\cancel{5}}}{\overset{\textcolor{red}{2}}{\cancel{6}}} \cdot \frac{\overset{\textcolor{red}{1}}{\cancel{3}}}{\overset{\textcolor{red}{1}}{\cancel{5}}} = \frac{1}{2}$$
+
+\item \textbf{$\dfrac{2}{3}\cdot\left(\dfrac{5}{4}-\dfrac{3}{8}\right) + \dfrac{1}{4}\div\left(\dfrac{1}{2}+\dfrac{1}{4}\right)$ \quad (dos par\'entesis)}
+
+\textbf{Paso 1 --- Primer par\'entesis:} $\dfrac{5}{4}-\dfrac{3}{8}=\dfrac{10}{8}-\dfrac{3}{8}=\dfrac{7}{8}$.
+
+\textbf{Paso 2 --- Segundo par\'entesis:} $\dfrac{1}{2}+\dfrac{1}{4}=\dfrac{3}{4}$.
+
+\textbf{Paso 3 --- Multiplicaci\'on:} $\dfrac{2}{3}\cdot\dfrac{7}{8}=\dfrac{7}{12}$.
+
+\textbf{Paso 4 --- Divisi\'on:} $\dfrac{1}{4}\div\dfrac{3}{4}=\dfrac{1}{4}\cdot\dfrac{4}{3}=\dfrac{1}{3}$.
+
+\textbf{Paso 5 --- Suma:} $\dfrac{7}{12}+\dfrac{1}{3}=\dfrac{7}{12}+\dfrac{4}{12}=\dfrac{11}{12}$.
+
+\item \textbf{$\left[\dfrac{3}{4}-\left(\dfrac{1}{6}+\dfrac{1}{4}\right)\right]\div\left(\dfrac{5}{6}-\dfrac{1}{3}\right)\cdot2\dfrac{1}{2}$ \quad (par\'entesis anidados + mixto)}
+
+\textbf{Paso 1 --- Par\'entesis m\'as interno:} $\dfrac{1}{6}+\dfrac{1}{4}=\dfrac{2}{12}+\dfrac{3}{12}=\dfrac{5}{12}$.
+
+\textbf{Paso 2 --- Corchete:} $\dfrac{3}{4}-\dfrac{5}{12}=\dfrac{9}{12}-\dfrac{5}{12}=\dfrac{4}{12}=\dfrac{1}{3}$.
+
+\textbf{Paso 3 --- Par\'entesis derecho:} $\dfrac{5}{6}-\dfrac{1}{3}=\dfrac{5}{6}-\dfrac{2}{6}=\dfrac{3}{6}=\dfrac{1}{2}$.
+
+\textbf{Paso 4 --- Mixto a impropia:} $2\dfrac{1}{2}=\dfrac{5}{2}$.
+
+\textbf{Paso 5 --- Divisi\'on:} $\dfrac{1}{3}\div\dfrac{1}{2}=\dfrac{1}{3}\cdot 2=\dfrac{2}{3}$.
+
+\textbf{Paso 6 --- Multiplicaci\'on:} $\dfrac{2}{3}\cdot\dfrac{5}{2}=\dfrac{\overset{\textcolor{red}{1}}{\cancel{2}}}{\overset{\textcolor{red}{1}}{\cancel{3}}} \cdot \dfrac{5}{\overset{\textcolor{red}{1}}{\cancel{2}}} \cdot \cancel{3}$.
+
+Reintentando: $\dfrac{2}{3}\cdot\dfrac{5}{2}=\dfrac{2\cdot5}{3\cdot2}=\dfrac{10}{6}=\dfrac{5}{3}$.
+
+\textbf{Conclusi\'on:} el resultado es $\dfrac{5}{3} = 1\dfrac{2}{3}$. \checkmark
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ --- Calcula respetando la jerarqu\'ia:
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{3}{4} - \dfrac{1}{2} \cdot \dfrac{2}{3} + \dfrac{1}{6}$
+  \item $\dfrac{5}{8} \div \dfrac{1}{4} - \dfrac{3}{2} \cdot \dfrac{2}{3} + \dfrac{1}{4}$
+  \item $\left(\dfrac{1}{2}+\dfrac{1}{3}\right) \div \dfrac{5}{6}$
+  \item $\dfrac{2}{3} \cdot \left(\dfrac{5}{4} - \dfrac{3}{8}\right) - \dfrac{1}{4}$
+  \item $\left[\dfrac{3}{4}+\left(\dfrac{1}{3}-\dfrac{1}{6}\right)\right]\cdot\dfrac{2}{5}$
+\end{enumerate}
+
+\subbloque{Ejercicios propuestos --- Secci\'on 4}
+
+$\bigstar$ \textit{(b\'asico --- suma y resta con amplificaci\'on)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item Suma. Recuerda amplificar al mcm antes de operar:
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{1}{3}+\dfrac{1}{4}$
+  \item $\dfrac{2}{5}+\dfrac{1}{3}$
+  \item $\dfrac{3}{8}+\dfrac{1}{4}$
+  \item $\dfrac{5}{6}+\dfrac{1}{9}$
+  \item $\dfrac{1}{2}+\dfrac{3}{7}$
+  \item $\dfrac{4}{5}+\dfrac{3}{10}$
+  \item $\dfrac{7}{12}+\dfrac{1}{4}$
+  \item $\dfrac{5}{9}+\dfrac{2}{3}$
+  \item $\dfrac{1}{6}+\dfrac{3}{8}$
+\end{enumerate}
+\end{multicols}
+
+\item Resta. Amplifica al mcm:
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{3}{4}-\dfrac{1}{6}$
+  \item $\dfrac{5}{6}-\dfrac{1}{4}$
+  \item $\dfrac{7}{8}-\dfrac{2}{5}$
+  \item $\dfrac{3}{5}-\dfrac{1}{4}$
+  \item $\dfrac{11}{12}-\dfrac{3}{8}$
+  \item $\dfrac{5}{7}-\dfrac{1}{3}$
+  \item $1-\dfrac{3}{7}$
+  \item $\dfrac{5}{4}-\dfrac{2}{3}$
+  \item $\dfrac{9}{10}-\dfrac{3}{4}$
+\end{enumerate}
+\end{multicols}
+
+\item Multiplica (usa simplificaci\'on cruzada cuando sea posible):
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{3}{5}\cdot\dfrac{5}{9}$
+  \item $\dfrac{4}{7}\cdot\dfrac{7}{8}$
+  \item $\dfrac{6}{11}\cdot\dfrac{11}{12}$
+  \item $\dfrac{2}{3}\cdot\dfrac{9}{10}$
+  \item $\dfrac{5}{8}\cdot\dfrac{4}{15}$
+  \item $\dfrac{7}{6}\cdot\dfrac{3}{14}$
+  \item $\dfrac{8}{9}\cdot\dfrac{3}{4}$
+  \item $\dfrac{5}{12}\cdot\dfrac{4}{25}$
+  \item $\dfrac{11}{10}\cdot\dfrac{5}{22}$
+\end{enumerate}
+\end{multicols}
+
+\item Divide:
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{3}{4}\div\dfrac{9}{8}$
+  \item $\dfrac{5}{6}\div\dfrac{25}{12}$
+  \item $\dfrac{7}{10}\div\dfrac{14}{5}$
+  \item $\dfrac{2}{3}\div\dfrac{4}{9}$
+  \item $6\div\dfrac{3}{5}$
+  \item $\dfrac{8}{15}\div4$
+  \item $\dfrac{1}{2}\div\dfrac{1}{4}$
+  \item $\dfrac{5}{7}\div\dfrac{10}{21}$
+  \item $\dfrac{9}{4}\div\dfrac{3}{2}$
+\end{enumerate}
+\end{multicols}
+
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio --- operaciones combinadas y mixtos)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Suma o resta tres fracciones (amplifica al mcm):
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{6}$
+  \item $\dfrac{3}{4}-\dfrac{1}{6}+\dfrac{1}{3}$
+  \item $\dfrac{5}{6}+\dfrac{3}{8}-\dfrac{1}{4}$
+  \item $1-\dfrac{1}{2}-\dfrac{1}{3}-\dfrac{1}{6}$
+\end{enumerate}
+\end{multicols}
+
+\item Calcula respetando la jerarqu\'ia:
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{2}{3}+\dfrac{1}{4}\cdot\dfrac{8}{5}$
+  \item $\left(\dfrac{1}{2}+\dfrac{1}{4}\right)\div\dfrac{3}{8}$
+  \item $\dfrac{3}{5}\cdot\dfrac{5}{6}-\dfrac{1}{4}\div\dfrac{1}{2}$
+  \item $\left(\dfrac{7}{8}-\dfrac{3}{4}\right)\cdot\dfrac{12}{5}$
+  \item $\dfrac{1}{3}\div\dfrac{2}{9}+\dfrac{3}{4}\cdot\dfrac{8}{15}$
+  \item $\dfrac{5}{6}-\left(\dfrac{1}{3}+\dfrac{1}{4}\right)\div\dfrac{7}{12}$
+\end{enumerate}
+\end{multicols}
+
+\item \textbf{Problemas contextualizados con operaciones y par\'entesis:}
+\begin{enumerate}[label=\alph*)]
+  \item Una alber\-ca tiene $\dfrac{3}{4}$ de su capacidad con agua. Si se a\~naden $\dfrac{1}{6}$ de capacidad m\'as y luego se extrae $\dfrac{2}{5}$ del total que hab\'ia, ¿qu\'e fracci\'on del estanque queda llena?
+  \item Pedro gana $\dfrac{5}{8}$ de su sueldo como ingreso fijo y $\dfrac{1}{4}$ como bono. Si el bono es $\$120\,000$, ¿cu\'anto gana en total? ¿Cu\'anto es su ingreso fijo?
+  \item Una receta de $2\dfrac{1}{2}$ tazas alcanza para 6 personas. ¿Cu\'antas tazas se necesitan para 9 personas? ¿Y para $3\dfrac{1}{2}$ docenas de personas?
+\end{enumerate}
+
+\end{enumerate}
+
+$\bigstar\bigstar\bigstar$ \textit{(avanzado --- operatoria extensa y problemas algebraicos)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item \textbf{Operatoria combinada compleja} (jerarqu\'ia estricta, sin agrupar):
+\begin{enumerate}[label=\alph*)]
+  \item $\dfrac{5}{6} - \dfrac{2}{3}\cdot\dfrac{9}{10} + \dfrac{1}{4}\div\dfrac{3}{8} - \dfrac{1}{6}$
+  \item $\dfrac{7}{8}\div\dfrac{7}{4} + \left(-\dfrac{3}{5}\right)\cdot\dfrac{5}{6} + \dfrac{7}{12}$
+  \item $1\dfrac{1}{3}\cdot\dfrac{3}{8} - \dfrac{1}{2}\div\dfrac{3}{4} + \left(-\dfrac{1}{6}\right)\cdot\left(-\dfrac{6}{5}\right)$
+\end{enumerate}
+
+\item \textbf{Operatoria con s\'imbolos de agrupaci\'on:}
+\begin{enumerate}[label=\alph*)]
+  \item $\left(\dfrac{3}{4}+\dfrac{1}{6}\right)\div\left(\dfrac{5}{6}-\dfrac{1}{4}\right)\cdot\dfrac{2}{3}$
+  \item $\dfrac{5}{6}\cdot\left[2-\left(\dfrac{3}{4}+\dfrac{1}{3}\right)\right]\div\dfrac{1}{2}$
+  \item $\left[\left(\dfrac{2}{3}-\dfrac{1}{4}\right)\cdot\dfrac{12}{5} - \dfrac{1}{2}\right]\div\left(\dfrac{1}{3}+\dfrac{1}{6}\right)$
+\end{enumerate}
+
+\item \textbf{Operatoria con potencias y agrupaci\'on:}
+\begin{enumerate}[label=\alph*)]
+  \item $\left(\dfrac{2}{3}\right)^2 + \dfrac{1}{2}\cdot\left(\dfrac{3}{4} - \left(\dfrac{1}{2}\right)^3\right)$
+  \item $\left[\dfrac{3}{4} - \left(\dfrac{1}{2}\right)^2\right]\div\dfrac{1}{4} + \left(\dfrac{2}{3}\right)^{-1}$
+  \item $\left(\dfrac{1}{2}+\dfrac{1}{3}\right)^2 - \left(\dfrac{1}{2}-\dfrac{1}{3}\right)^2$
+\end{enumerate}
+
+\item La suma de dos fracciones es $\dfrac{7}{6}$ y su diferencia es $\dfrac{1}{6}$. Halla las dos fracciones.
+
+\item Calcula $\dfrac{1}{1\cdot2}+\dfrac{1}{2\cdot3}+\dfrac{1}{3\cdot4}+\dfrac{1}{4\cdot5}+\dfrac{1}{5\cdot6}$. (Sugerencia: cada t\'ermino $\dfrac{1}{k(k+1)}=\dfrac{1}{k}-\dfrac{1}{k+1}$.)
+
+\end{enumerate}
+
+\clearpage
+\seccionheader{blockb}{Secci\'on 5 $\cdot$ Potencias de base racional}
+\label{sec:5}
+
+\textit{En esta secci\'on se estudian las potencias cuya base es un n\'umero racional. El objetivo principal es saber calcularlas y usarlas en la operatoria combinada.}
+
+\subbloque{5.1 Definici\'on y c\'alculo de $\left(\dfrac{p}{q}\right)^n$}
+\label{sub:5.1}
+
+\begin{tcolorbox}[importantbox, title={Potencia de base racional}]
+Para $\dfrac{p}{q} \in \mathbb{Q}$ y $n \in \mathbb{N}$:
+$$\left(\frac{p}{q}\right)^n = \underbrace{\frac{p}{q} \cdot \frac{p}{q} \cdots \frac{p}{q}}_{n \text{ factores}} = \frac{p^n}{q^n}$$
+
+\medskip
+
+\noindent\textbf{En palabras:} la potencia de una fracci\'on es la fracci\'on de las potencias. Se eleva numerador y denominador por separado al mismo exponente.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- potencias de fracciones}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Calcular $\left(\dfrac{2}{3}\right)^3$}
+
+$$\left(\frac{2}{3}\right)^3 = \frac{2^3}{3^3} = \frac{8}{27}$$
+
+\item \textbf{Calcular $\left(-\dfrac{3}{4}\right)^2$}
+
+$$\left(-\frac{3}{4}\right)^2 = \frac{(-3)^2}{4^2} = \frac{9}{16}$$
+
+Nota: el resultado es positivo porque el exponente es par.
+
+\item \textbf{Calcular $\left(-\dfrac{1}{2}\right)^3$}
+
+$$\left(-\frac{1}{2}\right)^3 = \frac{(-1)^3}{2^3} = \frac{-1}{8} = -\frac{1}{8}$$
+
+El resultado es negativo porque el exponente es impar.
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar$ --- Calcula:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\left(\dfrac{1}{2}\right)^4$
+  \item $\left(\dfrac{3}{5}\right)^2$
+  \item $\left(-\dfrac{2}{3}\right)^3$
+  \item $\left(\dfrac{5}{4}\right)^2$
+  \item $\left(-\dfrac{1}{3}\right)^4$
+  \item $\left(\dfrac{2}{7}\right)^3$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{5.2 Exponente negativo y cero}
+\label{sub:5.2}
+
+\begin{tcolorbox}[importantbox, title={Exponente cero y negativo en base racional}]
+\noindent\textbf{Exponente cero:} $\left(\dfrac{p}{q}\right)^0 = 1$ \quad para todo $\dfrac{p}{q} \neq 0$.
+
+\medskip
+
+\noindent\textbf{Exponente negativo:} $\left(\dfrac{p}{q}\right)^{-n} = \dfrac{1}{\left(\frac{p}{q}\right)^n} = \left(\dfrac{q}{p}\right)^n = \dfrac{q^n}{p^n}$
+
+\medskip
+
+En palabras: elevar una fracci\'on a un exponente negativo equivale a \textbf{invertirla} y elevarla al exponente positivo correspondiente.
+\end{tcolorbox}
+
+\begin{tcolorbox}[examplebox, title={Ejemplos --- exponente negativo}]
+\begin{enumerate}[label=\textbf{Ej. \arabic*.}, leftmargin=*, itemsep=12pt]
+
+\item \textbf{Calcular $\left(\dfrac{3}{5}\right)^{-2}$}
+
+$$\left(\frac{3}{5}\right)^{-2} = \left(\frac{5}{3}\right)^{2} = \frac{25}{9}$$
+
+\item \textbf{Calcular $\left(\dfrac{2}{3}\right)^{-3}$}
+
+$$\left(\frac{2}{3}\right)^{-3} = \left(\frac{3}{2}\right)^{3} = \frac{27}{8}$$
+
+\end{enumerate}
+\end{tcolorbox}
+
+\medskip
+\textbf{Practica inmediata} \quad $\bigstar\bigstar$ --- Calcula sin denominador negativo en el resultado:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\left(\dfrac{1}{4}\right)^{-2}$
+  \item $\left(\dfrac{2}{5}\right)^{-1}$
+  \item $\left(\dfrac{3}{7}\right)^{0}$
+  \item $\left(\dfrac{5}{2}\right)^{-3}$
+\end{enumerate}
+\end{multicols}
+
+\subbloque{Ejercicios propuestos --- Secci\'on 5}
+
+$\bigstar$ \textit{(b\'asico)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+\item Calcula cada potencia y simplifica si es posible:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\left(\dfrac{1}{3}\right)^2$ \item $\left(\dfrac{2}{5}\right)^3$ \item $\left(\dfrac{3}{4}\right)^2$
+  \item $\left(-\dfrac{1}{2}\right)^4$ \item $\left(-\dfrac{2}{3}\right)^3$ \item $\left(\dfrac{5}{2}\right)^2$
+  \item $\left(\dfrac{4}{3}\right)^3$ \item $\left(-\dfrac{3}{5}\right)^2$
+\end{enumerate}
+\end{multicols}
+
+\item Calcula potencias con exponente negativo o cero:
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*)]
+  \item $\left(\dfrac{2}{3}\right)^{-1}$ \item $\left(\dfrac{4}{5}\right)^{-2}$ \item $\left(\dfrac{3}{2}\right)^{0}$
+  \item $\left(\dfrac{1}{7}\right)^{-3}$ \item $\left(-\dfrac{2}{5}\right)^{-2}$ \item $\left(\dfrac{6}{5}\right)^{-1}$
+\end{enumerate}
+\end{multicols}
+
+\end{enumerate}
+
+$\bigstar\bigstar$ \textit{(intermedio)}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, resume]
+
+\item Calcula y simplifica completamente:
+$$\frac{\left(\dfrac{2}{3}\right)^4 \cdot \left(\dfrac{3}{4}\right)^2}{\left(\dfrac{1}{2}\right)^3 \cdot \left(\dfrac{2}{3}\right)^2}$$
+
+\item Si $\left(\dfrac{a}{b}\right)^3 = \dfrac{8}{27}$, ¿cu\'anto vale $\dfrac{b}{a}$? ¿Y $\left(\dfrac{a}{b}\right)^{-2}$?
+
+\end{enumerate}
+
+\clearpage
+\seccionheader{blockb}{Ejercicios tipo PAES}
+\label{sec:paes}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+% --- 1 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'al de los siguientes n\'umeros \textbf{no} es racional?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{-7}{3}$ \item $0{,}\overline{142857}$ \item $\sqrt{5}$ \item $-4$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 2 ---
+\item
+\begin{minipage}[t]{\linewidth}
+La fracci\'on equivalente a $\dfrac{2}{3}$ con denominador 15 es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{4}{15}$ \item $\dfrac{6}{15}$ \item $\dfrac{10}{15}$ \item $\dfrac{8}{15}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 3 ---
+\item
+\begin{minipage}[t]{\linewidth}
+La fracci\'on $\dfrac{42}{56}$ en m\'inima expresi\'on es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{7}{8}$ \item $\dfrac{6}{8}$ \item $\dfrac{3}{4}$ \item $\dfrac{21}{28}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 4 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'al es la mayor de las siguientes fracciones?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{5}{7}$ \item $\dfrac{4}{6}$ \item $\dfrac{7}{10}$ \item $\dfrac{3}{4}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 5 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El decimal $0{,}1\overline{6}$ como fracci\'on irreducible es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{5}$ \item $\dfrac{1}{6}$ \item $\dfrac{15}{90}$ \item $\dfrac{2}{11}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 6 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El n\'umero mixto $4\dfrac{3}{8}$ como fracci\'on impropia es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{43}{8}$ \item $\dfrac{32}{8}$ \item $\dfrac{35}{8}$ \item $\dfrac{38}{8}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 7 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\dfrac{5}{12} + \dfrac{3}{8}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{8}{20}$ \item $\dfrac{2}{5}$ \item $\dfrac{19}{24}$ \item $\dfrac{1}{2}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 8 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'anto es $\dfrac{7}{9} - \dfrac{5}{12}$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{2}{3}$ \item $\dfrac{13}{36}$ \item $\dfrac{1}{3}$ \item $\dfrac{7}{18}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 9 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\dfrac{4}{15} \cdot \dfrac{5}{8}$ en m\'inima expresi\'on es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{8}$ \item $\dfrac{1}{4}$ \item $\dfrac{1}{6}$ \item $\dfrac{2}{12}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 10 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'anto es $\dfrac{9}{10} \div \dfrac{3}{5}$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{3}{2}$ \item $\dfrac{27}{50}$ \item $\dfrac{2}{3}$ \item $\dfrac{6}{5}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 11 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\dfrac{1}{2} + \dfrac{3}{4} \cdot \dfrac{8}{9} - \dfrac{1}{3}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{5}{6}$ \item $\dfrac{11}{18}$ \item $1$ \item $\dfrac{7}{12}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 12 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'anto es $\left(\dfrac{2}{3}\right)^3$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{6}{9}$ \item $\dfrac{8}{27}$ \item $\dfrac{2}{9}$ \item $\dfrac{6}{27}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 13 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\left(\dfrac{3}{4}\right)^{-2}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{9}{16}$ \item $-\dfrac{9}{16}$ \item $\dfrac{6}{8}$ \item $\dfrac{16}{9}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 14 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'al de los siguientes es un decimal infinito peri\'odico?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{3}{8}$ \item $\dfrac{7}{20}$ \item $\dfrac{5}{9}$ \item $\dfrac{11}{25}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 15 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\dfrac{3}{4} - \dfrac{1}{2} \cdot \dfrac{2}{3} + \dfrac{1}{12}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{5}{12}$ \item $\dfrac{1}{3}$ \item $\dfrac{1}{2}$ \item $\dfrac{7}{12}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 16 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'anto es $\left(\dfrac{1}{2}+\dfrac{1}{3}\right)\cdot\dfrac{6}{5}$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{5}{6}$ \item $1$ \item $\dfrac{11}{15}$ \item $\dfrac{4}{5}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 17 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El decimal $0{,}\overline{27}$ como fracci\'on irreducible es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{27}{100}$ \item $\dfrac{27}{99}$ \item $\dfrac{3}{11}$ \item $\dfrac{9}{33}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 18 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Ordenadas de menor a mayor, las fracciones $\dfrac{2}{3}$, $\dfrac{3}{5}$, $\dfrac{5}{8}$ quedan:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{2}{3} < \dfrac{3}{5} < \dfrac{5}{8}$
+  \item $\dfrac{3}{5} < \dfrac{5}{8} < \dfrac{2}{3}$
+  \item $\dfrac{5}{8} < \dfrac{3}{5} < \dfrac{2}{3}$
+  \item $\dfrac{3}{5} < \dfrac{2}{3} < \dfrac{5}{8}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 19 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\dfrac{1}{2} + \left(-\dfrac{3}{4}\right) - \left(-\dfrac{1}{4}\right)$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $-\dfrac{1}{2}$ \item $\dfrac{1}{2}$ \item $0$ \item $\dfrac{3}{4}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 20 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $2\dfrac{1}{3} + 1\dfrac{3}{4}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $3\dfrac{4}{7}$ \item $3\dfrac{1}{12}$ \item $4\dfrac{1}{12}$ \item $4\dfrac{3}{4}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 21 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'anto es $\left(\dfrac{1}{2}\right)^{-3} + \left(\dfrac{2}{3}\right)^0$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $9$ \item $7$ \item $8$ \item $10$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 22 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Un n\'umero racional entre $\dfrac{3}{8}$ y $\dfrac{1}{2}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{4}$ \item $\dfrac{7}{16}$ \item $\dfrac{5}{8}$ \item $\dfrac{3}{5}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 23 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\dfrac{\dfrac{3}{4}+\dfrac{1}{6}}{\dfrac{5}{4}-\dfrac{1}{3}}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $1$ \item $\dfrac{11}{11}$ \item $\dfrac{11}{10}$ \item $\dfrac{10}{11}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 24 ---
+\item
+\begin{minipage}[t]{\linewidth}
+La simplificaci\'on de $\dfrac{\left(\frac{3}{4}\right)^3 \cdot \left(\frac{3}{4}\right)^2}{\left(\frac{3}{4}\right)^4}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{27}{64}$ \item $\dfrac{9}{16}$ \item $\dfrac{81}{256}$ \item $\dfrac{3}{4}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 25 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Macarena gast\'o $\dfrac{1}{4}$ de su dinero en libros y $\dfrac{1}{3}$ en ropa. La fracci\'on que le queda es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{5}{12}$ \item $\dfrac{1}{2}$ \item $\dfrac{7}{12}$ \item $\dfrac{1}{6}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 26 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\dfrac{5}{6} - \dfrac{1}{3} \cdot \dfrac{3}{4} \div \dfrac{1}{2} + \dfrac{1}{4}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{3}$ \item $\dfrac{5}{12}$ \item $1$ \item $\dfrac{7}{12}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 27 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Si $\dfrac{a}{b} = \dfrac{3}{5}$ y $b = 20$, entonces $a$ vale:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $10$ \item $15$ \item $8$ \item $12$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 28 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\left[\dfrac{3}{4} - \left(\dfrac{1}{6}+\dfrac{1}{4}\right)\right] \cdot 2$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{6}$ \item $\dfrac{1}{3}$ \item $\dfrac{2}{3}$ \item $\dfrac{1}{2}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 29 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'antos enteros $n$ satisfacen $\dfrac{3}{4} < \dfrac{n}{12} < \dfrac{4}{3}$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $5$ \item $6$ \item $7$ \item $4$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 30 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\dfrac{3}{4} \cdot \left(-\dfrac{2}{3}\right)^2 - \dfrac{1}{3}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $0$ \item $\dfrac{1}{3}$ \item $\dfrac{1}{12}$ \item $-\dfrac{1}{12}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 31 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Un dep\'osito tiene $\dfrac{5}{6}$ de su capacidad llena. Si se extrae $\dfrac{2}{5}$ de lo que hab\'ia, ¿qu\'e fracci\'on del dep\'osito queda llena?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{2}$ \item $\dfrac{3}{10}$ \item $\dfrac{7}{15}$ \item $\dfrac{1}{3}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 32 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\dfrac{2}{3} \div \left(\dfrac{1}{2} - \dfrac{1}{3}\right) \cdot \dfrac{1}{4}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $1$ \item $\dfrac{1}{2}$ \item $2$ \item $\dfrac{1}{4}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 33 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'al de las siguientes fracciones es la m\'as cercana a $\dfrac{1}{2}$ por la derecha?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{5}{9}$ \item $\dfrac{3}{5}$ \item $\dfrac{7}{12}$ \item $\dfrac{9}{17}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 34 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $1 - \dfrac{1}{2} + \dfrac{1}{3} - \dfrac{1}{4} + \dfrac{1}{6}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{3}{4}$ \item $\dfrac{7}{12}$ \item $\dfrac{5}{12}$ \item $\dfrac{2}{3}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 35 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Juan gast\'o $\dfrac{1}{3}$ de su dinero el lunes y $\dfrac{1}{4}$ el martes. Si le quedan \$35\,000, ¿cu\'anto ten\'ia al inicio?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\$84\,000$ \item $\$96\,000$ \item $\$108\,000$ \item $\$120\,000$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 36 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El resultado de $\left(\dfrac{2}{3}\right)^2 \cdot \left(-\dfrac{3}{4}\right)^2 - \left(\dfrac{1}{2}\right)^3$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{4}$ \item $\dfrac{1}{8}$ \item $\dfrac{3}{8}$ \item $0$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 37 ---
+\item
+\begin{minipage}[t]{\linewidth}
+Si se simplifica $\dfrac{-3}{5} \div \dfrac{-9}{10}$, el resultado es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $-\dfrac{2}{3}$ \item $\dfrac{2}{3}$ \item $-\dfrac{3}{2}$ \item $\dfrac{3}{2}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 38 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\dfrac{3}{4} - \dfrac{1}{2} \cdot \dfrac{2}{3} \div \dfrac{4}{9} + \dfrac{1}{6}$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{6}$ \item $\dfrac{1}{4}$ \item $0$ \item $\dfrac{5}{12}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 39 ---
+\item
+\begin{minipage}[t]{\linewidth}
+¿Cu\'al es la fracci\'on $\dfrac{n}{n+2}$ m\'as grande para $n \in \{3, 5, 7, 9\}$?
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{3}{5}$ \item $\dfrac{5}{7}$ \item $\dfrac{7}{9}$ \item $\dfrac{9}{11}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+% --- 40 ---
+\item
+\begin{minipage}[t]{\linewidth}
+El valor de $\left[\dfrac{1}{2}\cdot\left(\dfrac{3}{4}-\dfrac{1}{6}\right)\div\dfrac{7}{12}\right]^2$ es:
+\\
+\begin{minipage}{\linewidth}\vspace{5mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+\node at (0,0) {\begin{minipage}{0.9\linewidth}
+\begin{enumerate}[label=\Alph*), leftmargin=14pt]
+  \item $\dfrac{1}{4}$ \item $\dfrac{1}{2}$ \item $1$ \item $\dfrac{9}{4}$
+\end{enumerate}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\vspace{5mm}
+\end{minipage}
+
+\end{enumerate}
+
+% SOLUCIONARIO
+% ============================================================
+\clearpage
+\seccionheader{zenitnavy}{Solucionario}
+\label{sec:sol}
+
+\begin{tcolorbox}[importantbox, title={Nota sobre el solucionario}]
+Resultado para $\bigstar$; resultado + paso clave para $\bigstar\bigstar$; resultado + procedimiento esencial para $\bigstar\bigstar\bigstar$. La correspondencia n\'umero de ejercicio --- soluci\'on es exacta. Todos los c\'alculos han sido verificados aritm\'eticamente.
+\end{tcolorbox}
+
+\subbloque{Secci\'on 1 --- El conjunto $\mathbb{Q}$}
+
+\textbf{Practica 1.1:} a)~S\'i \; b)~S\'i \; c)~S\'i ($\tfrac{0}{8}=0$) \; d)~No ($q=0$) \; e)~S\'i ($\tfrac{-9}{1}$) \; f)~S\'i ($\tfrac{0}{1}$).
+
+\textbf{Practica 1.2:} a)~$\mathbb{N}$ \; b)~$\mathbb{Z}$ \; c)~$\mathbb{Q}$ \; d)~$\mathbb{Z}$ \; e)~$\mathbb{Z}$ \; f)~$\mathbb{N}$ ($\tfrac{8}{4}=2$) \; g)~$\mathbb{Q}$ \; h)~$\mathbb{N}$.
+
+\textbf{Practica 1.3:} a)~$0{,}25$ exacto \; b)~$0{,}\overline{3}$ per. puro \; c)~$1{,}1\overline{6}$ per. mixto \; d)~$0{,}6$ exacto \; e)~$0{,}\overline{2}$ per. puro \; f)~$0{,}91\overline{6}$ per. mixto \; g)~$0{,}125$ exacto \; h)~$0{,}8\overline{3}$ per. mixto.
+
+\textbf{Practica 1.4:} a)~$\tfrac{3}{4}$ \; b)~$\tfrac{4}{9}$ \; c)~$\tfrac{5}{18}$ \; d)~$\tfrac{2}{11}$ \; e)~$\tfrac{5}{8}$ \; f)~$\tfrac{1}{9}$ \; g)~$\tfrac{1}{12}$ \; h)~$\tfrac{4}{3}$.
+
+\textbf{Prop. 1 ($\bigstar$):} \textbf{1.}~a)~S\'i b)~S\'i c)~S\'i d)~No e)~No f)~S\'i g)~S\'i h)~S\'i. \quad \textbf{2.}~a)~$\mathbb{N}$ b)~$\mathbb{Z}$ c)~$\mathbb{Q}$ d)~$\mathbb{Z}$ e)~$\mathbb{N}$ ($\tfrac{12}{6}=2$) f)~$\mathbb{Z}$ g)~$\mathbb{Q}$ h)~$\mathbb{N}$. \quad \textbf{3.}~a)~$0{,}75$ ex. b)~$0{,}\overline{5}$ pur. c)~$0{,}58\overline{3}$ mix. d)~$0{,}875$ ex. e)~$0{,}\overline{6}$ pur. f)~$1{,}8\overline{3}$ mix. g)~$0{,}\overline{09}$ pur. h)~$0{,}\overline{428571}$ pur.
+
+\textbf{Prop. 1 ($\bigstar\bigstar$):} \textbf{4.}~a)~$\tfrac{2}{5}$ b)~$\tfrac{2}{3}$ c)~$\tfrac{11}{30}$ d)~$\tfrac{3}{11}$ e)~$\tfrac{7}{8}$ f)~$\tfrac{5}{3}$ g)~$\tfrac{5}{12}$ h)~$\tfrac{15}{7}$. \quad \textbf{5.}~$\sqrt{9}=3\in\mathbb{Q}$; $\sqrt{5}$, $\pi$ no; $3{,}\overline{14159}$ s\'i (peri\'odico); $-\tfrac{22}{7}$ s\'i. \quad \textbf{6.}~$\tfrac{1}{4}<0{,}3<0{,}\overline{3}=\tfrac{1}{3}<0{,}34<0{,}\overline{34}$.
+
+\subbloque{Secci\'on 2 --- Fracciones}
+
+\textbf{Practica 2.1:} a)~propia \; b)~$3\tfrac{1}{4}$ \; c)~$\tfrac{17}{7}$ \; d)~impropia \; e)~propia \; f)~$\tfrac{9}{2}$ \; g)~$3\tfrac{2}{5}$ \; h)~$6\tfrac{2}{3}$.
+
+\textbf{Practica 2.2:} a)~$\tfrac{8}{12}$ \; b)~$\tfrac{25}{40}$ \; c)~$\tfrac{5}{30}$ \; d)~$\tfrac{15}{35}$.
+
+\textbf{Practica 2.3:} a)~$\tfrac{2}{3}$ \; b)~$\tfrac{2}{3}$ \; c)~$\tfrac{5}{8}$ \; d)~$\tfrac{2}{3}$ \; e)~$\tfrac{3}{5}$ \; f)~$\tfrac{1}{3}$ \; g)~$\tfrac{1}{3}$ \; h)~$\tfrac{5}{7}$.
+
+\textbf{Practica 2.4:} a)~mcm$=12$: $\tfrac{3}{12}$, $\tfrac{2}{12}$ \; b)~mcm$=15$: $\tfrac{10}{15}$, $\tfrac{9}{15}$ \; c)~mcm$=36$: $\tfrac{9}{36}$, $\tfrac{6}{36}$, $\tfrac{4}{36}$.
+
+\textbf{Prop. 2 ($\bigstar$):} \textbf{1.}~a)~propia b)~$2\tfrac{3}{4}$ c)~$\tfrac{17}{5}$ d)~impropia (=1) e)~$3\tfrac{3}{4}$ f)~$\tfrac{43}{7}$ g)~propia h)~$3\tfrac{5}{6}$. \quad \textbf{2.}~a)~$\tfrac{5}{15}$ b)~$\tfrac{12}{30}$ c)~$\tfrac{21}{28}$ d)~$\tfrac{35}{42}$ e)~$\tfrac{35}{40}$ f)~$\tfrac{27}{63}$ g)~$\tfrac{32}{72}$ h)~$\tfrac{5}{60}$. \quad \textbf{3.}~a)~$\tfrac{3}{4}$ b)~$\tfrac{3}{4}$ c)~$\tfrac{3}{4}$ d)~$\tfrac{2}{5}$ e)~$\tfrac{3}{5}$ f)~$\tfrac{3}{4}$ g)~$\tfrac{3}{4}$ h)~$\tfrac{3}{4}$ i)~$\tfrac{2}{3}$ j)~$\tfrac{2}{5}$ k)~$\tfrac{2}{3}$ l)~$\tfrac{2}{3}$. \quad \textbf{4.}~a)~s\'i b)~no ($5\cdot25\neq8\cdot15$) c)~s\'i d)~s\'i.
+
+\textbf{Prop. 2 ($\bigstar\bigstar$):} \textbf{5.}~a)~mcm=60: $\tfrac{10}{60}$,$\tfrac{15}{60}$,$\tfrac{6}{60}$ \; b)~mcm=48: $\tfrac{18}{48}$,$\tfrac{20}{48}$,$\tfrac{21}{48}$ \; c)~mcm=30: $\tfrac{20}{30}$,$\tfrac{18}{30}$,$\tfrac{14}{30}$,$\tfrac{5}{30}$. \quad \textbf{6.}~a)~$-\tfrac{5}{9}$ b)~$\tfrac{3}{7}$ (ambos neg.~$\to$ positivo) c)~$-\tfrac{8}{3}$ d)~$\tfrac{4}{5}$. \quad \textbf{7.}~$k=8$: $\tfrac{24}{40}$ (suma $=64\neq40$); buscar $k$: $3k+5k=40\Rightarrow k=5$, fracci\'on $\tfrac{15}{25}$. \quad \textbf{8.}~$\tfrac{1}{12}$, $\tfrac{5}{12}$, $\tfrac{7}{12}$, $\tfrac{11}{12}$ (todas irreducibles pues mcd con 12 es 1).
+
+\textbf{Prop. 2 ($\bigstar\bigstar\bigstar$):} \textbf{9.}~$a=3k$, $b=7k$, $3k+7k=50\Rightarrow k=5$, $a=15$, $b=35$. \quad \textbf{10.}~$2k+3k=100\Rightarrow k=20$. \quad \textbf{11.}~$\tfrac{1}{12},\tfrac{5}{12},\tfrac{7}{12},\tfrac{11}{12}$ (cuatro fracciones).
+
+\subbloque{Secci\'on 3 --- Orden y recta num\'erica}
+
+\textbf{Practica 3.1:} a)~$<$ \; b)~$<$ \; c)~$<$ \; d)~$=$.
+
+\textbf{Practica 3.4:} a)~$\tfrac{1}{2}$ \; b)~$\tfrac{7}{24}$ \; c)~$\tfrac{1}{2}$ \; d)~$0{,}15$.
+
+\textbf{Prop. 3 ($\bigstar$):} \textbf{1.}~a)~$>$ ($\tfrac{21}{35}>\tfrac{20}{35}$) b)~$<$ c)~$=$ d)~$>$ e)~$<$ f)~$>$. \quad \textbf{2.}~a)~$\tfrac{3}{8}<\tfrac{5}{12}<\tfrac{7}{16}<\tfrac{1}{2}$ \; b)~$\tfrac{7}{12}<\tfrac{2}{3}<\tfrac{3}{4}<\tfrac{5}{6}$ \; c)~$\tfrac{4}{19}<\tfrac{3}{14}<\tfrac{2}{9}<\tfrac{1}{5}$.
+
+\textbf{Prop. 3 ($\bigstar\bigstar$):} \textbf{4.}~a)~$\tfrac{5}{12}$ (u otro) b)~$\tfrac{9}{10}$ (u otro) c)~$-\tfrac{7}{8}$ (u otro).
+
+\subbloque{Secci\'on 4 --- Operaciones}
+
+\textbf{Practica 4.1:} a)~$\tfrac{5}{12}$ \; b)~$\tfrac{7}{20}$ \; c)~$\tfrac{11}{9}$ \; d)~$\tfrac{17}{24}$ \; e)~$1$ \; f)~$\tfrac{7}{12}$.
+
+\textbf{Practica 4.2:} a)~$\tfrac{1}{4}$ b)~$\tfrac{1}{6}$ c)~$\tfrac{1}{2}$ d)~$\tfrac{2}{5}$ e)~$\tfrac{2}{5}$ f)~$\tfrac{3}{7}$. \quad \textbf{Practica 4.3:} a)~$\tfrac{3}{2}$ b)~$\tfrac{2}{3}$ c)~$\tfrac{1}{2}$ d)~$6$. \quad \textbf{Practica 4.4:} a)~$\tfrac{7}{12}$ b)~$1$ c)~$\tfrac{7}{12}$. \quad \textbf{Practica 4.5:} a)~$1\tfrac{5}{6}$ b)~$3\tfrac{2}{3}$ c)~$3$ d)~$3\tfrac{7}{10}$.
+
+\textbf{Prop. 4 ($\bigstar$) --- Suma:} a)~$\tfrac{7}{12}$ b)~$\tfrac{11}{15}$ c)~$\tfrac{5}{8}$ d)~$\tfrac{17}{18}$ e)~$\tfrac{9}{14}$ f)~$\tfrac{11}{10}$ g)~$\tfrac{5}{6}$ h)~$\tfrac{11}{9}$ i)~$\tfrac{13}{24}$.
+
+\textbf{Prop. 4 ($\bigstar$) --- Resta:} a)~$\tfrac{7}{12}$ b)~$\tfrac{7}{12}$ c)~$\tfrac{19}{40}$ d)~$\tfrac{7}{20}$ e)~$\tfrac{7}{24}$ f)~$\tfrac{8}{21}$ g)~$\tfrac{4}{7}$ h)~$\tfrac{7}{12}$ i)~$\tfrac{3}{20}$.
+
+\textbf{Prop. 4 ($\bigstar$) --- Mult.:} a)~$\tfrac{1}{4}$ b)~$\tfrac{1}{2}$ c)~$\tfrac{1}{2}$ d)~$\tfrac{3}{5}$ e)~$\tfrac{1}{6}$ f)~$\tfrac{1}{4}$ g)~$\tfrac{2}{3}$ h)~$\tfrac{1}{15}$ i)~$\tfrac{1}{4}$.
+
+\textbf{Prop. 4 ($\bigstar$) --- Div.:} a)~$\tfrac{2}{3}$ b)~$\tfrac{2}{5}$ c)~$\tfrac{1}{4}$ d)~$\tfrac{3}{2}$ e)~$10$ f)~$\tfrac{2}{15}$ g)~$2$ h)~$\tfrac{3}{2}$ i)~$\tfrac{3}{2}$.
+
+\textbf{Prop. 4 ($\bigstar\bigstar$):} \textbf{5.}~a)~$1$ b)~$\tfrac{11}{12}$ c)~$\tfrac{11}{12}$ d)~$0$. \quad \textbf{6.}~a)~$\tfrac{2}{3}+\tfrac{2}{5}=\tfrac{16}{15}$ b)~$1$ c)~$\tfrac{1}{2}-\tfrac{1}{2}=0$ d)~$\tfrac{3}{10}$ e)~$\tfrac{3}{2}+\tfrac{2}{5}=\tfrac{19}{10}$ f)~$\tfrac{5}{6}-1=-\tfrac{1}{6}$. \quad \textbf{7.}~a)~$\tfrac{23}{12}=1\tfrac{11}{12}$ b)~$\tfrac{59}{10}=5\tfrac{9}{10}$ c)~$\tfrac{11}{2}\cdot\tfrac{16}{7}=\tfrac{88}{7}=12\tfrac{4}{7}$ d)~$\tfrac{16}{3}\div\tfrac{16}{9}=3$. \quad \textbf{8.}~a)~$\square=\tfrac{1}{3}$ b)~$\square=\tfrac{2}{3}$ c)~$\square=\tfrac{1}{2}$ d)~$\square=\tfrac{2}{3}$.
+
+\textbf{Prop. 4 ($\bigstar\bigstar\bigstar$):} \textbf{9.}~a)~$\tfrac{5/6}{5/12}=2$ b)~$\tfrac{7/12}{11/12}=\tfrac{7}{11}$ c)~$\tfrac{1/6}{1/12}=2$. \quad \textbf{10.}~$a=\tfrac{2}{3}$, $b=\tfrac{1}{2}$. \quad \textbf{11.}~otra$=\tfrac{1}{2}$. \quad \textbf{12.}~$\tfrac{1}{1\cdot2}+\cdots=\tfrac{1}{1}-\tfrac{1}{6}=\tfrac{5}{6}$.
+
+\subbloque{Secci\'on 5 --- Potencias}
+
+\textbf{Practica 5.1:} a)~$\tfrac{1}{16}$ b)~$\tfrac{9}{25}$ c)~$-\tfrac{8}{27}$ d)~$\tfrac{25}{16}$ e)~$\tfrac{1}{81}$ f)~$\tfrac{8}{343}$.
+
+\textbf{Practica 5.2:} a)~$\left(\tfrac{3}{4}\right)^8$ b)~$\tfrac{1}{16}$ c)~$\left(\tfrac{2}{5}\right)^6$. \quad \textbf{Practica 5.3:} a)~$16$ b)~$\tfrac{5}{2}$ c)~$1$ d)~$\tfrac{8}{125}$.
+
+\textbf{Prop. 5 ($\bigstar$):} \textbf{1.}~a)~$\tfrac{1}{9}$ b)~$\tfrac{8}{125}$ c)~$\tfrac{9}{16}$ d)~$\tfrac{1}{16}$ e)~$-\tfrac{8}{27}$ f)~$\tfrac{25}{4}$ g)~$\tfrac{64}{27}$ h)~$\tfrac{9}{25}$. \quad \textbf{2.}~a)~$\tfrac{3}{2}$ b)~$\tfrac{25}{16}$ c)~$1$ d)~$343$ e)~$\tfrac{25}{4}$ f)~$\tfrac{5}{6}$.
+
+\textbf{Prop. 5 ($\bigstar\bigstar$):} \textbf{3.}~a)~$\left(\tfrac{2}{3}\right)^6=\tfrac{64}{729}$ b)~$\left(\tfrac{3}{5}\right)^2=\tfrac{9}{25}$ c)~$\left(\tfrac{1}{2}\right)^6=\tfrac{1}{64}$ d)~$\left(\tfrac{3}{4}\right)^2=\tfrac{9}{16}$ e)~$\left(\tfrac{2}{7}\right)^1=\tfrac{2}{7}$ f)~$\left(\tfrac{5}{3}\right)^{-2}=\tfrac{9}{25}$. \quad \textbf{4.}~a)~$n=3$ b)~$n=2$ c)~$n=4$ d)~$n=4$.
+
+\textbf{Prop. 5 ($\bigstar\bigstar\bigstar$):} \textbf{5.}~$\tfrac{(16/81)\cdot(9/16)}{(1/8)\cdot(4/9)}=\tfrac{1/9}{4/72}=\tfrac{1/9}{1/18}=2$. \quad \textbf{6.}~$\tfrac{a}{b}=\tfrac{2}{3}$, $\tfrac{b}{a}=\tfrac{3}{2}$, $\left(\tfrac{2}{3}\right)^{-2}=\tfrac{9}{4}$.
+
+\subbloque{Secci\'on 6 --- Razones y proporciones}
+
+\textbf{Practica 6.1:} a)~$\tfrac{3}{2}$ \; b)~$1\,500$ m. \quad \textbf{Practica 6.2:} a)~$x=6$ b)~$x=3$ c)~$x=21$. \quad \textbf{Practica 6.3:} a)~inversa b)~directa c)~inversa.
+
+\textbf{Practica 6.4:} a)~$\$4\,500$ b)~$1{,}5$ horas c)~$480$ piezas.
+
+\textbf{Prop. 6 ($\bigstar$):} \textbf{1.}~a)~$\tfrac{3}{2}$ b)~$\tfrac{3}{2}$ c)~$\tfrac{2}{5}$ d)~$\tfrac{2}{5}$. \quad \textbf{2.}~a)~$x=6$ b)~$x=2$ c)~$x=9$ d)~$x=9$ e)~$x=6$ f)~$x=45$. \quad \textbf{3.}~a)~directa b)~inversa c)~directa d)~inversa.
+
+\textbf{Prop. 6 ($\bigstar\bigstar$):} \textbf{4.}~a)~$\$13\,500$ b)~$560$ km c)~$16$ d\'ias d)~12 canillas. \quad \textbf{5.}~$6{,}4\cdot500\,000=3\,200\,000$ cm $=32$ km. \quad \textbf{6.}~$k=20/12=5/3$; $x=45\cdot5/3=75$.
+
+\textbf{Prop. 6 ($\bigstar\bigstar\bigstar$):} \textbf{7.}~$\text{piezas/h/m\'aq}=640/(8\cdot5)=16$; total$=16\cdot15\cdot4\cdot(10/8)=150$ metros. \quad \textbf{8.}~$120\cdot30/(120+20)=2\,571\,\ldots\approx25{,}7$ d\'ias. \quad \textbf{9.}~$3k+5k=48\Rightarrow k=6$; lados $18$ y $30$; \'area $=540$ cm$^2$.
+
+\subbloque{Secci\'on 7 --- Porcentajes}
+
+\textbf{Practica 7.1:} a)~$\tfrac{2}{5}$ b)~$15\%$ c)~$37{,}5\%$ d)~$1{,}20$ e)~$0{,}5\%$ f)~$175\%$.
+
+\textbf{Practica 7.2:} a)~$\$1\,800$ b)~$15\%$ c)~$300$ socios. \quad \textbf{Practica 7.3:} a)~$\$702\,000$ b)~$\$304\,000$ c)~$25\%$.
+
+\textbf{Practica 7.4:} a)~$\$96\,000$ b)~$21\%$. \quad \textbf{Practica 7.5:} a)~$I=\$90\,000$; $M=\$590\,000$ \; b)~$I=\$14\,400$; $M=\$134\,400$.
+
+\textbf{Prop. 7 ($\bigstar$):} \textbf{1.}~a)~$\tfrac{1}{4}$ b)~$0{,}60$ c)~$45\%$ d)~$37{,}5\%$ e)~$1{,}10$ f)~$0{,}8\%$. \quad \textbf{2.}~a)~$\$7\,000$ b)~$72$ alumnos c)~$\$12\,000$ d)~$\$75\,000$ e)~$25\%$ f)~$25\%$. \quad \textbf{3.}~a)~$250$ b)~$400$ c)~$2\,000$.
+
+\textbf{Prop. 7 ($\bigstar\bigstar$):} \textbf{4.}~a)~$\$828\,000$ b)~$\$360\,000$ c)~$20\%$ d)~$25\%$. \quad \textbf{5.}~a)~$\$72\,000\cdot(1-0{,}15)(1-0{,}20)=72\,000\cdot0{,}68=\$48\,960$; desc.~\'unico$=32\%$ b)~$28\%$ c)~$32\%$. \quad \textbf{6.}~a)~$I=\$64\,000$; $M=\$464\,000$ b)~$I=\$144\,000$; $M=\$1\,344\,000$ c)~$r=6\%$ anual.
+
+\textbf{Prop. 7 ($\bigstar\bigstar\bigstar$):} \textbf{7.}~Venta$=150\,000\cdot1{,}40=\$210\,000$; IVA$=210\,000\cdot0{,}20=\$42\,000$; recibe$=\$168\,000$; gan\'o $\$18\,000$ sobre costo. \quad \textbf{8.}~$(1+x/100)(1-x/100)=1-x^2/10000<1$; para $9\%$: $x^2=900$, $x=30\%$. \quad \textbf{9.}~$I_2=60\,000$; $I_3=90\,000$; $I_1=30\,000$; $C=I_1/r$; $r=30\,000/C$; $I_2=C\cdot r\cdot2=60\,000$, consistente; $C=\$300\,000$.
+
+\subbloque{Secci\'on 8 --- Problemas combinados}
+
+\textbf{Practica 8.2:} a)~ninguna: $90$ alumnos. \; b)~sueldo: $\$432\,000$.
+
+\textbf{Practica 8.4:} a)~$\$81\,900$ \; b)~$2$ horas.
+
+\textbf{Prop. 8 ($\bigstar\bigstar$):} \textbf{1.}~gastado $\tfrac{13}{20}$; queda $\tfrac{7}{20}$; $N=\$120\,000$. \quad \textbf{2.}~lleno $\tfrac{2}{3}+\tfrac{1}{4}=\tfrac{11}{12}<1$; cabe $\tfrac{1}{12}$ m\'as. \quad \textbf{3.}~Si el total es $T$: $30$ aprob. ambos $\Rightarrow$ $\tfrac{5}{8}T+\tfrac{3}{4}T-30=T$ no alcanza con esa hip\'otesis; revisar planteamiento. \quad \textbf{4.}~$N\cdot0{,}80\cdot1{,}25=120\Rightarrow N\cdot1{,}0=120$; inicio: $120$ trabajadores. \quad \textbf{5.}~$I_4=16\,000$; por 10 meses$=40\,000$; tasa$=16\,000/(C\cdot4)$; $C\cdot r\cdot10=40\,000\Rightarrow C\cdot r=4\,000$; $C\cdot r\cdot4=16\,000$ $\checkmark$; $C=4\,000/r$; con $I_{anual}=12\cdot4\,000=48\,000$; si $r=2\%$: $C=\$200\,000$.
+
+\textbf{Prop. 8 ($\bigstar\bigstar\bigstar$):} \textbf{6.}~Tercero paga $\tfrac{4}{15}T$; segundo $\tfrac{2}{5}T$; diferencia $\tfrac{2}{15}T=5\,500\Rightarrow T=\$41\,250$. \quad \textbf{7.}~llenado/hora $=\tfrac{1}{6}+\tfrac{1}{4}-\tfrac{1}{12}=\tfrac{2+3-1}{12}=\tfrac{4}{12}=\tfrac{1}{3}$; tiempo $=3$ horas. \quad \textbf{8.}~$1\,000\cdot1{,}20\cdot0{,}90\cdot1{,}15=\$1\,242$; variaci\'on $+24{,}2\%$. \quad \textbf{9.}~costo$=\$70\,000$; venta con desc.$=\$77\,350$; ganancia$=\$7\,350$.
+
+\subbloque{Ejercicios tipo PAES}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c||c|c||c|c||c|c||c|c}
+\toprule
+\textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.} & \textbf{Ej.} & \textbf{Resp.}\\
+\midrule
+1  & C & 9  & C & 17 & C & 25 & A & 33 & D\\
+2  & C & 10 & A & 18 & B & 26 & D & 34 & A\\
+3  & C & 11 & A & 19 & C & 27 & D & 35 & A\\
+4  & D & 12 & B & 20 & C & 28 & C & 36 & B\\
+5  & B & 13 & D & 21 & A & 29 & B & 37 & B\\
+6  & C & 14 & C & 22 & B & 30 & A & 38 & A\\
+7  & C & 15 & C & 23 & A & 31 & A & 39 & D\\
+8  & B & 16 & B & 24 & D & 32 & A & 40 & A\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Desarrollos clave:}
+
+\textbf{1.}~$\sqrt{5}\notin\mathbb{Q}$. \quad
+\textbf{2.}~$\tfrac{2\cdot5}{3\cdot5}=\tfrac{10}{15}$. C. \quad
+\textbf{3.}~succ. $\div2,\div7$: $\tfrac{3}{4}$. C. \quad
+\textbf{4.}~mcm$=420$: $\tfrac{3}{4}=\tfrac{315}{420}$ mayor. D.
+
+\textbf{5.}~$\tfrac{16-1}{90}=\tfrac{1}{6}$. B. \quad
+\textbf{6.}~$4\cdot8+3=35\Rightarrow\tfrac{35}{8}$. C. \quad
+\textbf{7.}~mcm$=24$: $\tfrac{10+9}{24}=\tfrac{19}{24}$. C. \quad
+\textbf{8.}~mcm$=36$: $\tfrac{28-15}{36}=\tfrac{13}{36}$. B.
+
+\textbf{9.}~simpl. cruzada: $\tfrac{1}{6}$. C. \quad
+\textbf{10.}~$\tfrac{9}{10}\cdot\tfrac{5}{3}=\tfrac{3}{2}$. A. \quad
+\textbf{11.}~$\tfrac{3}{4}\cdot\tfrac{8}{9}=\tfrac{2}{3}$; $\tfrac{1}{2}+\tfrac{2}{3}-\tfrac{1}{3}=\tfrac{5}{6}$. A. \quad
+\textbf{12.}~$\tfrac{8}{27}$. B.
+
+\textbf{13.}~$\left(\tfrac{4}{3}\right)^2=\tfrac{16}{9}$. D. \quad
+\textbf{14.}~$9=3^2$ (sin 2 ni 5) $\Rightarrow$ inf. peri\'odico. C. \quad
+\textbf{15.}~$\tfrac{1}{2}\cdot\tfrac{2}{3}=\tfrac{1}{3}$; $\tfrac{3}{4}-\tfrac{1}{3}+\tfrac{1}{12}=\tfrac{9-4+1}{12}=\tfrac{6}{12}=\tfrac{1}{2}$. C.
+
+\textbf{16.}~$\tfrac{1}{2}+\tfrac{1}{3}=\tfrac{5}{6}$; $\tfrac{5}{6}\cdot\tfrac{6}{5}=1$. B. \quad
+\textbf{17.}~$\tfrac{27}{99}=\tfrac{3}{11}$. C. \quad
+\textbf{18.}~mcm$=120$: $\tfrac{2}{3}=\tfrac{80}{120}$,$\tfrac{3}{5}=\tfrac{72}{120}$,$\tfrac{5}{8}=\tfrac{75}{120}$; orden: $\tfrac{3}{5}<\tfrac{5}{8}<\tfrac{2}{3}$. B.
+
+\textbf{19.}~$\tfrac{1}{2}-\tfrac{3}{4}+\tfrac{1}{4}=\tfrac{2-3+1}{4}=0$. C. \quad
+\textbf{20.}~$\tfrac{7}{3}+\tfrac{7}{4}=\tfrac{28+21}{12}=\tfrac{49}{12}=4\tfrac{1}{12}$. C. \quad
+\textbf{21.}~$2^3+1=9$. A.
+
+\textbf{22.}~$\tfrac{3}{8}=\tfrac{6}{16}<\tfrac{7}{16}<\tfrac{8}{16}=\tfrac{1}{2}$. B. \quad
+\textbf{23.}~num$=\tfrac{11}{12}$, den$=\tfrac{11}{12}$; cociente$=1$. A. \quad
+\textbf{24.}~$\left(\tfrac{3}{4}\right)^{3+2-4}=\tfrac{3}{4}$. D.
+
+\textbf{25.}~$1-\tfrac{1}{4}-\tfrac{1}{3}=1-\tfrac{7}{12}=\tfrac{5}{12}$. A. \quad
+\textbf{26.}~$\tfrac{1}{3}\cdot\tfrac{3}{4}\div\tfrac{1}{2}=\tfrac{1}{2}$; $\tfrac{5}{6}-\tfrac{1}{2}+\tfrac{1}{4}=\tfrac{10-6+3}{12}=\tfrac{7}{12}$. D.
+
+\textbf{27.}~$a=\tfrac{3}{5}\cdot20=12$. D. \quad
+\textbf{28.}~$\tfrac{3}{4}-\tfrac{5}{12}=\tfrac{4}{12}=\tfrac{1}{3}$; $\tfrac{1}{3}\cdot2=\tfrac{2}{3}$. C. \quad
+\textbf{29.}~$\tfrac{3}{4}=\tfrac{9}{12}$,$\tfrac{4}{3}=\tfrac{16}{12}$: $n\in\{10,11,12,13,14,15\}$, 6 valores. B.
+
+\textbf{30.}~$\tfrac{3}{4}\cdot\tfrac{4}{9}-\tfrac{1}{3}=\tfrac{1}{3}-\tfrac{1}{3}=0$. A. \quad
+\textbf{31.}~extra\'ido$=\tfrac{2}{5}\cdot\tfrac{5}{6}=\tfrac{1}{3}$; queda$=\tfrac{5}{6}-\tfrac{1}{3}=\tfrac{1}{2}$. A.
+
+\textbf{32.}~$\tfrac{1}{2}-\tfrac{1}{3}=\tfrac{1}{6}$; $\tfrac{2}{3}\div\tfrac{1}{6}\cdot\tfrac{1}{4}=4\cdot\tfrac{1}{4}=1$. A. \quad
+\textbf{33.}~dist. a $\tfrac{1}{2}$: A$\tfrac{1}{18}$,B$\tfrac{1}{10}$,C$\tfrac{1}{12}$,D$\tfrac{1}{34}$; menor: D. D.
+
+\textbf{34.}~mcm$=12$: $\tfrac{12-6+4-3+2}{12}=\tfrac{9}{12}=\tfrac{3}{4}$. A. \quad
+\textbf{35.}~gastado$=\tfrac{7}{12}$; queda$=\tfrac{5}{12}$; $N=35\,000\cdot\tfrac{12}{5}=\$84\,000$. A.
+
+\textbf{36.}~$\tfrac{4}{9}\cdot\tfrac{9}{16}-\tfrac{1}{8}=\tfrac{1}{4}-\tfrac{1}{8}=\tfrac{1}{8}$. B. \quad
+\textbf{37.}~$(-\tfrac{3}{5})\div(-\tfrac{9}{10})=\tfrac{3}{5}\cdot\tfrac{10}{9}=\tfrac{2}{3}$. B.
+
+\textbf{38.}~$\tfrac{1}{2}\cdot\tfrac{2}{3}\div\tfrac{4}{9}=\tfrac{1}{3}\cdot\tfrac{9}{4}=\tfrac{3}{4}$; $\tfrac{3}{4}-\tfrac{3}{4}+\tfrac{1}{6}=\tfrac{1}{6}$. A. \quad
+\textbf{39.}~$\tfrac{n}{n+2}$ crece con $n$; m\'aximo en $n=9$: $\tfrac{9}{11}$. D.
+
+\textbf{40.}~$\tfrac{3}{4}-\tfrac{1}{6}=\tfrac{7}{12}$; $\tfrac{1}{2}\cdot\tfrac{7}{12}\div\tfrac{7}{12}=\tfrac{1}{2}$; $\left(\tfrac{1}{2}\right)^2=\tfrac{1}{4}$. A.
+
+\vspace{8pt}
+\begin{center}
+  \rule{\linewidth}{1.5pt}\\[4pt]
+  {\large\bfseries\color{zenitnavy} La constancia y la pr\'actica son la clave del aprendizaje.}\\[2pt]
+  {\color{zenitgold}\small Academia Zenit $\cdot$ Matem\'atica $\cdot$ N\'umeros Racionales $\cdot$ 2.0 $\cdot$ 2026}\\[4pt]
+  \rule{\linewidth}{1.5pt}
+\end{center}
+
+\end{document}
