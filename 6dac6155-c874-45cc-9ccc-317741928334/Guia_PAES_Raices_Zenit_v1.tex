@@ -1,0 +1,784 @@
+% ============================================================
+% ACADEMIA ZENIT — GUÍA DE EJERCICIOS TIPO PAES
+% Raíces · 50 ítems · Versión 1 · 2026
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, babel, arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+\usepackage{setspace}
+
+% --- Espaciado global ---
+\linespread{1.18}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\setlist{itemsep=4pt, topsep=6pt, parsep=2pt}
+\setlist[enumerate,2]{itemsep=3pt, topsep=3pt}
+
+% --- Paleta de colores Zenit ---
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+% --- Tcolorbox ---
+\tcbuselibrary{skins, breakable}
+\tcbset{
+  importantbox/.style={enhanced,breakable,colback=white,colframe=zenitblue,
+    colbacktitle=zenitblue,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitblue,colback=zenitblue,arc=2pt}},
+  answerbox/.style={enhanced,breakable,colback=white,colframe=zenitnavy,
+    colbacktitle=zenitnavy,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitnavy,colback=zenitnavy,arc=2pt}},
+}
+
+% --- Comandos de estructura ---
+\newcommand{\seccionheader}[2]{%
+  \vspace{1.6em}
+  \noindent{\Large\bfseries\color{#1} #2}\par
+  \vspace{0.4em}{\noindent\color{#1}\rule{\linewidth}{0.8pt}}
+  \vspace{1.0em}}
+
+% Formato PAES: enunciado, alternativas (A-E), figura opcional
+\newcommand{\alternativasformato}[3]{%
+\item\begin{minipage}[t]{\linewidth}
+#1\\
+\begin{minipage}{\linewidth}\vspace{6mm}
+\begin{tikzpicture}[every node/.style={anchor=north west}]
+  \node (texto) at (0,0) {\begin{minipage}{0.60\linewidth}
+    \begin{enumerate}[label=\Alph*),leftmargin=14pt, itemsep=2pt]#2\end{enumerate}
+    \end{minipage}};
+  \node (figura) at (10.8,0) {#3};
+\end{tikzpicture}
+\end{minipage}\vspace{6mm}
+\end{minipage}}
+
+% Formato para Suficiencia de datos (alternativas más anchas)
+\newcommand{\alternativassd}[1]{%
+\item\begin{minipage}[t]{\linewidth}
+#1\\[4pt]
+\begin{enumerate}[label=\Alph*), leftmargin=14pt, itemsep=3pt]
+  \item La condición (1) por sí sola.
+  \item La condición (2) por sí sola.
+  \item Ambas condiciones juntas, (1) y (2).
+  \item Cada condición por sí sola, (1) o (2).
+  \item Se requiere información adicional.
+\end{enumerate}
+\vspace{4mm}
+\end{minipage}}
+
+% --- Encabezado y pie ---
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\textbf{Academia Zenit} $\cdot$ Guía PAES Raíces · 2026}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small\textit{Matemática · Raíces}}
+\fancyfoot[R]{\small Prohibida su reproducción total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ============================================================
+% PORTADA
+% ============================================================
+\thispagestyle{empty}
+\vspace*{1.2cm}
+
+\begin{center}
+  %\includegraphics[width=0.27\linewidth]{logosin fondo.png}\\[1.0cm]
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.5cm]
+  {\large\bfseries\color{zenitblue} Matemática · Enseñanza Media}\\[0.8cm]
+  \textcolor{zenitnavy}{\rule{0.74\linewidth}{1.8pt}}\\[0.6cm]
+  {\fontsize{34}{40}\selectfont\bfseries\color{zenitnavy} RAÍCES}\\[0.25cm]
+  {\LARGE\bfseries\color{zenitblue} Guía de Ejercicios tipo PAES}\\[0.25cm]
+  {\large\color{zenitgold}\textit{50 preguntas de selección múltiple · Incluye ítems de Suficiencia de Datos}}\\[0.7cm]
+  \textcolor{zenitnavy}{\rule{0.74\linewidth}{1.8pt}}\\[0.8cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[enhanced, width=0.82\linewidth,
+  colback=white, colframe=zenitnavy, arc=6pt,
+  left=18pt, right=18pt, top=12pt, bottom=12pt]
+\begin{center}
+{\bfseries\color{zenitnavy} Datos del estudiante}\\[10pt]
+{\bfseries Nombre:}\;\rule{9.5cm}{0.5pt}\\[8pt]
+{\bfseries Nivel / Curso:}\;\rule{3.5cm}{0.5pt}
+\qquad\qquad
+{\bfseries Fecha:}\;\rule{3.5cm}{0.5pt}\\[10pt]
+{\bfseries Puntaje:}\;\rule{2cm}{0.5pt}\ / 50
+\qquad
+{\bfseries Porcentaje:}\;\rule{2cm}{0.5pt}\ \%
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+\vfill
+\begin{center}
+{\color{zenitgold} Matemática · Raíces · Guía PAES · 2026}
+\end{center}
+
+% ============================================================
+% PÁGINA 2 — INSTRUCCIONES
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\begin{tcolorbox}[importantbox, title={Instrucciones generales}]
+\begin{enumerate}[label=\textbf{\arabic*.}, itemsep=4pt]
+  \item Esta guía contiene \textbf{50 preguntas} de selección múltiple, con \textbf{5 alternativas} (A, B, C, D y E), de las cuales \textbf{una sola} es la respuesta correcta.
+  \item Las preguntas \textbf{33} y \textbf{41} son de \textbf{Suficiencia de Datos}: determina si la información entregada en las condiciones (1) y/o (2) es suficiente para resolver el problema planteado.
+  \item En los ítems de Suficiencia de Datos, las alternativas son siempre:
+  \begin{itemize}[itemsep=2pt]
+    \item[\textbf{A)}] La condición (1) por sí sola.
+    \item[\textbf{B)}] La condición (2) por sí sola.
+    \item[\textbf{C)}] Ambas condiciones juntas, (1) y (2).
+    \item[\textbf{D)}] Cada condición por sí sola, (1) o (2).
+    \item[\textbf{E)}] Se requiere información adicional.
+  \end{itemize}
+  \item Tiempo sugerido: \textbf{90 minutos}.
+  \item Usa el espacio en blanco de cada página para tus cálculos.
+  \item Está permitido el uso de calculadora científica, salvo que el enunciado indique lo contrario.
+\end{enumerate}
+\end{tcolorbox}
+
+
+% ============================================================
+% EJERCICIOS TIPO PAES
+% ============================================================
+\clearpage
+\seccionheader{zenitnavy}{Ejercicios tipo PAES — Raíces}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*]
+
+% --- 1 (O1) ---
+\alternativasformato{%
+  \quad¿Cuánto es $\sqrt[3]{-\dfrac{8}{125}}$\,?}
+{\item $\dfrac{2}{5}$
+ \item $\dfrac{4}{25}$
+ \item $-\dfrac{2}{5}$
+ \item $-\dfrac{4}{25}$
+ \item $-\dfrac{2}{25}$}{}
+
+% --- 2 (O2) ---
+\alternativasformato{%
+  \quad El valor de $\sqrt{0{,}0256}$ es:}
+{\item $1{,}6$
+ \item $0{,}16$
+ \item $0{,}016$
+ \item $0{,}106$
+ \item $1{,}06$}{}
+
+% --- 3 (O3) ---
+\alternativasformato{%
+  \quad El resultado de $\sqrt{169-144}$ es:}
+{\item $1$
+ \item $5$
+ \item $13$
+ \item $\sqrt{5}$
+ \item $\sqrt{15}$}{}
+
+% --- 4 (N1 nuevo) ---
+\alternativasformato{%
+  \quad La expresión $\dfrac{\sqrt{12}+\sqrt{27}}{\sqrt{3}}$ es igual a:}
+{\item $5$
+ \item $5\sqrt{3}$
+ \item $\sqrt{15}$
+ \item $\dfrac{5\sqrt{3}}{3}$
+ \item $\dfrac{5}{3}$}{}
+
+% --- 5 (O4) ---
+\alternativasformato{%
+  \quad Al resolver $\sqrt{169}-\sqrt{144}$ se obtiene:}
+{\item $1$
+ \item $5$
+ \item $13$
+ \item $\sqrt{5}$
+ \item $\sqrt{15}$}{}
+
+% --- 6 (O5 corregido) ---
+\alternativasformato{%
+  \quad ¿Cuál(es) de las siguientes igualdades es (son) verdadera(s)?\\[4pt]
+  \qquad\textbf{I.}\;$\sqrt{9}\cdot\sqrt{16}=12$
+  \hspace{1.2cm}
+  \textbf{II.}\;$\sqrt{18}\cdot\sqrt{2}=6$
+  \hspace{1.2cm}
+  \textbf{III.}\;$3\sqrt[3]{\dfrac{1}{27}}=1$}
+{\item Solo la I
+ \item Solo la II
+ \item Solo la III
+ \item Solo la I y la II
+ \item La I, la II y la III}{}
+
+% --- 7 (O6) ---
+\alternativasformato{%
+  \quad El resultado de $\sqrt{(3-\sqrt{10})^{2}}$ es:}
+{\item $3-\sqrt{10}$
+ \item $3+\sqrt{10}$
+ \item $\sqrt{10}+3$
+ \item $\sqrt{10}-3$
+ \item $\sqrt{7}$}{}
+
+% --- 8 (N2 nuevo) ---
+\alternativasformato{%
+  \quad ¿Cuál de las siguientes desigualdades es verdadera?}
+{\item $3\sqrt{5}>5\sqrt{3}$
+ \item $2\sqrt{7}>7\sqrt{2}$
+ \item $4\sqrt{3}>3\sqrt{4}$
+ \item $5\sqrt{2}<2\sqrt{5}$
+ \item $6\sqrt{2}=2\sqrt{6}$}{}
+
+% --- 9 (O7) ---
+\alternativasformato{%
+  \quad Si $a=\sqrt{b}$, $b=\sqrt[3]{c}$ e $c=\sqrt[5]{d}$, con $a,b,c,d\in\mathbb{R}^{+}$,
+  ¿cuál es la relación entre $a$ y $d$\,?}
+{\item $a=\sqrt[6]{d}$
+ \item $a=\sqrt[10]{d}$
+ \item $a=\sqrt[11]{d}$
+ \item $a=\sqrt[20]{d}$
+ \item $a=\sqrt[30]{d}$}{}
+
+% --- 10 (O8) ---
+\alternativasformato{%
+  \quad Al sumar $\sqrt{18}+\sqrt{32}$ se obtiene:}
+{\item $\sqrt{50}$
+ \item $7\sqrt{2}$
+ \item $8\sqrt{2}$
+ \item $7\sqrt{5}$
+ \item $9\sqrt{2}$}{}
+
+% --- 11 (O9) ---
+\alternativasformato{%
+  \quad ¿Cuál es el resultado de $\sqrt{48}-\sqrt{12}+\sqrt{27}-\sqrt{75}$\,?}
+{\item $0$
+ \item $-2\sqrt{3}$
+ \item $5\sqrt{3}$
+ \item $-4\sqrt{3}$
+ \item $2\sqrt{3}$}{}
+
+% --- 12 (N3 nuevo) ---
+\alternativasformato{%
+  \quad Si $x=\sqrt{3}+\sqrt{2}$ e $y=\sqrt{3}-\sqrt{2}$, ¿cuánto es $x^{2}+xy+y^{2}$\,?}
+{\item $9$
+ \item $10$
+ \item $11$
+ \item $12$
+ \item $10+2\sqrt{6}$}{}
+
+% --- 13 (O10) ---
+\alternativasformato{%
+  \quad ¿Qué alternativa equivale a $\sqrt{2}-\sqrt{5}$\,?}
+{\item $-3$
+ \item $-\sqrt{3}$
+ \item $\sqrt{10}\!\left(\dfrac{1}{\sqrt{5}}-\dfrac{1}{\sqrt{2}}\right)$
+ \item $\sqrt{3}\!\left(\dfrac{\sqrt{2}}{\sqrt{3}}+\dfrac{\sqrt{5}}{\sqrt{3}}\right)$
+ \item $\sqrt{5}\!\left(\dfrac{1}{\sqrt{5}}-1\right)$}{}
+
+% --- 14 (N4 nuevo) ---
+\alternativasformato{%
+  \quad La expresión $\dfrac{4}{\sqrt{6}+\sqrt{2}}$ es igual a:}
+{\item $\sqrt{6}+\sqrt{2}$
+ \item $\sqrt{6}-\sqrt{2}$
+ \item $2(\sqrt{6}-\sqrt{2})$
+ \item $\dfrac{\sqrt{6}-\sqrt{2}}{2}$
+ \item $\dfrac{\sqrt{6}+\sqrt{2}}{4}$}{}
+
+% --- 15 (O11) ---
+\alternativasformato{%
+  \quad El resultado de $\sqrt{3}-\sqrt{6\cdot\dfrac{1}{2}}+2\sqrt{5}$ es:}
+{\item $\sqrt{7}$
+ \item $\sqrt{9}$
+ \item $\sqrt{12}$
+ \item $\sqrt{20}$
+ \item $\sqrt{24}$}{}
+
+% --- 16 (O12) ---
+\alternativasformato{%
+  \quad Al resolver $\sqrt[n]{3}+3\sqrt[n]{3}-2\sqrt[n]{3}$, ¿cuál es su resultado?}
+{\item $4\sqrt[n]{3}$
+ \item $2\sqrt[3n]{3}$
+ \item $2\sqrt[n]{3}$
+ \item $2\sqrt[2n]{3}$
+ \item $4\sqrt[3n]{3}$}{}
+
+% --- 17 (O13) ---
+\alternativasformato{%
+  \quad ¿Cuánto es $\left(\sqrt{6}-\sqrt{3}\right)^{2}$\,?}
+{\item $9$
+ \item $3-2\sqrt{18}$
+ \item $3-2\sqrt{6}$
+ \item $9-6\sqrt{3}$
+ \item $9-6\sqrt{2}$}{}
+
+% --- 18 (N5 nuevo) ---
+\alternativasformato{%
+  \quad Si $\sqrt{9+k}=k-3$ (con $k\in\mathbb{R}$), ¿cuál es el valor de $k$\,?}
+{\item $k=0$
+ \item $k=3$
+ \item $k=7$
+ \item $k=0$ o $k=7$
+ \item No tiene solución real}{}
+
+\clearpage
+
+% --- 19 (O14) ---
+\alternativasformato{%
+  \quad Al resolver $(\sqrt{2}-3\sqrt{5})(\sqrt{2}+3\sqrt{5})$ se obtiene:}
+{\item $-43$
+ \item $-41$
+ \item $-6\sqrt{5}$
+ \item $2-9\sqrt{5}$
+ \item $4-9\sqrt{5}$}{}
+
+% --- 20 (O15) ---
+\alternativasformato{%
+  \quad Para que se cumpla la igualdad $(2-3\sqrt{3})^{2}=a+b\sqrt{3}$,
+  ¿cuáles deben ser los valores de $a$ y $b$\,?}
+{\item $a=2,\; b=6$
+ \item $a=4,\; b=-6$
+ \item $a=31,\; b=6$
+ \item $a=31,\; b=-6$
+ \item $a=31,\; b=-12$}{}
+
+% --- 21 (O16) ---
+\alternativasformato{%
+  \quad ¿Cuánto es $(\sqrt{3}-2)(\sqrt{3}+2)^{2}$\,?}
+{\item $-2+\sqrt{3}$
+ \item $\sqrt{3}+2$
+ \item $-2-\sqrt{3}$
+ \item $\sqrt{3}-2$
+ \item $-1$}{}
+
+% --- 22 (N6 nuevo) ---
+\alternativasformato{%
+  \quad ¿Cuál de las siguientes expresiones NO es equivalente a $\sqrt{a^{2}+b^{2}}$\,?}
+{\item $\sqrt{(a+b)^{2}-2ab}$
+ \item $\sqrt{(a-b)^{2}+2ab}$
+ \item $|a|+|b|$
+ \item $\sqrt{(b+a)(b-a)+2a^{2}}$
+ \item $\sqrt{(a^{2}+b^{2})^{1}\!\phantom{x}}$}{}
+
+% --- 23 (O17) ---
+\alternativasformato{%
+  \quad Al calcular $(2\sqrt{2}-3\sqrt{3})^{2}$ se obtiene:}
+{\item $35-6\sqrt{6}$
+ \item $35-12\sqrt{6}$
+ \item $19-6\sqrt{6}$
+ \item $19-12\sqrt{6}$
+ \item $1-12\sqrt{6}$}{}
+
+% --- 24 (O18) ---
+\alternativasformato{%
+  \quad Si $b\geqslant 2$, ¿cuál es el valor de $(\sqrt{b+2}-\sqrt{b-2})^{2}$\,?}
+{\item $4$
+ \item $2b$
+ \item $2b+4$
+ \item $4b\sqrt{b+2}$
+ \item $2(b-\sqrt{b^{2}-4})$}{}
+
+% --- 25 (N7 nuevo) ---
+\alternativasformato{%
+  \quad Si $\sqrt{x}=3+\sqrt{5}$, ¿cuánto es $x$\,?}
+{\item $14$
+ \item $14+3\sqrt{5}$
+ \item $14+6\sqrt{5}$
+ \item $9+\sqrt{5}$
+ \item $4+6\sqrt{5}$}{}
+
+\clearpage
+
+% --- 26 (O19) ---
+\alternativasformato{%
+  \quad Si $n\in\mathbb{Z}^{+}$, entonces la expresión $\sqrt{2^{2n}-2^{n+1}+1}$ es equivalente a:}
+{\item $2^{n}-1$
+ \item $2^{n}+1$
+ \item $2^{n}-2$
+ \item $2^{2n}-1$
+ \item $2^{2n}+1$}{}
+
+% --- 27 (O20 corregido) ---
+\alternativasformato{%
+  \quad La expresión $\dfrac{2}{4-\sqrt{5}}$ es igual a:}
+{\item $\sqrt{5}+4$
+ \item $\dfrac{\sqrt{5}-4}{11}$
+ \item $\dfrac{2\sqrt{5}+4}{11}$
+ \item $\dfrac{2\sqrt{5}+8}{11}$
+ \item $\dfrac{\sqrt{5}+4}{11}$}{}
+
+% --- 28 (O21) ---
+\alternativasformato{%
+  \quad Considerando $n\in\mathbb{Z}^{+}$, la expresión $(\sqrt{3})^{n}\cdot(\sqrt{3})^{n+2}$ corresponde a:}
+{\item $3^{n}+2$
+ \item $3^{n}+1$
+ \item $3^{n+1}$
+ \item $3^{n+2}$
+ \item $3^{n}$}{}
+
+% --- 29 (N8 nuevo) ---
+\alternativasformato{%
+  \quad La expresión $\dfrac{\sqrt{75}-\sqrt{48}}{\sqrt{3}}$ es igual a:}
+{\item $1$
+ \item $\sqrt{3}$
+ \item $\dfrac{\sqrt{3}}{3}$
+ \item $7$
+ \item $\dfrac{1}{\sqrt{3}}$}{}
+
+% --- 30 (O22) ---
+\alternativasformato{%
+  \quad ¿Cuál es el valor de $\dfrac{\sqrt{3}}{\sqrt{5}+1}-\dfrac{\sqrt{3}}{\sqrt{5}-1}$\,?}
+{\item $0$
+ \item $-\dfrac{\sqrt{3}}{2}$
+ \item $\dfrac{\sqrt{3}}{4}$
+ \item $\dfrac{\sqrt{3}}{2}$
+ \item $\dfrac{\sqrt{3}}{4}$}{}
+
+% --- 31 (N9 nuevo) ---
+\alternativasformato{%
+  \quad El resultado de $(\sqrt{a}+\sqrt{b})(\sqrt{a}-\sqrt{b})(\sqrt{a}+\sqrt{b})$,
+  con $a=7$ y $b=2$, es:}
+{\item $5$
+ \item $5(\sqrt{7}+\sqrt{2})$
+ \item $5(\sqrt{7}-\sqrt{2})$
+ \item $25$
+ \item $5\sqrt{7}$}{}
+
+% --- 32 (O23) ---
+\alternativasformato{%
+  \quad ¿Cuál es el resultado de $1-\dfrac{1}{1-\sqrt{5}}+\dfrac{1}{1+\sqrt{5}}$\,?}
+{\item $1$
+ \item $\dfrac{1}{2}$
+ \item $\dfrac{2-\sqrt{5}}{2}$
+ \item $\dfrac{2+\sqrt{5}}{2}$
+ \item $\dfrac{2-\sqrt{5}}{4}$}{}
+
+\clearpage
+
+% --- 33 (N10 SUFICIENCIA DE DATOS) ---
+\alternativassd{%
+  \quad Para determinar el valor de $\sqrt{a+b}$,
+  ¿es suficiente la siguiente información?\\[5pt]
+  \qquad(1)\quad $a+b=49$\\[3pt]
+  \qquad(2)\quad $a=25$ \; y \; $b=24$}
+
+% --- 34 (O24) ---
+\alternativasformato{%
+  \quad Si $\sqrt{x}-2=-1$, ¿cuál es el valor de $x$\,?}
+{\item $1$
+ \item $2$
+ \item $3$
+ \item $4$
+ \item $-1$}{}
+
+% --- 35 (O25) ---
+\alternativasformato{%
+  \quad ¿Cuál es el valor de $x$ en la expresión $\sqrt{x-5}=2$\,?}
+{\item $4$
+ \item $9$
+ \item $5$
+ \item $2$
+ \item $1$}{}
+
+% --- 36 (N11 nuevo) ---
+\alternativasformato{%
+  \quad ¿Cuánto es $4^{3/2}+8^{2/3}-27^{1/3}$\,?}
+{\item $6$
+ \item $7$
+ \item $8$
+ \item $9$
+ \item $10$}{}
+
+% --- 37 (O26) ---
+\alternativasformato{%
+  \quad Si $\left(3\sqrt{\dfrac{1}{5}}-2\sqrt{\dfrac{1}{2}}\right)^{\!2}=4-x$,
+  ¿cuál es el valor de $x$\,?}
+{\item $1+\dfrac{6}{5}\sqrt{10}$
+ \item $\dfrac{19}{5}-\dfrac{6}{5}\sqrt{10}$
+ \item $\dfrac{21}{5}-\dfrac{6}{5}\sqrt{10}$
+ \item $\dfrac{21}{5}+\dfrac{3}{5}\sqrt{10}$
+ \item $\dfrac{1}{5}+\dfrac{6}{5}\sqrt{10}$}{}
+
+% --- 38 (O27) ---
+\alternativasformato{%
+  \quad ¿Cuál es el valor de $x$ en $\dfrac{1}{\sqrt{x}}=2$\,?}
+{\item $1$
+ \item $\dfrac{1}{2}$
+ \item $\dfrac{1}{4}$
+ \item $\dfrac{1}{8}$
+ \item $2$}{}
+
+% --- 39 (O28) ---
+\alternativasformato{%
+  \quad ¿Cuál es el resultado de $\sqrt{2\cdot\sqrt{2\cdot\sqrt{2}}}$\,?}
+{\item $\sqrt{8}$
+ \item $\sqrt[8]{32}$
+ \item $\sqrt[6]{128}$
+ \item $\sqrt[8]{128}$
+ \item $\sqrt[8]{64}$}{}
+
+\clearpage
+
+% --- 40 (N12 nuevo) ---
+\alternativasformato{%
+  \quad La expresión $\sqrt[3]{4}\cdot\sqrt{2}$, escrita como una sola raíz, es:}
+{\item $\sqrt[6]{64}$
+ \item $\sqrt[6]{128}$
+ \item $\sqrt{8}$
+ \item $\sqrt[5]{32}$
+ \item $\sqrt[3]{8}$}{}
+
+% --- 41 (N13 SUFICIENCIA DE DATOS) ---
+\alternativassd{%
+  \quad Se quiere saber si $\sqrt{m-n}$ representa un número real.
+  ¿Es posible determinarlo con la siguiente información?\\[5pt]
+  \qquad(1)\quad $m=9$\\[3pt]
+  \qquad(2)\quad $n<0$}
+
+% --- 42 (O29) ---
+\alternativassd{%
+  \quad Para conocer el valor numérico de $x+\sqrt{x}$,
+  ¿es suficiente la siguiente información?\\[5pt]
+  \qquad(1)\quad $2^{x}=1$\\[3pt]
+  \qquad(2)\quad $x=4$}
+
+% --- 43 (O30) ---
+\alternativassd{%
+  \quad La expresión $\sqrt{b-a}$ está bien definida en los reales.
+  ¿Es posible determinarlo con certeza a partir de la siguiente información?\\[5pt]
+  \qquad(1)\quad $b>1$\\[3pt]
+  \qquad(2)\quad $a<0$}
+
+% --- 44 (N14 nuevo) ---
+\alternativasformato{%
+  \quad Si $\sqrt[3]{x^{2}}=4$, ¿cuáles son los valores posibles de $x$\,?}
+{\item $x=4$
+ \item $x=8$
+ \item $x=\pm 8$
+ \item $x=64$
+ \item $x=\pm 64$}{}
+
+% --- 45 (N15 nuevo) ---
+\alternativasformato{%
+  \quad ¿Cuánto es $\sqrt{2+\sqrt{2+\sqrt{4}}}$\,?}
+{\item $1$
+ \item $2$
+ \item $\sqrt{6}$
+ \item $\sqrt{8}$
+ \item $4$}{}
+
+% --- 46 (N16 nuevo) ---
+\alternativasformato{%
+  \quad El valor de $\sqrt{12-6\sqrt{3}}$ es:}
+{\item $3-\sqrt{3}$
+ \item $3+\sqrt{3}$
+ \item $\sqrt{3}-3$
+ \item $\sqrt{6}-\sqrt{3}$
+ \item $\sqrt{6}$}{}
+
+% --- 47 (N17 nuevo) ---
+\alternativasformato{%
+  \quad La fracción $\dfrac{\sqrt{6}+\sqrt{2}}{\sqrt{6}-\sqrt{2}}$ es igual a:}
+{\item $2-\sqrt{3}$
+ \item $2+\sqrt{3}$
+ \item $\sqrt{3}$
+ \item $4+2\sqrt{3}$
+ \item $\dfrac{1}{2+\sqrt{3}}$}{}
+
+\clearpage
+
+% --- 48 (N18 nuevo) ---
+\alternativasformato{%
+  \quad Un cuadrado tiene diagonal de $6\sqrt{2}\;\text{cm}$. ¿Cuánto mide su área?}
+{\item $18\;\text{cm}^{2}$
+ \item $24\;\text{cm}^{2}$
+ \item $36\;\text{cm}^{2}$
+ \item $72\;\text{cm}^{2}$
+ \item $12\sqrt{2}\;\text{cm}^{2}$}{}
+
+% --- 49 (N19 nuevo) ---
+\alternativasformato{%
+  \quad ¿Cuánto es $\dfrac{1}{\sqrt{2}+1}+\dfrac{1}{\sqrt{3}+\sqrt{2}}+\dfrac{1}{\sqrt{4}+\sqrt{3}}$\,?}
+{\item $0$
+ \item $1$
+ \item $\sqrt{2}$
+ \item $\sqrt{3}-1$
+ \item $\sqrt{3}+\sqrt{2}-2$}{}
+
+% --- 50 (N20 nuevo) ---
+\alternativasformato{%
+  \quad Si $a=2+\sqrt{3}$, ¿cuánto es $a-\dfrac{1}{a}$\,?}
+{\item $\sqrt{3}$
+ \item $2\sqrt{3}$
+ \item $4+2\sqrt{3}$
+ \item $2$
+ \item $4$}{}
+
+\end{enumerate}
+
+% ============================================================
+% SOLUCIONARIO
+% ============================================================
+\clearpage
+\begin{tcolorbox}[answerbox, title={Solucionario}]
+{\small\textit{Respuestas correctas. Si un resultado difiere, revisa el procedimiento antes de consultar a tu profesor.}}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Tabla de respuestas}]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{c|c||c|c||c|c||c|c||c|c}
+\toprule
+\textbf{Ej.} & \textbf{Resp.} &
+\textbf{Ej.} & \textbf{Resp.} &
+\textbf{Ej.} & \textbf{Resp.} &
+\textbf{Ej.} & \textbf{Resp.} &
+\textbf{Ej.} & \textbf{Resp.}\\
+\midrule
+1  & C & 11 & A & 21 & C & 31 & B & 41 & C\\
+2  & B & 12 & C & 22 & C & 32 & D & 42 & D\\
+3  & B & 13 & C & 23 & B & 33 & D & 43 & C\\
+4  & A & 14 & B & 24 & E & 34 & A & 44 & C\\
+5  & A & 15 & D & 25 & C & 35 & B & 45 & B\\
+6  & E & 16 & C & 26 & A & 36 & D & 46 & A\\
+7  & D & 17 & E & 27 & D & 37 & E & 47 & B\\
+8  & C & 18 & C & 28 & C & 38 & C & 48 & C\\
+9  & E & 19 & A & 29 & A & 39 & D & 49 & B\\
+10 & B & 20 & E & 30 & B & 40 & B & 50 & B\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Desarrollos clave}]
+\small
+
+\noindent\textbf{1.} $\sqrt[3]{-8/125}=\sqrt[3]{-(2/5)^3}=-2/5$. \quad
+\textbf{2.} $\sqrt{256/10000}=16/100=0{,}16$. \quad
+\textbf{3.} $\sqrt{25}=5$. \quad
+\textbf{4.} $\frac{2\sqrt3+3\sqrt3}{\sqrt3}=5$. \quad
+\textbf{5.} $13-12=1$.
+
+\medskip
+
+\noindent\textbf{6.} I: $3\cdot4=12$ \checkmark{}\;  II: $\sqrt{36}=6$ \checkmark{}\;  III: $3\cdot\tfrac{1}{3}=1$ \checkmark{}\; $\Rightarrow$ las tres son verdaderas. \quad
+\textbf{7.} $3<\sqrt{10}$, luego $|3-\sqrt{10}|=\sqrt{10}-3$. \quad
+\textbf{8.} $4\sqrt{3}=\sqrt{48}>\sqrt{36}=6=3\cdot2=3\sqrt{4}$.
+
+\medskip
+
+\noindent\textbf{9.} $a=b^{1/2}=(c^{1/3})^{1/2}=c^{1/6}=(d^{1/5})^{1/6}=d^{1/30}=\sqrt[30]{d}$. \quad
+\textbf{10.} $3\sqrt2+4\sqrt2=7\sqrt2$. \quad
+\textbf{11.} $4\sqrt3-2\sqrt3+3\sqrt3-5\sqrt3=0$.
+
+\medskip
+
+\noindent\textbf{12.} $(x+y)^2=12$, $xy=1$; $x^2+y^2=10$; $x^2+xy+y^2=11$. \quad
+\textbf{13.} $\sqrt{10}(1/\sqrt5-1/\sqrt2)=\sqrt2-\sqrt5$. \quad
+\textbf{14.} $\frac{4(\sqrt6-\sqrt2)}{4}=\sqrt6-\sqrt2$.
+
+\medskip
+
+\noindent\textbf{15.} $\sqrt3-\sqrt3+2\sqrt5=\sqrt{20}$. \quad
+\textbf{16.} $1\cdot\sqrt[n]3+3\sqrt[n]3-2\sqrt[n]3=2\sqrt[n]3$. \quad
+\textbf{17.} $6-2\sqrt{18}+3=9-6\sqrt2$. \quad
+\textbf{18.} $k(k-7)=0$; se descarta $k=0$ pues $k-3\geq0$; $k=7$.
+
+\medskip
+
+\noindent\textbf{19.} $2-45=-43$. \quad
+\textbf{20.} $4-12\sqrt3+27=31-12\sqrt3$ $\Rightarrow$ $a=31,b=-12$. \quad
+\textbf{21.} $(7+4\sqrt3)(\sqrt3-2)=-2-\sqrt3$. \quad
+\textbf{22.} $|3|+|4|=7\neq5=\sqrt{3^2+4^2}$.
+
+\medskip
+
+\noindent\textbf{23.} $8-12\sqrt6+27=35-12\sqrt6$. \quad
+\textbf{24.} $2b-2\sqrt{b^2-4}=2(b-\sqrt{b^2-4})$. \quad
+\textbf{25.} $(3+\sqrt5)^2=14+6\sqrt5$. \quad
+\textbf{26.} $2^{2n}-2\cdot2^n+1=(2^n-1)^2$; $\sqrt{(2^n-1)^2}=2^n-1$.
+
+\medskip
+
+\noindent\textbf{27.} $\frac{2(4+\sqrt5)}{16-5}=\frac{8+2\sqrt5}{11}$. \quad
+\textbf{28.} $3^{(2n+2)/2}=3^{n+1}$. \quad
+\textbf{29.} $\frac{5\sqrt3-4\sqrt3}{\sqrt3}=1$. \quad
+\textbf{30.} $\frac{\sqrt3(-2)}{4}=-\frac{\sqrt3}{2}$.
+
+\medskip
+
+\noindent\textbf{31.} $(7-2)(\sqrt7+\sqrt2)=5(\sqrt7+\sqrt2)$. \quad
+\textbf{32.} $1+\frac{1+\sqrt5}{4}+\frac{\sqrt5-1}{4}=1+\frac{\sqrt5}{2}=\frac{2+\sqrt5}{2}$. \quad
+\textbf{33.} (1) da $\sqrt{49}=7$ solo; (2) da $\sqrt{49}=7$ solo. Cada una sola.
+
+\medskip
+
+\noindent\textbf{34.} $\sqrt x=1\Rightarrow x=1$. \quad
+\textbf{35.} $x-5=4\Rightarrow x=9$. \quad
+\textbf{36.} $8+4-3=9$. \quad
+\textbf{37.} LHS$=\frac{19-6\sqrt{10}}{5}$; $x=4-\text{LHS}=\frac{1+6\sqrt{10}}{5}$.
+
+\medskip
+
+\noindent\textbf{38.} $\sqrt x=\tfrac12\Rightarrow x=\tfrac14$. \quad
+\textbf{39.} $\sqrt{2^{7/4}}=2^{7/8}=\sqrt[8]{128}$. \quad
+\textbf{40.} $2^{2/3+1/2}=2^{7/6}=\sqrt[6]{128}$. \quad
+\textbf{41.} Solo juntas: $m=9>0>n\Rightarrow m-n>0$.
+
+\medskip
+
+\noindent\textbf{42.} (1) $x=0\Rightarrow0$; (2) $x=4\Rightarrow6$. Cada una sola. \quad
+\textbf{43.} $b>1>0>a\Rightarrow b>a$. Solo ambas juntas. \quad
+\textbf{44.} $x^2=64\Rightarrow x=\pm8$.
+
+\medskip
+
+\noindent\textbf{45.} $\sqrt{2+\sqrt{4}}=\sqrt4=2$. \quad
+\textbf{46.} $(3-\sqrt3)^2=12-6\sqrt3$; $3>\sqrt3$; $\sqrt{(3-\sqrt3)^2}=3-\sqrt3$. \quad
+\textbf{47.} $\frac{(\sqrt6+\sqrt2)^2}{4}=\frac{8+4\sqrt3}{4}=2+\sqrt3$.
+
+\medskip
+
+\noindent\textbf{48.} $l\sqrt2=6\sqrt2\Rightarrow l=6$; área $=36\;\text{cm}^2$. \quad
+\textbf{49.} $(\sqrt2-1)+(\sqrt3-\sqrt2)+(2-\sqrt3)=1$. \quad
+\textbf{50.} $\frac{1}{a}=2-\sqrt3$; $a-\frac{1}{a}=2\sqrt3$.
+\end{tcolorbox}
+
+\vspace{0.4cm}
+\begin{center}
+\textcolor{zenitnavy}{\rule{0.6\linewidth}{0.8pt}}\\[0.4cm]
+{\large\bfseries\color{zenitnavy} Academia Zenit}\\[3pt]
+{\color{zenitgold} Matemática · Raíces · Guía PAES · 2026}\\[4pt]
+\textcolor{zenitnavy}{\rule{0.6\linewidth}{0.8pt}}
+\end{center}
+
+\end{document}

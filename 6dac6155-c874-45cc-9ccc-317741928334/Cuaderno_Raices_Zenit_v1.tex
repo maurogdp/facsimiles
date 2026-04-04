@@ -1,0 +1,2092 @@
+% ============================================================
+% ACADEMIA ZENIT — CUADERNO DE EJERCITACIÓN
+% Raíces · Cuaderno 1 · 2026
+% Formato nuevo: ejercicios con espacio de trabajo integrado
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm, top=2.2cm, bottom=2.2cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{array, booktabs, tabularx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, babel, arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{calc}
+\usepackage{setspace}
+
+% --- Espaciado global ---
+\linespread{1.18}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\setlist{itemsep=4pt, topsep=6pt, parsep=2pt}
+\setlist[enumerate,2]{itemsep=3pt, topsep=3pt}
+
+% --- Paleta de colores Zenit ---
+\definecolor{zenitnavy}{HTML}{1A3A5C}
+\definecolor{zenitblue}{HTML}{2E6DA4}
+\definecolor{zenitgold}{HTML}{C9820A}
+\definecolor{zenitlightgray}{HTML}{F5F5F5}
+\definecolor{zenitgreen}{HTML}{1A6B3C}
+\definecolor{zenitred}{HTML}{8B1A1A}
+\definecolor{blocka}{HTML}{1A3A5C}
+\definecolor{blockb}{HTML}{1A6B3C}
+\definecolor{blockc}{HTML}{7B2D8B}
+
+% --- Tcolorbox ---
+\tcbuselibrary{skins, breakable}
+
+\tcbset{
+  % Cajas estándar de la serie Zenit
+  importantbox/.style={enhanced,breakable,colback=white,colframe=zenitblue,
+    colbacktitle=zenitblue,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitblue,colback=zenitblue,arc=2pt}},
+  answerbox/.style={enhanced,breakable,colback=white,colframe=zenitnavy,
+    colbacktitle=zenitnavy,coltitle=white,left=10pt,right=10pt,top=12pt,bottom=10pt,
+    arc=4pt,leftrule=5pt,fonttitle=\bfseries,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitnavy,colback=zenitnavy,arc=2pt}},
+  %
+  % NUEVO — cajas de ejercicio por nivel de dificultad
+  %
+  ejbasico/.style={enhanced,breakable,
+    colback=white,colframe=blockb,
+    colbacktitle=blockb,coltitle=white,
+    left=10pt,right=10pt,top=10pt,bottom=10pt,
+    arc=4pt,leftrule=6pt,fonttitle=\bfseries\small,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=blockb,colback=blockb,arc=2pt}},
+  ejmedio/.style={enhanced,breakable,
+    colback=white,colframe=zenitgold,
+    colbacktitle=zenitgold,coltitle=white,
+    left=10pt,right=10pt,top=10pt,bottom=10pt,
+    arc=4pt,leftrule=6pt,fonttitle=\bfseries\small,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitgold,colback=zenitgold,arc=2pt}},
+  ejavanzado/.style={enhanced,breakable,
+    colback=white,colframe=zenitred,
+    colbacktitle=zenitred,coltitle=white,
+    left=10pt,right=10pt,top=10pt,bottom=10pt,
+    arc=4pt,leftrule=6pt,fonttitle=\bfseries\small,
+    attach boxed title to top left={xshift=0.5cm,yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colframe=zenitred,colback=zenitred,arc=2pt}},
+}
+
+% -------------------------------------------------------
+% COMANDOS ESPECIALES DEL CUADERNO
+% -------------------------------------------------------
+
+% Espacio de trabajo con líneas delimitadoras y línea de respuesta
+\newcommand{\espacio}[1]{%
+  \par\vspace{5pt}%
+  \noindent\textcolor{zenitnavy!22}{\rule{\linewidth}{1.2pt}}%
+  \par\vspace{#1}%
+  \noindent\textcolor{zenitnavy!22}{\rule{\linewidth}{1.2pt}}%
+  \par\vspace{5pt}%
+  \noindent{\small\textbf{Respuesta:}\;\rule{7cm}{0.35pt}}%
+  \par\vspace{2mm}}
+
+% Versión sin línea de Respuesta (para ejercicios con múltiples partes)
+\newcommand{\espaciosin}[1]{%
+  \par\vspace{5pt}%
+  \noindent\textcolor{zenitnavy!22}{\rule{\linewidth}{1.2pt}}%
+  \par\vspace{#1}%
+  \noindent\textcolor{zenitnavy!22}{\rule{\linewidth}{1.2pt}}%
+  \par\vspace{3mm}}
+
+% Blanco para rellenar dentro de tablas o expresiones
+\newcommand{\blanco}{\;\rule{2cm}{0.35pt}\;}
+\newcommand{\blancoG}{\;\rule{3.2cm}{0.35pt}\;}
+\newcommand{\blancoCh}{\;\rule{1.4cm}{0.35pt}\;}
+
+% Encabezado de bloque temático
+\newcommand{\bloqueheader}[3]{%
+  \vspace{1.4em}%
+  \noindent{\Large\bfseries\color{#1}Bloque #2\ \textbf{\textperiodcentered}\ #3}\par%
+  \vspace{0.3em}%
+  {\color{#1}\rule{\linewidth}{0.9pt}}%
+  \vspace{0.8em}}
+
+% Estrellas de dificultad (siempre en modo math)
+\newcommand{\estrellas}[1]{%
+  \ifcase#1\or$\bigstar$\or$\bigstar\bigstar$\or$\bigstar\bigstar\bigstar$\fi}
+
+% --- Encabezado y pie de página ---
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\textbf{Academia Zenit} $\cdot$ Raíces · Cuaderno de Ejercitación · 2026}
+\fancyhead[R]{\small Página \thepage\ de \pageref{LastPage}}
+\fancyfoot[L]{\small\textit{Matemática · Raíces}}
+\fancyfoot[R]{\small Prohibida su reproducción total o parcial.}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ============================================================
+% PORTADA
+% ============================================================
+\thispagestyle{empty}
+\vspace*{1.4cm}
+
+\begin{center}
+  %\includegraphics[width=0.27\linewidth]{logosin fondo.png}\\[1.2cm]
+  {\Huge\bfseries\color{zenitnavy} ACADEMIA ZENIT}\\[0.5cm]
+  {\large\bfseries\color{zenitblue} Matemática · Enseñanza Media}\\[0.9cm]
+  \textcolor{zenitnavy}{\rule{0.74\linewidth}{1.8pt}}\\[0.7cm]
+  {\fontsize{38}{44}\selectfont\bfseries\color{zenitnavy} RAÍCES}\\[0.3cm]
+  {\LARGE\bfseries\color{zenitblue} Cuaderno de Ejercitación}\\[0.25cm]
+  {\large\color{zenitgold}\textit{Del concepto al cálculo — 44 ejercicios progresivos}}\\[0.7cm]
+  \textcolor{zenitnavy}{\rule{0.74\linewidth}{1.8pt}}\\[1.0cm]
+\end{center}
+
+\begin{center}
+\begin{tcolorbox}[enhanced, width=0.80\linewidth,
+  colback=white, colframe=zenitnavy,
+  arc=6pt, left=18pt, right=18pt, top=12pt, bottom=12pt]
+\begin{center}
+{\small\bfseries\color{zenitnavy} GUÍA DE DIFICULTAD}\\[10pt]
+\begin{tabular}{ccc}
+\textcolor{blockb}{\rule{2.6cm}{4.5pt}} &
+\textcolor{zenitgold}{\rule{2.6cm}{4.5pt}} &
+\textcolor{zenitred}{\rule{2.6cm}{4.5pt}}\\[5pt]
+\textcolor{blockb}{\textbf{$\bigstar$ Básico}} &
+\textcolor{zenitgold}{\textbf{$\bigstar\bigstar$ Intermedio}} &
+\textcolor{zenitred}{\textbf{$\bigstar\bigstar\bigstar$ Avanzado}}\\[2pt]
+\small\textcolor{blockb}{Bloques A, C} &
+\small\textcolor{zenitgold}{Bloques B, D, E, F, G, H, I} &
+\small\textcolor{zenitred}{Bloque J}\\
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+\vfill
+
+\begin{center}
+\begin{tcolorbox}[enhanced, width=0.80\linewidth,
+  colback=zenitlightgray, colframe=zenitnavy,
+  arc=6pt, left=18pt, right=18pt, top=12pt, bottom=12pt]
+\begin{center}
+{\bfseries\color{zenitnavy} Nombre del estudiante:}\\[9pt]
+\rule{9cm}{0.55pt}\\[8pt]
+{\bfseries\color{zenitnavy} Nivel / Curso:}\;\rule{3.2cm}{0.5pt}
+\qquad\qquad
+{\bfseries\color{zenitnavy} Fecha:}\;\rule{3.2cm}{0.5pt}
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5cm}
+\begin{center}
+{\color{zenitgold} Matemática · Raíces · Cuaderno 1 · 2026}
+\end{center}
+
+% ============================================================
+% PÁGINA 2 — INSTRUCCIONES, ÍNDICE Y REGISTRO
+% ============================================================
+\clearpage
+\thispagestyle{empty}
+
+\begin{tcolorbox}[importantbox, title={¿Cómo usar este cuaderno?}]
+Este cuaderno está diseñado para que resuelvas cada ejercicio directamente aquí, en el espacio asignado.
+
+\medskip
+
+\begin{itemize}
+  \item Cada ejercicio tiene un \textbf{espacio de trabajo} delimitado por dos líneas horizontales. Úsalo para cálculos y procedimientos.
+  \item Al terminar, escribe tu respuesta final en la línea \textbf{Respuesta:} al pie de cada ejercicio.
+  \item Los bloques aumentan en dificultad. Si un ejercicio te cuesta, revisa los anteriores del mismo bloque.
+  \item Las estrellas indican el nivel: $\bigstar$ básico · $\bigstar\bigstar$ intermedio · $\bigstar\bigstar\bigstar$ avanzado.
+  \item El \textbf{Solucionario} al final tiene todas las respuestas. ¡Úsalo para verificar, no para copiar!
+\end{itemize}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Índice de Bloques}]
+\begin{multicols}{2}
+\begin{enumerate}[label=\textbf{\Alph*.}, leftmargin=*, itemsep=5pt]
+  \item Raíz cuadrada y cuadrados perfectos \dotfill\ $\bigstar$
+  \item Comparación, orden y estimación \dotfill\ $\bigstar\bigstar$
+  \item Raíz cúbica \dotfill\ $\bigstar$
+  \item Raíz enésima \dotfill\ $\bigstar\bigstar$
+  \item Relación inversa y propiedades \dotfill\ $\bigstar$\,/\,$\bigstar\bigstar$
+  \item Simplificación de raíces \dotfill\ $\bigstar\bigstar$
+  \item Suma y resta de radicales \dotfill\ $\bigstar\bigstar$
+  \item Multiplicación y productos notables \dotfill\ $\bigstar\bigstar$
+  \item Potencias racionales y cambio de índice \dotfill\ $\bigstar\bigstar$\,/\,$\bigstar\bigstar\bigstar$
+  \item Racionalización y desafíos \dotfill\ $\bigstar\bigstar\bigstar$
+\end{enumerate}
+\end{multicols}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[importantbox, title={Mi registro de progreso}]
+Marca cada bloque al completarlo. Anota tu puntaje al revisar con el solucionario.
+
+\vspace{6pt}
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Bloque} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{J}\\
+\hline
+\textbf{Completado} & & & & & & & & & & \\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE A — RAÍZ CUADRADA Y CUADRADOS PERFECTOS
+% ============================================================
+\clearpage
+\bloqueheader{blockb}{A}{Raíz cuadrada y cuadrados perfectos \hfill \estrellas{1}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 1 \hfill $\bigstar$ \quad Cuadrados perfectos directos}]
+
+Completa la tabla calculando cada raíz cuadrada. Recuerda que $\sqrt{n^2}=n$ para $n\geq 0$.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\textbf{Expresión} & \textbf{Valor} & \textbf{Expresión} & \textbf{Valor} & \textbf{Expresión} & \textbf{Valor}\\
+\hline
+$\sqrt{4}$ & & $\sqrt{81}$ & & $\sqrt{196}$ &\\
+\hline
+$\sqrt{9}$ & & $\sqrt{100}$ & & $\sqrt{225}$ &\\
+\hline
+$\sqrt{25}$ & & $\sqrt{121}$ & & $\sqrt{256}$ &\\
+\hline
+$\sqrt{36}$ & & $\sqrt{144}$ & & $\sqrt{289}$ &\\
+\hline
+$\sqrt{49}$ & & $\sqrt{169}$ & & $\sqrt{400}$ &\\
+\hline
+$\sqrt{64}$ & & $\sqrt{1}$ & & $\sqrt{324}$ &\\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 2 \hfill $\bigstar$ \quad Existencia de la raíz cuadrada}]
+
+Para cada expresión indica: (i) si existe en $\mathbb{R}$ (sí / no); (ii) si existe, su valor numérico. Justifica brevemente los casos en que no existe.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c|c||c|c|c|}
+\hline
+\textbf{Expresión} & \textbf{¿Existe?} & \textbf{Valor} &
+\textbf{Expresión} & \textbf{¿Existe?} & \textbf{Valor}\\
+\hline
+$\sqrt{16}$   & & & $\sqrt{-9}$    & &\\
+\hline
+$\sqrt{0}$    & & & $-\sqrt{36}$   & &\\
+\hline
+$\sqrt{-25}$  & & & $\sqrt{(-4)^2}$& &\\
+\hline
+$\sqrt{324}$  & & & $-\sqrt{-1}$   & &\\
+\hline
+\end{tabular}
+\end{center}
+
+\espacio{2.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 3 \hfill $\bigstar$ \quad ¿Es cuadrado perfecto?}]
+
+Indica si cada número es un cuadrado perfecto. Si lo es, escribe su raíz exacta; si no lo es, escribe entre qué dos enteros consecutivos está $\sqrt{n}$.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c|p{3.4cm}||c|c|p{3.4cm}|}
+\hline
+$n$ & \textbf{¿C. perf.?} & \textbf{Raíz / acotación} &
+$n$ & \textbf{¿C. perf.?} & \textbf{Raíz / acotación}\\
+\hline
+$50$ & & & $196$ & &\\
+\hline
+$81$ & & & $200$ & &\\
+\hline
+$75$ & & & $361$ & &\\
+\hline
+$125$ & & & $289$ & &\\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 4 \hfill $\bigstar$ \quad Racional o irracional}]
+
+Clasifica cada expresión como \textbf{racional} o \textbf{irracional}. Si es racional, escribe su valor exacto.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c|c||c|c|c|}
+\hline
+\textbf{Expresión} & \textbf{Tipo} & \textbf{Valor (si racional)} &
+\textbf{Expresión} & \textbf{Tipo} & \textbf{Valor (si racional)}\\
+\hline
+$\sqrt{4}$   & & & $\sqrt{50}$  & &\\
+\hline
+$\sqrt{5}$   & & & $\sqrt{121}$ & &\\
+\hline
+$\sqrt{7}$   & & & $\sqrt{200}$ & &\\
+\hline
+$\sqrt{16}$  & & & $\sqrt{324}$ & &\\
+\hline
+$\sqrt{20}$  & & & $\sqrt{225}$ & &\\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 5 \hfill $\bigstar$ \quad Contexto geométrico}]
+
+Resuelve cada problema de área. Muestra el procedimiento completo.
+
+\medskip
+
+\noindent\textbf{a)} Un cuadrado tiene área $169\;\text{cm}^2$. ¿Cuánto mide su lado?
+
+\medskip
+
+\noindent\textbf{b)} Un cuadrado tiene lado de $12\;\text{cm}$. ¿Cuánto mide su área? ¿Y la diagonal?
+(Recuerda: en un cuadrado de lado $l$, la diagonal es $d=l\sqrt{2}$.)
+
+\medskip
+
+\noindent\textbf{c)} ¿Puede existir un cuadrado con área $-36\;\text{cm}^2$? Justifica.
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE B — COMPARACIÓN, ORDEN Y ESTIMACIÓN
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{B}{Comparación, orden y estimación \hfill \estrellas{2}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 6 \hfill $\bigstar\bigstar$ \quad Comparar sin calcular decimales}]
+
+Completa cada espacio con $<$, $>$ o $=$.\ \textit{Estrategia:} convierte el entero a raíz cuadrada usando $k=\sqrt{k^2}$, luego compara radicandos.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{ccccc}
+$\sqrt{20}$ \blancoCh\ $4$ &\quad&
+$\sqrt{50}$ \blancoCh\ $7$ &\quad&
+$\sqrt{35}$ \blancoCh\ $6$\\[4pt]
+$\sqrt{100}$ \blancoCh\ $10$ &\quad&
+$\sqrt{48}$ \blancoCh\ $7$ &\quad&
+$\sqrt{80}$ \blancoCh\ $9$\\[4pt]
+$\sqrt{125}$ \blancoCh\ $11$ &\quad&
+$\sqrt{63}$ \blancoCh\ $8$ &\quad&
+$\sqrt{150}$ \blancoCh\ $12$\\
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 7 \hfill $\bigstar\bigstar$ \quad Ordenar de menor a mayor}]
+
+Ordena cada conjunto de valores de menor a mayor. Indica el procedimiento (Estrategia A: convertir enteros en raíces; Estrategia B: estimar y ubicar en recta).
+
+\medskip
+
+\noindent\textbf{a)}\quad $\sqrt{3}$,\; $2$,\; $\sqrt{6}$,\; $1$,\; $\sqrt{8}$,\; $3$
+
+\medskip
+
+\noindent\textbf{b)}\quad $\sqrt{50}$,\; $7$,\; $\sqrt{40}$,\; $6$,\; $\sqrt{48}$,\; $\sqrt{60}$
+
+\medskip
+
+\noindent\textbf{c)}\quad $\sqrt{15}$,\; $4$,\; $\sqrt{10}$,\; $3$,\; $\sqrt{20}$
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 8 \hfill $\bigstar\bigstar$ \quad Acotar entre enteros consecutivos}]
+
+Para cada raíz, determina los dos enteros consecutivos $k$ y $k+1$ tales que $k<\sqrt{n}<k+1$.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|c|c|c||c|c|c|}
+\hline
+$\sqrt{n}$ & \textbf{Entre...} & \textbf{...y} & $\sqrt{n}$ & \textbf{Entre...} & \textbf{...y}\\
+\hline
+$\sqrt{10}$ & & & $\sqrt{110}$ & &\\
+\hline
+$\sqrt{27}$ & & & $\sqrt{150}$ & &\\
+\hline
+$\sqrt{50}$ & & & $\sqrt{200}$ & &\\
+\hline
+$\sqrt{72}$ & & & $\sqrt{350}$ & &\\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 9 \hfill $\bigstar\bigstar$ \quad Estimar al décimo más cercano}]
+
+Estima cada raíz al décimo más cercano \textbf{sin usar calculadora}. Usa el método de aproximación sucesiva: primero acota entre enteros, luego entre décimas.
+
+\medskip
+
+\noindent\textbf{a)}\quad $\sqrt{3}$
+
+\medskip
+
+\noindent\textbf{b)}\quad $\sqrt{20}$
+
+\medskip
+
+\noindent\textbf{c)}\quad $\sqrt{45}$
+
+\medskip
+
+\noindent\textbf{d)}\quad $\sqrt{90}$
+
+\espacio{8.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 10 \hfill $\bigstar\bigstar$ \quad Enteros dentro de un intervalo de raíces}]
+
+\noindent\textbf{a)} Encuentra todos los números naturales $n$ que satisfacen $5<\sqrt{n}<6$. ¿Cuántos son?
+
+\medskip
+
+\noindent\textbf{b)} ¿Cuántos números naturales $n$ satisfacen $3<\sqrt{n}<4$?
+
+\medskip
+
+\noindent\textbf{c)} ¿Es posible que la suma de dos números irracionales de la forma $\sqrt{n}$ sea un número racional? Da un ejemplo concreto y explica por qué ocurre.
+
+\espacio{7.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE C — RAÍZ CÚBICA
+% ============================================================
+\clearpage
+\bloqueheader{blockb}{C}{Raíz cúbica \hfill \estrellas{1}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 11 \hfill $\bigstar$ \quad Cubos perfectos}]
+
+Calcula cada raíz cúbica. Recuerda que $\sqrt[3]{a}=b\Leftrightarrow b^3=a$, y que la raíz cúbica de un número negativo es negativa.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\textbf{Expresión} & \textbf{Valor} & \textbf{Expresión} & \textbf{Valor} & \textbf{Expresión} & \textbf{Valor}\\
+\hline
+$\sqrt[3]{1}$    & & $\sqrt[3]{125}$  & & $\sqrt[3]{-1}$   &\\
+\hline
+$\sqrt[3]{8}$    & & $\sqrt[3]{216}$  & & $\sqrt[3]{-27}$  &\\
+\hline
+$\sqrt[3]{27}$   & & $\sqrt[3]{343}$  & & $\sqrt[3]{-64}$  &\\
+\hline
+$\sqrt[3]{64}$   & & $\sqrt[3]{512}$  & & $\sqrt[3]{-125}$ &\\
+\hline
+$\sqrt[3]{1000}$ & & $\sqrt[3]{729}$  & & $\sqrt[3]{-512}$ &\\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 12 \hfill $\bigstar$ \quad Raíces cúbicas de fracciones y decimales}]
+
+Calcula cada expresión. Escribe el procedimiento en el espacio de trabajo.
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt[3]{\dfrac{8}{27}}$
+  \item $\sqrt[3]{\dfrac{125}{64}}$
+  \item $\sqrt[3]{\dfrac{-1}{8}}$
+  \item $\sqrt[3]{0{,}729}$
+  \item $\sqrt[3]{0{,}008}$
+  \item $\sqrt[3]{-0{,}064}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 13 \hfill $\bigstar$ \quad Contexto geométrico — Volumen}]
+
+\noindent\textbf{a)} Un estanque cúbico tiene volumen $512\;\text{litros}$. ¿Cuánto mide la arista en decímetros?
+
+\medskip
+
+\noindent\textbf{b)} Un cubo tiene volumen $729\;\text{cm}^3$. ¿Cuánto mide su arista? ¿Y el área total de sus seis caras?
+
+\medskip
+
+\noindent\textbf{c)} Si el volumen de un cubo se triplica, ¿en qué factor cambia la arista? Expresa la respuesta usando raíz cúbica y simplifica si es posible.
+
+\espacio{7.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE D — RAÍZ ENÉSIMA
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{D}{Raíz enésima \hfill \estrellas{2}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 14 \hfill $\bigstar\bigstar$ \quad Existencia y cálculo de raíces enésimas}]
+
+Para cada expresión: (i) indica si existe en $\mathbb{R}$; (ii) si existe, calcula su valor. Justifica basándote en si el índice es par o impar.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c|c||c|c|c|}
+\hline
+\textbf{Expresión} & \textbf{¿Existe?} & \textbf{Valor} &
+\textbf{Expresión} & \textbf{¿Existe?} & \textbf{Valor}\\
+\hline
+$\sqrt[4]{16}$   & & & $\sqrt[4]{-16}$  & &\\
+\hline
+$\sqrt[5]{32}$   & & & $\sqrt[5]{-32}$  & &\\
+\hline
+$\sqrt[6]{64}$   & & & $\sqrt[6]{-64}$  & &\\
+\hline
+$\sqrt[3]{-1000}$& & & $\sqrt[4]{625}$  & &\\
+\hline
+$\sqrt[5]{-243}$ & & & $\sqrt[8]{-1}$   & &\\
+\hline
+\end{tabular}
+\end{center}
+
+\espacio{2.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 15 \hfill $\bigstar\bigstar$ \quad Raíces enésimas de fracciones y decimales}]
+
+Calcula cada expresión. Convierte a fracción si es necesario, factoriza, y aplica la raíz a numerador y denominador por separado.
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt[3]{\dfrac{64}{27}}$
+  \item $\sqrt[5]{\dfrac{1}{32}}$
+  \item $\sqrt[3]{-\dfrac{125}{216}}$
+  \item $\sqrt[4]{\dfrac{81}{16}}$
+  \item $\sqrt[5]{0{,}00243}$
+  \item $\sqrt[5]{-0{,}00032}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{6.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 16 \hfill $\bigstar\bigstar$ \quad Ordenar raíces con distintos índices}]
+
+Ordena de menor a mayor. \textit{Estrategia:} estima cada raíz con al menos un decimal, luego compara.
+
+\medskip
+
+\noindent\textbf{a)}\quad $\sqrt[3]{10}$,\; $2$,\; $\sqrt[3]{27}$,\; $3$,\; $\sqrt[3]{50}$
+
+\medskip
+
+\noindent\textbf{b)}\quad $\sqrt[5]{32}$,\; $\sqrt[4]{16}$,\; $\sqrt[3]{27}$,\; $\sqrt{9}$
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE E — RELACIÓN INVERSA Y PROPIEDADES P1–P2
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{E}{Relación inversa y propiedades P1 -- P2 \hfill \estrellas{1}\,/\,\estrellas{2}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejbasico,
+  title={Ejercicio 17 \hfill $\bigstar$ \quad Relación inversa}]
+
+Simplifica directamente, sin calcular decimales. Recuerda: $\left(\sqrt[n]{a}\right)^n=a$ y $\sqrt[n]{a^n}=a$.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{cccc}
+$(\sqrt{9})^2=$ \blancoCh & $\sqrt{5^2}=$ \blancoCh & $(\sqrt[3]{4})^3=$ \blancoCh & $\sqrt[3]{6^3}=$ \blancoCh\\[4pt]
+$(\sqrt{17})^2=$ \blancoCh & $\sqrt{11^2}=$ \blancoCh & $(\sqrt[5]{2})^5=$ \blancoCh & $\sqrt[3]{(-4)^3}=$ \blancoCh\\[4pt]
+$(\sqrt[4]{7})^4=$ \blancoCh & $\sqrt[5]{(-3)^5}=$ \blancoCh & $\sqrt[3]{8^3}=$ \blancoCh & $(\sqrt[6]{5})^6=$ \blancoCh\\
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 18 \hfill $\bigstar\bigstar$ \quad Propiedad P1 — raíz de un producto}]
+
+Aplica P1: $\sqrt[n]{a\cdot b}=\sqrt[n]{a}\cdot\sqrt[n]{b}$. Simplifica completamente.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{4\cdot 9}$
+  \item $\sqrt{9\cdot 49}$
+  \item $\sqrt[3]{8\cdot 27}$
+  \item $\sqrt[4]{16\cdot 81}$
+  \item $\sqrt[5]{2}\cdot\sqrt[5]{16}$
+  \item $\sqrt[3]{4}\cdot\sqrt[3]{16}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 19 \hfill $\bigstar\bigstar$ \quad Propiedad P2 — raíz de un cociente}]
+
+Aplica P2: $\dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}=\sqrt[n]{\dfrac{a}{b}}$. Simplifica completamente.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{\dfrac{25}{4}}$
+  \item $\sqrt{\dfrac{144}{9}}$
+  \item $\dfrac{\sqrt{225}}{\sqrt{9}}$
+  \item $\sqrt[3]{\dfrac{64}{27}}$
+  \item $\sqrt[3]{24}\div\sqrt[3]{3}$
+  \item $\dfrac{\sqrt[4]{162}}{\sqrt[4]{2}}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 20 \hfill $\bigstar\bigstar$ \quad Verificar el error más frecuente}]
+
+Demuestra con ejemplos numéricos concretos que $\sqrt{a+b}\neq\sqrt{a}+\sqrt{b}$.
+
+\medskip
+
+\noindent\textbf{a)} Usa $a=9$ y $b=16$. Calcula $\sqrt{9+16}$ por un lado, y $\sqrt{9}+\sqrt{16}$ por el otro. ¿Son iguales?
+
+\medskip
+
+\noindent\textbf{b)} Encuentra otro par de valores $a$ y $b$ (distintos a los del apartado anterior) que ilustren el mismo error. Muestra los cálculos.
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE F — SIMPLIFICACIÓN DE RAÍCES
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{F}{Simplificación de raíces \hfill \estrellas{2}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 21 \hfill $\bigstar\bigstar$ \quad Simplificar raíces cuadradas}]
+
+Descompón el radicando en factores primos y simplifica completamente.
+\textit{Procedimiento:} $\sqrt{p^k}$: la parte con exponente par sale, la impar queda dentro.
+
+\medskip
+
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{8}$
+  \item $\sqrt{12}$
+  \item $\sqrt{18}$
+  \item $\sqrt{20}$
+  \item $\sqrt{28}$
+  \item $\sqrt{45}$
+  \item $\sqrt{50}$
+  \item $\sqrt{63}$
+  \item $\sqrt{72}$
+  \item $\sqrt{75}$
+  \item $\sqrt{98}$
+  \item $\sqrt{108}$
+  \item $\sqrt{128}$
+  \item $\sqrt{200}$
+  \item $\sqrt{288}$
+  \item $\sqrt{432}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{7.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 22 \hfill $\bigstar\bigstar$ \quad Simplificar raíces cúbicas}]
+
+Simplifica completamente. Para índice $n=3$: si $k=3q+r$, el factor $p^k$ aporta $p^q$ fuera y $p^r$ dentro.
+
+\medskip
+
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt[3]{16}$
+  \item $\sqrt[3]{24}$
+  \item $\sqrt[3]{54}$
+  \item $\sqrt[3]{81}$
+  \item $\sqrt[3]{128}$
+  \item $\sqrt[3]{250}$
+  \item $\sqrt[3]{375}$
+  \item $\sqrt[3]{500}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 23 \hfill $\bigstar\bigstar$ \quad Simplificar con coeficiente externo}]
+
+Simplifica completamente. El coeficiente exterior se multiplica por el factor que sale de la raíz.
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $2\sqrt{75}$
+  \item $3\sqrt{48}$
+  \item $5\sqrt{32}$
+  \item $4\sqrt{45}$
+  \item $2\sqrt[3]{250}$
+  \item $3\sqrt[3]{54}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE G — SUMA Y RESTA DE RADICALES
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{G}{Suma y resta de radicales semejantes \hfill \estrellas{2}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 24 \hfill $\bigstar\bigstar$ \quad Radicales ya semejantes}]
+
+Opera directamente. Recuerda: $a\sqrt[n]{x}+b\sqrt[n]{x}=(a+b)\sqrt[n]{x}$.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $3\sqrt{2}+5\sqrt{2}-4\sqrt{2}$
+  \item $8\sqrt{3}-3\sqrt{3}+2\sqrt{3}+\sqrt{3}$
+  \item $12\sqrt[3]{4}+15\sqrt[3]{4}-8\sqrt[3]{4}-3\sqrt[3]{4}$
+  \item $\sqrt[5]{7}+5\sqrt[5]{7}-2\sqrt[5]{7}+11\sqrt[5]{7}$
+  \item $7\sqrt[4]{5}+6\sqrt[3]{6}-5\sqrt[4]{5}-7\sqrt[3]{6}$
+  \item $12\sqrt{2}-8\sqrt{3}+\sqrt{2}+4\sqrt{3}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 25 \hfill $\bigstar\bigstar$ \quad Simplificar y luego combinar}]
+
+Simplifica cada término primero; luego combina los semejantes.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{12}+\sqrt{3}$
+  \item $\sqrt{50}-\sqrt{8}$
+  \item $\sqrt{48}+\sqrt{75}-\sqrt{12}$
+  \item $2\sqrt{27}-\sqrt{75}+\sqrt{48}$
+  \item $\sqrt{98}-\sqrt{32}+\sqrt{2}$
+  \item $3\sqrt{12}-\sqrt{48}+\sqrt{3}$
+  \item $\sqrt{50}+\sqrt{18}-\sqrt{8}$
+  \item $4\sqrt{27}-3\sqrt{48}+2\sqrt{75}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{7.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 26 \hfill $\bigstar\bigstar$ \quad Perímetro con radicales}]
+
+Un triángulo tiene sus tres lados de longitud $\sqrt{50}$, $\sqrt{72}$ y $\sqrt{98}$, respectivamente, todos en centímetros.
+
+\medskip
+
+\noindent\textbf{a)} Simplifica cada longitud.
+
+\medskip
+
+\noindent\textbf{b)} Calcula el perímetro en forma simplificada (como $k\sqrt{2}$ cm).
+
+\medskip
+
+\noindent\textbf{c)} ¿Es este triángulo isósceles, equilátero o escaleno? Justifica.
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE H — MULTIPLICACIÓN Y PRODUCTOS NOTABLES
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{H}{Multiplicación y productos notables \hfill \estrellas{2}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 27 \hfill $\bigstar\bigstar$ \quad Multiplicar radicales con mismo índice}]
+
+Aplica P1 directamente; simplifica el resultado.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{2}\cdot\sqrt{7}$
+  \item $\sqrt{3}\cdot\sqrt{12}$
+  \item $2\sqrt{3}\cdot\sqrt{2}\cdot 4\sqrt{2}$
+  \item $3\sqrt{5}\cdot 2\sqrt{5}$
+  \item $\sqrt[3]{5}\cdot\sqrt[3]{4}$
+  \item $\sqrt[3]{6}\cdot\sqrt[3]{9}$
+  \item $\sqrt[5]{8}\cdot\sqrt[5]{(-2)}\cdot\sqrt[5]{2}$
+  \item $2\sqrt{6}\cdot 3\sqrt{10}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 28 \hfill $\bigstar\bigstar$ \quad Diferencia de cuadrados}]
+
+Aplica $(\sqrt{a}+\sqrt{b})\cdot(\sqrt{a}-\sqrt{b})=a-b$. El resultado es siempre un número sin raíces.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(\sqrt{7}+\sqrt{3})(\sqrt{7}-\sqrt{3})$
+  \item $(3+\sqrt{2})(3-\sqrt{2})$
+  \item $(2\sqrt{3}+\sqrt{5})(2\sqrt{3}-\sqrt{5})$
+  \item $(\sqrt{11}-\sqrt{5})(\sqrt{11}+\sqrt{5})$
+  \item $(4+\sqrt{3})(4-\sqrt{3})$
+  \item $(\sqrt{a}+2)(\sqrt{a}-2)$
+\end{enumerate}
+\end{multicols}
+
+\espacio{5.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 29 \hfill $\bigstar\bigstar$ \quad Cuadrado de un binomio con raíces}]
+
+Aplica $(\sqrt{a}\pm\sqrt{b})^2=a\pm 2\sqrt{ab}+b$. ¡No olvides el término cruzado!
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(\sqrt{5}+\sqrt{2})^2$
+  \item $(\sqrt{3}-\sqrt{2})^2$
+  \item $(\sqrt{7}+2)^2$
+  \item $(\sqrt{6}-\sqrt{3})^2$
+  \item $(2\sqrt{3}+\sqrt{2})^2$
+  \item $(3-\sqrt{5})^2$
+\end{enumerate}
+\end{multicols}
+
+\espacio{6.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 30 \hfill $\bigstar\bigstar$ \quad Distribución general}]
+
+Expande el producto distribuyendo término a término. Simplifica el resultado.
+
+\medskip
+
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(\sqrt{5}+2\sqrt{3})(4\sqrt{3}-2\sqrt{5})$
+  \item $(3\sqrt{2}-\sqrt{3})(\sqrt{2}+2\sqrt{3})$
+  \item $(\sqrt{3}+\sqrt{2}-\sqrt{5})^2$ \quad \textit{(más desafiante)}
+\end{enumerate}
+
+\espacio{7.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE I — POTENCIAS RACIONALES Y CAMBIO DE ÍNDICE
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{I}{Potencias racionales y cambio de índice \hfill \estrellas{2}\,/\,\estrellas{3}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 31 \hfill $\bigstar\bigstar$ \quad Convertir entre notaciones}]
+
+Convierte usando la equivalencia $a^{m/n}=\sqrt[n]{a^m}$. Completa la tabla.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|c|c||c|c|}
+\hline
+\textbf{Notación radical} & \textbf{Potencia racional} &
+\textbf{Potencia racional} & \textbf{Notación radical}\\
+\hline
+$\sqrt[3]{5}$   & & $4^{3/2}$    &\\
+\hline
+$\sqrt[5]{2^3}$ & & $8^{2/3}$    &\\
+\hline
+$\sqrt[7]{y^5}$ & & $m^{-5/3}$   &\\
+\hline
+$\sqrt[4]{a^3}$ & & $27^{4/3}$   &\\
+\hline
+$\sqrt{x^3}$    & & $a^{1/2}\cdot a^{3/2}$ &\\
+\hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 32 \hfill $\bigstar\bigstar$ \quad Calcular potencias racionales}]
+
+Calcula siguiendo el orden: \textbf{primero} extrae la raíz (denominador del exponente), \textbf{luego} eleva (numerador). Así trabajas con números más pequeños.
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $8^{2/3}$
+  \item $16^{3/4}$
+  \item $27^{2/3}$
+  \item $32^{3/5}$
+  \item $81^{3/4}$
+  \item $243^{4/5}$
+  \item $4^{3/2}$
+  \item $64^{5/6}$
+  \item $125^{2/3}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 33 \hfill $\bigstar\bigstar\bigstar$ \quad Cambio de índice}]
+
+\noindent\textbf{a)} Amplía el índice (multiplica índice y exponente por el mismo factor):
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\roman*), leftmargin=*]
+  \item $\sqrt{3}$ como índice 6
+  \item $\sqrt[3]{5}$ como índice 6
+  \item $\sqrt[4]{7}$ como índice 8
+\end{enumerate}
+\end{multicols}
+
+\medskip
+
+\noindent\textbf{b)} Simplifica el índice (divide índice y exponente por su m.c.d.):
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\roman*), leftmargin=*]
+  \item $\sqrt[4]{a^2}$
+  \item $\sqrt[6]{a^4}$
+  \item $\sqrt[6]{8}$
+  \item $\sqrt[9]{a^6}$
+  \item $\sqrt[4]{x^6}$
+  \item $\sqrt[6]{27}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{7.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 34 \hfill $\bigstar\bigstar\bigstar$ \quad Operar con propiedades de potencias racionales}]
+
+Simplifica cada expresión. Convierte a potencias racionales, aplica las propiedades y regresa a notación radical si se indica.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $a^{1/2}\cdot a^{3/2}$
+  \item $(a^{2/3})^6$
+  \item $\dfrac{x^{5/3}}{x^{2/3}}$
+  \item $(4a^2)^{1/2}$
+  \item $\dfrac{a^{3/4}}{a^{1/4}}$ \; (expresa como raíz)
+  \item $\dfrac{(8x^3)^{1/3}}{(4x^2)^{1/2}}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE J — RACIONALIZACIÓN Y DESAFÍOS
+% ============================================================
+\clearpage
+\bloqueheader{zenitred}{J}{Racionalización y desafíos \hfill \estrellas{3}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 35 \hfill $\bigstar\bigstar\bigstar$ \quad Racionalizar denominador monomio — Caso 1 ($\sqrt{}$)}]
+
+Amplifica por $\dfrac{\sqrt{a}}{\sqrt{a}}$ para eliminar la raíz del denominador. Simplifica la fracción resultante.
+
+\medskip
+
+\begin{multicols}{3}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{4}{\sqrt{2}}$
+  \item $\dfrac{6}{\sqrt{3}}$
+  \item $\dfrac{15}{\sqrt{5}}$
+  \item $\dfrac{3}{\sqrt{7}}$
+  \item $\dfrac{\sqrt{6}}{\sqrt{2}}$
+  \item $\dfrac{8}{\sqrt{12}}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{6.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 36 \hfill $\bigstar\bigstar\bigstar$ \quad Racionalizar denominador monomio — Caso 2 ($\sqrt[n]{}$)}]
+
+Para $\dfrac{p}{\sqrt[n]{a}}$: amplifica por $\dfrac{\sqrt[n]{a^{n-1}}}{\sqrt[n]{a^{n-1}}}$ para obtener $\sqrt[n]{a^n}=a$ en el denominador.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{24}{\sqrt[3]{2}}$
+  \item $\dfrac{5}{\sqrt[3]{5^2}}$
+  \item $\dfrac{6}{3\sqrt[3]{3}}$
+  \item $\dfrac{1}{\sqrt[4]{2}}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{6.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 37 \hfill $\bigstar\bigstar\bigstar$ \quad Racionalizar con conjugado}]
+
+Para $\dfrac{p}{\sqrt{a}+\sqrt{b}}$: amplifica por el conjugado $\dfrac{(\sqrt{a}-\sqrt{b})}{(\sqrt{a}-\sqrt{b})}$ usando la diferencia de cuadrados.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{1}{\sqrt{3}-\sqrt{2}}$
+  \item $\dfrac{10}{\sqrt{5}+1}$
+  \item $\dfrac{6}{\sqrt{3}-\sqrt{2}}$
+  \item $\dfrac{5}{\sqrt{7}+\sqrt{2}}$
+  \item $\dfrac{3}{2+\sqrt{3}}$
+  \item $\dfrac{\sqrt{3}}{\sqrt{3}+\sqrt{5}}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{7.5cm}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 38 \hfill $\bigstar\bigstar\bigstar$ \quad Expresión algebraica compleja}]
+
+Simplifica completamente. Usa las propiedades de raíces y potencias en el orden correcto.
+
+\medskip
+
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\dfrac{\sqrt{a}\cdot\sqrt[3]{a^2}}{\sqrt[6]{a^5}}$ \quad (con $a>0$)
+
+  \medskip
+
+  \item $\dfrac{\sqrt[3]{15}\cdot\sqrt[3]{5}}{\sqrt[3]{10}\cdot\sqrt[3]{3}}$
+
+  \medskip
+
+  \item $3\sqrt[3]{\sqrt[4]{x}}+5\sqrt[12]{x}-6\sqrt[4]{\sqrt[3]{x}}$ \quad (convierte cada término a raíz de índice 12)
+\end{enumerate}
+
+\espacio{8.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 39 \hfill $\bigstar\bigstar\bigstar$ \quad Problema contextualizado}]
+
+Una escalera de $5\;\text{m}$ apoya su base a $3\;\text{m}$ de la pared. ¿A qué altura llega la escalera? Expresa la respuesta en forma exacta simplificada y como decimal aproximado (al centésimo).
+
+\medskip
+
+Un segundo problema: una pantalla de televisión rectangular tiene proporciones $16{:}9$. Si la diagonal es $\sqrt{1072}\;\text{cm}$, determina las medidas exactas del largo y del ancho. \textit{(Llama $9k$ y $16k$ a los lados; usa el Teorema de Pitágoras para encontrar $k$.)}
+
+\espacio{8.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 40 \hfill $\bigstar\bigstar\bigstar$ \quad ¿Suma de irracionales puede ser racional?}]
+
+\noindent\textbf{a)} Explica con un ejemplo por qué la suma de dos números irracionales puede dar un resultado racional. Usa raíces cuadradas en tu ejemplo.
+
+\medskip
+
+\noindent\textbf{b)} ¿El producto de dos irracionales puede ser racional? Da un ejemplo con raíces.
+
+\medskip
+
+\noindent\textbf{c)} (\textit{Desafío}) Intenta demostrar que $\sqrt{2}$ es irracional por contradicción: supón $\sqrt{2}=\dfrac{p}{q}$ con $\text{m.c.d.}(p,q)=1$. Eleva al cuadrado y analiza la paridad de $p$ y $q$ hasta llegar a una contradicción.
+
+\espacio{9.5cm}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 41 \hfill $\bigstar\bigstar\bigstar$ \quad Valor exacto de expresión}]
+
+\noindent\textbf{a)} Si $4^{3/2}=8^x$, determina $x$ sin calculadora. \textit{(Convierte todo a potencias de 2.)}
+
+\medskip
+
+\noindent\textbf{b)} Si $\sqrt[3]{n}=4$, ¿cuánto vale $n$? Si $\sqrt[4]{m}=3$, ¿cuánto vale $m$?
+
+\medskip
+
+\noindent\textbf{c)} Calcula el valor exacto de:
+$$E=\frac{(\sqrt{5}+\sqrt{3})^2-(\sqrt{5}-\sqrt{3})^2}{4}$$
+Simplifica sin calculadora.
+
+\espacio{8.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 42 \hfill $\bigstar\bigstar\bigstar$ \quad Telescopio de raíces}]
+
+Observa el siguiente patrón: $(\sqrt{n+1}-\sqrt{n})\cdot(\sqrt{n+1}+\sqrt{n})=1$.
+
+\medskip
+
+\noindent\textbf{a)} Verifica la identidad anterior multiplicando y simplificando.
+
+\medskip
+
+\noindent\textbf{b)} Usando esa identidad, racionaliza cada fracción y calcula la suma:
+$$S=\frac{1}{\sqrt{2}+\sqrt{1}}+\frac{1}{\sqrt{3}+\sqrt{2}}+\frac{1}{\sqrt{4}+\sqrt{3}}+\cdots+\frac{1}{\sqrt{100}+\sqrt{99}}$$
+
+\textit{Pista: cada fracción racionalizada tiene una forma muy simple. ¿Qué ocurre con la suma?}
+
+\medskip
+
+\noindent\textbf{c)} Generaliza: ¿cuánto vale la misma suma hasta el término $\dfrac{1}{\sqrt{n}+\sqrt{n-1}}$?
+
+\espacio{9.5cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE K — RAÍZ DE RAÍZ Y FACTOR DENTRO DEL RADICAL
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{K}{Raíz de raíz y factor dentro del radical \hfill \estrellas{2}\,/\,\estrellas{3}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 43 \hfill $\bigstar\bigstar$ \quad Raíz de raíz $\to$ raíz única}]
+
+Aplica la regla $\sqrt[m]{\sqrt[n]{a}}=\sqrt[m\cdot n]{a}$. Escribe cada expresión como una sola raíz con índice más alto.
+
+\medskip
+
+\begin{center}
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{cccc}
+$\sqrt{\sqrt{a}}=$ \blancoCh &
+$\sqrt[3]{\sqrt{a}}=$ \blancoCh &
+$\sqrt{\sqrt[3]{a}}=$ \blancoCh &
+$\sqrt[3]{\sqrt[4]{a}}=$ \blancoCh\\[4pt]
+$\sqrt[4]{\sqrt{a}}=$ \blancoCh &
+$\sqrt[5]{\sqrt[3]{a}}=$ \blancoCh &
+$\sqrt[2]{\sqrt[5]{a}}=$ \blancoCh &
+$\sqrt[3]{\sqrt[3]{a}}=$ \blancoCh\\[4pt]
+$\sqrt{\sqrt[6]{a}}=$ \blancoCh &
+$\sqrt[4]{\sqrt[3]{a}}=$ \blancoCh &
+$\sqrt[6]{\sqrt[4]{a}}=$ \blancoCh &
+$\sqrt[3]{\sqrt[6]{a}}=$ \blancoCh\\
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 44 \hfill $\bigstar\bigstar$ \quad Factor dentro del radical $\to$ raíz única}]
+
+Convierte cada expresión a potencias racionales, suma los exponentes y vuelve a notación radical.
+
+\medskip
+
+\textit{Ejemplo:} $\sqrt{3\sqrt{3}}=(3\cdot 3^{1/2})^{1/2}=(3^{3/2})^{1/2}=3^{3/4}=\sqrt[4]{27}$.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{5\sqrt[3]{5}}$
+  \item $\sqrt[3]{4\sqrt{2}}$
+  \item $\sqrt[3]{9\sqrt{3}}$
+  \item $\sqrt{a\sqrt{a}}$
+  \item $\sqrt[4]{8\sqrt{2}}$
+  \item $\sqrt[3]{4\sqrt[4]{4}}$
+\end{enumerate}
+\end{multicols}
+
+\espacio{7.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 45 \hfill $\bigstar\bigstar\bigstar$ \quad Casos más complejos}]
+
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $\sqrt{4\sqrt[3]{4}}$ \quad\textit{(convierte 4 y $\sqrt[3]{4}$ como potencias de 2, luego opera)}
+  \item $\sqrt[3]{8\sqrt[4]{8}}$ \quad\textit{(ídem con potencias de 2)}
+  \item $\sqrt[3]{\sqrt{2}\cdot\sqrt[4]{2}}$ \quad\textit{(primero simplifica el producto interior)}
+  \item $\sqrt[n]{\sqrt[m]{a^p}}$ \quad\textit{(caso general; el resultado tiene índice $mn$)}
+\end{enumerate}
+
+\espacio{8.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE L — REDUCCIÓN CON SIMPLIFICACIÓN DE ÍNDICE PREVIA
+% ============================================================
+\clearpage
+\bloqueheader{zenitgold}{L}{Reducción de radicales: simplificar el índice antes de operar \hfill \estrellas{2}\,/\,\estrellas{3}}
+
+{\small\textit{Clave: radicales con distinto índice pueden ser el mismo una vez simplificados. Ejemplo: $\sqrt[6]{a^3}=a^{3/6}=a^{1/2}=\sqrt{a}$.\ \  Aplica m.c.d.(índice, exponente) para simplificar.}}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejmedio,
+  title={Ejercicio 46 \hfill $\bigstar\bigstar$ \quad Reconocer radicales semejantes ocultos}]
+
+Simplifica el índice de cada término usando $\sqrt[n]{a^k}=\sqrt[n/d]{a^{k/d}}$ (con $d=\text{m.c.d.}(n,k)$), y luego combina los semejantes.
+
+\medskip
+
+\noindent\textbf{a)}\quad $\sqrt[6]{a^3}+\sqrt[4]{a^2}+\sqrt{a}$
+
+\medskip
+
+\noindent\textbf{b)}\quad $\sqrt[6]{27}+\sqrt[4]{9}+\sqrt{3}$
+
+\medskip
+
+\noindent\textbf{c)}\quad $2\sqrt[9]{8}+3\sqrt[6]{4}+\sqrt[3]{2}$
+
+\medskip
+
+\noindent\textbf{d)}\quad $\sqrt[6]{a^3}+\sqrt[4]{a^2}+\dfrac{a}{\sqrt{a}}-3\sqrt{a}$ \quad (\textit{¡el resultado te sorprenderá!})
+
+\espacio{7.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 47 \hfill $\bigstar\bigstar\bigstar$ \quad Reducción con índices no evidentes}]
+
+\noindent\textbf{a)}\quad $5\sqrt[6]{a^3}-4\sqrt[4]{a^2}+2\sqrt{a}$
+
+\medskip
+
+\noindent\textbf{b)}\quad $\sqrt[9]{a^6}+\sqrt[6]{a^4}-3\sqrt[3]{a^2}$
+
+\medskip
+
+\noindent\textbf{c)}\quad $4\sqrt[6]{8x^3}-3\sqrt[4]{4x^2}+\sqrt[3]{2x}$ \quad\textit{(simplifica los dos primeros; ¿el tercero es semejante?)}
+
+\medskip
+
+\noindent\textbf{d)}\quad $\sqrt[6]{a^2}+\sqrt[9]{a^3}+\sqrt[3]{a}$ \quad\textit{(¿son todos semejantes entre sí?)}
+
+\espacio{8.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE M — MULTIPLICACIÓN CON ÍNDICES SUPERIORES
+% ============================================================
+\clearpage
+\bloqueheader{zenitred}{M}{Multiplicación algebraica con índices superiores \hfill \estrellas{3}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 48 \hfill $\bigstar\bigstar\bigstar$ \quad Cuadrado de binomio con índice 3 y 4}]
+
+Aplica $(\sqrt[n]{a}\pm\sqrt[n]{b})^2=\sqrt[n]{a^2}\pm2\sqrt[n]{ab}+\sqrt[n]{b^2}$.
+Importante: el resultado \textbf{no} se simplifica a entero cuando $n>2$.
+
+\medskip
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(\sqrt[3]{2}+1)^2$
+  \item $(\sqrt[3]{a}-\sqrt[3]{b})^2$
+  \item $(\sqrt[4]{x}+\sqrt[4]{y})^2$
+  \item $(2\sqrt[3]{3}+\sqrt[3]{5})^2$
+  \item $(\sqrt[3]{4}-\sqrt[3]{3})^2$
+  \item $(\sqrt[4]{a}-2\sqrt[4]{b})^2$
+\end{enumerate}
+\end{multicols}
+
+\espacio{7.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 49 \hfill $\bigstar\bigstar\bigstar$ \quad Diferencia con índice 3: ¡el resultado aún contiene radicales!}]
+
+\noindent\textbf{a)} Calcula $(\sqrt[3]{a}+\sqrt[3]{b})(\sqrt[3]{a}-\sqrt[3]{b})$ aplicando distribución.
+El resultado tiene radicales: compara con el caso $(\sqrt{a}+\sqrt{b})(\sqrt{a}-\sqrt{b})=a-b$ (sin radicales). ¿Por qué la diferencia?
+
+\medskip
+
+\noindent\textbf{b)} Calcula $(2\sqrt[3]{3}+\sqrt[3]{5})(2\sqrt[3]{3}-\sqrt[3]{5})$.
+Verifica que el resultado sigue teniendo radicales.
+
+\medskip
+
+\noindent\textbf{c)} Calcula $(\sqrt[5]{a}+\sqrt[5]{b})(\sqrt[5]{a}-\sqrt[5]{b})$.
+¿Qué potencia del radicando queda?
+
+\medskip
+
+\noindent\textbf{d)} ¿Qué factor acompañado de $(\sqrt[3]{a}+\sqrt[3]{b})$ sí elimina completamente los radicales?
+
+\espacio{8.0cm}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 50 \hfill $\bigstar\bigstar\bigstar$ \quad Suma y diferencia de cubos: eliminación total de radicales}]
+
+Las identidades cúbicas con raíces permiten eliminar \textbf{todos} los radicales:
+$$(\sqrt[3]{a}+\sqrt[3]{b})\!\left(\sqrt[3]{a^2}-\sqrt[3]{ab}+\sqrt[3]{b^2}\right)=a+b$$
+$$(\sqrt[3]{a}-\sqrt[3]{b})\!\left(\sqrt[3]{a^2}+\sqrt[3]{ab}+\sqrt[3]{b^2}\right)=a-b$$
+
+\medskip
+
+Aplica la identidad correspondiente:
+
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(\sqrt[3]{2}+1)\left(\sqrt[3]{4}-\sqrt[3]{2}+1\right)$
+  \item $(\sqrt[3]{5}-\sqrt[3]{3})\left(\sqrt[3]{25}+\sqrt[3]{15}+\sqrt[3]{9}\right)$
+  \item $(3-\sqrt[3]{7})\left(\sqrt[3]{49}+3\sqrt[3]{7}+9\right)$ \quad\textit{(escribe $3=\sqrt[3]{27}$)}
+  \item $(3+\sqrt[3]{2})\left(9-3\sqrt[3]{2}+\sqrt[3]{4}\right)$ \quad\textit{(identifica $a$ y $b$ en la suma de cubos)}
+\end{enumerate}
+
+\espacio{8.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 51 \hfill $\bigstar\bigstar\bigstar$ \quad Polinomio $\times$ polinomio: resultados enteros por telescopio}]
+
+Los siguientes productos dan enteros gracias a la identidad $a^3-b^3=(a-b)(a^2+ab+b^2)$.
+
+\begin{enumerate}[label=\alph*), leftmargin=*]
+  \item $(1-\sqrt[3]{2})\left(1+\sqrt[3]{2}+\sqrt[3]{4}\right)$
+  \quad\textit{Pista: es $1^3-(\sqrt[3]{2})^3$.}
+
+  \medskip
+
+  \item $(\sqrt[3]{3}+\sqrt[3]{2})\left(\sqrt[3]{9}-\sqrt[3]{6}+\sqrt[3]{4}\right)$
+
+  \medskip
+
+  \item $(2-\sqrt[3]{3})\left(4+2\sqrt[3]{3}+\sqrt[3]{9}\right)$
+
+  \medskip
+
+  \item $(\sqrt[4]{a}-\sqrt[4]{b})(\sqrt[4]{a}+\sqrt[4]{b})(\sqrt{a}+\sqrt{b})$
+  \quad\textit{(aplica diferencia de cuadrados dos veces)}
+\end{enumerate}
+
+\espacio{8.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE N — RACIONALIZACIÓN AVANZADA
+% ============================================================
+\clearpage
+\bloqueheader{zenitred}{N}{Racionalización avanzada \hfill \estrellas{3}}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 52 \hfill $\bigstar\bigstar\bigstar$ \quad Denominador trinomio: dos pasos sucesivos}]
+
+Para racionalizar $\dfrac{p}{\sqrt{a}+\sqrt{b}+\sqrt{c}}$: agrupa $(\sqrt{a}+\sqrt{b})+\sqrt{c}$, aplica el conjugado de ese par, y racionaliza la nueva raíz que aparezca en el denominador.
+
+\medskip
+
+\noindent\textbf{a)}\quad Racionaliza $\dfrac{1}{\sqrt{2}+\sqrt{3}+\sqrt{5}}$.
+
+\textit{Paso 1:} multiplica por $\dfrac{(\sqrt{2}+\sqrt{3})-\sqrt{5}}{(\sqrt{2}+\sqrt{3})-\sqrt{5}}$. El denominador resulta $2\sqrt{6}$.
+
+\textit{Paso 2:} racionaliza $\dfrac{1}{2\sqrt{6}}$ multiplicando por $\dfrac{\sqrt{6}}{\sqrt{6}}$.
+
+\medskip
+
+\noindent\textbf{b)}\quad Racionaliza $\dfrac{6}{\sqrt{2}+\sqrt{3}-\sqrt{6}}$.
+
+\espacio{10.0cm}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 53 \hfill $\bigstar\bigstar\bigstar$ \quad Denominador con raíces cúbicas: usar suma o diferencia de cubos}]
+
+Para racionalizar $\dfrac{p}{\sqrt[3]{a}\pm\sqrt[3]{b}}$: usa la identidad cúbica correspondiente para construir el factor que elimina el denominador.
+
+\medskip
+
+\noindent\textbf{a)}\quad Racionaliza $\dfrac{6}{\sqrt[3]{2}+1}$.
+
+\textit{Pista:} $(\sqrt[3]{2}+1)(\sqrt[3]{4}-\sqrt[3]{2}+1)=(\sqrt[3]{2})^3+1^3=3$.
+
+\medskip
+
+\noindent\textbf{b)}\quad Racionaliza $\dfrac{7}{\sqrt[3]{3}-\sqrt[3]{2}}$.
+
+\textit{Pista:} usa la factorización de diferencia de cubos; el denominador final es $3-2=1$.
+
+\medskip
+
+\noindent\textbf{c)}\quad Racionaliza en forma general: $\dfrac{a-b}{\sqrt[3]{a}-\sqrt[3]{b}}$.
+
+\espacio{9.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 54 \hfill $\bigstar\bigstar\bigstar$ \quad Radical anidado + racionalización en dos etapas}]
+
+Para racionalizar cuando el denominador contiene una raíz dentro de otra raíz: \textbf{primero} desnida la raíz interna identificando si es un cuadrado perfecto disfrazado, \textbf{luego} racionaliza normalmente con el conjugado.
+
+\medskip
+
+\noindent\textbf{a)}\quad Racionaliza $\dfrac{3}{\sqrt{7-4\sqrt{3}}}$.
+
+\textit{Pista:} comprueba que $7-4\sqrt{3}=(2-\sqrt{3})^2$ y simplifica el denominador.
+
+\medskip
+
+\noindent\textbf{b)}\quad Racionaliza $\dfrac{2}{\sqrt{6+4\sqrt{2}}}$.
+
+\textit{Pista:} busca $a$ y $b$ tales que $(a+b)^2=6+4\sqrt{2}$. Respuesta: $\sqrt{6+4\sqrt{2}}=2+\sqrt{2}$.
+
+\medskip
+
+\noindent\textbf{c)}\quad Racionaliza $\dfrac{1}{\sqrt{3+\sqrt{5}}}$.
+
+\textit{Pista:} verifica que $3+\sqrt{5}=\dfrac{(\sqrt{5}+1)^2}{2}$, luego simplifica el denominador y racionaliza.
+
+\espacio{9.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% BLOQUE O — OPERATORIA COMBINADA
+% ============================================================
+\clearpage
+\bloqueheader{zenitred}{O}{Operatoria combinada \hfill \estrellas{3}}
+
+{\small\textit{Estos ejercicios requieren combinar varias técnicas sin un camino único. El desafío es elegir el orden más eficiente: puede convenir simplificar primero, racionalizar después, o aplicar un producto notable para abrir camino.}}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 55 \hfill $\bigstar\bigstar\bigstar$ \quad Simplificación + suma + racionalización}]
+
+Calcula cada expresión. El resultado debe ser un número sin denominador irracional.
+
+\medskip
+
+\noindent\textbf{a)}\quad $\sqrt{50}+\sqrt{18}-\dfrac{8}{\sqrt{2}}$
+
+\medskip
+
+\noindent\textbf{b)}\quad $(\sqrt{3}+\sqrt{2})^2-(\sqrt{3}-\sqrt{2})^2$
+
+\medskip
+
+\noindent\textbf{c)}\quad $\dfrac{\sqrt{75}-\sqrt{48}}{\sqrt{3}}$
+
+\medskip
+
+\noindent\textbf{d)}\quad $\dfrac{(\sqrt{7}+\sqrt{2})^2-(\sqrt{7}-\sqrt{2})^2}{4\sqrt{14}}$
+
+\espacio{8.5cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 56 \hfill $\bigstar\bigstar\bigstar$ \quad Simplificación de índices + multiplicación}]
+
+\noindent\textbf{a)}\quad $\left(\sqrt[3]{54}-\sqrt[3]{16}\right)\cdot\sqrt[3]{4}$
+
+\medskip
+
+\noindent\textbf{b)}\quad $\dfrac{3\sqrt{2}+2\sqrt{3}}{\sqrt{6}}\cdot(\sqrt{6}-2)$
+
+\medskip
+
+\noindent\textbf{c)}\quad $\left(\sqrt[6]{a^3}+\sqrt[4]{a^2}\right)\cdot\left(\sqrt[6]{a^3}-\sqrt[4]{a^2}\right)$ \quad\textit{(simplifica los índices primero, luego aplica diferencia de cuadrados)}
+
+\espacio{8.0cm}
+\end{tcolorbox}
+
+\clearpage
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 57 \hfill $\bigstar\bigstar\bigstar$ \quad Álgebra con raíces: sustitución y propiedades}]
+
+Sea $a=\sqrt{5}+\sqrt{3}$ y $b=\sqrt{5}-\sqrt{3}$. Calcula \textbf{sin calculadora} el valor exacto de cada expresión.
+
+\medskip
+
+\noindent\textbf{a)}\quad $a+b$
+
+\medskip
+
+\noindent\textbf{b)}\quad $a\cdot b$
+
+\medskip
+
+\noindent\textbf{c)}\quad $a^2+b^2$ \quad\textit{(usa la identidad $a^2+b^2=(a+b)^2-2ab$)}
+
+\medskip
+
+\noindent\textbf{d)}\quad $\dfrac{a^2+b^2}{a\cdot b}$
+
+\medskip
+
+\noindent\textbf{e)}\quad $a^3+b^3$ \quad\textit{(usa $a^3+b^3=(a+b)(a^2-ab+b^2)$)}
+
+\espacio{9.0cm}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% -------------------------------------------------------
+\begin{tcolorbox}[ejavanzado,
+  title={Ejercicio 58 \hfill $\bigstar\bigstar\bigstar$ \quad Expresiones que simplifican de forma inesperada}]
+
+\noindent\textbf{a)}\quad Simplifica $(1-\sqrt[3]{2})(1+\sqrt[3]{2}+\sqrt[3]{4})$.
+\textit{(¿Qué identidad algebraica reconoces?)}
+
+\medskip
+
+\noindent\textbf{b)}\quad Demuestra que $\sqrt[6]{a^3}+\sqrt[4]{a^2}+\dfrac{a}{\sqrt{a}}-3\sqrt{a}=0$ para todo $a>0$.
+
+\medskip
+
+\noindent\textbf{c)}\quad Calcula $(a-b)^2$ sabiendo que $a=\dfrac{1}{\sqrt{3}-\sqrt{2}}$ y $b=\dfrac{1}{\sqrt{3}+\sqrt{2}}$.
+\textit{(Racionaliza primero cada fracción, luego opera.)}
+
+\medskip
+
+\noindent\textbf{d)}\quad Simplifica $\sqrt[6]{a^3}+\sqrt[4]{a^2}$ y úsalo para calcular
+$\left(\sqrt[6]{a^3}+\sqrt[4]{a^2}\right)\!\left(\sqrt[6]{a^3}-\sqrt[4]{a^2}\right)+\dfrac{a^2}{\sqrt[4]{a^2}+\sqrt{a}}$.
+
+\espacio{9.0cm}
+\end{tcolorbox}
+
+% ============================================================
+% SOLUCIONARIO
+% ============================================================
+\clearpage
+\begin{tcolorbox}[answerbox, title={Solucionario}]
+{\small\textit{Verifica aquí tus respuestas. Si un resultado difiere, revisa el procedimiento antes de consultar a tu profesor.}}
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque A — Raíz cuadrada y cuadrados perfectos}]
+
+\noindent\textbf{Ej. 1} (tabla): $\sqrt{4}=2$; $\sqrt{9}=3$; $\sqrt{25}=5$; $\sqrt{36}=6$; $\sqrt{49}=7$; $\sqrt{64}=8$; $\sqrt{81}=9$; $\sqrt{100}=10$; $\sqrt{121}=11$; $\sqrt{144}=12$; $\sqrt{169}=13$; $\sqrt{196}=14$; $\sqrt{225}=15$; $\sqrt{256}=16$; $\sqrt{289}=17$; $\sqrt{324}=18$; $\sqrt{1}=1$; $\sqrt{400}=20$.
+
+\medskip
+
+\noindent\textbf{Ej. 2}: $\sqrt{16}=4$; $\sqrt{0}=0$; $\sqrt{-25}$: no existe (índice par, radicando negativo); $\sqrt{324}=18$; $\sqrt{-9}$: no existe; $-\sqrt{36}=-6$ (sí existe, es $-6$); $\sqrt{(-4)^2}=\sqrt{16}=4$; $-\sqrt{-1}$: no existe.
+
+\medskip
+
+\noindent\textbf{Ej. 3}: $50$: no (entre $7$ y $8$); $81$: sí, $9$; $75$: no (entre $8$ y $9$); $125$: no (entre $11$ y $12$); $196$: sí, $14$; $200$: no (entre $14$ y $15$); $361$: sí, $19$; $289$: sí, $17$.
+
+\medskip
+
+\noindent\textbf{Ej. 4}: $\sqrt{4}=2$ (racional); $\sqrt{5}$ irracional; $\sqrt{7}$ irracional; $\sqrt{16}=4$ (racional); $\sqrt{20}$ irracional; $\sqrt{50}$ irracional; $\sqrt{121}=11$ (racional); $\sqrt{200}$ irracional; $\sqrt{324}=18$ (racional); $\sqrt{225}=15$ (racional).
+
+\medskip
+
+\noindent\textbf{Ej. 5}: \textbf{a)} $\sqrt{169}=13$ cm. \quad \textbf{b)} Área $=144\;\text{cm}^2$; diagonal $=12\sqrt{2}\approx16{,}97\;\text{cm}$. \quad \textbf{c)} No: el área es siempre positiva; $\sqrt{-36}$ no existe en $\mathbb{R}$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque B — Comparación, orden y estimación}]
+
+\noindent\textbf{Ej. 6}: $\sqrt{20}>4$; $\sqrt{50}>7$; $\sqrt{35}<6$; $\sqrt{100}=10$; $\sqrt{48}<7$; $\sqrt{80}<9$; $\sqrt{125}>11$; $\sqrt{63}<8$; $\sqrt{150}<12$ (ya que $12^2=144<150<169$, entonces $\sqrt{150}>12$; corrección: $144<150$ así $\sqrt{150}>12$). Corrección: $12^2=144$, $13^2=169$; como $150>144$, $\sqrt{150}>12$.
+
+\medskip
+
+\noindent\textbf{Ej. 7}: \textbf{a)} $1<\sqrt{3}<2<\sqrt{6}<\sqrt{8}<3$. \textbf{b)} $6<\sqrt{40}<\sqrt{48}<\sqrt{50}<\sqrt{60}<7$. \textbf{c)} $3<\sqrt{10}<\sqrt{15}<4<\sqrt{20}$.
+
+\medskip
+
+\noindent\textbf{Ej. 8}: $\sqrt{10}$: entre 3 y 4; $\sqrt{27}$: entre 5 y 6; $\sqrt{50}$: entre 7 y 8; $\sqrt{72}$: entre 8 y 9; $\sqrt{110}$: entre 10 y 11; $\sqrt{150}$: entre 12 y 13; $\sqrt{200}$: entre 14 y 15; $\sqrt{350}$: entre 18 y 19.
+
+\medskip
+
+\noindent\textbf{Ej. 9}: \textbf{a)} $\sqrt{3}\approx1{,}7$. \textbf{b)} $\sqrt{20}\approx4{,}5$. \textbf{c)} $\sqrt{45}\approx6{,}7$. \textbf{d)} $\sqrt{90}\approx9{,}5$.
+
+\medskip
+
+\noindent\textbf{Ej. 10}: \textbf{a)} $5<\sqrt{n}<6\Rightarrow25<n<36$: son $n=26,27,\ldots,35$ (10 valores). \textbf{b)} $9<n<16$: son $n=10,11,\ldots,15$ (6 valores). \textbf{c)} Ejemplo: $\sqrt{2}+(-\sqrt{2})=0\in\mathbb{Q}$. O bien: $\sqrt{3}+(\sqrt{12}-\sqrt{3})=\sqrt{12}=2\sqrt{3}$ (también irracional); mejor: $\sqrt{2}+(3-\sqrt{2})=3$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque C — Raíz cúbica}]
+
+\noindent\textbf{Ej. 11} (tabla): $\sqrt[3]{1}=1$; $\sqrt[3]{8}=2$; $\sqrt[3]{27}=3$; $\sqrt[3]{64}=4$; $\sqrt[3]{125}=5$; $\sqrt[3]{216}=6$; $\sqrt[3]{343}=7$; $\sqrt[3]{512}=8$; $\sqrt[3]{729}=9$; $\sqrt[3]{1000}=10$; negativos: $-1,-2,-3,-4,-5$.
+
+\medskip
+
+\noindent\textbf{Ej. 12}: \textbf{a)} $\dfrac{2}{3}$. \textbf{b)} $\dfrac{5}{4}$. \textbf{c)} $-\dfrac{1}{2}$. \textbf{d)} $0{,}9$. \textbf{e)} $0{,}2$. \textbf{f)} $-0{,}4$.
+
+\medskip
+
+\noindent\textbf{Ej. 13}: \textbf{a)} $\sqrt[3]{512}=8\;\text{dm}$. \textbf{b)} Arista $=9\;\text{cm}$; área total $=6\cdot81=486\;\text{cm}^2$. \textbf{c)} Si $V'=3V=3a^3$, entonces arista $'=\sqrt[3]{3V}=\sqrt[3]{3}\cdot a$. El factor es $\sqrt[3]{3}\approx1{,}44$.
+\end{tcolorbox}
+
+\clearpage
+
+\begin{tcolorbox}[answerbox, title={Bloque D — Raíz enésima}]
+
+\noindent\textbf{Ej. 14}: $\sqrt[4]{16}=2$; $\sqrt[5]{32}=2$; $\sqrt[6]{64}=2$; $\sqrt[3]{-1000}=-10$; $\sqrt[5]{-243}=-3$; $\sqrt[4]{-16}$: no existe; $\sqrt[5]{-32}=-2$; $\sqrt[6]{-64}$: no existe; $\sqrt[4]{625}=5$; $\sqrt[8]{-1}$: no existe.
+
+\medskip
+
+\noindent\textbf{Ej. 15}: \textbf{a)} $\dfrac{4}{3}$. \textbf{b)} $\dfrac{1}{2}$. \textbf{c)} $-\dfrac{5}{6}$. \textbf{d)} $\dfrac{3}{2}$. \textbf{e)} $0{,}3$. \textbf{f)} $-0{,}2$.
+
+\medskip
+
+\noindent\textbf{Ej. 16}: \textbf{a)} $2<\sqrt[3]{10}<3<\sqrt[3]{27}=3<\sqrt[3]{50}$; orden: $2, \sqrt[3]{10}, 3, \sqrt[3]{50}$. \textbf{b)} $\sqrt[5]{32}=2$; $\sqrt[4]{16}=2$; $\sqrt[3]{27}=3$; $\sqrt{9}=3$. Orden: $\sqrt[5]{32}=\sqrt[4]{16}=2<\sqrt[3]{27}=\sqrt{9}=3$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque E — Relación inversa y propiedades}]
+
+\noindent\textbf{Ej. 17}: $(\sqrt{9})^2=9$; $\sqrt{5^2}=5$; $(\sqrt[3]{4})^3=4$; $\sqrt[3]{6^3}=6$; $(\sqrt{17})^2=17$; $\sqrt{11^2}=11$; $(\sqrt[5]{2})^5=2$; $\sqrt[3]{(-4)^3}=-4$; $(\sqrt[4]{7})^4=7$; $\sqrt[5]{(-3)^5}=-3$.
+
+\medskip
+
+\noindent\textbf{Ej. 18}: \textbf{a)} $6$. \textbf{b)} $21$. \textbf{c)} $6$. \textbf{d)} $6$. \textbf{e)} $2$ (pues $\sqrt[5]{32}=2$). \textbf{f)} $4$ (pues $4\cdot16=64$, $\sqrt[3]{64}=4$).
+
+\medskip
+
+\noindent\textbf{Ej. 19}: \textbf{a)} $\dfrac{5}{2}$. \textbf{b)} $4$. \textbf{c)} $5$. \textbf{d)} $\dfrac{4}{3}$. \textbf{e)} $2$. \textbf{f)} $3$ (pues $162/2=81$, $\sqrt[4]{81}=3$).
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque F — Simplificación}]
+
+\noindent\textbf{Ej. 21}: \textbf{a)} $2\sqrt{2}$. \textbf{b)} $2\sqrt{3}$. \textbf{c)} $3\sqrt{2}$. \textbf{d)} $2\sqrt{5}$. \textbf{e)} $2\sqrt{7}$. \textbf{f)} $3\sqrt{5}$. \textbf{g)} $5\sqrt{2}$. \textbf{h)} $3\sqrt{7}$. \textbf{i)} $6\sqrt{2}$. \textbf{j)} $5\sqrt{3}$. \textbf{k)} $7\sqrt{2}$. \textbf{l)} $6\sqrt{3}$. \textbf{m)} $8\sqrt{2}$. \textbf{n)} $10\sqrt{2}$. \textbf{ñ)} $12\sqrt{2}$. \textbf{o)} $12\sqrt{3}$.
+
+\medskip
+
+\noindent\textbf{Ej. 22}: \textbf{a)} $2\sqrt[3]{2}$. \textbf{b)} $2\sqrt[3]{3}$. \textbf{c)} $3\sqrt[3]{2}$. \textbf{d)} $3\sqrt[3]{3}$. \textbf{e)} $4\sqrt[3]{2}$. \textbf{f)} $5\sqrt[3]{2}$. \textbf{g)} $5\sqrt[3]{3}$. \textbf{h)} $5\sqrt[3]{4}$.
+
+\medskip
+
+\noindent\textbf{Ej. 23}: \textbf{a)} $10\sqrt{3}$. \textbf{b)} $12\sqrt{3}$. \textbf{c)} $20\sqrt{2}$. \textbf{d)} $12\sqrt{5}$. \textbf{e)} $10\sqrt[3]{2}$. \textbf{f)} $9\sqrt[3]{2}$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque G — Suma y resta de radicales}]
+
+\noindent\textbf{Ej. 24}: \textbf{a)} $4\sqrt{2}$. \textbf{b)} $8\sqrt{3}$. \textbf{c)} $16\sqrt[3]{4}$. \textbf{d)} $15\sqrt[5]{7}$. \textbf{e)} $2\sqrt[4]{5}-\sqrt[3]{6}$. \textbf{f)} $13\sqrt{2}-4\sqrt{3}$.
+
+\medskip
+
+\noindent\textbf{Ej. 25}: \textbf{a)} $3\sqrt{3}$. \textbf{b)} $3\sqrt{2}$. \textbf{c)} $7\sqrt{3}$. \textbf{d)} $5\sqrt{3}$. \textbf{e)} $4\sqrt{2}$. \textbf{f)} $2\sqrt{3}$. \textbf{g)} $6\sqrt{2}$. \textbf{h)} $-2\sqrt{3}$.
+
+\medskip
+
+\noindent\textbf{Ej. 26}: \textbf{a)} $\sqrt{50}=5\sqrt{2}$; $\sqrt{72}=6\sqrt{2}$; $\sqrt{98}=7\sqrt{2}$. \textbf{b)} $P=(5+6+7)\sqrt{2}=18\sqrt{2}\;\text{cm}$. \textbf{c)} Los lados son $5\sqrt{2}$, $6\sqrt{2}$ y $7\sqrt{2}$: todos distintos, es \textbf{escaleno}.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque H — Multiplicación y productos notables}]
+
+\noindent\textbf{Ej. 27}: \textbf{a)} $\sqrt{14}$. \textbf{b)} $6$. \textbf{c)} $24\sqrt{3}$. \textbf{d)} $30$. \textbf{e)} $\sqrt[3]{20}$. \textbf{f)} $3\sqrt[3]{6}$. \textbf{g)} $-2$ (pues $8\cdot(-2)\cdot2=-32$ y $\sqrt[5]{-32}=-2$). \textbf{h)} $6\sqrt{60}=12\sqrt{15}$.
+
+\medskip
+
+\noindent\textbf{Ej. 28}: \textbf{a)} $4$. \textbf{b)} $7$. \textbf{c)} $7$. \textbf{d)} $6$. \textbf{e)} $13$. \textbf{f)} $a-4$.
+
+\medskip
+
+\noindent\textbf{Ej. 29}: \textbf{a)} $7+2\sqrt{10}$. \textbf{b)} $5-2\sqrt{6}$. \textbf{c)} $11+4\sqrt{7}$. \textbf{d)} $9-2\sqrt{18}=9-6\sqrt{2}$. \textbf{e)} $14+4\sqrt{6}$. \textbf{f)} $14-6\sqrt{5}$.
+
+\medskip
+
+\noindent\textbf{Ej. 30}: \textbf{a)} $14$ (el resultado es entero). \textbf{b)} $6\sqrt{6}-12+\sqrt{6}+6\cdot2$... desarrollando: $3\cdot2-3\cdot 2\sqrt{3}-\sqrt{3}\cdot\sqrt{2}+2\sqrt{3}\cdot\sqrt{3}\cdot2$. Resultado: $6-\sqrt{6}+6\sqrt{3}-2\sqrt{3}+6=12+4\sqrt{3}-\sqrt{6}$. \textbf{c)} $10-2\sqrt{15}+2\sqrt{6}-2\sqrt{10}$.
+\end{tcolorbox}
+
+\clearpage
+
+\begin{tcolorbox}[answerbox, title={Bloque I — Potencias racionales y cambio de índice}]
+
+\noindent\textbf{Ej. 31}: $\sqrt[3]{5}=5^{1/3}$; $\sqrt[5]{2^3}=2^{3/5}$; $\sqrt[7]{y^5}=y^{5/7}$; $\sqrt[4]{a^3}=a^{3/4}$; $\sqrt{x^3}=x^{3/2}$. Inversos: $4^{3/2}=8$; $8^{2/3}=4$; $m^{-5/3}=\dfrac{1}{\sqrt[3]{m^5}}$; $27^{4/3}=81$; $a^{1/2}\cdot a^{3/2}=a^2$.
+
+\medskip
+
+\noindent\textbf{Ej. 32}: \textbf{a)} $4$. \textbf{b)} $8$. \textbf{c)} $9$. \textbf{d)} $8$. \textbf{e)} $27$. \textbf{f)} $32$. \textbf{g)} $8$. \textbf{h)} $32$. \textbf{i)} $25$.
+
+\medskip
+
+\noindent\textbf{Ej. 33 a)}: $\sqrt{3}=\sqrt[6]{3^3}=\sqrt[6]{27}$; $\sqrt[3]{5}=\sqrt[6]{5^2}=\sqrt[6]{25}$; $\sqrt[4]{7}=\sqrt[8]{7^2}=\sqrt[8]{49}$.
+
+\noindent\textbf{Ej. 33 b)}: $\sqrt[4]{a^2}=\sqrt{a}$; $\sqrt[6]{a^4}=\sqrt[3]{a^2}$; $\sqrt[6]{8}=\sqrt{2}$; $\sqrt[9]{a^6}=\sqrt[3]{a^2}$; $\sqrt[4]{x^6}=x\sqrt{x}$; $\sqrt[6]{27}=\sqrt[2]{3^{1/2}}=\sqrt[2]{\sqrt{3}}$... corrección: $\sqrt[6]{27}=\sqrt[6]{3^3}=3^{3/6}=3^{1/2}=\sqrt{3}$.
+
+\medskip
+
+\noindent\textbf{Ej. 34}: \textbf{a)} $a^2$. \textbf{b)} $a^4$. \textbf{c)} $x$. \textbf{d)} $2a$. \textbf{e)} $a^{1/2}=\sqrt{a}$. \textbf{f)} $\dfrac{2x^{1/2}}{2}=x^{1/2}\cdot\dfrac{2}{2}$; desarrollando: $\dfrac{2x}{2x}=1$... corrección: $\dfrac{(8x^3)^{1/3}}{(4x^2)^{1/2}}=\dfrac{2x}{2x}=1$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque J — Racionalización y desafíos}]
+
+\noindent\textbf{Ej. 35}: \textbf{a)} $2\sqrt{2}$. \textbf{b)} $2\sqrt{3}$. \textbf{c)} $3\sqrt{5}$. \textbf{d)} $\dfrac{3\sqrt{7}}{7}$. \textbf{e)} $\sqrt{3}$. \textbf{f)} $\dfrac{8\sqrt{12}}{12}=\dfrac{4\sqrt{3}}{3}$.
+
+\medskip
+
+\noindent\textbf{Ej. 36}: \textbf{a)} $12\sqrt[3]{4}$. \textbf{b)} $\sqrt[3]{5}$. \textbf{c)} $\dfrac{2\sqrt[3]{9}}{3}$. \textbf{d)} $\dfrac{\sqrt[4]{8}}{2}$.
+
+\medskip
+
+\noindent\textbf{Ej. 37}: \textbf{a)} $\sqrt{3}+\sqrt{2}$. \textbf{b)} $\dfrac{5(\sqrt{5}-1)}{4}$. \textbf{c)} $6(\sqrt{3}+\sqrt{2})$. \textbf{d)} $\dfrac{5(\sqrt{7}-\sqrt{2})}{5}=\sqrt{7}-\sqrt{2}$. \textbf{e)} $3(2-\sqrt{3})=6-3\sqrt{3}$. \textbf{f)} $\dfrac{\sqrt{3}(\sqrt{3}-\sqrt{5})}{3-5}=\dfrac{3-\sqrt{15}}{-2}=\dfrac{\sqrt{15}-3}{2}$.
+
+\medskip
+
+\noindent\textbf{Ej. 38}: \textbf{a)} $\dfrac{a^{1/2}\cdot a^{2/3}}{a^{5/6}}=a^{1/2+2/3-5/6}=a^{3/6+4/6-5/6}=a^{2/6}=a^{1/3}=\sqrt[3]{a}$. \textbf{b)} $\sqrt[3]{\dfrac{15\cdot5}{10\cdot3}}=\sqrt[3]{\dfrac{75}{30}}=\sqrt[3]{\dfrac{5}{2}}$. \textbf{c)} Todos se reducen a $\sqrt[12]{x}$: $3\sqrt[12]{x}+5\sqrt[12]{x}-6\sqrt[12]{x}=2\sqrt[12]{x}$.
+
+\medskip
+
+\noindent\textbf{Ej. 39}: Escalera: $h=\sqrt{5^2-3^2}=\sqrt{16}=4\;\text{m}$. Pantalla: $\sqrt{(9k)^2+(16k)^2}=\sqrt{1072}$; $k^2(81+256)=1072$; $k^2=\dfrac{1072}{337}$... corrección: $337k^2=1072$, $k^2=\dfrac{16}{5}$, $k=\dfrac{4}{\sqrt{5}}$; lado largo $=\dfrac{64}{\sqrt{5}}=\dfrac{64\sqrt{5}}{5}$ cm.
+
+\medskip
+
+\noindent\textbf{Ej. 40}: \textbf{a)} Ejemplo: $\sqrt{2}+(-\sqrt{2})=0$ (racional). \textbf{b)} $\sqrt{2}\cdot\sqrt{2}=2$ (racional). \textbf{c)} La demostración se completa mostrando que $p$ es par $\Rightarrow$ $p=2m$ $\Rightarrow$ $4m^2=2q^2$ $\Rightarrow$ $q^2=2m^2$ $\Rightarrow$ $q$ también es par: contradicción con $\text{m.c.d.}(p,q)=1$.
+
+\medskip
+
+\noindent\textbf{Ej. 41}: \textbf{a)} $4^{3/2}=2^3=8$ y $8^x=2^{3x}$; $2^3=2^{3x}\Rightarrow x=1$. \textbf{b)} $n=4^3=64$; $m=3^4=81$. \textbf{c)} Numerador: $(\sqrt{5}+\sqrt{3})^2-(\sqrt{5}-\sqrt{3})^2=(5+2\sqrt{15}+3)-(5-2\sqrt{15}+3)=4\sqrt{15}$; $E=\dfrac{4\sqrt{15}}{4}=\sqrt{15}$.
+
+\medskip
+
+\noindent\textbf{Ej. 42}: \textbf{a)} $(\sqrt{n+1}-\sqrt{n})(\sqrt{n+1}+\sqrt{n})=(n+1)-n=1$. \textbf{b)} $\dfrac{1}{\sqrt{k+1}+\sqrt{k}}=\sqrt{k+1}-\sqrt{k}$; la suma es telescópica: $(\sqrt{2}-\sqrt{1})+(\sqrt{3}-\sqrt{2})+\cdots+(\sqrt{100}-\sqrt{99})=\sqrt{100}-\sqrt{1}=10-1=9$. \textbf{c)} Suma general: $\sqrt{n}-1$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque K — Raíz de raíz y factor interior}]
+
+\noindent\textbf{Ej. 43}: $\sqrt[4]{a}$;\; $\sqrt[6]{a}$;\; $\sqrt[6]{a}$;\; $\sqrt[12]{a}$;\; $\sqrt[8]{a}$;\; $\sqrt[15]{a}$;\; $\sqrt[10]{a}$;\; $\sqrt[9]{a}$;\; $\sqrt[12]{a}$;\; $\sqrt[12]{a}$;\; $\sqrt[24]{a}$;\; $\sqrt[18]{a}$.
+
+\medskip
+
+\noindent\textbf{Ej. 44}: \textbf{a)} $\sqrt[3]{25}$. \textbf{b)} $\sqrt[6]{32}$. \textbf{c)} $\sqrt[6]{243}$. \textbf{d)} $\sqrt[4]{a^3}$. \textbf{e)} $\sqrt[8]{128}$. \textbf{f)} $\sqrt[3]{16}$.
+
+\medskip
+
+\noindent\textit{Desarrollos clave — Ej. 44:}
+\textbf{a)} $(5\cdot5^{1/3})^{1/2}=(5^{4/3})^{1/2}=5^{2/3}=\sqrt[3]{25}$.\quad
+\textbf{b)} $(2^2\cdot2^{1/2})^{1/3}=(2^{5/2})^{1/3}=2^{5/6}=\sqrt[6]{32}$.\quad
+\textbf{c)} $(3^2\cdot3^{1/2})^{1/3}=(3^{5/2})^{1/3}=3^{5/6}=\sqrt[6]{243}$.\quad
+\textbf{d)} $(a\cdot a^{1/2})^{1/2}=(a^{3/2})^{1/2}=a^{3/4}=\sqrt[4]{a^3}$.\quad
+\textbf{e)} $(2^3\cdot2^{1/2})^{1/4}=(2^{7/2})^{1/4}=2^{7/8}=\sqrt[8]{128}$.\quad
+\textbf{f)} $(2^2\cdot(2^2)^{1/4})^{1/3}=(2^{5/2})^{1/3}=2^{5/6}\cdot$... más directo: $(4\cdot4^{1/4})^{1/3}=(4^{5/4})^{1/3}=4^{5/12}=(2^2)^{5/12}=2^{10/12}=2^{5/6}\cdot$... espera: $4\sqrt[4]{4}=4\cdot4^{1/4}=4^{5/4}=(2^2)^{5/4}=2^{5/2}$; $\sqrt[3]{2^{5/2}}=2^{5/6}$. Pero $\sqrt[3]{16}=\sqrt[3]{2^4}=2^{4/3}$. Hay error: verifica: $4\sqrt[4]{4}=4\cdot\sqrt[4]{4}=2^2\cdot2^{2/4}=2^{5/2}$; $(2^{5/2})^{1/3}=2^{5/6}=\sqrt[6]{2^5}=\sqrt[6]{32}$. Corrección: \textbf{f)} $\sqrt[6]{32}$.
+
+\medskip
+
+\noindent\textbf{Ej. 45}: \textbf{a)} $(2^2\cdot2^{2/3})^{1/2}=(2^{8/3})^{1/2}=2^{4/3}=\sqrt[3]{2^4}=\sqrt[3]{16}$. \textbf{b)} $(2^3\cdot2^{3/4})^{1/3}=(2^{15/4})^{1/3}=2^{5/4}=\sqrt[4]{32}$. \textbf{c)} $(2^{1/2}\cdot2^{1/4})^{1/3}=(2^{3/4})^{1/3}=2^{1/4}=\sqrt[4]{2}$. \textbf{d)} $\sqrt[mn]{a^p}$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque L — Reducción con simplificación de índice previa}]
+
+\noindent\textbf{Ej. 46}: \textbf{a)} $\sqrt[6]{a^3}=\sqrt{a}$; $\sqrt[4]{a^2}=\sqrt{a}$; suma $=3\sqrt{a}$. \textbf{b)} $\sqrt[6]{27}=\sqrt{3}$; $\sqrt[4]{9}=\sqrt{3}$; suma $=3\sqrt{3}$. \textbf{c)} $\sqrt[9]{8}=\sqrt[9]{2^3}=\sqrt[3]{2}$; $\sqrt[6]{4}=\sqrt[6]{2^2}=\sqrt[3]{2}$; suma $=6\sqrt[3]{2}$. \textbf{d)} $\dfrac{a}{\sqrt{a}}=\sqrt{a}$; $\sqrt{a}+\sqrt{a}+\sqrt{a}-3\sqrt{a}=0$.
+
+\medskip
+
+\noindent\textbf{Ej. 47}: \textbf{a)} $(5-4+2)\sqrt{a}=3\sqrt{a}$. \textbf{b)} $(1+1-3)\sqrt[3]{a^2}=-\sqrt[3]{a^2}$. \textbf{c)} $\sqrt[6]{8x^3}=\sqrt{2x}$; $\sqrt[4]{4x^2}=\sqrt{2x}$; resultado $=(4-3)\sqrt{2x}+\sqrt[3]{2x}=\sqrt{2x}+\sqrt[3]{2x}$ (no se simplifican más). \textbf{d)} $\sqrt[6]{a^2}=a^{1/3}$; $\sqrt[9]{a^3}=a^{1/3}$; todos $=\sqrt[3]{a}$; suma $=3\sqrt[3]{a}$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque M — Multiplicación con índices superiores}]
+
+\noindent\textbf{Ej. 48}: \textbf{a)} $\sqrt[3]{4}+2\sqrt[3]{2}+1$. \textbf{b)} $\sqrt[3]{a^2}-2\sqrt[3]{ab}+\sqrt[3]{b^2}$. \textbf{c)} $\sqrt{x}+2\sqrt[4]{xy}+\sqrt{y}$. \textbf{d)} $4\sqrt[3]{9}+4\sqrt[3]{15}+\sqrt[3]{25}$. \textbf{e)} $\sqrt[3]{16}-2\sqrt[3]{12}+\sqrt[3]{9}$. \textbf{f)} $\sqrt{a}-4\sqrt[4]{ab}+4\sqrt{b}$.
+
+\medskip
+
+\noindent\textbf{Ej. 49}: \textbf{a)} $(\sqrt[3]{a})^2-(\sqrt[3]{b})^2=\sqrt[3]{a^2}-\sqrt[3]{b^2}$ (con radicales, porque $(\sqrt[3]{a})^2\neq a$). \textbf{b)} $4\sqrt[3]{9}-\sqrt[3]{25}$ (sigue con radicales). \textbf{c)} $\sqrt[5]{a^2}-\sqrt[5]{b^2}$. \textbf{d)} El factor $(\sqrt[3]{a^2}-\sqrt[3]{ab}+\sqrt[3]{b^2})$ (identidad de suma de cubos).
+
+\medskip
+
+\noindent\textbf{Ej. 50}: \textbf{a)} $(\sqrt[3]{2})^3+1=3$. \textbf{b)} $5-3=2$. \textbf{c)} $27-7=20$. \textbf{d)} $27+2=29$.
+
+\medskip
+
+\noindent\textbf{Ej. 51}: \textbf{a)} $1-2=-1$. \textbf{b)} $(\sqrt[3]{3})^3+(\sqrt[3]{2})^3=3+2=5$. \textbf{c)} $8-3=5$. \textbf{d)} $(\sqrt{a}-\sqrt{b})(\sqrt{a}+\sqrt{b})=a-b$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque N — Racionalización avanzada}]
+
+\noindent\textbf{Ej. 52 a)}: Paso 1: $\dfrac{\sqrt{2}+\sqrt{3}-\sqrt{5}}{(\sqrt{2}+\sqrt{3})^2-5}=\dfrac{\sqrt{2}+\sqrt{3}-\sqrt{5}}{2\sqrt{6}}$.\quad Paso 2: $\dfrac{(\sqrt{2}+\sqrt{3}-\sqrt{5})\sqrt{6}}{12}=\dfrac{2\sqrt{3}+3\sqrt{2}-\sqrt{30}}{12}$.
+
+\medskip
+
+\noindent\textbf{Ej. 52 b)}: Paso 1: conjugado $(\sqrt{2}+\sqrt{3}+\sqrt{6})$; denominador $(\sqrt{2}+\sqrt{3})^2-6=2\sqrt{6}-1$. Paso 2: racionalizar $\dfrac{6(\sqrt{2}+\sqrt{3}+\sqrt{6})}{2\sqrt{6}-1}$ con conjugado $(2\sqrt{6}+1)$; denominador final $24-1=23$; resultado $\dfrac{6(\sqrt{2}+\sqrt{3}+\sqrt{6})(2\sqrt{6}+1)}{23}$.
+
+\medskip
+
+\noindent\textbf{Ej. 53}: \textbf{a)} $2(\sqrt[3]{4}-\sqrt[3]{2}+1)$. \textbf{b)} $7(\sqrt[3]{9}+\sqrt[3]{6}+\sqrt[3]{4})$. \textbf{c)} $\sqrt[3]{a^2}+\sqrt[3]{ab}+\sqrt[3]{b^2}$.
+
+\medskip
+
+\noindent\textbf{Ej. 54}: \textbf{a)} $\sqrt{(2-\sqrt{3})^2}=2-\sqrt{3}$;\; $\dfrac{3}{2-\sqrt{3}}=\dfrac{3(2+\sqrt{3})}{1}=6+3\sqrt{3}$. \textbf{b)} $\sqrt{6+4\sqrt{2}}=2+\sqrt{2}$;\; $\dfrac{2(2-\sqrt{2})}{(2+\sqrt{2})(2-\sqrt{2})}=\dfrac{2(2-\sqrt{2})}{2}=2-\sqrt{2}$. \textbf{c)} $\sqrt{3+\sqrt{5}}=\dfrac{\sqrt{5}+1}{\sqrt{2}}$;\; $\dfrac{1}{\sqrt{3+\sqrt{5}}}=\dfrac{\sqrt{2}}{\sqrt{5}+1}=\dfrac{\sqrt{2}(\sqrt{5}-1)}{4}=\dfrac{\sqrt{10}-\sqrt{2}}{4}$.
+\end{tcolorbox}
+
+\medskip
+
+\begin{tcolorbox}[answerbox, title={Bloque O — Operatoria combinada}]
+
+\noindent\textbf{Ej. 55}: \textbf{a)} $5\sqrt{2}+3\sqrt{2}-4\sqrt{2}=4\sqrt{2}$. \textbf{b)} $(5+2\sqrt{6})-(5-2\sqrt{6})=4\sqrt{6}$. \textbf{c)} $\dfrac{\sqrt{3}}{\sqrt{3}}=1$. \textbf{d)} Numerador $=(9+2\sqrt{14})-(9-2\sqrt{14})=4\sqrt{14}$;\; resultado $=1$.
+
+\medskip
+
+\noindent\textbf{Ej. 56}: \textbf{a)} $(3\sqrt[3]{2}-2\sqrt[3]{2})\cdot\sqrt[3]{4}=\sqrt[3]{2}\cdot\sqrt[3]{4}=\sqrt[3]{8}=2$. \textbf{b)} $\dfrac{3\sqrt{2}+2\sqrt{3}}{\sqrt{6}}=\sqrt{3}+\sqrt{2}$;\; $(\sqrt{3}+\sqrt{2})(\sqrt{6}-2)=\sqrt{2}$. \textbf{c)} Ambos $=\sqrt{a}$;\; $(\sqrt{a}+\sqrt{a})(\sqrt{a}-\sqrt{a})=2\sqrt{a}\cdot0=0$.
+
+\medskip
+
+\noindent\textbf{Ej. 57}: \textbf{a)} $2\sqrt{5}$. \textbf{b)} $2$. \textbf{c)} $(2\sqrt{5})^2-2\cdot2=16$. \textbf{d)} $8$. \textbf{e)} $2\sqrt{5}\cdot(16-2)=28\sqrt{5}$.
+
+\medskip
+
+\noindent\textbf{Ej. 58}: \textbf{a)} $1-(\sqrt[3]{2})^3=1-2=-1$. \textbf{b)} Cada término $=\sqrt{a}$;\; $(1+1+1-3)\sqrt{a}=0$. \textbf{c)} $a=\sqrt{3}+\sqrt{2}$;\; $b=\sqrt{3}-\sqrt{2}$;\; $a-b=2\sqrt{2}$;\; $(a-b)^2=8$. \textbf{d)} $\sqrt[6]{a^3}+\sqrt[4]{a^2}=2\sqrt{a}$;\; $\sqrt[6]{a^3}-\sqrt[4]{a^2}=0$;\; primer término $=0$;\; $\dfrac{a^2}{\sqrt[4]{a^2}+\sqrt{a}}=\dfrac{a^2}{2\sqrt{a}}=\dfrac{a^{3/2}}{2}=\dfrac{a\sqrt{a}}{2}$.
+\end{tcolorbox}
+
+\vspace{0.4cm}
+\begin{center}
+  \textcolor{zenitnavy}{\rule{0.6\linewidth}{0.8pt}}\\[0.4cm]
+  {\large\bfseries\color{zenitnavy} Academia Zenit}\\[3pt]
+  {\color{zenitgold} Matemática · Raíces · Cuaderno 1 · 2026}\\[4pt]
+  \textcolor{zenitnavy}{\rule{0.6\linewidth}{0.8pt}}
+\end{center}
+
+\end{document}
+```
